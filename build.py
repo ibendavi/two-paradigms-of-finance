@@ -430,9 +430,11 @@ def build_site():
         elif 1958 <= year <= 1963:
             paradigm = "transitional"
         title = str(entry.get("title", "") or "")
-        # Look up OCR score by filename; fall back to 0 (neutral)
+        # Look up OCR score by filename; skip entries without scores
         our_filename = str(entry.get("our_filename", "") or "")
-        score = ocr_scores.get(our_filename, 0.0)
+        if our_filename not in ocr_scores:
+            continue  # No PDF or no score — don't put on timeline
+        score = ocr_scores[our_filename]
         timeline_data.append({
             "slug": "",
             "title": title,
@@ -444,6 +446,20 @@ def build_site():
             "has_note": False,
         })
 
+    # Build reverse lookup: (author_surname, year) -> OCR score from all lib_entries
+    _surname_year_scores = {}
+    for entry in lib_entries:
+        fn = str(entry.get("our_filename", "") or "")
+        if fn in ocr_scores:
+            yr = entry.get("year", 0) or 0
+            try:
+                yr = int(yr)
+            except (ValueError, TypeError):
+                continue
+            surname = str(entry.get("author", "") or "").split(",")[0].strip().lower()
+            if surname and yr > 0:
+                _surname_year_scores[(surname, yr)] = ocr_scores[fn]
+
     # Overlay research notes as highlighted entries
     for slug, n in note_lookup.items():
         best_idx = None
@@ -454,11 +470,13 @@ def build_site():
                 if note_surname and bib_surname and note_surname == bib_surname:
                     best_idx = i
                     break
-        # For research notes, try to find OCR score by matching author+year
-        # in the scores lookup (notes don't have filenames directly)
+        # Get OCR score: from matched timeline entry, or surname+year lookup
         note_score = 0.0
         if best_idx is not None:
             note_score = timeline_data[best_idx]["score"]
+        else:
+            note_surname = (n["author"] or "").split(",")[0].strip().lower()
+            note_score = _surname_year_scores.get((note_surname, n["year"]), 0.0)
         note_entry = {
             "slug": n["slug"],
             "title": n["title"],
