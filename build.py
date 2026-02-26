@@ -377,6 +377,7 @@ def build_site():
             "have": entry.get("have", False),
             "url": str(entry.get("Archive URL", "") or ""),
             "key_concepts": str(entry.get("Key Concepts", "") or ""),
+            "our_filename": str(entry.get("Our Filename", "") or ""),
         })
 
     # 5. Timeline (all textbooks from bibliography + research-note highlights)
@@ -389,92 +390,23 @@ def build_site():
         if n["slug"] in config.TIMELINE_NOTES:
             note_lookup[n["slug"]] = n
 
-    # --- Paradigm scoring: -1 (EPS/practitioner) to +1 (NPV/academic) ---
-    # Keywords in titles/key-concepts that signal paradigm affiliation.
-    # Built from empirical analysis of distinctive title words by stream.
-    NPV_KEYWORDS = [
-        # Core theory
-        "net present value", "npv", "discounted cash flow", "dcf",
-        "capm", "capital asset pricing", "efficient market",
-        "option pricing", "black-scholes", "black scholes",
-        "portfolio theory", "portfolio selection", "portfolio management",
-        "arbitrage", "arbitrage pricing",
-        "factor model", "fama-french", "fama french",
-        "behavioral finance", "behavioural finance",
-        "asset pricing", "risk and return", "expected return",
-        "modigliani", "miller",
-        # Academic style
-        "stochastic", "random walk", "mathematical finance",
-        "financial economics", "financial theory",
-        "derivatives", "options futures", "futures and options",
-        "modern finance", "modern portfolio",
-        "equilibrium", "information asymmetry",
-        "essays on", "readings in", "studies in",
-        "relationship between", "evidence from",
-    ]
-    EPS_KEYWORDS = [
-        # Core practice
-        "earnings per share", "eps", "earning power",
-        "capitalization of earnings", "capitalize", "capitalization rate",
-        "trading on equity",
-        "security analysis", "financial analysis",
-        "comparables", "comps", "relative valuation",
-        "valuation multiples", "multiples",
-        "price-earnings", "p/e ratio", "price earnings",
-        # Practitioner style
-        "wall street", "stock picking", "beat the market",
-        "how to invest", "how to", "guide to", "a guide",
-        "practical", "handbook", "manual of",
-        "investing", "investor", "the investor",
-        "make money", "get rich", "profit", "profits",
-        "stock market", "stock exchange",
-        "speculation", "speculator",
-        "mergers and acquisitions", "mergers acquisitions",
-        "takeover", "leveraged buyout", "lbo",
-        "corporation finance", "corporate finance",
-        "financial statements", "financial analysis",
-        "value creation", "shareholder value",
-        "personal finance", "your money", "your portfolio",
-        "strategic", "financial decisions",
-    ]
-
-    import math
-
-    def score_paradigm(title, key_concepts, stream, year):
-        """Return paradigm score in [-1, +1]. Negative = EPS, positive = NPV."""
-        text = (title + " " + key_concepts).lower()
-
-        npv_hits = sum(1 for kw in NPV_KEYWORDS if kw in text)
-        eps_hits = sum(1 for kw in EPS_KEYWORDS if kw in text)
-
-        # Keyword component: each hit contributes ±0.15, capped at ±0.7
-        kw_score = min(npv_hits * 0.15, 0.7) - min(eps_hits * 0.15, 0.7)
-
-        # Stream component (weak — tiebreaker, not dominant)
-        stream_score = 0
-        if stream == "Academic":
-            stream_score = 0.12
-        elif stream == "Practitioner":
-            stream_score = -0.12
-
-        raw = kw_score + stream_score
-        raw = max(-1.0, min(1.0, raw))
-
-        # Pre-1958: strongly dampen (everyone near center)
-        if year < 1958:
-            raw *= 0.15
-        else:
-            # Post-1958: progressive divergence (sqrt curve)
-            years_after = year - 1958
-            max_years = max(max_year_global - 1958, 1)
-            diverge = math.sqrt(years_after / max_years)
-            raw *= (0.3 + 0.7 * diverge)
-
-        return round(raw, 3)
-
-    max_year_global = max(
-        (int(e.get("year", 0) or 0) for e in lib_entries), default=2025
-    )
+    # --- Load OCR-based paradigm scores from scores.csv ---
+    # Scores computed by score_textbooks.py: (npv_hits - eps_hits) / (npv_hits + eps_hits)
+    # Range: -1 (pure EPS/practitioner) to +1 (pure NPV/academic)
+    # No artificial time-based scaling — the data speaks for itself.
+    import csv as _csv
+    scores_path = os.path.join(os.path.dirname(__file__), "scores.csv")
+    ocr_scores = {}  # filename -> score (float)
+    if os.path.exists(scores_path):
+        with open(scores_path, encoding="utf-8") as sf:
+            for row in _csv.DictReader(sf):
+                try:
+                    ocr_scores[row["filename"]] = float(row["score"])
+                except (KeyError, ValueError):
+                    pass
+        print(f"    Loaded {len(ocr_scores)} OCR scores from scores.csv")
+    else:
+        print("    WARNING: scores.csv not found — all scores will be 0")
 
     # Start with ALL textbook bibliography entries
     STREAM_TO_PARADIGM = {
@@ -498,14 +430,16 @@ def build_site():
         elif 1958 <= year <= 1963:
             paradigm = "transitional"
         title = str(entry.get("title", "") or "")
-        kc = str(entry.get("key_concepts", "") or "")
+        # Look up OCR score by filename; fall back to 0 (neutral)
+        our_filename = str(entry.get("our_filename", "") or "")
+        score = ocr_scores.get(our_filename, 0.0)
         timeline_data.append({
             "slug": "",
             "title": title,
             "author": str(entry.get("author", "") or ""),
             "year": year,
             "paradigm": paradigm,
-            "score": score_paradigm(title, kc, stream, year),
+            "score": round(score, 3),
             "key_finding": "",
             "has_note": False,
         })
@@ -520,15 +454,18 @@ def build_site():
                 if note_surname and bib_surname and note_surname == bib_surname:
                     best_idx = i
                     break
+        # For research notes, try to find OCR score by matching author+year
+        # in the scores lookup (notes don't have filenames directly)
+        note_score = 0.0
+        if best_idx is not None:
+            note_score = timeline_data[best_idx]["score"]
         note_entry = {
             "slug": n["slug"],
             "title": n["title"],
             "author": n["author"],
             "year": n["year"],
             "paradigm": n["paradigm"],
-            "score": score_paradigm(
-                n["title"], n.get("key_finding", ""), "", n["year"]
-            ),
+            "score": round(note_score, 3),
             "key_finding": n["key_finding"][:200] + ("..." if len(n["key_finding"]) > 200 else ""),
             "has_note": True,
         }
