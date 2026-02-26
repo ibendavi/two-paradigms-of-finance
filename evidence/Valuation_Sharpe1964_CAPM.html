@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sharpe (1964): Capital Asset Prices — The Birth of the CAPM | The Two Paradigms of Finance</title>
+  <meta name="description" content="A primary-source history of how financial thinking split into two streams: the practitioner tradition of earnings capitalization (P = EPS × P/E) and the academic revolution of NPV, CAPM, and DCF.">
+  <meta name="author" content="Itzhak Ben-David & Alex Chinco">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Two Paradigms</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="../the-split.html" >The Split</a></li>
+        <li><a href="../two-paradigms.html" >Two Paradigms</a></li>
+        <li><a href="../timeline.html" >Timeline</a></li>
+        <li><a href="../library.html" >Library</a></li>
+        <li><a href="../about.html" >About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+<div class="container">
+
+  <!-- Header -->
+  <div class="evidence-header">
+    <div class="evidence-meta">
+      <span class="paradigm-badge academic">Academic</span>
+      <span class="era-tag">The Great Divergence (1964–present)</span>
+      <span class="era-tag">&bull; 1964</span>
+    </div>
+    <h1 class="evidence-title">Sharpe (1964): Capital Asset Prices — The Birth of the CAPM</h1>
+    
+    <div class="evidence-source">Sharpe, William F. "Capital Asset Prices: A Theory of Market Equilibrium under Conditions of Risk." *The Journal of Finance* 19, no. 3 (September 1964): 425-442.</div>
+    
+  </div>
+
+  <!-- Key Finding -->
+  
+  <div class="key-finding-box">
+    <h3>Key Finding</h3>
+    <p>Sharpe's 1964 Journal of Finance paper derives the first general equilibrium model of capital asset prices under conditions of risk. Starting from Markowitz's (1952/1959) portfolio selection framework and Tobin's (1958) separation theorem, Sharpe shows that in equilibrium: (1) all investors hold the same combination of risky assets (the &quot;efficient combination&quot; -- later called the market portfolio); (2) expected returns on efficient portfolios are linearly related to their risk, forming the <strong>capital market line</strong>; and (3) expected returns on individual assets are linearly related to their <strong>systematic risk</strong> -- their responsiveness to the return on the efficient combination -- not to their total risk. The paper does NOT use the word &quot;beta&quot; but derives the concept: B_ig, the slope coefficient from regressing an asset's return on the return of the efficient combination, is the sole risk measure that matters for pricing. Unsystematic (diversifiable) risk is not priced. This closes the loop left open by Modigliani &amp; Miller (1958): the capitalization rate rho_k is determined by an asset's systematic risk relative to the market.</p>
+
+  </div>
+  
+
+  <!-- Main content + sidebar -->
+  <div class="evidence-layout">
+    <div class="prose">
+      
+      <h2>Details</h2>
+<h3>The Problem Stated (pp. 425-426)</h3>
+<p>Sharpe opens by identifying the gap in existing theory. The standard classroom explanation of asset pricing proceeds in two steps: (1) derive the equilibrium pure interest rate from preferences and endowments, then (2) assert that &quot;somehow a market risk-premium is also determined&quot; and prices adjust for risk. But no rigorous theory connects investor behavior to asset prices under uncertainty:</p>
+<blockquote>
+<p>&quot;At present there is no theory describing the manner in which the price of risk results from the basic influences of investor preferences, the physical attributes of capital assets, etc. Moreover, lacking such a theory, it is difficult to give any real meaning to the relationship between the price of a single asset and its risk.&quot; (p. 426)</p>
+</blockquote>
+<p>The key insight previewed on p. 425: through diversification, some risk can be avoided, so total risk is &quot;obviously not the relevant influence on its price; unfortunately little has been said concerning the particular risk component which is relevant.&quot;</p>
+<h3>The Capital Market Line (pp. 425-426, Figure 1)</h3>
+<p>Sharpe introduces the <strong>capital market line</strong> as the relationship between expected return and risk for <strong>efficient</strong> portfolios. The market presents investors with &quot;two prices&quot;: the <strong>price of time</strong> (the pure interest rate, the y-intercept) and the <strong>price of risk</strong> (the additional expected return per unit of risk borne, the slope). This is the first articulation of the risk-return tradeoff as a market-clearing price.</p>
+<h3>Part II: Individual Investor Behavior (pp. 427-433)</h3>
+<h4>The Preference Function (p. 428)</h4>
+<p>Sharpe assumes investors evaluate portfolios using only two parameters of the return distribution:</p>
+<blockquote>
+<p>U = f(E_w, sigma_w)</p>
+</blockquote>
+<p>where E_w = expected future wealth and sigma_w = standard deviation of future wealth. Investors prefer higher E_w (dU/dE_w &gt; 0) and lower sigma_w (dU/dsigma_w &lt; 0). This is the mean-variance framework inherited from Markowitz.</p>
+<p>Sharpe converts from wealth to returns: letting W_i = initial wealth and R = rate of return, then W_t = R * W_i + W_i, and utility becomes:</p>
+<blockquote>
+<p>U = g(E_R, sigma_R)</p>
+</blockquote>
+<h4>The Investment Opportunity Curve (pp. 429-431)</h4>
+<p>Following Markowitz, the feasible set of portfolios forms a region in (E_R, sigma_R) space. The efficient frontier is the &quot;lower right-hand boundary&quot; (Sharpe's axes have sigma_R on the vertical axis, E_R on the horizontal -- the reverse of the modern convention). The efficient set is found via quadratic programming. Sharpe notes that the location of the opportunity curve &quot;depends not only on its expected rate of return... and risk... but also on its correlations with the other available opportunities&quot; (p. 431) -- foreshadowing the key result that individual-asset risk alone is insufficient.</p>
+<h4>Tobin's Separation Theorem and the Pure Rate of Interest (pp. 431-433)</h4>
+<p>This is the critical bridge from Markowitz to equilibrium. If a riskless asset P exists with sigma_Rp = 0 and expected return E_Rp (the pure interest rate), then all combinations of P with any risky asset A lie on a <strong>straight line</strong> in (E_R, sigma_R) space:</p>
+<blockquote>
+<p>sigma_Rc = (1 - alpha) * sigma_Ra</p>
+</blockquote>
+<p>(since sigma_Rp = 0, the risk reduces linearly). This means the investment opportunity curve collapses to a single <strong>ray</strong> from P tangent to the efficient frontier at point phi. The tangent point phi is the unique optimal combination of risky assets.</p>
+<p>With both lending and borrowing at rate P:</p>
+<blockquote>
+<p>&quot;the process of investment choice can be dichotomized as follows: first select the (unique) optimum combination of risky assets (point phi), and second borrow or lend to obtain the particular point on PZ at which an indifference curve is tangent to the line.&quot; (p. 433)</p>
+</blockquote>
+<p>This is Tobin's (1958) result, applied to the full Markowitz framework. Sharpe attributes the term &quot;capital market line&quot; to &quot;one of the referees&quot; (footnote 16, p. 433). The key implication: <strong>all investors, regardless of risk preference, hold the same combination of risky assets</strong> (phi). They differ only in how much they borrow or lend.</p>
+<h3>Part III: Equilibrium in the Capital Market (pp. 433-436)</h3>
+<h4>The Two Key Assumptions (pp. 433-434)</h4>
+<p>To move from individual behavior to market equilibrium, Sharpe invokes:</p>
+<ol>
+<li><strong>A common pure rate of interest</strong>, with all investors able to borrow or lend on equal terms.</li>
+<li><strong>Homogeneity of expectations</strong>: all investors agree on the expected values, standard deviations, and correlation coefficients of all assets.</li>
+</ol>
+<p>Sharpe acknowledges these are &quot;highly restrictive and undoubtedly unrealistic assumptions&quot; but argues: &quot;since the proper test of a theory is not the realism of its assumptions but the acceptability of its implications, and since these assumptions imply equilibrium conditions which form a major part of classical financial doctrine, it is far from clear that this formulation should be rejected&quot; (p. 434). This is a direct echo of Friedman's (1953) positive economics methodology.</p>
+<h4>The Equilibrium Result (pp. 434-435, Figure 5)</h4>
+<p>Under these assumptions, <strong>all investors face the same opportunity set</strong> and identify the same tangency portfolio phi. Investors differ only in where they position along line PZ:</p>
+<ul>
+<li>Conservative investors (indifference curves A_1 through A_4): lend at rate P, hold some in phi -- position at A*</li>
+<li>Moderate investors (B_1 through B_4): invest everything in phi -- position at phi itself</li>
+<li>Aggressive investors (C_1 through C_4): borrow at rate P, lever up phi -- position at C*</li>
+</ul>
+<blockquote>
+<p>&quot;In any event, all would attempt to purchase only those risky assets which enter combination phi.&quot; (p. 435)</p>
+</blockquote>
+<h4>Price Adjustment to Equilibrium (p. 435)</h4>
+<p>If all investors want to hold phi, but the current prices do not correspond to phi:</p>
+<ul>
+<li>Assets IN phi have excess demand -- prices rise, expected returns fall, phi shifts left</li>
+<li>Assets NOT IN phi have no demand -- prices fall, expected returns rise, they move right</li>
+<li>&quot;Capital asset prices must, of course, continue to change until a set of prices is attained for which every asset enters at least one combination lying on the capital market line.&quot; (p. 435)</li>
+</ul>
+<p>This is the market-clearing mechanism. In equilibrium (Figure 6), the efficient frontier's upper boundary becomes a straight line (PZ), and the tangent portfolio phi includes <strong>all risky assets held in proportion to their market values</strong> -- though Sharpe does not state this explicitly in the language of &quot;the market portfolio.&quot;</p>
+<h4>Multiple Efficient Combinations (p. 435)</h4>
+<p>Sharpe makes a subtle point: the theory &quot;does not imply that all investors will hold the same combination&quot; in the sense that there may be multiple efficient combinations along PZ. But all such combinations are &quot;perfectly (positively) correlated, since they lie along a linear border of the E_R, sigma_R region.&quot; This perfect correlation among efficient portfolios becomes crucial in Part IV.</p>
+<h3>Part IV: The Prices of Capital Assets (pp. 436-442) -- The Key Result</h3>
+<h4>Systematic Risk Defined (pp. 436-439)</h4>
+<p>Sharpe now addresses individual assets. Single assets typically lie <strong>above</strong> the capital market line in (sigma_R, E_R) space (remember his inverted axes), &quot;reflecting the inefficiency of undiversified holdings.&quot; There is &quot;no consistent relationship between their expected return and total risk (sigma_R). However, there will be a consistent relationship between their expected returns and what might best be called <em>systematic risk</em>&quot; (p. 436).</p>
+<h4>The Regression Framework (pp. 437-439, Figures 7-8)</h4>
+<p>Consider asset i and efficient combination g. The curve of all feasible (E_R, sigma_R) combinations of i and g (curve igg') must be <strong>tangent</strong> to the capital market line at point g (the efficient combination). Using this tangency condition, Sharpe derives the key relationship.</p>
+<p>The return on asset i can be decomposed via regression on the return of combination g:</p>
+<blockquote>
+<p>R_i = alpha_i + B_ig * R_g + residual</p>
+</blockquote>
+<p>where B_ig is the slope coefficient -- what we now call beta. Figure 8 shows the scatter plot of R_i against R_g with B_ig as the slope of the regression line.</p>
+<p>Sharpe defines:</p>
+<ul>
+<li><strong>Systematic risk</strong>: the portion of R_i's variability explained by R_g, measured by B_ig * sigma_Rg</li>
+<li><strong>Unsystematic risk</strong>: the remainder, uncorrelated with R_g</li>
+</ul>
+<blockquote>
+<p>&quot;It is this component of the asset's total risk which we term the <em>systematic</em> risk.&quot; (p. 439)</p>
+</blockquote>
+<h4>The Central Equation (pp. 438-439)</h4>
+<p>From the tangency condition (that curve igg' touches the capital market line at g), Sharpe derives:</p>
+<blockquote>
+<p>B_ig = -[P / (E_Rg - P)] + [1 / (E_Rg - P)] * E_Ri</p>
+</blockquote>
+<p>Rearranging:</p>
+<blockquote>
+<p><strong>E_Ri = P + B_ig * (E_Rg - P)</strong></p>
+</blockquote>
+<p>This is the CAPM equation. The expected return on any asset i equals:</p>
+<ul>
+<li><strong>P</strong> (the pure interest rate -- the risk-free rate)</li>
+<li>plus <strong>B_ig</strong> (the asset's systematic risk -- its responsiveness to the efficient combination)</li>
+<li>times <strong>(E_Rg - P)</strong> (the market risk premium -- the excess return on the efficient combination over the risk-free rate)</li>
+</ul>
+<p>Sharpe does NOT use the term &quot;beta&quot; (he writes B_ig) and does NOT call this the &quot;security market line&quot; -- those terms came later. But the equation is the CAPM.</p>
+<h4>The Generality of the Result (pp. 440-441, footnote 26)</h4>
+<p>Sharpe proves that B_ig is the same regardless of which efficient combination g is chosen, because all efficient combinations are perfectly correlated. If g and g* are both efficient:</p>
+<blockquote>
+<p>B_i<em>g = B_ig * [sigma_Rg / sigma_Rg</em>]</p>
+</blockquote>
+<p>And since g and g* lie on the same line through P:</p>
+<blockquote>
+<p>sigma_Rg / sigma_Rg* = (E_Rg - P) / (E_Rg* - P)</p>
+</blockquote>
+<p>So the product B_ig * (E_Rg - P) is the same for any efficient combination used. This means you can measure systematic risk relative to <strong>any</strong> efficient combination -- or, equivalently, relative to any variable perfectly correlated with all efficient combinations.</p>
+<h4>The Economic Interpretation: Only Responsiveness to Economic Activity Matters (pp. 441-442)</h4>
+<p>Sharpe offers a powerful economic interpretation of why all efficient combinations are perfectly correlated:</p>
+<blockquote>
+<p>&quot;we might expect that this would be due to their common dependence on the over-all level of economic activity. If so, diversification enables the investor to escape all but the risk resulting from swings in economic activity -- this type of risk remains even in efficient combinations. And, since all other types can be avoided by diversification, only the responsiveness of an asset's rate of return to the level of economic activity is relevant in assessing its risk.&quot; (p. 441)</p>
+</blockquote>
+<p>This is the famous insight: <strong>diversifiable risk is not priced</strong>. Only the non-diversifiable component -- the asset's comovement with the overall economy/market -- commands a risk premium.</p>
+<h4>The Concluding Synthesis (p. 442)</h4>
+<blockquote>
+<p>&quot;Prices will adjust until there is a linear relationship between the magnitude of such responsiveness and expected return. Assets which are unaffected by changes in economic activity will return the pure interest rate; those which move with economic activity will promise appropriately higher expected rates of return.&quot; (p. 442)</p>
+</blockquote>
+<p>And the connection to practitioner language:</p>
+<blockquote>
+<p>&quot;it is common practice for investment counselors to accept a lower expected return from defensive securities (those which respond little to changes in the economy) than they require from aggressive securities (which exhibit significant response). As suggested earlier, the familiarity of the implications need not be considered a drawback.&quot; (p. 442)</p>
+</blockquote>
+<h3>The Assumptions (collected)</h3>
+<ol>
+<li>Investors maximize expected utility of terminal wealth</li>
+<li>Preferences depend only on mean and standard deviation of returns (mean-variance)</li>
+<li>A common pure rate of interest exists for borrowing and lending</li>
+<li>Homogeneous expectations: all investors agree on means, standard deviations, and correlations</li>
+<li>No taxes, no transaction costs (implicit)</li>
+<li>All assets are perfectly divisible and marketable (implicit)</li>
+</ol>
+<h3>Key Diagrams</h3>
+<ul>
+<li><strong>Figure 1</strong> (p. 426): The Capital Market Line -- risk vs. expected return, linear from the pure interest rate</li>
+<li><strong>Figure 4</strong> (p. 432): How lending/borrowing at the pure rate creates the linear opportunity set (ray PZ tangent to efficient frontier at phi)</li>
+<li><strong>Figure 5</strong> (p. 434): Three investors (A*, B, C*) choosing different points on the same line PZ</li>
+<li><strong>Figure 6</strong> (p. 436): Full equilibrium -- every asset enters the efficient frontier, boundary is PZ</li>
+<li><strong>Figure 7</strong> (p. 437): Individual asset i and efficient combination g -- curve igg' tangent to PZ at g</li>
+<li><strong>Figure 8</strong> (p. 439): The regression of R_i on R_g -- the first depiction of &quot;beta&quot; as a regression slope</li>
+<li><strong>Figure 9</strong> (p. 440): B_ig vs. E_Ri -- the Security Market Line (though not named as such)</li>
+</ul>
+<h3>Who Is Cited (and Who Is Not)</h3>
+<p><strong>Cited:</strong></p>
+<ul>
+<li><strong>Markowitz (1952, 1959)</strong> -- the entire foundation; portfolio selection, mean-variance framework, efficient frontier. Sharpe acknowledges &quot;a great many people provided comments on early versions of this paper&quot; and &quot;the author wishes to express his appreciation to Dr. Harry Markowitz of the RAND Corporation&quot; (p. 425, footnote)</li>
+<li><strong>Tobin (1958)</strong> -- &quot;Liquidity Preference as Behavior Towards Risk&quot;; the separation of portfolio choice into two stages (risky combination + lending/borrowing). Sharpe credits Tobin with showing the dichotomization under certain conditions (p. 426)</li>
+<li><strong>Hicks (1962)</strong> -- &quot;Liquidity&quot; in <em>Economic Journal</em>; used a model similar to Tobin's but with more explicit treatment of dichotomization conditions (p. 427)</li>
+<li><strong>Gordon &amp; Gangolli (1962)</strong> -- &quot;Choice Among and Scale of Play on Lottery Type Alternatives&quot;; rigorous proof of dichotomization in lotteries context (p. 427)</li>
+<li><strong>Modigliani &amp; Miller (1958)</strong> -- cited in footnote 5 (p. 427): &quot;A related discussion can be found in F. Modigliani and M. H. Miller, 'The Cost of Capital, Corporation Finance, and the Theory of Investment'&quot; -- but only in passing as a &quot;related discussion,&quot; not as a central building block</li>
+<li><strong>Sharpe (1963)</strong> -- his own earlier paper &quot;A Simplified Model for Portfolio Analysis&quot; in <em>Management Science</em>; the diagonal/single-index model (cited in footnotes 5 and 14)</li>
+<li><strong>Farrar (1962)</strong> -- <em>The Investment Decision Under Uncertainty</em>; cited for a &quot;similar approach&quot; using Von Neumann-Morgenstern axioms, though Sharpe notes &quot;Farrar makes an error in his derivation&quot; (footnote 10, p. 428)</li>
+<li><strong>Von Neumann &amp; Morgenstern</strong> -- invoked through Farrar; the expected utility foundation (p. 428)</li>
+<li><strong>Hirshliefer (1963/1964)</strong> -- &quot;Investment Decision Under Uncertainty&quot;; suggested mean-variance is a special case of Arrow's more general formulation (footnote 6, p. 427)</li>
+<li><strong>Arrow</strong> -- cited via Hirshliefer for the general state-preference framework</li>
+<li><strong>Jack Treynor</strong> -- acknowledged in footnote 7 (p. 427): &quot;After preparing this paper the author learned that Mr. Jack L. Treynor, of Arthur D. Little, Inc., had independently developed a model similar in many respects to the one described here. Unfortunately Mr. Treynor's excellent work on this subject is, at present, unpublished.&quot;</li>
+</ul>
+<p><strong>NOT cited:</strong></p>
+<ul>
+<li><strong>Irving Fisher</strong> -- absent, despite the paper being built on the concept of a &quot;pure rate of interest&quot; (Fisher's term) and despite the separation theorem being Fisher's contribution via Tobin</li>
+<li><strong>John Burr Williams (1938)</strong> -- absent; the DDM/intrinsic-value tradition plays no role</li>
+<li><strong>Graham &amp; Dodd</strong> -- absent; the security analysis tradition is invisible</li>
+<li><strong>Lintner (1965)</strong> -- not yet published (appeared one year later with an independent derivation of the CAPM)</li>
+<li><strong>Mossin (1966)</strong> -- not yet published (appeared two years later with a third independent derivation)</li>
+<li><strong>Fama</strong> -- not yet published; efficient markets hypothesis came in 1965</li>
+<li><strong>Black</strong> -- not yet published; zero-beta CAPM came in 1972</li>
+</ul>
+<h3>What Sharpe Does NOT Do</h3>
+<ol>
+<li><strong>Does not use the term &quot;beta&quot;</strong> -- writes B_ig throughout</li>
+<li><strong>Does not use the term &quot;Security Market Line&quot;</strong> -- derives it (Figure 9) but does not name it</li>
+<li><strong>Does not explicitly identify the tangent portfolio as &quot;the market portfolio&quot;</strong> -- calls it &quot;the efficient combination&quot; or &quot;combination g&quot;; the identification with the value-weighted market portfolio was made explicit later</li>
+<li><strong>Does not discuss corporate capital budgeting</strong> -- no mention of NPV, IRR, or how firms should use the CAPM to set hurdle rates</li>
+<li><strong>Does not discuss valuation of individual firms</strong> -- the paper is about expected returns in equilibrium, not about discounting cash flows</li>
+<li><strong>Does not provide empirical tests</strong> -- the paper is entirely theoretical</li>
+<li><strong>Does not discuss dividends or earnings</strong> -- the entire Graham &amp; Dodd / Williams / M&amp;M tradition about what drives value is absent</li>
+<li><strong>Does not address taxes or transaction costs</strong> -- perfect markets assumed throughout</li>
+</ol>
+
+      
+
+      
+      <h2>Significance</h2>
+      <h3>1. Closing the Loop: From Portfolio Theory to Asset Pricing</h3>
+<p>Markowitz (1952/1959) showed how investors should choose portfolios but took expected returns as given. M&amp;M (1958) showed capital structure is irrelevant but left rho_k (the capitalization rate for a risk class) unexplained. Sharpe closes both gaps simultaneously. The CAPM derives expected returns from equilibrium: they are determined by systematic risk (B_ig), the risk-free rate (P), and the market risk premium (E_Rg - P). The capitalization rate rho_k that M&amp;M took as given is now endogenously determined: it equals P + B_ig * (E_Rg - P) where B_ig measures the asset's sensitivity to the market.</p>
+<h3>2. Only Systematic Risk Is Priced -- The Revolution in Risk Thinking</h3>
+<p>Before Sharpe, &quot;risk&quot; in finance meant total variability, probability of loss, or some vague sense of uncertainty. Graham &amp; Dodd's &quot;margin of safety&quot; was about firm-specific risk. Practitioners diversified intuitively but had no theory of which risk mattered. Sharpe proves that only <strong>systematic risk</strong> (comovement with the market/economy) commands a premium. Firm-specific risk can be diversified away and therefore earns no reward. This was genuinely new -- no practitioner or prior academic had stated it with this precision.</p>
+<h3>3. The Two-Price Result</h3>
+<p>The market offers exactly two prices: the <strong>price of time</strong> (the risk-free rate) and the <strong>price of risk</strong> (the slope of the capital market line = the market risk premium per unit of systematic risk). All asset pricing reduces to these two quantities plus the asset's systematic risk. This is an extraordinary simplification -- from the n(n+1)/2 parameters of the full covariance matrix to three numbers.</p>
+<h3>4. The &quot;Aggressive&quot; vs. &quot;Defensive&quot; Security Distinction</h3>
+<p>Sharpe notes that his result is consistent with practitioner intuition: investment counselors already accept lower returns from &quot;defensive&quot; securities and demand higher returns from &quot;aggressive&quot; ones. The CAPM formalizes this by showing that what makes a security &quot;aggressive&quot; is not its total volatility but its responsiveness to economic activity (B_ig). The practitioner categories map onto high-beta and low-beta.</p>
+<h3>5. Treynor's Priority</h3>
+<p>Sharpe's footnote 7 (p. 427) acknowledges that Jack Treynor &quot;had independently developed a model similar in many respects to the one described here&quot; but that Treynor's work was &quot;at present, unpublished.&quot; Treynor's manuscript (1961/1962) circulated privately and influenced several people, including Fischer Black, but was never published in a journal. The Sharpe-Lintner-Mossin CAPM became the canonical version; Treynor's priority is recognized but his work is largely read through their lens.</p>
+<h3>6. What Is Left Unresolved</h3>
+<p>The CAPM as presented in 1964 does not address:</p>
+<ul>
+<li><strong>How to estimate beta empirically</strong> -- this required Fama, MacBeth, and others in the 1970s</li>
+<li><strong>How to apply it to corporate finance</strong> -- the connection to capital budgeting and discount rates was not made explicit here</li>
+<li><strong>Whether it holds empirically</strong> -- the paper is pure theory; the extensive empirical testing (and eventual challenges from Fama-French 1992) came later</li>
+<li><strong>What happens without a risk-free asset</strong> -- Black (1972) derived the zero-beta version</li>
+<li><strong>What happens with heterogeneous expectations</strong> -- left as an open question</li>
+</ul>
+
+      
+    </div>
+
+    <aside class="sidebar">
+      <!-- Paradigm info -->
+      <div class="sidebar-section">
+        <h4>Paradigm</h4>
+        <p><span class="paradigm-badge academic">Academic</span></p>
+        <p style="margin-top: 0.5rem;">NPV / DCF: P = Σ CF/(1+r)^t. Cost of equity from CAPM / factor model. Objective = maximize firm value.</p>
+      </div>
+
+      <!-- Era context -->
+      <div class="sidebar-section">
+        <h4>Era</h4>
+        <p><strong>The Great Divergence</strong> (1964–present)</p>
+        <p>Academic textbooks teach NPV/CAPM/DCF. Practitioners continue using EPS × P/E, earnings yields, and comps.</p>
+      </div>
+
+      <!-- Connections -->
+      
+      <div class="sidebar-section">
+        <h4>Connections</h4>
+        <ul>
+<li><strong>Built on:</strong> Markowitz (1952, 1959) mean-variance portfolio theory; Tobin (1958) separation theorem; Hicks (1962) liquidity/dichotomization; implicitly Fisher (1930) via &quot;the pure rate of interest&quot; and the separation concept</li>
+<li><strong>Parallel to:</strong> Treynor (1961/1962, unpublished) -- independent derivation acknowledged by Sharpe</li>
+<li><strong>Cites in passing:</strong> Modigliani &amp; Miller (1958) -- as a &quot;related discussion&quot; only</li>
+<li><strong>Does NOT cite:</strong> Fisher, Williams, Graham &amp; Dodd -- the entire valuation tradition is absent</li>
+<li><strong>Followed by:</strong> Lintner (1965) independent derivation with different notation; Mossin (1966) third independent derivation</li>
+<li><strong>Led to:</strong> Black (1972) zero-beta CAPM; Fama &amp; MacBeth (1973) empirical tests; Ross (1976) APT as alternative; Roll (1977) critique; Fama &amp; French (1992/1993) multifactor challenge</li>
+<li><strong>Resolved:</strong> The M&amp;M (1958) open question -- what determines rho_k? Answer: systematic risk relative to the market</li>
+<li><strong>Made possible:</strong> Modern corporate finance cost-of-capital estimation (WACC using CAPM-derived cost of equity); the entire performance evaluation industry (Jensen's alpha, Sharpe ratio, Treynor ratio)</li>
+<li><strong>Stream:</strong> Pure academic -- mathematical equilibrium theory with no concession to practitioner application (the applications came later from others)</li>
+</ul>
+
+      </div>
+      
+    </aside>
+  </div>
+
+  <!-- Prev / Next navigation -->
+  <nav class="evidence-nav">
+    
+    <a href="../evidence/Valuation_Solomon1963_TheoryOfFinancialManagement.html">
+      <span class="label">&larr; Previous</span>
+      Solomon (1963)
+    </a>
+    
+
+    
+    <a href="../evidence/Valuation_Fama1965_BehaviorOfStockMarketPrices.html" style="text-align: right;">
+      <span class="label">Next &rarr;</span>
+      Fama (1965)
+    </a>
+    
+  </nav>
+
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>The Two Paradigms of Finance &mdash; Itzhak Ben-David & Alex Chinco</p>
+      <p>The Ohio State University & Michigan State University</p>
+      <p style="margin-top: 0.5rem;">Built from a collection of 2,800+ primary sources spanning 300 years.</p>
+    </div>
+  </footer>
+
+  
+</body>
+</html>

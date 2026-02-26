@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fama & French (2002): Testing Trade-Off and Pecking Order Predictions about Dividends and Debt | The Two Paradigms of Finance</title>
+  <meta name="description" content="A primary-source history of how financial thinking split into two streams: the practitioner tradition of earnings capitalization (P = EPS × P/E) and the academic revolution of NPV, CAPM, and DCF.">
+  <meta name="author" content="Itzhak Ben-David & Alex Chinco">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Two Paradigms</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="../the-split.html" >The Split</a></li>
+        <li><a href="../two-paradigms.html" >Two Paradigms</a></li>
+        <li><a href="../timeline.html" >Timeline</a></li>
+        <li><a href="../library.html" >Library</a></li>
+        <li><a href="../about.html" >About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+<div class="container">
+
+  <!-- Header -->
+  <div class="evidence-header">
+    <div class="evidence-meta">
+      <span class="paradigm-badge practitioner">Practitioner</span>
+      <span class="era-tag">The Great Divergence (1964–present)</span>
+      <span class="era-tag">&bull; 2002</span>
+    </div>
+    <h1 class="evidence-title">Fama & French (2002): Testing Trade-Off and Pecking Order Predictions about Dividends and Debt</h1>
+    
+    <div class="evidence-source">Fama, Eugene F., and Kenneth R. French. "Testing Trade-Off and Pecking Order Predictions about Dividends and Debt." *Review of Financial Studies* 15, no. 1 (Spring 2002): 1-33. (Fama at University of Chicago; French at MIT Sloan.)</div>
+    
+  </div>
+
+  <!-- Key Finding -->
+  
+  <div class="key-finding-box">
+    <h3>Key Finding</h3>
+    <p>Fama &amp; French's 2002 <em>Review of Financial Studies</em> paper jointly tests the trade-off and pecking order models' predictions about dividends and leverage using Fama-MacBeth cross-sectional regressions on Compustat data from 1965-1999. Many predictions of the two models overlap and are confirmed: more profitable firms pay higher dividends, firms with more investments have lower payouts, and short-term variation in earnings and investment is largely absorbed by debt (not equity). The target dividend payout ratio is approximately 41-46%, with a slow speed of adjustment (27-33% per year, consistent with Lintner 1956). On leverage, the models disagree in two important ways: (1) more profitable firms have LESS book leverage — supporting pecking order but contradicting the trade-off model's prediction that profitable firms should have more leverage (this is the &quot;important failure&quot; of the trade-off model); and (2) leverage is mean-reverting, but at a &quot;suspiciously slow&quot; rate of 7-17% per year — ambiguous between genuine targeting (trade-off) and spurious mean reversion from autocorrelated cash flows (pecking order). The paper also documents that less-levered nonpayers are typically small growth firms that issue large amounts of equity despite having low-risk debt capacity — a &quot;deep wound&quot; on the pecking order. For the EPS project, this paper is essential because: (1) the finding that more profitable firms have LESS leverage is exactly what the EPS paradigm predicts (profitable firms have low earnings yields, making equity &quot;cheap&quot; relative to debt, so they have less incentive to lever up); (2) the Lintner (1956) dividend smoothing model is confirmed, supporting the earnings-based view of payout; and (3) the paper documents that debt absorbs short-term variation in earnings and investment, consistent with the EPS paradigm's view of debt as a tool for managing EPS.</p>
+
+  </div>
+  
+
+  <!-- Main content + sidebar -->
+  <div class="evidence-layout">
+    <div class="prose">
+      
+      <h2>Details</h2>
+<h3>Predictions of the Two Models (Section 1, pp. 1-8)</h3>
+<p><strong>Pecking order model (Myers 1984):</strong></p>
+<ul>
+<li>Firms prefer internal financing (retained earnings), then debt, then equity — due to asymmetric information costs</li>
+<li>More profitable firms → higher dividends (more internal funds available) and LESS leverage (less need for external finance)</li>
+<li>Dividends are &quot;sticky&quot; (for unknown reasons), so short-term variation in earnings and investment is absorbed by debt</li>
+<li>Simple version: more investment → more book leverage (debt finances investment)</li>
+<li>Complex version: more investment → less leverage (firms keep debt capacity in reserve)</li>
+</ul>
+<p><strong>Trade-off model:</strong></p>
+<ul>
+<li>Firms balance tax benefits of debt against bankruptcy costs, agency costs, and adjustment costs</li>
+<li>More profitable firms → higher dividends (agency costs of FCF) and MORE leverage (higher taxable income → more tax shield value)</li>
+<li>Target leverage exists; firms adjust toward it over time</li>
+<li>Firms with more nondebt tax shields (depreciation, R&amp;D) → less leverage</li>
+<li>Firms with less volatile earnings → more leverage (lower bankruptcy risk)</li>
+</ul>
+<p><strong>Key overlap:</strong> Both models predict that more profitable firms pay higher dividends, and firms with more investments pay lower dividends. Both predict a negative relation between the target payout ratio and leverage. The models diverge sharply on the LEVERAGE-PROFITABILITY relation.</p>
+<h3>Framework: Two-Stage Structural Model (Section 2, pp. 8-10)</h3>
+<p><strong>Dividend equation (Lintner 1956 extended):</strong></p>
+<p>First stage — target payout:</p>
+<blockquote>
+<p>TD_{t+1} = TP × Y_{t+1}</p>
+</blockquote>
+<p>where TP = target payout ratio, Y_{t+1} = earnings (proxied by ET_{t+1}/A_{t+1} or E_{t+1}/A_{t+1}).</p>
+<p>TP is modeled as a function of firm characteristics:</p>
+<blockquote>
+<p>TP_{t+1} = a₀ + a₁V_t/A_t + a₂RD_t/A_t + a₃dA_t/A_t    (Equation 4)</p>
+</blockquote>
+<p>where V_t/A_t = market-to-book (proxy for investment opportunities), RD_t/A_t = R&amp;D intensity, dA_t/A_t = asset growth.</p>
+<p>Second stage — partial adjustment:</p>
+<blockquote>
+<p>D_{t+1}/A_{t+1} = D_t/A_t + SOA × [TD_{t+1} - D_t/A_t]</p>
+</blockquote>
+<p>where SOA = speed of adjustment (how fast dividends move toward target).</p>
+<p><strong>Leverage equation:</strong></p>
+<blockquote>
+<p>L_{t+1}/A_{t+1} = a₀ + a₁V_t/A_t + a₂ET_{t+1}/A_{t+1} + ...    (Equation 8)</p>
+</blockquote>
+<p>with a partial adjustment model for changes:</p>
+<blockquote>
+<p>dL_{t+1}/A_{t+1} = SOA × [TL_{t+1} - L_t/A_t] + Z variables    (Equation 7)</p>
+</blockquote>
+<h3>Table 1: Dividend Regressions — Target Payout (pp. 10-13)</h3>
+<p><strong>Target payout ratio:</strong> TP ≈ 0.41-0.46 (41-46%) of earnings, depending on specification.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Prediction (both models)</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Profitability (ET/A or E/A)</td>
+<td>+ (more profitable → higher target payout)</td>
+<td><strong>Confirmed</strong> — positive, &gt;13 SE from zero</td>
+</tr>
+<tr>
+<td>Investment opportunities (V/A)</td>
+<td>− (more growth → lower payout)</td>
+<td><strong>Confirmed</strong> — negative, &gt;5 SE from zero</td>
+</tr>
+<tr>
+<td>R&amp;D intensity (RD/A)</td>
+<td>− (more R&amp;D → lower payout)</td>
+<td><strong>Confirmed</strong> — negative</td>
+</tr>
+<tr>
+<td>Asset growth (dA/A)</td>
+<td>− (more investment → lower payout)</td>
+<td><strong>Confirmed</strong> — negative</td>
+</tr>
+</tbody>
+</table>
+<p>R² rises from 0.25 (profitability alone) to 0.38-0.39 with interaction terms.</p>
+<p><strong>Key result:</strong> Dividends are insensitive to short-term investment changes (dA_{t+1}/A_{t+1}), consistent with Lintner's sticky-dividends observation and the pecking order prediction that debt, not dividends, absorbs investment variation.</p>
+<h3>Table 2: Dividend Regressions — Lintner Partial Adjustment (pp. 13-15)</h3>
+<p><strong>Speed of adjustment (SOA):</strong> 0.27-0.33 per year (27-33%), meaning firms close only about 30% of the gap between current and target dividends each year.</p>
+<p>This is remarkably close to Lintner's (1956) original estimate of 0.30, despite 45 additional years of data and cross-sectional (rather than time-series) estimation.</p>
+<p><strong>Half-life:</strong> At SOA = 0.30, the half-life of a dividend shock is approximately ln(0.5)/ln(0.70) ≈ 1.9 years — roughly 2 years to close half the gap to target.</p>
+<h3>Table 3: Leverage Level Regressions (pp. 15-22)</h3>
+<p><strong>THE CRITICAL RESULT — Profitability and leverage:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Trade-off prediction</th>
+<th>Pecking order prediction</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Profitability (ET/A)</td>
+<td>+</td>
+<td>−</td>
+<td><strong>Negative</strong> (≥12.5 SE from zero) — supports pecking order, rejects trade-off</td>
+</tr>
+<tr>
+<td>Market profitability (V/A)</td>
+<td>+</td>
+<td>−</td>
+<td><strong>Negative</strong> for market leverage (≥11.5 SE)</td>
+</tr>
+<tr>
+<td>Investment (V/A, RD/A)</td>
+<td>− (complex PO) or + (simple PO)</td>
+<td>Conflicting</td>
+<td>Mixed — V/A positive for book, negative for market</td>
+</tr>
+<tr>
+<td>Nondebt tax shields (RD/A, Dp/A)</td>
+<td>−</td>
+<td>n/a</td>
+<td><strong>Confirmed</strong> — negative</td>
+</tr>
+<tr>
+<td>Volatility (ln(A))</td>
+<td>−</td>
+<td>−</td>
+<td>Positive (but may reflect debt market access, not volatility)</td>
+</tr>
+<tr>
+<td>Target payout (TP)</td>
+<td>−</td>
+<td>−</td>
+<td>Weak — collinearity problems</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fama &amp; French's assessment:</strong></p>
+<blockquote>
+<p>&quot;one scar on the trade-off model (the negative relation between leverage and profitability), one deep wound on the pecking order (the large equity issues of small low-leverage growth firms), and one area of conflict (the mean reversion of leverage)&quot;</p>
+</blockquote>
+<h3>Table 4: Leverage Changes — Partial Adjustment and Debt Response (pp. 22-26)</h3>
+<p><strong>Mean reversion of leverage:</strong></p>
+<ul>
+<li>Slopes on target leverage (TL_{t+1}) are positive and significant (t = 4.3 to 12.4)</li>
+<li>Slopes on lagged leverage (L_t/A_t or L_t/V_t) are negative (t = -4.0 to -12.3)</li>
+<li><strong>Speed of adjustment: 7-10% per year for dividend payers, 15-18% for nonpayers</strong></li>
+<li>This &quot;suspiciously slow&quot; pace could reflect genuine targeting (trade-off) OR spurious mean reversion from autocorrelated cash flows (Shyam-Sunder and Myers 1999)</li>
+</ul>
+<p><strong>Short-term debt response to earnings and investment:</strong></p>
+<ul>
+<li>Leverage responds strongly to earnings changes: dE_{t+1}/A_{t+1} slopes are -7.61 to -10.59 SE from zero</li>
+<li>Investment produces concurrent increases in leverage: dA_{t+1}/A_{t+1} slopes are positive, &gt;5.4 SE from zero</li>
+<li>But for book leverage, reversion to long-term capital structure begins quickly (negative slopes on dA_t/A_{t+1})</li>
+<li><strong>Dividend payers finance 80% of current investment with debt</strong> (t = 34.79) with 3% reversal next year</li>
+<li><strong>Nonpayers finance 73% with debt</strong> (t = 19.98) with 3% reversal</li>
+</ul>
+<blockquote>
+<p>&quot;For dividend payers, nonpayers primarily use debt to absorb short-term variation in earnings and investment&quot;</p>
+</blockquote>
+<h3>Table 5: The Pecking Order's &quot;Deep Wound&quot; (Section 5, pp. 27-28)</h3>
+<p>Annual sorts into leverage quintiles reveal an anomaly for the pecking order:</p>
+<ul>
+<li><strong>Less-levered nonpayers</strong> are typically small growth firms (high V/A, high RD/A, high dA/A)</li>
+<li>These firms make the LARGEST net new issues of stock (NI/A ≈ 5.8% of assets for the least-levered market leverage quintile)</li>
+<li>At 29% of assets and 11% of market value, they are small</li>
+<li>They issue EQUITY despite apparently having low-risk debt capacity</li>
+</ul>
+<p>This contradicts the pecking order's prediction that firms prefer debt to equity. The least-levered nonpayers violate the pecking order by issuing the most equity-intensive form of financing.</p>
+<h3>Section 6: Conclusions (pp. 28-30)</h3>
+<blockquote>
+<p>&quot;Who wins the confrontation between the trade-off and pecking order models? On many issues there is no conflict.&quot;</p>
+</blockquote>
+<p><strong>Shared predictions confirmed:</strong></p>
+<ul>
+<li>More profitable firms → higher dividends ✓</li>
+<li>More investment → lower payouts ✓</li>
+<li>Short-term variation absorbed by debt ✓</li>
+<li>Larger, less volatile firms → more leverage ✓</li>
+</ul>
+<p><strong>Trade-off model's failures:</strong></p>
+<ul>
+<li>More profitable firms should have MORE leverage (tax shields) — but they have LESS (the &quot;important failure&quot;)</li>
+<li>Mean reversion is suspiciously slow</li>
+</ul>
+<p><strong>Pecking order's failures:</strong></p>
+<ul>
+<li>Small growth nonpayers issue lots of equity (the &quot;deep wound&quot;)</li>
+<li>Simple PO predicts positive investment-leverage relation for book leverage, but results are mixed</li>
+</ul>
+<p><strong>Overall verdict:</strong> &quot;In sum, we identify one scar on the trade-off model... one deep wound on the pecking order... and one area of conflict.&quot;</p>
+
+      
+
+      
+      <h2>Significance</h2>
+      <h3>1. The Profitability-Leverage Puzzle Is Natural in the EPS Paradigm</h3>
+<p>The paper's most important finding is the &quot;important failure&quot; of the trade-off model: more profitable firms have LESS leverage. This is the central puzzle of capital structure that has bedeviled the field since at least Long &amp; Malitz (1985) and Rajan &amp; Zingales (1995). In the EPS paradigm, it is no puzzle at all: profitable firms have HIGH EPS and thus LOW earnings yields (high P/E). A low earnings yield means equity is &quot;cheap&quot; relative to debt — the cost of equity (the earnings yield) is low, so there is little incentive to substitute debt for equity to boost EPS. Less profitable firms have HIGH earnings yields, making equity &quot;expensive,&quot; giving them strong incentives to lever up and boost EPS by replacing expensive equity with cheaper debt.</p>
+<h3>2. Lintner's Dividend Model Is Confirmed — Earnings Drive Payouts</h3>
+<p>The confirmation of Lintner (1956) — target payout ≈ 41-46% of earnings, SOA ≈ 0.30 — supports the EPS paradigm's view that earnings are the fundamental quantity managers manage. Managers set dividends as a fraction of EARNINGS (not cash flows, not firm value), and they smooth dividends relative to EARNINGS. The entire dividend framework is earnings-based, exactly as the EPS paradigm would predict.</p>
+<h3>3. Debt Absorbs Short-Term Variation — The EPS Buffer</h3>
+<p>The finding that &quot;short-term variation in earnings and investment is largely absorbed by debt&quot; is precisely what the EPS paradigm predicts. Managers smooth EPS by using debt as a buffer: when earnings drop temporarily, they borrow rather than cut dividends or reduce investment (which would signal EPS weakness). When investment spikes temporarily, they borrow rather than issue equity (which would dilute EPS). Debt is the residual in the EPS paradigm — it adjusts to maintain the earnings-per-share trajectory.</p>
+<h3>4. The Speed of Adjustment Is Consistent with EPS Targeting</h3>
+<p>The slow speed of leverage adjustment (7-17% per year) is puzzling for the trade-off model (why don't firms adjust faster to capture tax benefits?). In the EPS paradigm, the speed is governed by how quickly the earnings yield and borrowing rates change. Since these move slowly, leverage adjusts slowly. There is no &quot;puzzle&quot; — leverage changes when the relative cost of debt vs. equity (measured by the earnings yield) changes, and this happens gradually.</p>
+<h3>5. Growth Firms Issue Equity Because Their Earnings Yield Is Low</h3>
+<p>The pecking order's &quot;deep wound&quot; — small growth firms issuing lots of equity — is natural in the EPS paradigm. Growth firms have HIGH P/E ratios (LOW earnings yields). A low earnings yield means equity is cheap relative to debt. For these firms, issuing equity does NOT significantly dilute EPS because the share price is high relative to earnings. They issue equity precisely because it is their cheapest source of capital, measured by the earnings yield. No information asymmetry story is needed.</p>
+<h3>6. The Trade-Off vs. Pecking Order Debate Is Dissolved by EPS</h3>
+<p>The entire trade-off vs. pecking order debate assumes managers maximize firm value subject to various frictions (taxes, bankruptcy costs, information asymmetry). The EPS paradigm dissolves this debate: managers maximize EPS, and the leverage-profitability pattern follows directly from the earnings yield being the cost of equity. No frictions are needed. The &quot;failures&quot; of both models — the profitability-leverage puzzle for trade-off, the equity issuance of growth firms for pecking order — are not puzzles in the EPS framework.</p>
+<h3>7. Table A.2's Predictions Matrix Maps onto EPS Predictions</h3>
+<p>Fama &amp; French's Table A.2 summarizes predictions and proxies. The EPS paradigm generates most of the same predictions from a single principle (maximize EPS given the earnings yield and borrowing cost): profitability (+) for payout, profitability (−) for leverage, investment opportunities (−) for payout. The crucial difference: the EPS paradigm derives the negative profitability-leverage relation WITHOUT invoking pecking order considerations.</p>
+
+      
+    </div>
+
+    <aside class="sidebar">
+      <!-- Paradigm info -->
+      <div class="sidebar-section">
+        <h4>Paradigm</h4>
+        <p><span class="paradigm-badge practitioner">Practitioner</span></p>
+        <p style="margin-top: 0.5rem;">Earnings capitalization: P = EPS × P/E from comps. Cost of equity = earnings yield. Objective = maximize EPS.</p>
+      </div>
+
+      <!-- Era context -->
+      <div class="sidebar-section">
+        <h4>Era</h4>
+        <p><strong>The Great Divergence</strong> (1964–present)</p>
+        <p>Academic textbooks teach NPV/CAPM/DCF. Practitioners continue using EPS × P/E, earnings yields, and comps.</p>
+      </div>
+
+      <!-- Connections -->
+      
+      <div class="sidebar-section">
+        <h4>Connections</h4>
+        <ul>
+<li><strong>Lintner (1956)</strong> — &quot;Distribution of Incomes of Corporations Among Dividends, Retained Earnings, and Taxes.&quot; The partial adjustment model confirmed by Fama &amp; French. Target payout and SOA are earnings-based concepts.</li>
+<li><strong>Myers (1984)</strong> — &quot;The Capital Structure Puzzle.&quot; The pecking order model. Fama &amp; French test its predictions and find the &quot;deep wound&quot; of equity-issuing growth firms.</li>
+<li><strong>Myers &amp; Majluf (1984)</strong> — The theoretical foundation of the pecking order. Information asymmetry drives financing preferences.</li>
+<li><strong>Modigliani &amp; Miller (1958, 1963)</strong> — The capital structure irrelevance theorem and the tax correction. The trade-off model builds on MM's tax benefit of debt.</li>
+<li><strong>Jensen (1986)</strong> — Free cash flow theory. Predicts that more profitable firms with fewer investments should have MORE leverage to control agency costs. Fama &amp; French's results partially support this for dividends but not for leverage.</li>
+<li><strong>Rajan &amp; Zingales (1995)</strong> — &quot;What Do We Know about Capital Structure?&quot; Confirm the negative leverage-profitability relation internationally.</li>
+<li><strong>Long &amp; Malitz (1985)</strong> — Document negative relation between investment opportunities and leverage, confirmed here.</li>
+<li><strong>Titman &amp; Wessels (1988)</strong> — &quot;The Determinants of Capital Structure Choice.&quot; Early cross-sectional study. Mixed results on some determinants.</li>
+<li><strong>Shyam-Sunder &amp; Myers (1999)</strong> — &quot;Testing Static Tradeoff against Pecking Order Models of Capital Structure.&quot; Argue slow mean reversion may be spurious. Fama &amp; French acknowledge this possibility.</li>
+<li><strong>Graham &amp; Harvey (2001)</strong> — &quot;The Theory and Practice of Corporate Finance.&quot; Survey evidence that firms have leverage targets but don't adjust aggressively. Consistent with slow SOA.</li>
+<li><strong>Fama &amp; French (2001)</strong> — &quot;Disappearing Dividends.&quot; Document declining propensity to pay dividends. Fama &amp; French (2002) confirm that net equity issues are trivial for dividend payers.</li>
+<li><strong>Fama &amp; MacBeth (1973)</strong> — The cross-sectional regression methodology used throughout.</li>
+<li><strong>Baker &amp; Wurgler (2002)</strong> — Market timing theory of capital structure. An alternative to both trade-off and pecking order. Fama &amp; French's slow mean reversion is consistent with persistent effects of past market timing.</li>
+<li><strong>Frank &amp; Goyal (2009)</strong> — &quot;Capital Structure Decisions: Which Factors Are Reliably Important?&quot; Follow-up study identifying the most robust determinants.</li>
+<li><strong>DeAngelo &amp; DeAngelo (2006)</strong> — Argue MM irrelevance is itself irrelevant. Fama &amp; French's finding that dividends track earnings supports a world where payout matters.</li>
+<li><strong>Ben-David &amp; Chinco (EPS)</strong> — Fama &amp; French's &quot;important failure&quot; of the trade-off model (negative profitability-leverage relation) is the EPS paradigm's signature prediction: profitable firms have low earnings yields, so equity is cheap, so they don't lever up. The entire paper's results follow from one principle: maximize EPS given the earnings yield as the cost of equity.</li>
+<li><strong>Ben-David &amp; Chinco (EPS and dividends)</strong> — The confirmation of Lintner (1956) supports the EPS paradigm's earnings-based view of payout policy. Dividends are a fraction of EPS, smoothed over time.</li>
+<li><strong>Ben-David &amp; Chinco (EPS and capital budgeting)</strong> — The finding that investment variation is absorbed by debt (not equity) is consistent with managers using debt as a tool to maintain EPS while investing.</li>
+<li><strong>Ben-David &amp; Chinco (maxEPS paradigm)</strong> — Fama &amp; French document the &quot;confrontation&quot; between trade-off and pecking order models. The maxEPS paradigm dissolves this confrontation: both models are friction-based explanations for a pattern that follows directly from EPS maximization without any frictions.</li>
+</ul>
+
+      </div>
+      
+    </aside>
+  </div>
+
+  <!-- Prev / Next navigation -->
+  <nav class="evidence-nav">
+    
+    <a href="../evidence/EPS_BradshawSloan2002_GAAPversusTheStreet.html">
+      <span class="label">&larr; Previous</span>
+      Bradshaw, Sloan (2002)
+    </a>
+    
+
+    
+    <a href="../evidence/Repurchases_GrullonMichaely2002_DividendsRepurchasesSubstitution.html" style="text-align: right;">
+      <span class="label">Next &rarr;</span>
+      Grullon, Michaely (2002)
+    </a>
+    
+  </nav>
+
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>The Two Paradigms of Finance &mdash; Itzhak Ben-David & Alex Chinco</p>
+      <p>The Ohio State University & Michigan State University</p>
+      <p style="margin-top: 0.5rem;">Built from a collection of 2,800+ primary sources spanning 300 years.</p>
+    </div>
+  </footer>
+
+  
+</body>
+</html>

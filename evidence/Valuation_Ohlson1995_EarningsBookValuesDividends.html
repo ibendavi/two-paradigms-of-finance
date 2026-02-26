@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ohlson (1995): Earnings, Book Values, and Dividends in Equity Valuation | The Two Paradigms of Finance</title>
+  <meta name="description" content="A primary-source history of how financial thinking split into two streams: the practitioner tradition of earnings capitalization (P = EPS × P/E) and the academic revolution of NPV, CAPM, and DCF.">
+  <meta name="author" content="Itzhak Ben-David & Alex Chinco">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Two Paradigms</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="../the-split.html" >The Split</a></li>
+        <li><a href="../two-paradigms.html" >Two Paradigms</a></li>
+        <li><a href="../timeline.html" >Timeline</a></li>
+        <li><a href="../library.html" >Library</a></li>
+        <li><a href="../about.html" >About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+<div class="container">
+
+  <!-- Header -->
+  <div class="evidence-header">
+    <div class="evidence-meta">
+      <span class="paradigm-badge transitional">Transitional</span>
+      <span class="era-tag">The Great Divergence (1964–present)</span>
+      <span class="era-tag">&bull; 1995</span>
+    </div>
+    <h1 class="evidence-title">Ohlson (1995): Earnings, Book Values, and Dividends in Equity Valuation</h1>
+    
+    <div class="evidence-source">Ohlson, James A. "Earnings, Book Values, and Dividends in Equity Valuation." *Contemporary Accounting Research* 11, no. 2 (Spring 1995): 661-687. (Ohlson was at Columbia University.)</div>
+    
+  </div>
+
+  <!-- Key Finding -->
+  
+  <div class="key-finding-box">
+    <h3>Key Finding</h3>
+    <p>Ohlson's 1995 <em>Contemporary Accounting Research</em> paper provides the formal theoretical model linking accounting data (earnings, book values, dividends) to equity valuation. The model rests on three assumptions: (A1) the present value of expected dividends determines price (PVED), (A2) the clean surplus relation holds (book value changes = earnings minus dividends), and (A3) abnormal earnings follow a linear autoregressive process. The resulting valuation function is P_t = y_t + α₁x_t^a + α₂v_t — price equals book value plus a linear function of abnormal earnings and &quot;other information.&quot; Two special cases are illuminating: when abnormal earnings are perfectly persistent (ω = 1), the model yields P_t = φx_t - d_t, a pure earnings capitalization model where φ = R_f/(R_f - 1) is an earnings multiplier (approximately P/E = 1/r); when abnormal earnings are entirely transitory (ω = 0), the model yields P_t = y_t, a pure book value model. The general case is a weighted average of capitalized earnings and book value. For the EPS project, this paper formalizes the link between earnings capitalization and equity pricing — the φ = R_f/(R_f - 1) earnings multiplier is exactly the P/E ratio that the EPS paradigm treats as the fundamental pricing mechanism, and Ohlson's model shows this emerges naturally when abnormal earnings are persistent.</p>
+
+  </div>
+  
+
+  <!-- Main content + sidebar -->
+  <div class="evidence-layout">
+    <div class="prose">
+      
+      <h2>Details</h2>
+<h3>The Three Assumptions (pp. 663-668)</h3>
+<p><strong>(A1) Present Value of Expected Dividends (PVED):</strong></p>
+<blockquote>
+<p>P_t = Σ_{τ=1}^{∞} R_f^{-τ} E_t[d̃_{t+τ}]</p>
+</blockquote>
+<p>where R_f = 1 + r_f (one plus the risk-free rate). Price equals the present value of expected future dividends, discounted at the risk-free rate. This is the standard dividend discount model under risk neutrality.</p>
+<p><strong>(A2) Clean Surplus Relation:</strong></p>
+<blockquote>
+<p>y_t = y_{t-1} + x_t - d_t</p>
+</blockquote>
+<p>Book value at end of period = book value at start + earnings - dividends. Combined with dividend displacement: dividends reduce book value dollar-for-dollar but do not affect current earnings. The clean surplus relation defines &quot;abnormal earnings&quot; (residual income):</p>
+<blockquote>
+<p>x_t^a = x_t - (R_f - 1)y_{t-1}</p>
+</blockquote>
+<p>Abnormal earnings = actual earnings minus a charge for the cost of equity capital applied to opening book value. This is the excess return concept applied to accounting data.</p>
+<p><strong>(A3) Linear Information Dynamics:</strong></p>
+<blockquote>
+<p>x̃_{t+1}^a = ωx_t^a + v_t + ε̃_{1,t+1}    (0 ≤ ω ≤ 1)
+ṽ_{t+1} = γv_t + ε̃_{2,t+1}    (0 ≤ γ &lt; 1)</p>
+</blockquote>
+<p>Abnormal earnings follow a first-order autoregressive process with persistence parameter ω, plus an &quot;other information&quot; variable v_t with its own persistence γ. The ε terms are mean-zero disturbances. These dynamics capture the key economic idea that abnormal profitability is mean-reverting (competition erodes above-normal returns over time).</p>
+<h3>The Valuation Function (pp. 668-671)</h3>
+<p>Given assumptions (A1)-(A3), Ohlson derives:</p>
+<blockquote>
+<p><strong>P_t = y_t + α₁x_t^a + α₂v_t</strong>    (Equation 5)</p>
+</blockquote>
+<p>where:</p>
+<ul>
+<li>α₁ = ω/(R_f - ω) ≥ 0</li>
+<li>α₂ = R_f/((R_f - ω)(R_f - γ)) &gt; 0</li>
+</ul>
+<p>Price = book value + capitalized abnormal earnings + capitalized other information. The model provides a rigorous justification for residual income valuation.</p>
+<h3>Special Cases: Pure Earnings vs. Pure Book Value (pp. 672-674)</h3>
+<p><strong>Case 1: ω = 1 (perfectly persistent abnormal earnings)</strong></p>
+<p>When ω = 1, α₁ = 1/(R_f - 1), and:</p>
+<blockquote>
+<p>P_t = y_t + (1/(R_f - 1))x_t^a = y_t + (1/(R_f - 1))[x_t - (R_f - 1)y_{t-1}]</p>
+</blockquote>
+<p>This simplifies to:</p>
+<blockquote>
+<p><strong>P_t = φx_t - d_t</strong>    where φ = R_f/(R_f - 1)</p>
+</blockquote>
+<p>This is a <strong>pure earnings capitalization model</strong>. Book value drops out entirely. The multiplier φ = R_f/(R_f - 1) ≈ 1/r for small r. For example, if r = 10%, then φ = 1.1/0.1 = 11 — the P/E ratio is 11x. Price is determined entirely by capitalized earnings, adjusted for the current dividend.</p>
+<p><strong>Case 2: ω = 0 (entirely transitory abnormal earnings)</strong></p>
+<p>When ω = 0, α₁ = 0, and:</p>
+<blockquote>
+<p><strong>P_t = y_t + α₂v_t</strong></p>
+</blockquote>
+<p>If v_t = 0 as well, then P_t = y_t — a <strong>pure book value model</strong>. Price equals book value because abnormal earnings are never expected to recur.</p>
+<p><strong>The general case (0 &lt; ω &lt; 1):</strong></p>
+<p>Price is a weighted average of capitalized earnings and book value, with the weights determined by the persistence of abnormal earnings. Higher persistence (ω closer to 1) places more weight on earnings; lower persistence (ω closer to 0) places more weight on book value.</p>
+<h3>Key Properties (pp. 674-680)</h3>
+<p><strong>(P1) Dividend displacement of earnings:</strong></p>
+<blockquote>
+<p>∂E_t[x̃_{t+1}]/∂d_t = -(R_f - 1)</p>
+</blockquote>
+<p>Paying a dollar in dividends today reduces next period's expected earnings by (R_f - 1) — the opportunity cost of the distributed capital. Dividends reduce the book value base on which future earnings are generated.</p>
+<p><strong>(P2) Earnings sufficiency (aggregation):</strong>
+Equation (2) — the clean surplus relation combined with PVED — shows that given current book value, earnings, and dividends, one can construct an accounting-based valuation without reference to individual revenue and expense components. Earnings aggregate all the relevant information.</p>
+<p><strong>(P3) Dividend irrelevance (displacement property):</strong></p>
+<blockquote>
+<p>∂P_t/∂d_t = -1</p>
+</blockquote>
+<p>One dollar more in dividends reduces price by exactly one dollar (the ex-dividend effect). This is Modigliani-Miller dividend irrelevance embedded in the model. Dividends are a zero-NPV transaction: the firm pays out cash, and book value and future earnings decline commensurately.</p>
+<p><strong>(P4) Book value as unbiased estimator:</strong></p>
+<blockquote>
+<p>E[P̃_{t+τ} - ỹ_{t+τ}] → 0 as τ → ∞</p>
+</blockquote>
+<p>In the long run, the expected difference between market value and book value converges to zero. Book value is an unbiased long-run predictor of market value, though it may deviate substantially in the short run.</p>
+<p><strong>(P5) Finite-horizon approximation:</strong></p>
+<blockquote>
+<p>P_t ≈ φx_t + (1 - φ(R_f - 1)/(R_f^T))y_t for T-period horizon</p>
+</blockquote>
+<p>For finite horizons, the valuation is approximately a weighted combination of capitalized earnings and book value, with the weight on book value increasing as the horizon T grows.</p>
+<h3>Risk and Discount Rates (pp. 680-681)</h3>
+<p>Ohlson notes that the simplest extension to incorporate risk is to replace R_f with ρ = R_f + risk premium. Under CAPM, ρ = R_f + β(R_m - R_f). The model structure is preserved, but the discount rate becomes firm-specific. Ohlson acknowledges that a fully rigorous treatment of risk would require stochastic discount factors, but argues the risk-neutral formulation captures the essential structure.</p>
+
+      
+
+      
+      <h2>Significance</h2>
+      <h3>1. The Earnings Multiplier φ = R_f/(R_f - 1) IS the P/E Ratio</h3>
+<p>Ohlson's earnings multiplier φ = R_f/(R_f - 1) ≈ 1/r is exactly the P/E ratio in the EPS paradigm's pricing formula P = EPS × P/E. When abnormal earnings are persistent (ω close to 1), Ohlson's model reduces to P = φ × EPS — earnings capitalization in its purest form. The EPS paradigm's claim that investors price stocks by capitalizing earnings is formally justified by Ohlson's model under the assumption of persistent earnings.</p>
+<h3>2. The Special Case ω = 1 Is the EPS Paradigm's Baseline</h3>
+<p>The pure earnings capitalization case (P_t = φx_t - d_t when ω = 1) is the theoretical benchmark for the EPS paradigm. If earnings are persistent — and the evidence on earnings persistence (e.g., Ou &amp; Penman 1989, Bernard &amp; Thomas 1990) suggests they largely are — then price is determined by capitalizing current earnings at the earnings yield. Book value is irrelevant. This is exactly what the EPS paradigm claims: P = EPS × P/E, where the P/E multiplier is approximately 1/r.</p>
+<h3>3. ω Measures the &quot;Earnings Quality&quot; That Determines the P/E Multiple</h3>
+<p>In the EPS paradigm, the P/E multiple comes from &quot;comps&quot; — comparable firms in the same industry and risk class. Ohlson's model reveals what drives this multiple theoretically: it is the persistence of abnormal earnings (ω). High-ω firms (persistent competitive advantage) deserve high P/E ratios; low-ω firms (transitory earnings) deserve low P/E ratios. This maps onto the practitioner distinction between &quot;quality&quot; and &quot;value&quot; stocks.</p>
+<h3>4. Book Value Matters Only When Earnings Are Transitory</h3>
+<p>Ohlson shows that book value enters the valuation only when ω &lt; 1 — when abnormal earnings are mean-reverting. For stable, mature firms with persistent earnings (the typical case for the EPS paradigm), book value is essentially irrelevant to pricing. This explains why practitioners focus on EPS and P/E rather than book value: for most firms, earnings persistence is high enough that capitalized earnings dominate the valuation.</p>
+<h3>5. Dividend Irrelevance Is Built Into the Model</h3>
+<p>Property (P3) — ∂P_t/∂d_t = -1 — means dividends don't create value in Ohlson's model. This is consistent with the EPS paradigm where dividends are a payout decision, not a value-creation mechanism. Managers focused on maximizing EPS would only pay dividends if doing so doesn't reduce future EPS below the level that would prevail under retention.</p>
+<h3>6. The Model Bridges Accounting and Asset Pricing</h3>
+<p>Ohlson's model is the theoretical bridge between the accounting literature (Ball &amp; Brown 1968, earnings have information content) and the asset pricing literature (Basu 1977, E/P predicts returns). It shows formally that if accounting data follows certain dynamics, then earnings capitalization IS the rational pricing framework. The EPS paradigm's claim that P = EPS × P/E is not ad hoc — it is the implication of Ohlson's model for firms with persistent earnings.</p>
+
+      
+    </div>
+
+    <aside class="sidebar">
+      <!-- Paradigm info -->
+      <div class="sidebar-section">
+        <h4>Paradigm</h4>
+        <p><span class="paradigm-badge transitional">Transitional</span></p>
+        <p style="margin-top: 0.5rem;">Works that bridge or straddle both paradigms.</p>
+      </div>
+
+      <!-- Era context -->
+      <div class="sidebar-section">
+        <h4>Era</h4>
+        <p><strong>The Great Divergence</strong> (1964–present)</p>
+        <p>Academic textbooks teach NPV/CAPM/DCF. Practitioners continue using EPS × P/E, earnings yields, and comps.</p>
+      </div>
+
+      <!-- Connections -->
+      
+      <div class="sidebar-section">
+        <h4>Connections</h4>
+        <ul>
+<li><strong>Edwards &amp; Bell (1961)</strong> — <em>The Theory and Measurement of Business Income</em>. The intellectual source of residual income valuation that Ohlson formalizes.</li>
+<li><strong>Peasnell (1982)</strong> — Derives the residual income valuation formula that Ohlson's model extends with linear information dynamics.</li>
+<li><strong>Feltham &amp; Ohlson (1995)</strong> — Companion paper extending Ohlson (1995) to incorporate conservative accounting, growth, and more complex dynamics.</li>
+<li><strong>Ball &amp; Brown (1968)</strong> — Empirical evidence that earnings have information content. Ohlson provides the theoretical framework explaining why: earnings determine value through the capitalization mechanism.</li>
+<li><strong>Basu (1977)</strong> — The P/E effect (E/P predicts returns). Ohlson's model implies that E/P = 1/φ = (R_f - 1)/R_f ≈ r, so E/P IS the expected return — exactly what Basu documents.</li>
+<li><strong>Ou &amp; Penman (1989)</strong> — Document that financial statement variables predict future earnings. In Ohlson's framework, these variables are estimating ω (earnings persistence) and v_t (other information).</li>
+<li><strong>Penman &amp; Reggiani (2018)</strong> — Use E/P = r - g framework that is directly derived from Ohlson's model. When g &gt; 0, E/P &lt; r, and the earnings yield understates the required return by the growth rate.</li>
+<li><strong>Bernard (1995)</strong> — &quot;The Feltham-Ohlson Framework: Implications for Empiricists.&quot; An early influential empirical application of the Ohlson model.</li>
+<li><strong>Frankel &amp; Lee (1998)</strong> — Use Ohlson's residual income model to show V/P (model-derived value to price) predicts returns, confirming the model's empirical power.</li>
+<li><strong>Modigliani &amp; Miller (1961)</strong> — MM dividend irrelevance is embedded in Ohlson's model as Property (P3). Ohlson formalizes MM's intuition within an accounting framework.</li>
+<li><strong>Gordon (1959)</strong> — Gordon's growth model P = D/(r-g) is a special case when earnings growth is constant. Ohlson generalizes by allowing stochastic dynamics and explicitly modeling the role of book value vs. earnings.</li>
+<li><strong>Sloan (1996)</strong> — Shows markets misprize the accrual component of earnings. In Ohlson's framework, this suggests the market incorrectly estimates ω for high-accrual vs. high-cash-flow firms.</li>
+<li><strong>Ben-David &amp; Chinco (EPS)</strong> — Ohlson's pure earnings capitalization case (P = φx - d when ω = 1) IS the EPS paradigm's pricing equation. The EPS paradigm claims this is the empirically relevant case: earnings are persistent, so investors capitalize current earnings at a multiple determined by comparables.</li>
+<li><strong>Ben-David &amp; Chinco (EPS x PE)</strong> — Ohlson's model provides the formal justification for P = E(EPS) × P/E. The P/E multiple is φ = R_f/(R_f - 1) ≈ 1/r when earnings are persistent, and the &quot;comps&quot; that determine P/E in practice are estimating ω (persistence) for comparable firms.</li>
+<li><strong>Ben-David &amp; Chinco (Backward-looking AP)</strong> — Ohlson's model uses CURRENT accounting data (earnings, book value) to determine price. This is backward-looking asset pricing: current earnings determine value, not projected future cash flows. The linear dynamics (A3) mean that current earnings are sufficient statistics for the entire future stream.</li>
+<li><strong>Ben-David &amp; Chinco (Equity risk premium)</strong> — In Ohlson's model, the earnings yield E/P ≈ r when ω ≈ 1. This means the equity risk premium is approximately E/P - r_f — the observable earnings yield spread. This is exactly the &quot;People's ERP&quot; that the EPS paradigm proposes.</li>
+</ul>
+
+      </div>
+      
+    </aside>
+  </div>
+
+  <!-- Prev / Next navigation -->
+  <nav class="evidence-nav">
+    
+    <a href="../evidence/Repurchases_IkenberryLakonishokVermaelen1995_MarketUnderreactionRepurchases.html">
+      <span class="label">&larr; Previous</span>
+      Ikenberry, Lakonishok, Vermaelen (1995)
+    </a>
+    
+
+    
+    <a href="../evidence/EPS_Andrade1997_AppearancesMatterEPSAccretionDilution.html" style="text-align: right;">
+      <span class="label">Next &rarr;</span>
+      Andrade (1997)
+    </a>
+    
+  </nav>
+
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>The Two Paradigms of Finance &mdash; Itzhak Ben-David & Alex Chinco</p>
+      <p>The Ohio State University & Michigan State University</p>
+      <p style="margin-top: 0.5rem;">Built from a collection of 2,800+ primary sources spanning 300 years.</p>
+    </div>
+  </footer>
+
+  
+</body>
+</html>

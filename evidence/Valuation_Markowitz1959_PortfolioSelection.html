@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markowitz (1959): Portfolio Selection — The Risk-Return Revolution | The Two Paradigms of Finance</title>
+  <meta name="description" content="A primary-source history of how financial thinking split into two streams: the practitioner tradition of earnings capitalization (P = EPS × P/E) and the academic revolution of NPV, CAPM, and DCF.">
+  <meta name="author" content="Itzhak Ben-David & Alex Chinco">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Two Paradigms</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="../the-split.html" >The Split</a></li>
+        <li><a href="../two-paradigms.html" >Two Paradigms</a></li>
+        <li><a href="../timeline.html" >Timeline</a></li>
+        <li><a href="../library.html" >Library</a></li>
+        <li><a href="../about.html" >About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+<div class="container">
+
+  <!-- Header -->
+  <div class="evidence-header">
+    <div class="evidence-meta">
+      <span class="paradigm-badge transitional">Transitional</span>
+      <span class="era-tag">The Revolution (1958–1963)</span>
+      <span class="era-tag">&bull; 1959</span>
+    </div>
+    <h1 class="evidence-title">Markowitz (1959): Portfolio Selection — The Risk-Return Revolution</h1>
+    
+    <div class="evidence-source">Markowitz, Harry M. *Portfolio Selection: Efficient Diversification of Investments.* New York: John Wiley & Sons (RAND Corporation Monograph), 1959. ~340 pages.</div>
+    
+  </div>
+
+  <!-- Key Finding -->
+  
+  <div class="key-finding-box">
+    <h3>Key Finding</h3>
+    <p>Markowitz's 1959 book (expanding his 1952 paper) creates modern portfolio theory from mathematical first principles — entirely separate from the existing valuation tradition. The key insight: portfolio risk depends overwhelmingly on <strong>covariances</strong> between securities, not on individual variances. Diversification has a <strong>floor</strong> set by average correlation. The efficient frontier defines optimal risk-return tradeoffs. Critically, Markowitz does NOT address stock pricing, valuation, earnings, dividends, or discount rates. He cites Graham &amp; Dodd only to say &quot;that's their problem, not mine.&quot; He does NOT cite Fisher or Williams. Portfolio theory and valuation theory were, in 1959, operating in completely separate intellectual worlds — the integration would not come until the CAPM (1964-66).</p>
+
+  </div>
+  
+
+  <!-- Main content + sidebar -->
+  <div class="evidence-layout">
+    <div class="prose">
+      
+      <h2>Details</h2>
+<h3>The Core Insight: Covariance, Not Variance (Ch. IV-V)</h3>
+<p>The portfolio variance formula:</p>
+<blockquote>
+<p>var(portfolio) = Σᵢ Σⱼ Aᵢ · Aⱼ · σᵢⱼ</p>
+</blockquote>
+<p>where Aᵢ = weight of security i, σᵢⱼ = covariance between i and j.</p>
+<p><strong>This is the single most important equation.</strong> Portfolio risk depends on ALL pairwise covariances, not just individual variances. No practitioner had formalized this before Markowitz.</p>
+<h3>The Diversification Floor (Ch. V, p. 109-114)</h3>
+<p>For N correlated securities with average correlation ρ:</p>
+<ul>
+<li>Portfolio variance approaches ρ · V as N → ∞</li>
+<li><strong>The average covariance is the floor below which diversification cannot push risk</strong></li>
+</ul>
+<p>Numerical example (p. 112): With correlation 0.5, adding securities from 10 to 1,000 barely reduces standard deviation (from .745 to .710). With uncorrelated securities, it would drop from .316 to .032.</p>
+<blockquote>
+<p>&quot;It would be incorrect to say that the variances or standard deviations of securities per se have little influence on the variance of a portfolio. True, the variance in itself adds little; it is the covariances which are important.&quot; (p. 113)</p>
+</blockquote>
+<h3>The Efficient Frontier (Ch. VII)</h3>
+<blockquote>
+<p>&quot;A portfolio is inefficient if it is possible to obtain higher expected return with no greater variability of return, or obtain greater certainty of return with no less average or expected return.&quot; (p. 129)</p>
+</blockquote>
+<p>The efficient frontier = the set of portfolios that maximize expected return for each level of variance (or minimize variance for each level of expected return). Derived using Lagrange multipliers. The &quot;critical line algorithm&quot; (Ch. VIII) computes it.</p>
+<h3>How Returns Are Estimated (Ch. II, p. 28)</h3>
+<p>Two alternatives offered:</p>
+<ol>
+<li><strong>Historical returns</strong> — used in the 10-security example (1937-1954 data)</li>
+<li><strong>Analyst probability beliefs</strong> — subjective forecasts from security analysts</li>
+</ol>
+<blockquote>
+<p>&quot;The analyst may prefer to use his own probability beliefs concerning future returns rather than use historical returns as the basis of portfolio analysis.&quot;</p>
+</blockquote>
+<p><strong>What Markowitz does NOT use:</strong> No DCF, no earnings-based valuation, no dividend discount model, no present value. Returns are random variables, not derived from fundamentals.</p>
+<h3>The Separation of Security Analysis from Portfolio Analysis (p. 28)</h3>
+<blockquote>
+<p>&quot;We shall not discuss the procedures of the security analyst... <strong>The topic of this monograph is Portfolio Analysis. Portfolio analysis begins where security analyses leave off.</strong>&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;See, for example, Graham and Dodd, <em>Security Analysis</em>.&quot; [Reference 2]</p>
+</blockquote>
+<p>This is the sharpest possible demarcation: Markowitz created the <strong>demand side</strong> of finance (how investors should choose portfolios) but explicitly excluded the <strong>supply side</strong> (how markets should price securities). The connection required the CAPM.</p>
+<h3>Definition of Risk (Ch. XIII)</h3>
+<p>Primary: <strong>Variance (standard deviation) of return.</strong></p>
+<p>Six alternatives discussed:</p>
+<ol>
+<li>Standard deviation (his default)</li>
+<li>Semi-variance (downside only)</li>
+<li>Expected loss</li>
+<li>Expected absolute deviation</li>
+<li>Probability of loss</li>
+<li>Maximum loss</li>
+</ol>
+<p>He acknowledges semi-variance's intuitive appeal but prefers standard deviation for tractability.</p>
+<h3>The Geometric Mean and Long-Run Growth (Ch. VI)</h3>
+<blockquote>
+<p>ln(1+E) - (1/2) · var(r) / (1+E)²</p>
+</blockquote>
+<p>Variance directly reduces compound growth rate. This provides a growth-based justification for minimizing variance beyond pure risk aversion.</p>
+<h3>Proto-Factor Model (p. 96-100)</h3>
+<blockquote>
+<p>rₐ = Aₐ + Bₐ · I + uₐ</p>
+</blockquote>
+<p>where I = market index, uₐ = residual. This allows deriving all covariances from each security's relationship to the index — later developed by Sharpe into the single-index model (1963).</p>
+<h3>Who Is Cited (and Who Is Not)</h3>
+<p><strong>Cited:</strong></p>
+<ul>
+<li>Graham &amp; Dodd — &quot;Security Analysis&quot; (3rd ed.) — boundary demarcation only</li>
+<li>von Neumann &amp; Morgenstern — expected utility foundation</li>
+<li>A.D. Roy (1952) — independently derived similar mean-variance framework</li>
+<li>Keynes — <em>Treatise on Probability</em> (for probability theory, NOT financial ideas)</li>
+</ul>
+<p><strong>NOT cited:</strong></p>
+<ul>
+<li>Irving Fisher — the entire PV/discounting tradition is absent</li>
+<li>John Burr Williams — the DDM tradition is absent</li>
+<li>Modigliani &amp; Miller — capital structure irrelevance is absent</li>
+<li>Any practitioner valuation literature</li>
+</ul>
+<h3>What Was NEW vs. Practitioner Intuition</h3>
+<table>
+<thead>
+<tr>
+<th>Practitioners Knew (pre-1952)</th>
+<th>Markowitz Added</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Don't put all eggs in one basket</td>
+<td><strong>Covariance insight:</strong> which baskets matter depends on correlations</td>
+</tr>
+<tr>
+<td>Spread across industries/types</td>
+<td><strong>Efficient frontier:</strong> the optimal tradeoff curve</td>
+</tr>
+<tr>
+<td>Diversification reduces risk</td>
+<td><strong>Diversification floor:</strong> correlated assets hit a limit</td>
+</tr>
+<tr>
+<td>Some stocks are riskier</td>
+<td><strong>Formal risk definition:</strong> variance of returns</td>
+</tr>
+<tr>
+<td>Higher return needs more risk</td>
+<td><strong>Exact mathematical relationship:</strong> quadratic programming</td>
+</tr>
+<tr>
+<td>Pick good stocks</td>
+<td><strong>Portfolio &gt; stocks:</strong> a portfolio of mediocre uncorrelated stocks can beat a portfolio of excellent correlated stocks</td>
+</tr>
+</tbody>
+</table>
+<p>Lyon (1917) had 4 intuitive diversification rules (limit per investment, per industry, geographic spread, maturity spread). Markowitz showed WHY those rules work (correlation reduction) and HOW MUCH diversification is enough (until you hit the covariance floor).</p>
+
+      
+
+      
+      <h2>Significance</h2>
+      <h3>1. A New Discipline Created from Outside Finance</h3>
+<p>Markowitz drew on probability theory, game theory, and statistical decision theory — NOT on the existing finance literature. He built modern portfolio theory from mathematical first principles. The intellectual genealogy goes through von Neumann-Morgenstern, not through Fisher-Williams-Graham.</p>
+<h3>2. The Demand Side Without the Supply Side</h3>
+<p>Portfolio theory tells investors how to choose, but not how markets price. The gap between Markowitz (1952/1959) and CAPM (1964) is the gap between investor behavior and market equilibrium. Markowitz could not answer: &quot;What is the right expected return for this stock?&quot; — that required Sharpe, Lintner, and Mossin to close the loop.</p>
+<h3>3. The Two Streams Remain Separate</h3>
+<p>As of 1959, the practitioner stream (Graham &amp; Dodd: intrinsic value, earnings analysis, margin of safety) and the academic stream (Markowitz: portfolio optimization, variance minimization) were operating in entirely separate worlds. They spoke different languages, used different tools, and addressed different questions. The practitioner asked &quot;What is this stock worth?&quot; The academic asked &quot;What portfolio should I hold?&quot;</p>
+<h3>4. The Missing Piece: Required Returns</h3>
+<p>Markowitz takes expected returns as inputs. He does not derive them from fundamentals (earnings, dividends) or from market equilibrium. This is the piece that:</p>
+<ul>
+<li>Fisher (1907/1930) provided theoretically (discount rates from time preference)</li>
+<li>Williams (1938) applied to stocks (DDM)</li>
+<li>CAPM (1964) would derive from portfolio theory itself (beta × market risk premium)</li>
+</ul>
+
+      
+    </div>
+
+    <aside class="sidebar">
+      <!-- Paradigm info -->
+      <div class="sidebar-section">
+        <h4>Paradigm</h4>
+        <p><span class="paradigm-badge transitional">Transitional</span></p>
+        <p style="margin-top: 0.5rem;">Works that bridge or straddle both paradigms.</p>
+      </div>
+
+      <!-- Era context -->
+      <div class="sidebar-section">
+        <h4>Era</h4>
+        <p><strong>The Revolution</strong> (1958–1963)</p>
+        <p>In just five years, Modigliani-Miller, Markowitz, Sharpe, and Solomon replaced earnings maximization with value maximization as the academic standard.</p>
+      </div>
+
+      <!-- Connections -->
+      
+      <div class="sidebar-section">
+        <h4>Connections</h4>
+        <ul>
+<li><strong>Built on:</strong> von Neumann &amp; Morgenstern (1944) expected utility; probability theory</li>
+<li><strong>Parallel to but separate from:</strong> Fisher/Williams/Graham &amp; Dodd valuation tradition</li>
+<li><strong>Led directly to:</strong> Sharpe (1964) CAPM — connecting portfolio theory to asset pricing</li>
+<li><strong>Led to:</strong> Fama (1965) efficient markets; Black-Scholes (1973) option pricing</li>
+<li><strong>Cited:</strong> Graham &amp; Dodd [boundary]; Roy (1952) [parallel development]</li>
+<li><strong>Did NOT cite:</strong> Fisher, Williams, Modigliani-Miller</li>
+<li><strong>Stream:</strong> Pure academic — mathematical, no concession to practitioner language</li>
+</ul>
+
+      </div>
+      
+    </aside>
+  </div>
+
+  <!-- Prev / Next navigation -->
+  <nav class="evidence-nav">
+    
+    <a href="../evidence/Valuation_Gordon1959_DividendsEarningsStockPrices.html">
+      <span class="label">&larr; Previous</span>
+      Gordon (1959)
+    </a>
+    
+
+    
+    <a href="../evidence/Dividends_MillerModigliani1961_DividendPolicyGrowthValuation.html" style="text-align: right;">
+      <span class="label">Next &rarr;</span>
+      Miller, Modigliani (1961)
+    </a>
+    
+  </nav>
+
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>The Two Paradigms of Finance &mdash; Itzhak Ben-David & Alex Chinco</p>
+      <p>The Ohio State University & Michigan State University</p>
+      <p style="margin-top: 0.5rem;">Built from a collection of 2,800+ primary sources spanning 300 years.</p>
+    </div>
+  </footer>
+
+  
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fama (1965): The Behavior of Stock-Market Prices — Random Walks and Fat Tails | The Two Paradigms of Finance</title>
+  <meta name="description" content="A primary-source history of how financial thinking split into two streams: the practitioner tradition of earnings capitalization (P = EPS × P/E) and the academic revolution of NPV, CAPM, and DCF.">
+  <meta name="author" content="Itzhak Ben-David & Alex Chinco">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Two Paradigms</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="../the-split.html" >The Split</a></li>
+        <li><a href="../two-paradigms.html" >Two Paradigms</a></li>
+        <li><a href="../timeline.html" >Timeline</a></li>
+        <li><a href="../library.html" >Library</a></li>
+        <li><a href="../about.html" >About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+<div class="container">
+
+  <!-- Header -->
+  <div class="evidence-header">
+    <div class="evidence-meta">
+      <span class="paradigm-badge academic">Academic</span>
+      <span class="era-tag">The Great Divergence (1964–present)</span>
+      <span class="era-tag">&bull; 1965</span>
+    </div>
+    <h1 class="evidence-title">Fama (1965): The Behavior of Stock-Market Prices — Random Walks and Fat Tails</h1>
+    
+    <div class="evidence-source">Fama, Eugene F. "The Behavior of Stock-Market Prices." *Journal of Business* 38, no. 1 (January 1965): 34-105.</div>
+    
+  </div>
+
+  <!-- Key Finding -->
+  
+  <div class="key-finding-box">
+    <h3>Key Finding</h3>
+    <p>Fama's 1965 Journal of Business paper (his doctoral dissertation) provides the first comprehensive empirical test of the random walk model for stock prices. Two major results: (1) successive price changes are effectively independent — chart reading and technical analysis have no value; (2) the distribution of price changes has <strong>fat tails</strong> consistent with Mandelbrot's stable Paretian hypothesis (characteristic exponent α &lt; 2), meaning the Gaussian assumption is wrong and variance may be infinite. The paper also contains the proto-EMH argument: &quot;an efficient market&quot; is one where &quot;actual prices at every point in time represent very good estimates of intrinsic values.&quot; This paper, along with Fama (1970), would define the efficient markets research program for a generation.</p>
+
+  </div>
+  
+
+  <!-- Main content + sidebar -->
+  <div class="evidence-layout">
+    <div class="prose">
+      
+      <h2>Details</h2>
+<h3>The Random Walk Model (pp. 35-40)</h3>
+<p>The random walk model requires two hypotheses:</p>
+<ol>
+<li><strong>Independence:</strong> Successive price changes are independent random variables</li>
+<li><strong>Identical distribution:</strong> Price changes conform to some probability distribution</li>
+</ol>
+<p>Fama emphasizes that the random walk model is really a <strong>market theory</strong>, not just a statistical observation:</p>
+<blockquote>
+<p>&quot;An 'efficient' market is defined as a market where there are large numbers of rational, profit-maximizers actively competing, with each trying to predict future market values of individual securities, and where important current information is almost freely available to all participants.&quot; (p. 56)</p>
+</blockquote>
+<p>In such a market, competition ensures that prices &quot;at any point in time will be very good estimates of intrinsic values&quot; and price changes will be &quot;independent identically distributed random variables.&quot;</p>
+<h3>Mandelbrot's Stable Paretian Hypothesis (pp. 40-55)</h3>
+<p>The distribution of stock returns has:</p>
+<ul>
+<li><strong>Fat tails:</strong> Extreme price changes occur far more often than the normal distribution predicts</li>
+<li><strong>High peaks:</strong> More observations near the center than Gaussian</li>
+</ul>
+<p>These features are consistent with Mandelbrot's stable Paretian distributions with characteristic exponent α &lt; 2 (where α = 2 is Gaussian). Fama estimates α ≈ 1.7 for most DJIA stocks.</p>
+<p>Critical implication: If α &lt; 2, the <strong>variance is infinite</strong> (does not exist in a population sense). This would undermine:</p>
+<ul>
+<li>All mean-variance portfolio theory (Markowitz)</li>
+<li>Standard statistical tests based on sample means and variances</li>
+<li>The law of large numbers in its usual form</li>
+</ul>
+<blockquote>
+<p>&quot;If the population variance of the distribution of first differences is infinite, the sample variance is a meaningless measure of the dispersion.&quot; (p. 46)</p>
+</blockquote>
+<h3>Empirical Tests of Independence (pp. 55-73)</h3>
+<p>Data: Daily prices for 30 DJIA stocks, 1957-1962 (~1,200 observations each).</p>
+<p><strong>Serial correlation tests (pp. 64-66):</strong></p>
+<ul>
+<li>Mean serial correlation at lag 1: +0.026 (for daily changes)</li>
+<li>Largest: +0.112 (Alcoa); most are tiny</li>
+<li>Conclusion: &quot;dependence in day-to-day price changes is either extremely slight or non-existent&quot;</li>
+</ul>
+<p><strong>Runs tests (pp. 66-69):</strong></p>
+<ul>
+<li>Count sequences of positive/negative changes</li>
+<li>Results: actual runs close to expected under independence</li>
+<li>Slight tendency toward too few runs (positive serial dependence), consistent with serial correlations</li>
+</ul>
+<p><strong>Filter rules (pp. 69-73):</strong></p>
+<ul>
+<li>Alexander's (1961) strategy: buy when price rises x% from a trough, sell when it falls x% from a peak</li>
+<li>For small filters (0.5%, 1.0%): profits exist but vanish after transaction costs</li>
+<li>For larger filters (2%+): buy-and-hold outperforms</li>
+<li>&quot;There is no evidence that the filter technique, based on knowledge of the past behavior of prices, can make profits greater than buy-and-hold.&quot; (p. 73)</li>
+</ul>
+<h3>Mutual Fund Performance (pp. 73-78)</h3>
+<p>Reviews evidence on professional fund managers:</p>
+<ul>
+<li>If independence holds, &quot;the work of the chartist is of no real value in stock market analysis&quot;</li>
+<li>Even fundamental analysts face an uphill battle: in an efficient market, prices already reflect available information</li>
+<li>Available evidence suggests mutual funds do not consistently outperform the market</li>
+</ul>
+<h3>The EMH Argument (p. 56)</h3>
+<p>The core proto-EMH reasoning:</p>
+<blockquote>
+<p>&quot;If the random walk model is a valid description of reality, the work of the chartist, like that of the astrologer, is of no real value in stock market analysis.&quot;</p>
+</blockquote>
+<p>But Fama goes further — if fundamental analysis were consistently successful, competition among analysts would drive prices to intrinsic values, making even fundamental analysis a zero-sum game in the aggregate.</p>
+<h2>Who Is Cited</h2>
+<p><strong>Cited:</strong></p>
+<ul>
+<li><strong>Bachelier (1900)</strong> — first to suggest stock prices follow a random walk</li>
+<li><strong>Mandelbrot (1963)</strong> — stable Paretian hypothesis; fat tails; α &lt; 2</li>
+<li><strong>Osborne (1959, 1962)</strong> — log-normal model of stock prices</li>
+<li><strong>Alexander (1961)</strong> — filter rules</li>
+<li><strong>Kendall (1953)</strong> — early empirical evidence of random behavior in commodity prices</li>
+<li><strong>Markowitz (1959)</strong> — portfolio theory (challenged by infinite variance result)</li>
+<li><strong>Miller &amp; Modigliani (1961)</strong> — dividend irrelevance</li>
+<li><strong>Roberts (1959)</strong> — random walk patterns mimic stock charts</li>
+</ul>
+<p><strong>NOT cited:</strong></p>
+<ul>
+<li><strong>Graham &amp; Dodd</strong> — not cited, though their entire analytical framework is implicitly challenged</li>
+<li><strong>Fisher</strong> — not cited</li>
+<li><strong>Williams</strong> — not cited</li>
+<li><strong>Sharpe</strong> — not cited (CAPM came in 1964, just before this paper)</li>
+</ul>
+
+      
+
+      
+      <h2>Significance</h2>
+      <h3>1. The Empirical Foundation for EMH</h3>
+<p>This paper provided the data. Fama (1970) would provide the theory. Together they constitute the empirical-theoretical foundation for the efficient markets hypothesis. The 1965 paper is the more ambitious empirical effort — 73 pages of careful statistical testing.</p>
+<h3>2. The Fat Tails Challenge</h3>
+<p>Fama's evidence for α &lt; 2 (infinite variance) was a direct challenge to Markowitz's mean-variance framework. If variance doesn't exist, portfolio optimization based on variance is meaningless. This tension was never fully resolved — practice adopted the Gaussian assumption, while the data continued to show fat tails. The 2008 financial crisis would dramatically illustrate the real-world cost of ignoring fat tails.</p>
+<h3>3. The Death of Technical Analysis</h3>
+<p>The random walk evidence — serial correlations near zero, runs tests consistent with independence, filter rules unprofitable after costs — provided the first rigorous basis for dismissing technical analysis. This remains one of the most robust findings in empirical finance.</p>
+<h3>4. Proto-Behavioral Finance</h3>
+<p>Paradoxically, Fama's fat tails evidence (which he attributed to Mandelbrot's stable distributions) could alternatively be explained by behavioral phenomena — overreaction, herding, panic. The same data that supported EMH also contained the seeds of its critique.</p>
+
+      
+    </div>
+
+    <aside class="sidebar">
+      <!-- Paradigm info -->
+      <div class="sidebar-section">
+        <h4>Paradigm</h4>
+        <p><span class="paradigm-badge academic">Academic</span></p>
+        <p style="margin-top: 0.5rem;">NPV / DCF: P = Σ CF/(1+r)^t. Cost of equity from CAPM / factor model. Objective = maximize firm value.</p>
+      </div>
+
+      <!-- Era context -->
+      <div class="sidebar-section">
+        <h4>Era</h4>
+        <p><strong>The Great Divergence</strong> (1964–present)</p>
+        <p>Academic textbooks teach NPV/CAPM/DCF. Practitioners continue using EPS × P/E, earnings yields, and comps.</p>
+      </div>
+
+      <!-- Connections -->
+      
+      <div class="sidebar-section">
+        <h4>Connections</h4>
+        <ul>
+<li><strong>Built on:</strong> Bachelier (1900) random walk; Mandelbrot (1963) stable Paretian; Kendall (1953) empirical evidence</li>
+<li><strong>Challenged:</strong> Markowitz (1959) mean-variance framework (via infinite variance); Graham &amp; Dodd fundamental analysis (via market efficiency)</li>
+<li><strong>Led directly to:</strong> Fama (1970) formal EMH theory</li>
+<li><strong>Parallel to:</strong> Sharpe (1964) CAPM — both assume competitive, rational markets but address different questions</li>
+<li><strong>Would be challenged by:</strong> De Bondt &amp; Thaler (1985) overreaction; Jegadeesh &amp; Titman (1993) momentum; Kahneman &amp; Tversky (1979) prospect theory</li>
+<li><strong>Stream:</strong> Pure academic — statistical/econometric, no concession to practitioner language</li>
+</ul>
+
+      </div>
+      
+    </aside>
+  </div>
+
+  <!-- Prev / Next navigation -->
+  <nav class="evidence-nav">
+    
+    <a href="../evidence/Valuation_Sharpe1964_CAPM.html">
+      <span class="label">&larr; Previous</span>
+      Sharpe (1964)
+    </a>
+    
+
+    
+    <a href="../evidence/Valuation_Lintner1965_ValuationRiskAssets.html" style="text-align: right;">
+      <span class="label">Next &rarr;</span>
+      Lintner (1965)
+    </a>
+    
+  </nav>
+
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>The Two Paradigms of Finance &mdash; Itzhak Ben-David & Alex Chinco</p>
+      <p>The Ohio State University & Michigan State University</p>
+      <p style="margin-top: 0.5rem;">Built from a collection of 2,800+ primary sources spanning 300 years.</p>
+    </div>
+  </footer>
+
+  
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Damodaran (2012): Investment Valuation, 3rd Edition -- Treatment of P/E, EPS, and Relative vs. DCF Valuation | The Two Paradigms of Finance</title>
+  <meta name="description" content="A primary-source history of how financial thinking split into two streams: the practitioner tradition of earnings capitalization (P = EPS × P/E) and the academic revolution of NPV, CAPM, and DCF.">
+  <meta name="author" content="Itzhak Ben-David & Alex Chinco">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Two Paradigms</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="../the-split.html" >The Split</a></li>
+        <li><a href="../two-paradigms.html" >Two Paradigms</a></li>
+        <li><a href="../timeline.html" >Timeline</a></li>
+        <li><a href="../library.html" >Library</a></li>
+        <li><a href="../about.html" >About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+<div class="container">
+
+  <!-- Header -->
+  <div class="evidence-header">
+    <div class="evidence-meta">
+      <span class="paradigm-badge transitional">Transitional</span>
+      <span class="era-tag">The Great Divergence (1964–present)</span>
+      <span class="era-tag">&bull; 2012</span>
+    </div>
+    <h1 class="evidence-title">Damodaran (2012): Investment Valuation, 3rd Edition -- Treatment of P/E, EPS, and Relative vs. DCF Valuation</h1>
+    
+    <div class="evidence-source">Aswath Damodaran, *Investment Valuation: Tools and Techniques for Determining the Value of Any Asset*, 3rd Edition (Wiley, 2012). Chapters 2, 17, 18, and 34.</div>
+    
+  </div>
+
+  <!-- Key Finding -->
+  
+  <div class="key-finding-box">
+    <h3>Key Finding</h3>
+    <p>Damodaran -- the modern era's most widely read valuation authority -- explicitly acknowledges that <strong>&quot;most valuations done in the real world are relative valuations&quot;</strong> and that <strong>the P/E ratio is &quot;the most widely used and misused of all multiples.&quot;</strong> Despite this, he treats DCF as the foundational, theoretically correct approach and frames relative valuation (including P/E) as a derivative of DCF -- multiples are &quot;ultimately determined by the same fundamentals that determine the value of a firm in a discounted cash flow model.&quot; This creates a fascinating tension: the tool everyone actually uses is presented as the less rigorous cousin of the tool almost nobody uses.</p>
+
+  </div>
+  
+
+  <!-- Main content + sidebar -->
+  <div class="evidence-layout">
+    <div class="prose">
+      
+      <h2>Details</h2>
+<h3>1. DCF as the &quot;Foundation&quot; -- But Most Valuations Are Relative</h3>
+<p>Damodaran opens Chapter 2 with a critical admission buried in the DCF section:</p>
+<blockquote>
+<p>&quot;While discounted cash flow valuation is only one of the three ways of approaching valuation and <strong>most valuations done in the real world are relative valuations</strong>, it is the foundation on which all other valuation approaches are built. To do relative valuation correctly, we need to understand the fundamentals of discounted cash flow valuation.&quot;</p>
+</blockquote>
+<p>This is a remarkable statement. He simultaneously (a) concedes that DCF is the minority practice and relative valuation is the majority practice, and (b) insists that DCF is nevertheless the conceptual foundation. The rhetorical move is to position the thing most people actually do as parasitic on the thing almost nobody actually does.</p>
+<h3>2. How Widely Used Is P/E? Damodaran's Own Statements</h3>
+<p>Chapter 18 opens with an unambiguous statement:</p>
+<blockquote>
+<p>&quot;Earnings multiples remain <strong>the most commonly used measures of relative value</strong>.&quot;</p>
+</blockquote>
+<p>And:</p>
+<blockquote>
+<p>&quot;The price-earnings (PE) multiple is <strong>the most widely used and misused of all multiples</strong>. Its simplicity makes it an attractive choice in applications ranging from pricing initial public offerings to making judgments on relative value.&quot;</p>
+</blockquote>
+<p>Chapter 17 similarly states:</p>
+<blockquote>
+<p>&quot;The use of relative valuation is <strong>widespread</strong>. Most equity research reports and many acquisition valuations are based on a comparison of a company to comparable firms, using a multiple such as PE as the basis.&quot;</p>
+</blockquote>
+<p>He also acknowledges the <strong>reasons for this popularity</strong> (Ch. 17, &quot;Reasons for Popularity&quot;):</p>
+<ul>
+<li>A relative valuation &quot;can be completed with far fewer explicit assumptions and far more quickly than a discounted cash flow valuation.&quot;</li>
+<li>It is &quot;simpler to understand and easier to present to clients and customers.&quot;</li>
+<li>It is &quot;much more likely to reflect the current mood of the market.&quot;</li>
+<li>Relative valuations &quot;will generally yield values that are closer to the market price than discounted cash flow valuations for all companies.&quot;</li>
+<li>Fund managers who are &quot;judged on a relative basis&quot; naturally prefer multiples.</li>
+</ul>
+<p>This last point is especially significant: Damodaran acknowledges that the institutional structure of the investment industry -- where managers are benchmarked against peers and sectors -- structurally favors relative valuation over DCF.</p>
+<h3>3. How Damodaran Derives P/E from Fundamentals</h3>
+<p>This is the most important section for the EPS paradigm research program. Damodaran derives P/E by dividing both sides of a dividend discount model by earnings.</p>
+<p><strong>Stable growth firm:</strong></p>
+<pre><code>P/EPS = PE = Payout ratio x (1 + g) / (k_e - g)
+</code></pre>
+<p>Or in terms of expected earnings:</p>
+<pre><code>Forward PE = Payout ratio / (k_e - g)
+</code></pre>
+<p>Substituting payout ratio = 1 - g/ROE:</p>
+<pre><code>Forward PE = (1 - g/ROE) / (k_e - g)
+</code></pre>
+<p><strong>Determinants of P/E</strong> (from Chapter 18):</p>
+<ul>
+<li><strong>Payout ratio (and return on equity):</strong> PE increases as payout ratio increases. Higher ROE for a given growth rate means higher PE.</li>
+<li><strong>Riskiness (through the discount rate):</strong> PE decreases as cost of equity increases. Higher beta = lower PE.</li>
+<li><strong>Expected growth rate:</strong> PE increases with growth, assuming ROE &gt; cost of equity.</li>
+</ul>
+<p><strong>Critical observation for the EPS paradigm:</strong> Damodaran's derivation shows that the P/E ratio is algebraically equivalent to a DCF model -- it is literally obtained by dividing P = DPS/(k-g) by EPS. This means the formula <code>P = EPS x PE</code> is mathematically identical to the Gordon growth model. The question is which direction the causality runs. Damodaran assumes investors compute DCF first and the P/E falls out as a byproduct. The EPS paradigm proposes the reverse: investors directly apply a P/E to expected EPS, and the P/E is determined by comparables (comps), not by computing k from a risk model.</p>
+<h3>4. Damodaran's Warnings About P/E Misuse</h3>
+<p>Damodaran is quite critical of naive P/E usage:</p>
+<ul>
+<li>
+<p><strong>Manipulability:</strong> &quot;By the same token, multiples are also easy to misuse and manipulate, especially when comparable firms are used. Given that no two firms are exactly alike in terms of risk and growth, the definition of comparable firms is a subjective one. Consequently, a biased analyst can choose a group of comparable firms to confirm his or her biases about a firm's value.&quot;</p>
+</li>
+<li>
+<p><strong>Hidden assumptions:</strong> &quot;In reality, you make just as many assumptions when you do a relative valuation as you make in a discounted cash flow valuation. The difference is that the assumptions in a relative valuation are implicit and unstated, whereas those in discounted cash flow valuation are explicit.&quot;</p>
+</li>
+<li>
+<p><strong>Sector-wide errors:</strong> &quot;The other problem with using multiples based on comparable firms is that it builds in errors (overvaluation or undervaluation) that the market might be making in valuing these firms.&quot; If the whole sector is overvalued, relative valuation confirms the overvaluation.</p>
+</li>
+<li>
+<p><strong>Earnings volatility:</strong> &quot;The dependence of PE ratios on current earnings makes them particularly vulnerable to the year-to-year swings that often characterize reported earnings.&quot;</p>
+</li>
+<li>
+<p><strong>Negative earnings:</strong> &quot;When the earnings per share are negative, the price-earnings ratio for a firm is not meaningful and is usually not reported.&quot;</p>
+</li>
+</ul>
+<h3>5. Forward P/E vs. Trailing P/E</h3>
+<p>Damodaran carefully distinguishes three versions of P/E (Chapter 17):</p>
+<ul>
+<li><strong>Current PE:</strong> Price / earnings per share from most recent financial year</li>
+<li><strong>Trailing PE:</strong> Price / last four quarters of earnings</li>
+<li><strong>Forward PE:</strong> Price / expected earnings per share in the next financial year</li>
+</ul>
+<p>He notes that &quot;a bullish analyst will tend to use the forward PE to make the case that the stock is trading at a low multiple of earnings, while a bearish analyst will focus on the current PE to make the case that the multiple is too high.&quot;</p>
+<p>Table 18.1 shows how different these are for the same universe (U.S. companies, January 2011):</p>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Average</th>
+<th>Median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current PE</td>
+<td>49.82</td>
+<td>19.50</td>
+</tr>
+<tr>
+<td>Trailing PE</td>
+<td>38.19</td>
+<td>17.79</td>
+</tr>
+<tr>
+<td>Forward PE</td>
+<td>21.40</td>
+<td>16.16</td>
+</tr>
+</tbody>
+</table>
+<p>The forward PE is dramatically lower because forward earnings are expected to be higher. This is highly relevant to the EPS paradigm, which proposes that investors primarily use <em>expected</em> (forward) EPS, consistent with I/B/E/S consensus forecasts.</p>
+<h3>6. Reconciling DCF and Relative Valuation -- Damodaran's Key Section</h3>
+<p>Chapter 17 has an explicit section titled &quot;RECONCILING RELATIVE AND DISCOUNTED CASH FLOW VALUATIONS.&quot; Key statements:</p>
+<blockquote>
+<p>&quot;The two approaches to valuation -- discounted cash flow valuation and relative valuation -- will generally yield different estimates of value for the same firm.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;The differences in value between discounted cash flow valuation and relative valuation come from different views of market efficiency, or, put more precisely, market inefficiency. In discounted cash flow valuation, you assume that markets make mistakes, that they correct these mistakes over time, and that these mistakes can often occur across entire sectors or even the entire market. In relative valuation, you assume that while markets make mistakes on individual stocks, they are correct on average.&quot;</p>
+</blockquote>
+<p>This is a critical passage. Damodaran frames the choice between DCF and multiples as a choice about <em>what kind of market inefficiency you believe in</em>. DCF users think sectors can be mispriced; relative valuation users think individual stocks within a correctly-priced sector can be mispriced.</p>
+<h3>7. Chapter 34: The &quot;Philosophical Divide&quot; and Time Horizon</h3>
+<p>In the concluding chapter, Damodaran explicitly links valuation approach to analyst time horizon:</p>
+<blockquote>
+<p>&quot;Not surprisingly, then, you should be using discounted cash flow valuation if you have a long time horizon, and relative valuation if you have a shorter time horizon. <strong>This may explain why discounted cash flow valuation is more prevalent when valuing a firm for an acquisition, and relative valuation is more common in equity research and portfolio management.</strong>&quot;</p>
+</blockquote>
+<p>This is a striking admission. The people who do valuation day-in, day-out for their jobs -- equity research analysts and portfolio managers -- overwhelmingly use multiples. DCF is reserved for the rarer, more deliberative context of acquisitions (and even there, as the EPS paradigm literature documents, accretion/dilution analysis based on EPS is often the binding constraint).</p>
+<p>He also frames the choice in terms of market beliefs:</p>
+<blockquote>
+<p>&quot;With discounted cash flow valuation, you are assuming that market prices deviate from intrinsic value but that they correct themselves over long periods. With relative valuation, you are assuming that markets are on average right, and that while individual firms in a sector or market may be mispriced, the sector or overall market is fairly priced.&quot;</p>
+</blockquote>
+<p>And the &quot;Bridging the Philosophical Divide&quot; box states:</p>
+<blockquote>
+<p>&quot;Philosophically, there is a big gap between discounted cash flow valuation and relative valuation. In discounted cash flow valuation, we take a long-term perspective, evaluate a firm's fundamentals in detail, and try to estimate a firm's intrinsic value. In relative valuation, we assume that the market is right on average and estimate the value of a firm by looking at how similar firms are priced. There is something of value in both approaches, and it would be useful if we could borrow the best features of relative valuation while doing discounted cash flow valuation, or vice versa.&quot;</p>
+</blockquote>
+<h3>8. Earnings Yield and Interest Rates</h3>
+<p>One of the most important sections for the EPS paradigm is Illustration 18.4 (PE Ratios across Time for the S&amp;P 500), where Damodaran plots the <strong>earnings-price (EP) ratio</strong> -- i.e., the earnings yield -- alongside Treasury bond rates from 1960 to 2010. He finds:</p>
+<pre><code>EP = 0.0261 + 0.6869 x T-bond rate - 0.3655 x (T-bond - T-bill)    R^2 = 0.478
+</code></pre>
+<p>This is exactly the &quot;earnings yield spread&quot; that the Ben-David/Chinco ERP paper studies. Damodaran's regression shows that the earnings yield moves strongly with interest rates (coefficient 0.69 on the T-bond rate, t-stat 6.41). He interprets this through the DCF lens -- higher rates mean higher discount rates mean lower PE ratios. But it is equally consistent with the EPS paradigm's interpretation: the earnings yield IS the cost of equity, and it moves with the risk-free rate because investors compare yields.</p>
+<h3>9. The Stable-Growth PE Formula as Earnings Capitalization</h3>
+<p>For a stable-growth firm, Damodaran's formula reduces to:</p>
+<pre><code>P = EPS x PE = EPS x [Payout x (1+g) / (k_e - g)]
+</code></pre>
+<p>For a no-growth firm (g=0, payout=100%):</p>
+<pre><code>P = EPS / k_e
+</code></pre>
+<p>This is precisely the <strong>earnings capitalization formula</strong> (P = E/r) that is central to the EPS paradigm. Damodaran derives it as a <em>special case of DCF</em>, but it is also the <em>starting point</em> of the EPS paradigm. The difference is epistemological: in DCF, k_e comes from CAPM or a factor model; in the EPS paradigm, k_e (the earnings yield) is observable from price and earnings, and the &quot;correct&quot; P/E comes from comparables.</p>
+<h3>10. The Companion Variable Concept</h3>
+<p>In Chapter 17, Damodaran introduces the concept of a &quot;companion variable&quot; -- the single variable that most drives each multiple. For the P/E ratio, the companion variable is the <strong>expected growth rate in EPS</strong>. This is significant because it means that, even in Damodaran's DCF-grounded framework, the P/E ratio is primarily about <strong>expected earnings growth</strong>, not about discount rates or cash flow timing.</p>
+<h2>Key Quotes for Reference</h2>
+<ol>
+<li>
+<p>&quot;While discounted cash flow valuation is only one of the three ways of approaching valuation and <strong>most valuations done in the real world are relative valuations</strong>, it is the foundation on which all other valuation approaches are built.&quot; (Ch. 2)</p>
+</li>
+<li>
+<p>&quot;The price-earnings (PE) multiple is <strong>the most widely used and misused of all multiples</strong>.&quot; (Ch. 18)</p>
+</li>
+<li>
+<p>&quot;Earnings multiples remain <strong>the most commonly used measures of relative value</strong>.&quot; (Ch. 18, opening)</p>
+</li>
+<li>
+<p>&quot;The use of relative valuation is <strong>widespread</strong>. Most equity research reports and many acquisition valuations are based on a comparison of a company to comparable firms, using a multiple such as PE as the basis.&quot; (Ch. 17)</p>
+</li>
+<li>
+<p>&quot;In reality, you make <strong>just as many assumptions</strong> when you do a relative valuation as you make in a discounted cash flow valuation. The difference is that the assumptions in a relative valuation are <strong>implicit and unstated</strong>, whereas those in discounted cash flow valuation are explicit.&quot; (Ch. 17)</p>
+</li>
+<li>
+<p>&quot;This may explain why discounted cash flow valuation is more prevalent when valuing a firm for an acquisition, and <strong>relative valuation is more common in equity research and portfolio management</strong>.&quot; (Ch. 34)</p>
+</li>
+<li>
+<p>&quot;In discounted cash flow valuation, you assume that markets make mistakes, that they correct these mistakes over time... In relative valuation, you assume that while markets make mistakes on individual stocks, <strong>they are correct on average</strong>.&quot; (Ch. 17)</p>
+</li>
+<li>
+<p>&quot;These multiples are <strong>ultimately determined by the same fundamentals</strong> that determine the value of a firm in a discounted cash flow model -- expected growth, risk, and cash flow potential.&quot; (Ch. 18, Conclusion)</p>
+</li>
+<li>
+<p>&quot;The other problem with using multiples based on comparable firms is that it <strong>builds in errors</strong> (overvaluation or undervaluation) that the market might be making in valuing these firms.&quot; (Ch. 2)</p>
+</li>
+<li>
+<p>&quot;The allure of multiples is that they are <strong>simple and easy to relate to</strong>. They can be used to obtain estimates of value quickly for firms and assets.&quot; (Ch. 2)</p>
+</li>
+</ol>
+
+      
+
+      
+      <h2>Significance</h2>
+      <p>Damodaran's textbook is the definitive modern treatment of valuation and the go-to reference for practitioners and MBA programs worldwide. His treatment of P/E and relative valuation reveals a fundamental tension in modern finance:</p>
+<ol>
+<li>
+<p><strong>Everyone uses multiples, but theory says they should use DCF.</strong> Damodaran repeatedly acknowledges that multiples dominate practice, then spends most of his book on DCF. His framing is that multiples are &quot;really&quot; DCF with implicit assumptions -- but one could equally argue that DCF is &quot;really&quot; earnings capitalization with explicit assumptions about growth and risk that are usually wrong.</p>
+</li>
+<li>
+<p><strong>The P/E formula IS the earnings capitalization formula.</strong> Damodaran shows that P = EPS x PE, where PE is derived from the Gordon model. But this means the &quot;intrinsic value&quot; approach and the &quot;multiples&quot; approach are the same equation read from different directions. Damodaran reads it left-to-right (DCF determines intrinsic value, which implies a PE). The EPS paradigm reads it right-to-left (investors observe a PE from comps and apply it to expected EPS to determine price).</p>
+</li>
+<li>
+<p><strong>Damodaran's own regression evidence supports the EPS paradigm.</strong> The strong empirical relationship between earnings yields and interest rates (R^2 = 0.478) is at least as consistent with yield-based pricing as with DCF.</p>
+</li>
+<li>
+<p><strong>The institutional argument for multiples is powerful.</strong> Damodaran's frank admission that equity research analysts and portfolio managers -- the people who set market prices every day -- overwhelmingly use relative valuation undermines the claim that DCF drives pricing. If the marginal price-setters use multiples, then multiples are not a shortcut to DCF; they are the actual pricing mechanism.</p>
+</li>
+<li>
+<p><strong>The &quot;hidden assumptions&quot; argument cuts both ways.</strong> Damodaran warns that relative valuation has &quot;implicit and unstated&quot; assumptions. True. But DCF has explicit assumptions that are often wrong: the equity risk premium, the terminal growth rate, the beta. The question is whether precise-but-wrong (DCF) is better than approximate-but-reflecting-market-consensus (multiples).</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    <aside class="sidebar">
+      <!-- Paradigm info -->
+      <div class="sidebar-section">
+        <h4>Paradigm</h4>
+        <p><span class="paradigm-badge transitional">Transitional</span></p>
+        <p style="margin-top: 0.5rem;">Works that bridge or straddle both paradigms.</p>
+      </div>
+
+      <!-- Era context -->
+      <div class="sidebar-section">
+        <h4>Era</h4>
+        <p><strong>The Great Divergence</strong> (1964–present)</p>
+        <p>Academic textbooks teach NPV/CAPM/DCF. Practitioners continue using EPS × P/E, earnings yields, and comps.</p>
+      </div>
+
+      <!-- Connections -->
+      
+      <div class="sidebar-section">
+        <h4>Connections</h4>
+        <ul>
+<li>
+<p><strong>Solomon (1963):</strong> Damodaran's derivation of PE from the Gordon model is the same equation Solomon used to argue that earnings capitalization and DCF are equivalent: V = E/k under certain assumptions. Solomon framed this as a reason to adopt DCF; Damodaran inherits that framing. The EPS paradigm notes that the equivalence runs both ways.</p>
+</li>
+<li>
+<p><strong>Graham &amp; Dodd (1934/1940):</strong> Damodaran's approach to &quot;intrinsic value&quot; via multiples echoes Graham's original method of using a &quot;warranted&quot; PE based on earnings stability, growth, and financial position. The difference is that Graham used PE directly; Damodaran derives it from DCF.</p>
+</li>
+<li>
+<p><strong>Dean (1951):</strong> Dean's use of the earnings yield (E/P ~ 10%) as the observable cost of equity is exactly what Damodaran plots in Figure 18.5, but Dean treated it as a direct market price, not as an implication of a risk model.</p>
+</li>
+<li>
+<p><strong>Ben-David &amp; Chinco, &quot;Expected EPS times Trailing P/E&quot;:</strong> Damodaran's framework supports the paper's core claim that investors price equities as E(EPS) x P/E. Damodaran says the PE should come from fundamentals (growth, risk, payout); the paper says the PE comes from comps. The data (surveys, equity research reports, IPO pricing) overwhelmingly support the comps interpretation.</p>
+</li>
+<li>
+<p><strong>Cragg &amp; Malkiel (1982):</strong> Damodaran cites their early PE regressions from 1961-1965 (R^2 = 0.70 to 0.85), showing PE is well-explained by growth, payout, and beta. Their later work showed this breaks down (R^2 drops to 0.32 by 1991), suggesting the relationship is unstable.</p>
+</li>
+<li>
+<p><strong>Kisor &amp; Whitbeck (1963):</strong> The earliest PE regression cited by Damodaran: PE = 8.2 + 1.5(growth) + 6.7(payout) - 0.2(EPS volatility). This tradition of explaining PE from observable variables is the practitioner approach -- it does not require a discount rate model.</p>
+</li>
+</ul>
+
+      </div>
+      
+    </aside>
+  </div>
+
+  <!-- Prev / Next navigation -->
+  <nav class="evidence-nav">
+    
+    <a href="../evidence/CapitalStructure_FrankGoyal2009_WhichFactorsReliablyImportant.html">
+      <span class="label">&larr; Previous</span>
+      Frank, Goyal (2009)
+    </a>
+    
+
+    
+    <a href="../evidence/EPS_DichevGrahamHarveyRajgopal2013_EarningsQualityFromField.html" style="text-align: right;">
+      <span class="label">Next &rarr;</span>
+      Dichev, Graham, Harvey, Rajgopal (2013)
+    </a>
+    
+  </nav>
+
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>The Two Paradigms of Finance &mdash; Itzhak Ben-David & Alex Chinco</p>
+      <p>The Ohio State University & Michigan State University</p>
+      <p style="margin-top: 0.5rem;">Built from a collection of 2,800+ primary sources spanning 300 years.</p>
+    </div>
+  </footer>
+
+  
+</body>
+</html>
