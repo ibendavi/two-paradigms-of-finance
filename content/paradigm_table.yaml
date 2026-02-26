@@ -1,0 +1,96 @@
+# Structured data for the Two Paradigms comparison table.
+# Each row compares how Academic and Practitioner paradigms handle a concept.
+
+- concept: "Firm's objective"
+  academic: "Maximize net present value (NPV) of future cash flows"
+  practitioner: "Maximize earnings per share (EPS)"
+  evidence:
+    - slug: Valuation_Solomon1963_TheoryOfFinancialManagement
+      label: "Solomon 1963"
+    - slug: EPS_GrahamHarveyRajgopal2005_EconomicImplicationsCorporateReporting
+      label: "Graham, Harvey & Rajgopal 2005"
+
+- concept: "Cost of equity"
+  academic: "Required return from CAPM: E(R) = Rf + beta x (Rm - Rf)"
+  practitioner: "Earnings yield (E/P) — observable from price and earnings"
+  evidence:
+    - slug: Valuation_Sharpe1964_CAPM
+      label: "Sharpe 1964"
+    - slug: Valuation_Dean1951_CapitalBudgeting
+      label: "Dean 1951"
+    - slug: Textbook_Weston1962_ManagerialFinance
+      label: "Weston 1962"
+
+- concept: "Equity valuation"
+  academic: "P = Sum of discounted future cash flows (DCF)"
+  practitioner: "P = Expected EPS x P/E multiple from comparables"
+  evidence:
+    - slug: Valuation_Williams1938_InvestmentValue
+      label: "Williams 1938"
+    - slug: Valuation_GrahamDodd1940_SecurityAnalysis
+      label: "Graham & Dodd 1934"
+    - slug: Valuation_Damodaran2012_InvestmentValuation
+      label: "Damodaran 2012"
+
+- concept: "Why lever up?"
+  academic: "Tax shields, trade-off theory, optimal capital structure"
+  practitioner: "Earnings yield > borrowing cost, so debt is cheaper — boosts EPS"
+  evidence:
+    - slug: Valuation_ModiglianiMiller1958_CostOfCapital
+      label: "M&M 1958"
+    - slug: Valuation_GuthmannDougall1940_CorporateFinancialPolicy
+      label: "Guthmann & Dougall 1940"
+    - slug: Textbook_Weston1962_ManagerialFinance
+      label: "Weston 1962"
+
+- concept: "Why buy back shares?"
+  academic: "Signal undervaluation, distribute excess cash, tax-efficient payout"
+  practitioner: "Retiring shares at the earnings yield boosts EPS mechanically"
+  evidence:
+    - slug: Brealey_Myers_EPS_Treatment_6th7thEd
+      label: "Brealey & Myers (Bootstrap Game)"
+    - slug: EPS_Almeida2019_IsItTimeToGetRidOfEPS
+      label: "Almeida 2019"
+
+- concept: "Dividend policy"
+  academic: "Irrelevant (Miller-Modigliani 1961); or signal / agency tool"
+  practitioner: "Maintain stable, growing dividends; payout from earnings"
+  evidence:
+    - slug: Valuation_MillerModigliani1961_DividendPolicy
+      label: "M&M 1961"
+    - slug: Valuation_Lintner1956_DistributionOfIncomes
+      label: "Lintner 1956"
+
+- concept: "M&A valuation"
+  academic: "NPV of synergies; acquirer should not overpay"
+  practitioner: "Is the deal EPS-accretive or dilutive? EPS accretion = good deal"
+  evidence:
+    - slug: EPS_Andrade1997_AppearancesMatterEPSAccretionDilution
+      label: "Andrade et al. 1997"
+    - slug: MA_ShleiferVishny2003_StockMarketDrivenAcquisitions
+      label: "Shleifer & Vishny 2003"
+
+- concept: "Capital budgeting"
+  academic: "Accept all positive-NPV projects; reject negative-NPV"
+  practitioner: "Will this project maintain or increase EPS? Payback period."
+  evidence:
+    - slug: Valuation_Dean1951_CapitalBudgeting
+      label: "Dean 1951"
+    - slug: EPS_GrahamHarveyRajgopal2005_EconomicImplicationsCorporateReporting
+      label: "Graham, Harvey & Rajgopal 2005"
+
+- concept: "Equity risk premium"
+  academic: "Deep structural puzzle (Mehra-Prescott 1985); requires models of preferences"
+  practitioner: "Observable spread: earnings yield minus risk-free rate"
+  evidence:
+    - slug: Valuation_Dean1951_CapitalBudgeting
+      label: "Dean 1951"
+
+- concept: "Role of frictions"
+  academic: "Essential — taxes, information asymmetry, agency costs explain every corporate policy"
+  practitioner: "Unnecessary — corporate policies follow directly from the EPS objective"
+  evidence:
+    - slug: CapitalStructure_Myers1984_CapitalStructurePuzzle
+      label: "Myers 1984"
+    - slug: Valuation_Solomon1963_TheoryOfFinancialManagement
+      label: "Solomon 1963"

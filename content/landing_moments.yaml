@@ -1,0 +1,269 @@
+# Curated moments for the landing page scroll timeline.
+# Each moment tells part of the story: consensus -> tension -> split -> two worlds.
+# ~25 moments, organized by era.
+
+# ============================================================
+# ERA 1: THE CONSENSUS (1720-1957)
+# ============================================================
+
+- year: 1720
+  era: consensus
+  paradigm: pre-split
+  author: "Archibald Hutcheson"
+  title: "An Estimate of the Value of South-Sea Stock"
+  quote: >
+    Computes the 'intrinsick value' of South Sea Company shares by capitalizing
+    earnings at observed market yields — finding the stock 3-5x overvalued.
+    The first known systematic equity valuation.
+  note_slug: Valuation_Hutcheson1720_EarliestEquityValuation
+
+- year: 1795
+  era: consensus
+  paradigm: pre-split
+  author: "William Fairman"
+  title: "The Stocks Examined and Compared"
+  quote: >
+    First systematic comparison of all securities by yield — government bonds, East India stock,
+    canal shares — ranked in a single table. Yield as the universal comparator.
+  note_slug: Valuation_Fairman1795_FirstYieldComparison
+
+- year: 1910
+  era: consensus
+  paradigm: pre-split
+  author: "Edward Sherwood Mead"
+  title: "Corporation Finance"
+  quote: >
+    Uses 'capitalized earning power' as the basis for stock valuation, but never writes
+    the formula V = E/r. The concept exists; the mathematics hasn't arrived yet.
+  note_slug: Valuation_Mead1910_CorporationFinance
+
+- year: 1920
+  era: consensus
+  paradigm: pre-split
+  author: "Arthur Stone Dewing"
+  title: "The Financial Policy of Corporations"
+  quote: >
+    The dominant pre-theoretical textbook. Earning power is recognized as the basis
+    for capitalization, but no formal valuation formula. 'Trading on the equity' is the route to higher EPS.
+  note_slug: Valuation_Dewing1920_FinancialPolicy
+
+- year: 1924
+  era: consensus
+  paradigm: pre-split
+  author: "Charles Gerstenberg"
+  title: "Financial Organization and Management of Business"
+  quote: >
+    First textbook to write V = E/r explicitly. 'The rate that attracts capital to the particular
+    corporation' — a capitalization rate from market comparables, not a theoretical model.
+  note_slug: Valuation_Gerstenberg1924_CorpFinTextbook
+
+- year: 1925
+  era: consensus
+  paradigm: pre-split
+  author: "Ralph Badger"
+  title: "Valuation of Industrial Securities"
+  quote: >
+    Establishes the practitioner's earnings capitalization framework: earning power is 'the paramount
+    criterion of value,' capitalized at rates determined by comparables and risk assessment.
+  note_slug: Valuation_Badger1925_EarningsCapitalization
+
+- year: 1934
+  era: consensus
+  paradigm: pre-split
+  author: "Benjamin Graham & David Dodd"
+  title: "Security Analysis"
+  quote: >
+    'Intrinsic value = that value which is justified by the facts.' Value is earning power
+    times an appropriate multiplier. The multiplier comes from comparables and judgment, not a discount rate model.
+  note_slug: Valuation_GrahamDodd1940_SecurityAnalysis
+
+- year: 1938
+  era: consensus
+  paradigm: pre-split
+  author: "John Burr Williams"
+  title: "The Theory of Investment Value"
+  quote: >
+    'A stock is worth only what you can get out of it.' First rigorous algebraic presentation
+    of the dividend discount model: V = sum of discounted future dividends. Academic theory catches up
+    to practitioner intuition — but practitioners won't adopt the formula for decades.
+  note_slug: Valuation_Williams1938_InvestmentValue
+
+- year: 1940
+  era: consensus
+  paradigm: pre-split
+  author: "Guthmann & Dougall"
+  title: "Corporate Financial Policy"
+  quote: >
+    Leverage is 'trading on the equity' — using cheap debt to boost returns to shareholders.
+    This is the EPS maximization logic, stated plainly, 18 years before Modigliani-Miller.
+  note_slug: Valuation_GuthmannDougall1940_CorporateFinancialPolicy
+
+- year: 1951
+  era: consensus
+  paradigm: pre-split
+  author: "Joel Dean"
+  title: "Capital Budgeting"
+  quote: >
+    Invents the cost-of-capital hurdle rate for investment decisions. But Dean's cost of equity
+    IS the earnings yield: 'debt capital costs about 3 percent, while equity capital costs
+    10 percent or better in terms of current earnings.'
+  note_slug: Valuation_Dean1951_CapitalBudgeting
+
+# ============================================================
+# ERA 2: THE REVOLUTION (1952-1963)
+# ============================================================
+
+- year: 1952
+  era: revolution
+  paradigm: transitional
+  author: "Harry Markowitz"
+  title: "Portfolio Selection"
+  quote: >
+    Introduces mean-variance optimization — the mathematical foundation for a risk-based
+    cost of equity. For the first time, risk can be quantified, not just described.
+  note_slug: Valuation_Markowitz1959_PortfolioSelection
+
+- year: 1958
+  era: revolution
+  paradigm: academic
+  author: "Modigliani & Miller"
+  title: "The Cost of Capital, Corporation Finance, and the Theory of Investment"
+  quote: >
+    'The market value of any firm is independent of its capital structure.'
+    Capital structure irrelevance — which only makes sense if you DON'T think about leverage
+    as an EPS-boosting tool. The foundational theorem of modern corporate finance.
+  note_slug: Valuation_ModiglianiMiller1958_CostOfCapital
+
+- year: 1961
+  era: revolution
+  paradigm: academic
+  author: "Miller & Modigliani"
+  title: "Dividend Policy, Growth, and the Valuation of Shares"
+  quote: >
+    Dividend policy is irrelevant — only investment policy matters. Shows the equivalence
+    of four valuation approaches, all yielding the same answer under perfect markets.
+  note_slug: Valuation_MillerModigliani1961_DividendPolicy
+
+- year: 1962
+  era: revolution
+  paradigm: transitional
+  author: "J. Fred Weston"
+  title: "Managerial Finance"
+  quote: >
+    The last major textbook to use E/P as the cost of equity. Shows with a worked example that
+    EPS maximization and value maximization give OPPOSITE answers for the debt-vs-equity choice.
+    Puts 'practical' in scare quotes. The Rosetta Stone of the paradigm split.
+  note_slug: Textbook_Weston1962_ManagerialFinance
+
+- year: 1963
+  era: revolution
+  paradigm: academic
+  author: "Ezra Solomon"
+  title: "The Theory of Financial Management"
+  quote: >
+    'The goal is the maximization of the present worth of those who own the enterprise —
+    although this is frequently stated in terms of the maximization of long-run earnings.'
+    The first textbook to explicitly replace EPS maximization with value maximization.
+    Commissioned by the Ford Foundation to professionalize business education.
+  note_slug: Valuation_Solomon1963_TheoryOfFinancialManagement
+
+# ============================================================
+# ERA 3: THE GREAT DIVERGENCE (1964-present)
+# ============================================================
+
+- year: 1964
+  era: divergence
+  paradigm: academic
+  author: "William Sharpe"
+  title: "Capital Asset Prices: A Theory of Market Equilibrium"
+  quote: >
+    E(R) = Rf + beta x (Rm - Rf). The CAPM provides a theoretically derived cost of equity —
+    replacing the market-observed earnings yield with a model-based required return.
+    The practitioner's cap rate is now 'wrong.'
+  note_slug: Valuation_Sharpe1964_CAPM
+
+- year: 1973
+  era: divergence
+  paradigm: academic
+  author: "Black & Scholes"
+  title: "The Pricing of Options and Corporate Liabilities"
+  quote: >
+    Equity is a call option on the firm's assets. Closed-form option pricing via no-arbitrage.
+    Finance becomes applied mathematics — the furthest departure from practitioner intuition.
+  note_slug: Valuation_BlackScholes1973_OptionPricing
+
+- year: 1973
+  era: divergence
+  paradigm: practitioner
+  author: "John Pringle"
+  title: "Price/Earnings Ratios, Earnings per Share, and Financial Management"
+  quote: >
+    Documents that managers and investors continue to use P/E ratios and EPS as primary
+    decision metrics, despite academic theory declaring them irrelevant.
+    The practice persists.
+  note_slug: EPS_Pringle1973_PriceEarningsRatiosEPSFinancialManagement
+
+- year: 1974
+  era: divergence
+  paradigm: academic
+  author: "Joel Stern"
+  title: "Earnings Per Share Don't Count"
+  quote: >
+    A direct assault from the academic side: 'There is no analytical connection whatsoever
+    between a company's price/earnings ratio and its cost of equity capital.'
+    The academy tells practitioners they're wrong.
+  note_slug: EPS_Stern1974_EarningsPerShareDontCount
+
+- year: 2000
+  era: divergence
+  paradigm: academic
+  author: "Brealey & Myers"
+  title: "Principles of Corporate Finance (6th ed.)"
+  quote: >
+    Three separate chapters demolishing EPS reasoning: the PVGO decomposition, the Macbeth Spot
+    Removers leverage example, and the Bootstrap Game for M&A. The most influential textbook
+    needs three demolitions — proving the practice is alive and well.
+  note_slug: Brealey_Myers_EPS_Treatment_6th7thEd
+
+- year: 2001
+  era: divergence
+  paradigm: practitioner
+  author: "Graham & Harvey"
+  title: "The Theory and Practice of Corporate Finance"
+  quote: >
+    Survey of 392 CFOs reveals a gap between theory and practice: firms still use payback period,
+    managers use 'gut feel' for risk, and P/E-based reasoning persists in M&A decisions.
+  note_slug: Valuation_GrahamHarvey2001_TheoryPracticeCorporateFinance
+
+- year: 2005
+  era: divergence
+  paradigm: practitioner
+  author: "Graham, Harvey & Rajgopal"
+  title: "The Economic Implications of Corporate Financial Reporting"
+  quote: >
+    The definitive survey evidence: 80% of CFOs would cut R&D to meet an EPS target.
+    55% would delay a positive-NPV project. Earnings are 'in a class by themselves.'
+    Managers maximize EPS, not NPV.
+  note_slug: EPS_GrahamHarveyRajgopal2005_EconomicImplicationsCorporateReporting
+
+- year: 2012
+  era: divergence
+  paradigm: practitioner
+  author: "Aswath Damodaran"
+  title: "Investment Valuation (3rd ed.)"
+  quote: >
+    'Most valuations done in the real world are relative valuations' using P/E multiples.
+    The leading modern valuation authority inadvertently confirms that practitioners never
+    adopted DCF as their primary method.
+  note_slug: Valuation_Damodaran2012_InvestmentValuation
+
+- year: 2019
+  era: divergence
+  paradigm: practitioner
+  author: "Heitor Almeida"
+  title: "Is It Time to Get Rid of Earnings-per-Share (EPS)?"
+  quote: >
+    Documents how share repurchases are overwhelmingly motivated by EPS accretion, that managers
+    routinely sacrifice NPV for EPS, and asks whether the metric should be abolished entirely.
+    The EPS paradigm is stronger than ever.
+  note_slug: EPS_Almeida2019_IsItTimeToGetRidOfEPS

@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% set active_page = 'library' %}
+
+{% block title %}The Library | {{ site.title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <div class="page-header">
+    <h1>The Library</h1>
+    <p class="subtitle">
+      A curated collection of textbooks documenting 300 years of financial thinking
+      — from both the practitioner and academic traditions.
+    </p>
+  </div>
+
+  <!-- Author Journey panel (hidden by default, shown when clicking an author) -->
+  <div class="author-journey-panel" id="author-journey" style="display:none;">
+    <div class="author-journey-header">
+      <h3 id="journey-author-name"></h3>
+      <button class="journey-close" id="journey-close" aria-label="Close">&times;</button>
+    </div>
+    <p class="journey-subtitle" id="journey-subtitle"></p>
+    <div class="journey-timeline" id="journey-timeline"></div>
+  </div>
+
+  <!-- Search & Filters -->
+  <div class="library-controls">
+    <input type="text" class="library-search" id="library-search"
+           placeholder="Search by author, title, or keyword...">
+    <div class="library-filters">
+      <select id="filter-stream">
+        <option value="">All Streams</option>
+        <option value="Academic">Academic</option>
+        <option value="Practitioner">Practitioner</option>
+        <option value="Both">Both</option>
+      </select>
+      <select id="filter-topic">
+        <option value="">All Topics</option>
+        <option value="Corporate Finance">Corporate Finance</option>
+        <option value="Investments">Investments</option>
+        <option value="Banking">Banking</option>
+        <option value="Accounting">Accounting</option>
+        <option value="Financial History">Financial History</option>
+        <option value="EPS and Earnings">EPS and Earnings</option>
+        <option value="Household Finance">Household Finance</option>
+        <option value="M&A">M&A</option>
+        <option value="Foundational">Foundational</option>
+        <option value="Taxes">Taxes</option>
+      </select>
+      <select id="filter-era">
+        <option value="">All Eras</option>
+        <option value="pre-1800">Pre-1800</option>
+        <option value="1800-1900">1800&ndash;1900</option>
+        <option value="1900-1958">1900&ndash;1958</option>
+        <option value="1958-1980">1958&ndash;1980</option>
+        <option value="1980-present">1980&ndash;Present</option>
+      </select>
+      <select id="filter-have">
+        <option value="">All</option>
+        <option value="yes">In Collection</option>
+        <option value="no">Missing</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="library-stats" id="library-stats">Loading...</div>
+
+  <!-- Table -->
+  <div style="overflow-x: auto;">
+    <table class="library-table" id="library-table">
+      <thead>
+        <tr>
+          <th data-sort="year" style="width: 60px;">Year <span class="sort-arrow"></span></th>
+          <th data-sort="author">Author <span class="sort-arrow"></span></th>
+          <th data-sort="title">Title <span class="sort-arrow"></span></th>
+          <th data-sort="stream" style="width: 90px;">Stream <span class="sort-arrow"></span></th>
+          <th data-sort="topic" style="width: 130px;">Topic <span class="sort-arrow"></span></th>
+        </tr>
+      </thead>
+      <tbody id="library-tbody">
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Infinite scroll sentinel -->
+  <div class="library-load-more" id="library-load-more">
+    <span class="load-more-text">Scroll for more</span>
+  </div>
+
+</div>
+
+<script>
+  window.LIBRARY_DATA = {{ library_json }};
+</script>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ root }}static/js/library.js"></script>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% set active_page = 'evidence' %}
+
+{% block title %}{{ note.title }} | {{ site.title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <!-- Header -->
+  <div class="evidence-header">
+    <div class="evidence-meta">
+      <span class="paradigm-badge {{ note.paradigm }}">{{ note.paradigm_info.short }}</span>
+      <span class="era-tag">{{ era.name }} ({{ era.years }})</span>
+      {% if note.year > 0 %}<span class="era-tag">&bull; {{ note.year }}</span>{% endif %}
+    </div>
+    <h1 class="evidence-title">{{ note.title }}</h1>
+    {% if note.source %}
+    <div class="evidence-source">{{ note.source | truncate(300) }}</div>
+    {% endif %}
+  </div>
+
+  <!-- Key Finding -->
+  {% if note.key_finding %}
+  <div class="key-finding-box">
+    <h3>Key Finding</h3>
+    {{ note.key_finding_html }}
+  </div>
+  {% endif %}
+
+  <!-- Main content + sidebar -->
+  <div class="evidence-layout">
+    <div class="prose">
+      {% if note.details_html %}
+      {{ note.details_html }}
+      {% endif %}
+
+      {% if note.significance_html %}
+      <h2>Significance</h2>
+      {{ note.significance_html }}
+      {% endif %}
+    </div>
+
+    <aside class="sidebar">
+      <!-- Paradigm info -->
+      <div class="sidebar-section">
+        <h4>Paradigm</h4>
+        <p><span class="paradigm-badge {{ note.paradigm }}">{{ note.paradigm_info.short }}</span></p>
+        <p style="margin-top: 0.5rem;">{{ note.paradigm_info.description }}</p>
+      </div>
+
+      <!-- Era context -->
+      <div class="sidebar-section">
+        <h4>Era</h4>
+        <p><strong>{{ era.name }}</strong> ({{ era.years }})</p>
+        <p>{{ era.description }}</p>
+      </div>
+
+      <!-- Connections -->
+      {% if note.connections %}
+      <div class="sidebar-section">
+        <h4>Connections</h4>
+        {{ note.connections_html }}
+      </div>
+      {% endif %}
+    </aside>
+  </div>
+
+  <!-- Prev / Next navigation -->
+  <nav class="evidence-nav">
+    {% if prev_note %}
+    <a href="{{ root }}evidence/{{ prev_note.slug }}.html">
+      <span class="label">&larr; Previous</span>
+      {{ prev_note.author }} ({{ prev_note.year }})
+    </a>
+    {% else %}
+    <span></span>
+    {% endif %}
+
+    {% if next_note %}
+    <a href="{{ root }}evidence/{{ next_note.slug }}.html" style="text-align: right;">
+      <span class="label">Next &rarr;</span>
+      {{ next_note.author }} ({{ next_note.year }})
+    </a>
+    {% endif %}
+  </nav>
+
+</div>
+{% endblock %}

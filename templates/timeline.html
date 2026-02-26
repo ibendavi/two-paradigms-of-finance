@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% set active_page = 'timeline' %}
+
+{% block title %}Interactive Timeline | {{ site.title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <div class="page-header">
+    <h1>Timeline of Financial Thinking</h1>
+    <p class="subtitle">
+      300 years of primary sources — from Hutcheson's South Sea valuation (1720)
+      to modern survey evidence. Click any dot for details.
+    </p>
+  </div>
+
+  <!-- Explanation panel -->
+  <div class="timeline-explanation">
+    <strong>Reading the timeline:</strong>
+    Each dot is a textbook. Its vertical position is a <strong>paradigm score</strong>
+    based on content analysis — keywords like "NPV," "DCF," and "CAPM" pull a book
+    <span class="exp-blue">upward (academic paradigm)</span>, while "earnings,"
+    "P/E," and "capitalization" pull it <span class="exp-gold">downward (practitioner paradigm)</span>.
+    Before 1958 all books cluster near the center. After Modigliani-Miller, the two traditions diverge.
+    Larger dots have detailed research notes — click them to read the evidence.
+  </div>
+
+  <!-- Controls -->
+  <div class="timeline-controls">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="pre-split">Pre-Split</button>
+    <button data-filter="transitional">Transitional</button>
+    <button data-filter="academic">Academic</button>
+    <button data-filter="practitioner">Practitioner</button>
+  </div>
+
+  <!-- Timeline canvas -->
+  <div class="timeline-container" id="timeline-wrapper">
+    <canvas id="timeline-canvas"></canvas>
+    <div class="timeline-popup" id="timeline-popup">
+      <h4 id="popup-title"></h4>
+      <p id="popup-finding"></p>
+      <a id="popup-link" href="#" class="popup-link">Read the evidence &rarr;</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Embed timeline data with root prefix for links -->
+<script>
+  window.TIMELINE_DATA = {{ timeline_data | tojson }};
+  window.SITE_ROOT = {{ root | tojson }};
+</script>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ root }}static/js/timeline.js"></script>
+{% endblock %}
