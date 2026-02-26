@@ -120,9 +120,8 @@
         }));
     }
 
-    const postSplit = positions.filter(p => p.d.year >= SPLIT_YEAR);
-    const acad = postSplit.filter(p => p.d.paradigm === 'academic');
-    const prac = postSplit.filter(p => p.d.paradigm === 'practitioner');
+    const acad = positions.filter(p => p.d.paradigm === 'academic');
+    const prac = positions.filter(p => p.d.paradigm === 'practitioner');
 
     return {
       academic: avgByDecade(acad),
