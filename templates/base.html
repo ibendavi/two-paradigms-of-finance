@@ -41,5 +41,14 @@
   </footer>
 
   {% block scripts %}{% endblock %}
+  <script>
+  (function(){
+    var k='__tp_auth';
+    if(sessionStorage.getItem(k)==='1') return;
+    var p=prompt('Enter password:');
+    if(p==='EPS'){sessionStorage.setItem(k,'1');}
+    else{document.body.innerHTML='<p style="color:#ede8d8;text-align:center;margin-top:40vh;font-family:serif;font-size:1.2rem;">Access denied.</p>';}
+  })();
+  </script>
 </body>
 </html>
