@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% set active_page = 'timeline' %}
+
+{% block title %}Interactive Timeline | {{ site.title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <div class="page-header">
+    <h1>Timeline of Financial Thinking</h1>
+    <p class="subtitle">
+      300 years of primary sources — from Hutcheson's South Sea valuation (1720)
+      to modern survey evidence. Click any dot for details.
+    </p>
+  </div>
+
+  <!-- Explanation panel -->
+  <div class="timeline-explanation">
+    <strong>Reading the timeline:</strong>
+    Each dot is a textbook from our collection of ~2,500 volumes. Its vertical position is
+    a <strong>paradigm score</strong> computed from full-text analysis of the book's OCR'd content.
+    Terms like "NPV," "DCF," "CAPM," and "present value" pull a book
+    <span class="exp-blue">upward (academic/NPV paradigm)</span>, while "EPS," "earnings yield,"
+    "P/E," and "capitalization rate" pull it <span class="exp-gold">downward (practitioner/EPS paradigm)</span>.
+    The score is <code>(NPV&hairsp;hits &minus; EPS&hairsp;hits) / (NPV&hairsp;hits + EPS&hairsp;hits)</code> with
+    no artificial scaling — the divergence pattern emerges from the data itself.
+    Larger dots have detailed research notes — click them to read the evidence.
+  </div>
+
+  <!-- Controls -->
+  <div class="timeline-controls">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="pre-split">Pre-Split</button>
+    <button data-filter="transitional">Transitional</button>
+    <button data-filter="academic">Academic</button>
+    <button data-filter="practitioner">Practitioner</button>
+  </div>
+
+  <!-- Timeline canvas -->
+  <div class="timeline-container" id="timeline-wrapper">
+    <canvas id="timeline-canvas"></canvas>
+    <div class="timeline-popup" id="timeline-popup">
+      <h4 id="popup-title"></h4>
+      <p id="popup-finding"></p>
+      <a id="popup-link" href="#" class="popup-link">Read the evidence &rarr;</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Embed timeline data with root prefix for links -->
+<script>
+  window.TIMELINE_DATA = {{ timeline_data | tojson }};
+  window.SITE_ROOT = {{ root | tojson }};
+</script>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ root }}static/js/timeline.js"></script>
+{% endblock %}
