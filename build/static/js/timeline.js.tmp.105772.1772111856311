@@ -1,0 +1,316 @@
+/**
+ * Interactive Timeline for The Two Paradigms of Finance
+ * Horizontal dual-track timeline with zoom, filter, and click-to-detail.
+ */
+(function () {
+  'use strict';
+
+  const data = window.TIMELINE_DATA || [];
+  if (!data.length) return;
+
+  const canvas = document.getElementById('timeline-canvas');
+  const wrapper = document.getElementById('timeline-wrapper');
+  const popup = document.getElementById('timeline-popup');
+  const ctx = canvas.getContext('2d');
+
+  // Constants
+  const COLORS = {
+    'pre-split':     '#94a3b8',
+    'transitional':  '#a78bfa',
+    'academic':      '#38bdf8',
+    'practitioner':  '#e2b714',
+  };
+  const BG = '#1e293b';
+  const BORDER = '#334155';
+  const TEXT = '#e2e8f0';
+  const TEXT_MUTED = '#64748b';
+  const AXIS_COLOR = '#475569';
+
+  // State
+  let filter = 'all';
+  let hoveredIdx = -1;
+  let selectedIdx = -1;
+  let dpr = window.devicePixelRatio || 1;
+
+  // Year range
+  const minYear = Math.min(...data.map(d => d.year).filter(y => y > 0)) - 10;
+  const maxYear = Math.max(...data.map(d => d.year)) + 10;
+
+  // Layout
+  const PADDING = { top: 60, bottom: 60, left: 60, right: 60 };
+  const DOT_RADIUS = 7;
+  const DOT_RADIUS_HOVER = 10;
+  const SPLIT_YEAR = 1958;
+
+  function resize() {
+    const rect = wrapper.getBoundingClientRect();
+    const w = rect.width;
+    const h = 520;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function yearToX(year) {
+    const w = canvas.width / dpr;
+    const usable = w - PADDING.left - PADDING.right;
+    return PADDING.left + ((year - minYear) / (maxYear - minYear)) * usable;
+  }
+
+  function getFiltered() {
+    return data.filter(d => {
+      if (d.year <= 0) return false;
+      if (filter === 'all') return true;
+      return d.paradigm === filter;
+    });
+  }
+
+  function getTrack(d) {
+    // Before split: center. After: academic top, practitioner bottom
+    const h = canvas.height / dpr;
+    const centerY = h / 2;
+    const spread = (h - PADDING.top - PADDING.bottom) * 0.3;
+
+    if (d.year < SPLIT_YEAR) {
+      return centerY;
+    }
+    if (d.paradigm === 'academic') {
+      return centerY - spread;
+    }
+    if (d.paradigm === 'practitioner') {
+      return centerY + spread;
+    }
+    // transitional
+    return centerY;
+  }
+
+  // Spread overlapping dots vertically
+  function layoutDots(items) {
+    const positions = [];
+    for (const d of items) {
+      const x = yearToX(d.year);
+      let y = getTrack(d);
+
+      // Check for overlap and nudge
+      for (const p of positions) {
+        if (Math.abs(p.x - x) < DOT_RADIUS * 2.5 && Math.abs(p.y - y) < DOT_RADIUS * 2.5) {
+          y += DOT_RADIUS * 2.5;
+        }
+      }
+      positions.push({ x, y, d });
+    }
+    return positions;
+  }
+
+  function draw() {
+    const w = canvas.width / dpr;
+    const h = canvas.height / dpr;
+    const centerY = h / 2;
+
+    // Clear
+    ctx.fillStyle = BG;
+    ctx.fillRect(0, 0, w, h);
+
+    // Axis line
+    ctx.strokeStyle = AXIS_COLOR;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(PADDING.left, centerY);
+    ctx.lineTo(w - PADDING.right, centerY);
+    ctx.stroke();
+
+    // Year ticks
+    ctx.fillStyle = TEXT_MUTED;
+    ctx.font = '11px sans-serif';
+    ctx.textAlign = 'center';
+    const step = maxYear - minYear > 200 ? 50 : (maxYear - minYear > 100 ? 25 : 10);
+    for (let y = Math.ceil(minYear / step) * step; y <= maxYear; y += step) {
+      const x = yearToX(y);
+      ctx.beginPath();
+      ctx.moveTo(x, centerY - 4);
+      ctx.lineTo(x, centerY + 4);
+      ctx.stroke();
+      ctx.fillText(y, x, centerY + 18);
+    }
+
+    // Split marker
+    const splitX = yearToX(SPLIT_YEAR);
+    ctx.save();
+    ctx.setLineDash([4, 4]);
+    ctx.strokeStyle = '#a78bfa';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(splitX, PADDING.top);
+    ctx.lineTo(splitX, h - PADDING.bottom);
+    ctx.stroke();
+    ctx.restore();
+
+    ctx.fillStyle = '#a78bfa';
+    ctx.font = 'bold 11px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('1958: M&M', splitX, PADDING.top - 8);
+
+    // Track labels (after split)
+    ctx.fillStyle = COLORS.academic;
+    ctx.font = 'bold 11px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('ACADEMIC', w - PADDING.right + 8, centerY - (h - PADDING.top - PADDING.bottom) * 0.3 + 4);
+    ctx.fillStyle = COLORS.practitioner;
+    ctx.fillText('PRACTITIONER', w - PADDING.right + 8, centerY + (h - PADDING.top - PADDING.bottom) * 0.3 + 4);
+
+    // Dots
+    const items = getFiltered();
+    const positions = layoutDots(items);
+
+    positions.forEach((pos, i) => {
+      const { x, y, d } = pos;
+      const isHovered = i === hoveredIdx;
+      const isSelected = i === selectedIdx;
+      const r = isHovered || isSelected ? DOT_RADIUS_HOVER : DOT_RADIUS;
+
+      // Glow for hover/select
+      if (isHovered || isSelected) {
+        ctx.save();
+        ctx.shadowColor = COLORS[d.paradigm] || '#fff';
+        ctx.shadowBlur = 12;
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fillStyle = COLORS[d.paradigm] || '#fff';
+        ctx.fill();
+        ctx.restore();
+      }
+
+      // Dot
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = COLORS[d.paradigm] || '#fff';
+      ctx.globalAlpha = isHovered || isSelected ? 1 : 0.75;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+
+      // Border
+      ctx.strokeStyle = isHovered || isSelected ? '#fff' : BORDER;
+      ctx.lineWidth = isHovered || isSelected ? 2 : 1;
+      ctx.stroke();
+
+      // Label for hovered
+      if (isHovered) {
+        ctx.fillStyle = TEXT;
+        ctx.font = 'bold 12px sans-serif';
+        ctx.textAlign = 'center';
+        const label = (d.author || '') + ' (' + d.year + ')';
+        ctx.fillText(label, x, y - r - 8);
+      }
+    });
+
+    // Store positions for hit testing
+    canvas._positions = positions;
+  }
+
+  // Hit testing
+  function getHitIndex(mx, my) {
+    const positions = canvas._positions || [];
+    for (let i = positions.length - 1; i >= 0; i--) {
+      const { x, y } = positions[i];
+      const dx = mx - x;
+      const dy = my - y;
+      if (dx * dx + dy * dy <= (DOT_RADIUS_HOVER + 2) * (DOT_RADIUS_HOVER + 2)) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  function getMousePos(e) {
+    const rect = canvas.getBoundingClientRect();
+    return {
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    };
+  }
+
+  // Events
+  canvas.addEventListener('mousemove', function (e) {
+    const pos = getMousePos(e);
+    const idx = getHitIndex(pos.x, pos.y);
+    if (idx !== hoveredIdx) {
+      hoveredIdx = idx;
+      canvas.style.cursor = idx >= 0 ? 'pointer' : 'default';
+      draw();
+    }
+  });
+
+  canvas.addEventListener('click', function (e) {
+    const pos = getMousePos(e);
+    const idx = getHitIndex(pos.x, pos.y);
+    if (idx >= 0) {
+      selectedIdx = idx;
+      const d = canvas._positions[idx].d;
+      showPopup(d, canvas._positions[idx]);
+      draw();
+    } else {
+      hidePopup();
+      selectedIdx = -1;
+      draw();
+    }
+  });
+
+  canvas.addEventListener('mouseleave', function () {
+    hoveredIdx = -1;
+    canvas.style.cursor = 'default';
+    draw();
+  });
+
+  function showPopup(d, pos) {
+    const title = document.getElementById('popup-title');
+    const finding = document.getElementById('popup-finding');
+    const link = document.getElementById('popup-link');
+
+    title.textContent = (d.author || 'Unknown') + ' (' + d.year + ')';
+    title.style.color = COLORS[d.paradigm] || TEXT;
+    finding.textContent = d.key_finding || '';
+    var siteRoot = window.SITE_ROOT || '';
+    link.href = siteRoot + 'evidence/' + d.slug + '.html';
+
+    // Position popup
+    const rect = wrapper.getBoundingClientRect();
+    const canvasRect = canvas.getBoundingClientRect();
+    let left = pos.x + 15;
+    let top = pos.y - 60;
+
+    // Keep in bounds
+    if (left + 350 > canvasRect.width) {
+      left = pos.x - 365;
+    }
+    if (top < 0) top = 10;
+
+    popup.style.left = left + 'px';
+    popup.style.top = top + 'px';
+    popup.classList.add('visible');
+  }
+
+  function hidePopup() {
+    popup.classList.remove('visible');
+  }
+
+  // Filter buttons
+  document.querySelectorAll('.timeline-controls button').forEach(btn => {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.timeline-controls button').forEach(b => b.classList.remove('active', 'active-gold', 'active-blue'));
+      this.classList.add('active');
+      if (this.dataset.filter === 'practitioner') this.classList.add('active-gold');
+      if (this.dataset.filter === 'academic') this.classList.add('active-blue');
+      filter = this.dataset.filter;
+      selectedIdx = -1;
+      hidePopup();
+      draw();
+    });
+  });
+
+  // Init
+  window.addEventListener('resize', () => { resize(); draw(); });
+  resize();
+  draw();
+})();
