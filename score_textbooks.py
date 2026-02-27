@@ -88,10 +88,8 @@ NPV_KEYWORDS = [
     ("sml", r"\bsml\b", True),
     ("capital market line", r"capital market line", False),
     # "cml" standalone REMOVED — matches abbreviations in accounting/other contexts
-    ("diversification", r"diversification", False),
     ("efficient frontier", r"efficient frontier", False),
     ("mean-variance", r"mean.variance", False),
-    ("covariance", r"covariance", False),
     ("markowitz", r"markowitz", False),
     ("portfolio theory", r"portfolio theory", False),
     ("factor model", r"factor model", False),
@@ -120,7 +118,6 @@ NPV_KEYWORDS = [
 
     # Historical / pre-1900 discounting vocabulary
     ("present worth", r"present worth", False),
-    ("discount rate", r"\bdiscount rate\b", False),
     ("discounted value", r"discounted value", False),
     ("time value of money", r"time value of money", False),
 

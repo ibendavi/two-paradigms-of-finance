@@ -58,20 +58,6 @@ PARADIGMS = {
             "Cost of equity from CAPM / factor model. Objective = maximize firm value."
         ),
     },
-    "transitional": {
-        "label": "Transitional",
-        "short": "Transitional",
-        "color": "#a78bfa",  # purple
-        "bg": "rgba(167, 139, 250, 0.10)",
-        "description": "Works that bridge or straddle both paradigms.",
-    },
-    "pre-split": {
-        "label": "Pre-Split Consensus",
-        "short": "Pre-Split",
-        "color": "#94a3b8",  # slate
-        "bg": "rgba(148, 163, 184, 0.10)",
-        "description": "Before the 1958 revolution — everyone used the same framework.",
-    },
 }
 
 # ---------------------------------------------------------------------------

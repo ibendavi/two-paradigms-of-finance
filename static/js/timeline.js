@@ -17,8 +17,6 @@
 
   // Colors (warm palette)
   const COLORS = {
-    'pre-split':     '#94a3b8',
-    'transitional':  '#a78bfa',
     'academic':      '#5ba4cf',
     'practitioner':  '#d4a017',
   };

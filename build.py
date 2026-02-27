@@ -155,7 +155,7 @@ def extract_author(title: str, filename: str) -> str:
 
 
 def assign_paradigm(text: str, year: int) -> str:
-    """Classify a note as practitioner, academic, transitional, or pre-split."""
+    """Classify a note as practitioner or academic."""
     text_lower = text.lower()
 
     prac_score = sum(
@@ -165,26 +165,13 @@ def assign_paradigm(text: str, year: int) -> str:
         1 for kw in config.ACADEMIC_KEYWORDS if kw.lower() in text_lower
     )
 
-    # Pre-split: everything before 1958 (before M&M)
-    if year > 0 and year < 1958:
-        return "pre-split"
-
-    # Transitional: year is 1958-1963
-    if 1958 <= year <= 1963:
-        return "transitional"
-
-    if prac_score >= 3 and acad_score >= 3:
-        return "transitional"
-
     if acad_score > prac_score:
         return "academic"
     if prac_score > acad_score:
         return "practitioner"
 
-    # Default by era
-    if year > 0 and year < 1958:
-        return "pre-split"
-    return "academic"
+    # Default: practitioner (older/unclassified works are typically practitioner)
+    return "practitioner"
 
 
 # ---------------------------------------------------------------------------
@@ -460,7 +447,7 @@ def build_site():
     STREAM_TO_PARADIGM = {
         "Academic": "academic",
         "Practitioner": "practitioner",
-        "Both": "transitional",
+        "Both": "academic",
     }
     timeline_data = []
     for entry in lib_entries:
@@ -472,9 +459,7 @@ def build_site():
         if year <= 0:
             continue
         stream = str(entry.get("stream", "") or "")
-        paradigm = STREAM_TO_PARADIGM.get(stream, "pre-split")
-        if 1958 <= year <= 1963 and paradigm == "pre-split":
-            paradigm = "transitional"
+        paradigm = STREAM_TO_PARADIGM.get(stream, "practitioner")
         title = str(entry.get("title", "") or "")
         our_filename = str(entry.get("our_filename", "") or "")
         if our_filename not in ocr_scores:
@@ -518,15 +503,14 @@ def build_site():
         if fn in ocr_scores:
             _surname_year_scores[(surname, yr)] = ocr_scores[fn]
         stream = str(entry.get("stream", "") or "")
-        paradigm = STREAM_TO_PARADIGM.get(stream, "pre-split")
-        if paradigm != "pre-split" or (surname, yr) not in _surname_year_paradigm:
+        paradigm = STREAM_TO_PARADIGM.get(stream, "practitioner")
+        if paradigm != "practitioner" or (surname, yr) not in _surname_year_paradigm:
             _surname_year_paradigm[(surname, yr)] = paradigm
 
     # Surname-only fallback: if ALL bib entries for a surname are the same stream, use it
-    _surname_paradigms = {}  # surname -> set of non-pre-split paradigms
+    _surname_paradigms = {}  # surname -> set of paradigms (excluding default)
     for (sn, _yr), p in _surname_year_paradigm.items():
-        if p != "pre-split":
-            _surname_paradigms.setdefault(sn, set()).add(p)
+        _surname_paradigms.setdefault(sn, set()).add(p)
 
     # Overlay research notes as highlighted entries
     for slug, n in note_lookup.items():
@@ -552,10 +536,10 @@ def build_site():
             bib_paradigm = None
             for dy in (0, -1, 1, -2, 2):
                 bib_paradigm = _surname_year_paradigm.get((note_surname, n["year"] + dy))
-                if bib_paradigm and bib_paradigm != "pre-split":
+                if bib_paradigm:
                     break
             # Surname-only fallback: if all bib entries for this author share one paradigm
-            if not bib_paradigm or bib_paradigm == "pre-split":
+            if not bib_paradigm:
                 surname_set = _surname_paradigms.get(note_surname)
                 if surname_set and len(surname_set) == 1:
                     bib_paradigm = next(iter(surname_set))
