@@ -1554,7 +1554,7 @@
     "title": "Bank Administration",
     "author": "Trant, J. B.",
     "year": 1931,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.29,
     "key_finding": "",
     "has_note": false
@@ -1904,7 +1904,7 @@
     "title": "Corporation Finance",
     "author": "Hoagland",
     "year": 1938,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.944,
     "key_finding": "",
     "has_note": false
@@ -2284,7 +2284,7 @@
     "title": "Corporation Finance",
     "author": "Schwartz",
     "year": 1950,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.754,
     "key_finding": "",
     "has_note": false
@@ -2734,7 +2734,7 @@
     "title": "Ed., The Management of Corporate Capital",
     "author": "Solomon",
     "year": 1959,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.207,
     "key_finding": "",
     "has_note": false
@@ -2824,7 +2824,7 @@
     "title": "Cases in Financial Management",
     "author": "Hunt, P. (Pearson); Andrews, V. L. \u2013 see Financial Management: Cases and Readings",
     "year": 1960,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.068,
     "key_finding": "",
     "has_note": false
@@ -3044,7 +3044,7 @@
     "title": "Corporate Financial Policy",
     "author": "Guthmann",
     "year": 1962,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.88,
     "key_finding": "",
     "has_note": false
@@ -3314,7 +3314,7 @@
     "title": "Administrative Financial Management",
     "author": "Bradley",
     "year": 1964,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.549,
     "key_finding": "",
     "has_note": false
@@ -3344,7 +3344,7 @@
     "title": "Corporate Financial Management",
     "author": "Kent",
     "year": 1964,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.917,
     "key_finding": "",
     "has_note": false
@@ -4144,7 +4144,7 @@
     "title": "Principles of Corporate Finance",
     "author": "Brealey, Richard A., Myers, Stewart C.",
     "year": 1971,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.688,
     "key_finding": "",
     "has_note": false
@@ -4224,7 +4224,7 @@
     "title": "Basic Business Finance: Text and Cases",
     "author": "Pearson Hunt; Charles M. Williams; Gordon Donaldson",
     "year": 1971,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.476,
     "key_finding": "",
     "has_note": false
@@ -4424,7 +4424,7 @@
     "title": "The Theory Of Finance",
     "author": "Fama, Miller",
     "year": 1972,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.887,
     "key_finding": "",
     "has_note": false
@@ -4644,7 +4644,7 @@
     "title": "A Random Walk Down Wall Street",
     "author": "Burton G. Malkiel",
     "year": 1975,
-    "paradigm": "transitional",
+    "paradigm": "practitioner",
     "score": 0.482,
     "key_finding": "",
     "has_note": false
@@ -4714,7 +4714,7 @@
     "title": "An introduction to risk and return from common stocks",
     "author": "Brealey",
     "year": 1975,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.696,
     "key_finding": "",
     "has_note": false
@@ -4864,7 +4864,7 @@
     "title": "Finance Environment And Decisions",
     "author": "Christy, Roden",
     "year": 1976,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.584,
     "key_finding": "",
     "has_note": false
@@ -5054,7 +5054,7 @@
     "title": "Techniques Of Financial Analysis",
     "author": "Helfert",
     "year": 1977,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.589,
     "key_finding": "",
     "has_note": false
@@ -5084,7 +5084,7 @@
     "title": "Essentials of Managerial Finance: Principles and Practice",
     "author": "Bolten",
     "year": 1978,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.158,
     "key_finding": "",
     "has_note": false
@@ -5184,7 +5184,7 @@
     "title": "Manias, Panics, and Crashes (1st ed.)",
     "author": "Kindleberger, Charles P.",
     "year": 1978,
-    "paradigm": "transitional",
+    "paradigm": "practitioner",
     "score": -0.333,
     "key_finding": "",
     "has_note": false
@@ -5484,7 +5484,7 @@
     "title": "Finance Environment And Decisions",
     "author": "Christy, Roden",
     "year": 1981,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.584,
     "key_finding": "",
     "has_note": false
@@ -5844,7 +5844,7 @@
     "title": "The Stock Market Theories And Evidence",
     "author": "Lorie",
     "year": 1985,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.57,
     "key_finding": "",
     "has_note": false
@@ -5894,7 +5894,7 @@
     "title": "The Stock Market: Theories and Evidence (2nd ed.)",
     "author": "Lorie, James; Hamilton, Mary",
     "year": 1985,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.57,
     "key_finding": "",
     "has_note": false
@@ -6614,7 +6614,7 @@
     "title": "The New Money Masters",
     "author": "John Train",
     "year": 1989,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.784,
     "key_finding": "",
     "has_note": false
@@ -7094,7 +7094,7 @@
     "title": "Capital Ideas: The Improbable Origins of Modern Wall Street",
     "author": "Peter L. Bernstein",
     "year": 1992,
-    "paradigm": "transitional",
+    "paradigm": "practitioner",
     "score": 0.892,
     "key_finding": "",
     "has_note": false
@@ -7134,7 +7134,7 @@
     "title": "The Winners Curse",
     "author": "Thaler, Richard H.",
     "year": 1992,
-    "paradigm": "transitional",
+    "paradigm": "academic",
     "score": 0.843,
     "key_finding": "",
     "has_note": false
@@ -7664,7 +7664,7 @@
     "title": "Against the Gods: The Remarkable Story of Risk",
     "author": "Bernstein, Peter L.",
     "year": 1996,
-    "paradigm": "transitional",
+    "paradigm": "practitioner",
     "score": 0.957,
     "key_finding": "",
     "has_note": false
@@ -7844,7 +7844,7 @@
     "title": "Stocks for the Long Run: The Definitive Guide to Financial Market Returns and Long-Term Investment Strategies",
     "author": "Jeremy J. Siegel",
     "year": 1998,
-    "paradigm": "transitional",
+    "paradigm": "practitioner",
     "score": -0.059,
     "key_finding": "",
     "has_note": false
@@ -8114,7 +8114,7 @@
     "title": "Principles Of Managerial Finance",
     "author": "Gitman, Lawrence J.",
     "year": 2000,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.116,
     "key_finding": "",
     "has_note": false
@@ -8124,7 +8124,7 @@
     "title": "Business Finance Theory And Practice",
     "author": "McLaney",
     "year": 2000,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.682,
     "key_finding": "",
     "has_note": false
@@ -8144,7 +8144,7 @@
     "title": "Irrational Exuberance",
     "author": "Robert J. Shiller",
     "year": 2000,
-    "paradigm": "transitional",
+    "paradigm": "academic",
     "score": 0.41,
     "key_finding": "",
     "has_note": false
@@ -8164,7 +8164,7 @@
     "title": "Fundamentals of Corporate Finance",
     "author": "Ross, Stephen A.",
     "year": 2000,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.504,
     "key_finding": "",
     "has_note": false
@@ -8294,7 +8294,7 @@
     "title": "Fundamentals of Corporate Finance",
     "author": "Brealey, Richard A., Myers, Stewart C., Marcus, Alan J.",
     "year": 2001,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.51,
     "key_finding": "",
     "has_note": false
@@ -8964,7 +8964,7 @@
     "title": "Principles Of Managerial Finance Brief",
     "author": "Gitman, Lawrence J.",
     "year": 2005,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.116,
     "key_finding": "",
     "has_note": false
@@ -9914,7 +9914,7 @@
     "title": "Thinking, Fast and Slow",
     "author": "Kahneman, Daniel",
     "year": 2011,
-    "paradigm": "transitional",
+    "paradigm": "academic",
     "score": 1.0,
     "key_finding": "",
     "has_note": false
