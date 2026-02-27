@@ -75,12 +75,19 @@ NPV_KEYWORDS = [
     # Risk & expected return
     ("capm", r"\bcapm\b", True),
     ("capital asset pricing", r"capital asset pricing", False),
-    ("beta", r"\bbeta\b", True),
+    # "beta" as standalone REMOVED — matches Greek letter in any math context (335 false positives)
+    ("beta coefficient", r"beta coefficient", False),
+    ("stock beta", r"stock.s? beta", False),
+    ("portfolio beta", r"portfolio beta", False),
+    ("equity beta", r"equity beta", False),
+    ("asset beta", r"asset beta", False),
+    ("unlevered beta", r"unlevered beta", False),
+    ("levered beta", r"levered beta", False),
     ("systematic risk", r"systematic risk", False),
     ("security market line", r"security market line", False),
     ("sml", r"\bsml\b", True),
     ("capital market line", r"capital market line", False),
-    ("cml", r"\bcml\b", True),
+    # "cml" standalone REMOVED — matches abbreviations in accounting/other contexts
     ("diversification", r"diversification", False),
     ("efficient frontier", r"efficient frontier", False),
     ("mean-variance", r"mean.variance", False),
@@ -89,7 +96,7 @@ NPV_KEYWORDS = [
     ("portfolio theory", r"portfolio theory", False),
     ("factor model", r"factor model", False),
     ("fama-french", r"fama.french", False),
-    ("factors", r"\bfactors\b", True),
+    # "factors" REMOVED — matches "factors of production" in pre-1950 books (1,146 false positives)
     ("risk premium", r"risk premium", False),
     ("expected return", r"expected return", False),
 
@@ -104,16 +111,27 @@ NPV_KEYWORDS = [
     ("arbitrage pricing", r"arbitrage pricing", False),
     ("option pricing", r"option pricing", False),
     ("black-scholes", r"black.scholes", False),
-    ("merton", r"\bmerton\b", True),
+    # "merton" standalone REMOVED — matches place names (87 false positives)
+    ("merton model", r"merton.{0,5}model", False),
+    ("robert merton", r"robert.{0,5}merton", False),
     ("put-call parity", r"put.call parity", False),
     ("contingent claim", r"contingent claim", False),
     ("state-contingent", r"state.contingent", False),
+
+    # Historical / pre-1900 discounting vocabulary
+    ("present worth", r"present worth", False),
+    ("discount rate", r"\bdiscount rate\b", False),
+    ("discounted value", r"discounted value", False),
+    ("time value of money", r"time value of money", False),
 
     # Agency & information frictions
     ("agency cost", r"agency cost", False),
     ("jensen-meckling", r"jensen.meckling", False),
     ("information asymmetry", r"information asymmetr", False),
-    ("signaling", r"signal(?:ing|ling)", False),
+    # "signaling" REMOVED — matches railroad/military signals (122 false positives)
+    ("signaling model", r"signal(?:ing|ling) model", False),
+    ("signaling theory", r"signal(?:ing|ling) theory", False),
+    ("signaling equilibrium", r"signal(?:ing|ling) equilibri", False),
     ("pecking order", r"pecking order", False),
     ("trade-off theory", r"trade.off theory", False),
     ("tradeoff theory", r"tradeoff theory", False),
@@ -172,6 +190,13 @@ EPS_KEYWORDS = [
     ("coverage ratio", r"coverage ratio", False),
     ("times interest earned", r"times interest earned", False),
     ("debt capacity", r"debt capacity", False),
+
+    # Historical / pre-1900 earnings-capitalization vocabulary
+    ("intrinsic value", r"intrinsic value", False),
+    ("dividend yield", r"dividend yield", False),
+    ("par value", r"par value", False),
+    ("earning capacity", r"earning capacity", False),
+    ("rate of return", r"\brate of return\b", False),
 
     # Practitioner language
     ("consensus estimate", r"consensus estimate", False),

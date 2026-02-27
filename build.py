@@ -361,24 +361,67 @@ def build_site():
     html = tpl.render(**common, paradigm_table=paradigm_table, notes_by_slug=notes_by_slug)
     write_page("two-paradigms.html", html)
 
+    # --- Load content-based stream classification from stream_scores.csv ---
+    # Scores computed by classify_stream.py from writing style + target audience keywords.
+    # Used to override folder-based stream when signal is strong.
+    import csv as _csv
+    stream_scores_path = os.path.join(os.path.dirname(__file__), "stream_scores.csv")
+    stream_class = {}  # filename -> (stream_score, total_hits)
+    STREAM_THRESHOLD = 0.5  # override folder-based stream if |score| > this (3:1 ratio)
+    MIN_OVERRIDE_HITS = 10  # need 10+ total style/audience hits before allowing override
+    if os.path.exists(stream_scores_path):
+        with open(stream_scores_path, encoding="utf-8") as sf:
+            for row in _csv.DictReader(sf):
+                try:
+                    score = float(row["stream_score"])
+                    acad_h = int(row.get("acad_hits", 0))
+                    prac_h = int(row.get("prac_hits", 0))
+                    stream_class[row["filename"]] = (score, acad_h + prac_h)
+                except (KeyError, ValueError):
+                    pass
+        print(f"    Loaded {len(stream_class)} stream classifications from stream_scores.csv")
+    else:
+        print("    WARNING: stream_scores.csv not found — using folder-based classification only")
+
     # Prepare textbook bibliography entries (used by both timeline and library)
     EXCLUDE_PATH_PREFIXES = ("Historical Railways", "Bibliographies", "Academic articles")
     lib_entries = []
+    lib_stream_overrides = 0
     for entry in bibliography:
         path = str(entry.get("Our Path(s)", "") or "")
         if path and any(path.startswith(pfx) for pfx in EXCLUDE_PATH_PREFIXES):
             continue
+        # Derive stream from folder path (more reliable than Stream column)
+        stream = str(entry.get("Stream", "") or "")
+        path_lower = path.lower()
+        if "/academic/" in path_lower or "textbooks/academic" in path_lower:
+            stream = "Academic"
+        elif "/practitioner/" in path_lower or "textbooks/practitioner" in path_lower:
+            stream = "Practitioner"
+        # Content-based override: if classify_stream.py has a strong signal, use it
+        our_filename = str(entry.get("Our Filename", "") or "")
+        if our_filename in stream_class:
+            ss, total_hits = stream_class[our_filename]
+            if total_hits >= MIN_OVERRIDE_HITS:
+                if ss > STREAM_THRESHOLD and stream != "Academic":
+                    stream = "Academic"
+                    lib_stream_overrides += 1
+                elif ss < -STREAM_THRESHOLD and stream != "Practitioner":
+                    stream = "Practitioner"
+                    lib_stream_overrides += 1
         lib_entries.append({
             "author": str(entry.get("Author", entry.get("Author(s)", "")) or ""),
             "title": str(entry.get("Title", "") or ""),
             "year": entry.get("Year", 0) or 0,
-            "stream": str(entry.get("Stream", "") or ""),
+            "stream": stream,
             "topic": str(entry.get("Topic", "") or ""),
             "have": entry.get("have", False),
             "url": str(entry.get("Archive URL", "") or ""),
             "key_concepts": str(entry.get("Key Concepts", "") or ""),
-            "our_filename": str(entry.get("Our Filename", "") or ""),
+            "our_filename": our_filename,
         })
+    if lib_stream_overrides:
+        print(f"    Content-based stream overrides: {lib_stream_overrides} entries reclassified")
 
     # 5. Timeline (all textbooks from bibliography + research-note highlights)
     print("  Rendering timeline.html...")
@@ -393,22 +436,27 @@ def build_site():
     # --- Load OCR-based paradigm scores from scores.csv ---
     # Scores computed by score_textbooks.py: (npv_hits - eps_hits) / (npv_hits + eps_hits)
     # Range: -1 (pure EPS/practitioner) to +1 (pure NPV/academic)
-    # No artificial time-based scaling — the data speaks for itself.
-    import csv as _csv
     scores_path = os.path.join(os.path.dirname(__file__), "scores.csv")
     ocr_scores = {}  # filename -> score (float)
+    MIN_HITS = 20  # minimum total keyword hits to be included on timeline
     if os.path.exists(scores_path):
+        skipped_low = 0
         with open(scores_path, encoding="utf-8") as sf:
             for row in _csv.DictReader(sf):
                 try:
+                    npv = int(row.get("npv_hits", 0))
+                    eps = int(row.get("eps_hits", 0))
+                    if npv + eps < MIN_HITS:
+                        skipped_low += 1
+                        continue
                     ocr_scores[row["filename"]] = float(row["score"])
                 except (KeyError, ValueError):
                     pass
-        print(f"    Loaded {len(ocr_scores)} OCR scores from scores.csv")
+        print(f"    Loaded {len(ocr_scores)} OCR scores from scores.csv (skipped {skipped_low} with <{MIN_HITS} total hits)")
     else:
         print("    WARNING: scores.csv not found — all scores will be 0")
 
-    # Start with ALL textbook bibliography entries
+    # Build timeline from lib_entries (stream already corrected by content-based override)
     STREAM_TO_PARADIGM = {
         "Academic": "academic",
         "Practitioner": "practitioner",
@@ -425,12 +473,9 @@ def build_site():
             continue
         stream = str(entry.get("stream", "") or "")
         paradigm = STREAM_TO_PARADIGM.get(stream, "pre-split")
-        if year < 1958:
-            paradigm = "pre-split"
-        elif 1958 <= year <= 1963:
+        if 1958 <= year <= 1963 and paradigm == "pre-split":
             paradigm = "transitional"
         title = str(entry.get("title", "") or "")
-        # Look up OCR score by filename; skip entries without scores
         our_filename = str(entry.get("our_filename", "") or "")
         if our_filename not in ocr_scores:
             continue  # No PDF or no score — don't put on timeline
@@ -446,43 +491,82 @@ def build_site():
             "has_note": False,
         })
 
-    # Build reverse lookup: (author_surname, year) -> OCR score from all lib_entries
+    # Extract surname: "Last, First" -> "last"; "First Last" -> "last"
+    def _extract_surname(author_str):
+        s = str(author_str or "").strip()
+        if not s:
+            return ""
+        if "," in s:
+            return s.split(",")[0].strip().lower()
+        # No comma — take last word (handles "William Fairman" -> "fairman")
+        parts = s.split()
+        return parts[-1].lower() if parts else ""
+
+    # Build reverse lookups: (author_surname, year) -> OCR score and paradigm from all lib_entries
     _surname_year_scores = {}
+    _surname_year_paradigm = {}
     for entry in lib_entries:
+        yr = entry.get("year", 0) or 0
+        try:
+            yr = int(yr)
+        except (ValueError, TypeError):
+            continue
+        surname = _extract_surname(entry.get("author", ""))
+        if not surname or yr <= 0:
+            continue
         fn = str(entry.get("our_filename", "") or "")
         if fn in ocr_scores:
-            yr = entry.get("year", 0) or 0
-            try:
-                yr = int(yr)
-            except (ValueError, TypeError):
-                continue
-            surname = str(entry.get("author", "") or "").split(",")[0].strip().lower()
-            if surname and yr > 0:
-                _surname_year_scores[(surname, yr)] = ocr_scores[fn]
+            _surname_year_scores[(surname, yr)] = ocr_scores[fn]
+        stream = str(entry.get("stream", "") or "")
+        paradigm = STREAM_TO_PARADIGM.get(stream, "pre-split")
+        if paradigm != "pre-split" or (surname, yr) not in _surname_year_paradigm:
+            _surname_year_paradigm[(surname, yr)] = paradigm
+
+    # Surname-only fallback: if ALL bib entries for a surname are the same stream, use it
+    _surname_paradigms = {}  # surname -> set of non-pre-split paradigms
+    for (sn, _yr), p in _surname_year_paradigm.items():
+        if p != "pre-split":
+            _surname_paradigms.setdefault(sn, set()).add(p)
 
     # Overlay research notes as highlighted entries
     for slug, n in note_lookup.items():
+        if n["year"] <= 0:
+            continue  # skip notes without a valid year
         best_idx = None
+        note_surname = _extract_surname(n["author"])
         for i, td in enumerate(timeline_data):
             if td["year"] == n["year"] and not td["has_note"]:
-                note_surname = (n["author"] or "").split(",")[0].strip().lower()
-                bib_surname = (td["author"] or "").split(",")[0].strip().lower()
+                bib_surname = _extract_surname(td["author"])
                 if note_surname and bib_surname and note_surname == bib_surname:
                     best_idx = i
                     break
-        # Get OCR score: from matched timeline entry, or surname+year lookup
+        # Get OCR score and paradigm: from matched timeline entry, or surname+year lookup
         note_score = 0.0
+        note_paradigm = n["paradigm"]  # default from assign_paradigm()
         if best_idx is not None:
             note_score = timeline_data[best_idx]["score"]
+            note_paradigm = timeline_data[best_idx]["paradigm"]
         else:
-            note_surname = (n["author"] or "").split(",")[0].strip().lower()
             note_score = _surname_year_scores.get((note_surname, n["year"]), 0.0)
+            # Try exact year, then ±1, ±2 for paradigm lookup (handles edition year mismatches)
+            bib_paradigm = None
+            for dy in (0, -1, 1, -2, 2):
+                bib_paradigm = _surname_year_paradigm.get((note_surname, n["year"] + dy))
+                if bib_paradigm and bib_paradigm != "pre-split":
+                    break
+            # Surname-only fallback: if all bib entries for this author share one paradigm
+            if not bib_paradigm or bib_paradigm == "pre-split":
+                surname_set = _surname_paradigms.get(note_surname)
+                if surname_set and len(surname_set) == 1:
+                    bib_paradigm = next(iter(surname_set))
+            if bib_paradigm:
+                note_paradigm = bib_paradigm
         note_entry = {
             "slug": n["slug"],
             "title": n["title"],
             "author": n["author"],
             "year": n["year"],
-            "paradigm": n["paradigm"],
+            "paradigm": note_paradigm,
             "score": round(note_score, 3),
             "key_finding": n["key_finding"][:200] + ("..." if len(n["key_finding"]) > 200 else ""),
             "has_note": True,

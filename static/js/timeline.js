@@ -102,34 +102,6 @@
     });
   }
 
-  // Compute trend lines from decade averages of score
-  function computeTrends(positions) {
-    function avgByDecade(pts) {
-      const buckets = {};
-      pts.forEach(p => {
-        const dec = Math.floor(p.d.year / 10) * 10;
-        if (!buckets[dec]) buckets[dec] = [];
-        buckets[dec].push(p.y);
-      });
-      return Object.keys(buckets)
-        .map(Number)
-        .sort((a, b) => a - b)
-        .map(dec => ({
-          x: yearToX(dec + 5),
-          y: buckets[dec].reduce((a, b) => a + b, 0) / buckets[dec].length,
-        }));
-    }
-
-    const postSplit = positions.filter(p => p.d.year >= SPLIT_YEAR);
-    const acad = postSplit.filter(p => p.d.paradigm === 'academic');
-    const prac = postSplit.filter(p => p.d.paradigm === 'practitioner');
-
-    return {
-      academic: avgByDecade(acad),
-      practitioner: avgByDecade(prac),
-    };
-  }
-
   function draw() {
     const w = canvas.width / dpr;
     const h = canvas.height / dpr;
@@ -206,44 +178,24 @@
     ctx.fillStyle = TEXT_MUTED;
     ctx.font = '10px "JetBrains Mono", "Consolas", monospace';
     ctx.textAlign = 'center';
-    ctx.fillText('PARADIGM SCORE', 0, 0);
+    ctx.fillText('VALUATION METHOD', 0, 0);
     ctx.restore();
 
-    ctx.fillStyle = COLORS.academic;
+    ctx.fillStyle = TEXT_MUTED;
     ctx.font = '10px "JetBrains Mono", "Consolas", monospace';
     ctx.textAlign = 'left';
-    ctx.fillText('\u2191 NPV / DCF / CAPM', PADDING.left - 10, PADDING.top - 8);
-    ctx.fillStyle = COLORS.practitioner;
-    ctx.fillText('\u2193 EPS / Earnings / Comps', PADDING.left - 10, h - PADDING.bottom + 18);
+    ctx.fillText('\u2191 Discounted Cash Flows', PADDING.left - 10, PADDING.top - 8);
+    ctx.fillText('\u2193 Earnings Capitalization', PADDING.left - 10, h - PADDING.bottom + 18);
 
-    ctx.fillStyle = COLORS.academic;
+    ctx.fillStyle = TEXT_MUTED;
     ctx.font = 'bold 11px "JetBrains Mono", "Consolas", monospace';
     ctx.textAlign = 'right';
-    ctx.fillText('ACADEMIC', w - 12, PADDING.top + 12);
-    ctx.fillStyle = COLORS.practitioner;
-    ctx.fillText('PRACTITIONER', w - 12, h - PADDING.bottom - 4);
+    ctx.fillText('DCF', w - 12, PADDING.top + 12);
+    ctx.fillText('EARNINGS CAP', w - 12, h - PADDING.bottom - 4);
 
     // --- Dots ---
     const items = getFiltered();
     const positions = layoutDots(items);
-
-    // --- Trend lines ---
-    const trends = computeTrends(positions);
-    function drawTrend(pts, color) {
-      if (pts.length < 2) return;
-      ctx.save();
-      ctx.setLineDash([6, 4]);
-      ctx.strokeStyle = color;
-      ctx.lineWidth = 1.5;
-      ctx.globalAlpha = 0.5;
-      ctx.beginPath();
-      ctx.moveTo(pts[0].x, pts[0].y);
-      for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
-      ctx.stroke();
-      ctx.restore();
-    }
-    drawTrend(trends.academic, COLORS.academic);
-    drawTrend(trends.practitioner, COLORS.practitioner);
 
     // --- Draw regular dots (small, translucent) ---
     positions.forEach(pos => {

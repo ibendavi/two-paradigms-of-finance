@@ -17,13 +17,15 @@
   <!-- Explanation panel -->
   <div class="timeline-explanation">
     <strong>Reading the timeline:</strong>
-    Each dot is a textbook from our collection of ~2,500 volumes. Its vertical position is
-    a <strong>paradigm score</strong> computed from full-text analysis of the book's OCR'd content.
-    Terms like "NPV," "DCF," "CAPM," and "present value" pull a book
-    <span class="exp-blue">upward (academic/NPV paradigm)</span>, while "EPS," "earnings yield,"
-    "P/E," and "capitalization rate" pull it <span class="exp-gold">downward (practitioner/EPS paradigm)</span>.
-    The score is <code>(NPV&hairsp;hits &minus; EPS&hairsp;hits) / (NPV&hairsp;hits + EPS&hairsp;hits)</code> with
-    no artificial scaling — the divergence pattern emerges from the data itself.
+    Each dot is a textbook from our collection, scored by full-text analysis of its OCR'd content.
+    Vertical position reflects <strong>valuation method</strong>: terms like "discounted cash flow,"
+    "NPV," "CAPM," and "present value" pull a book
+    <span class="exp-blue">upward (discounted cash flows)</span>, while "earnings per share,"
+    "earnings yield," "P/E," and "capitalization rate" pull it
+    <span class="exp-gold">downward (earnings capitalization)</span>.
+    Color indicates stream: <span class="exp-blue">academic</span> vs.
+    <span class="exp-gold">practitioner</span>.
+    Only books with 20+ keyword matches are shown.
     Larger dots have detailed research notes — click them to read the evidence.
   </div>
 
