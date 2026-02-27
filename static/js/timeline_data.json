@@ -34,7 +34,7 @@
     "title": "Seventy-three Years History of the Boston Stock 1798-1871",
     "author": "Martin",
     "year": 1871,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -1.0,
     "key_finding": "",
     "has_note": false
@@ -104,7 +104,7 @@
     "title": "American securities",
     "author": "William M. Grosvenor",
     "year": 1885,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -1.0,
     "key_finding": "",
     "has_note": false
@@ -134,7 +134,7 @@
     "title": "Treatise on co-operative savings and loan associations",
     "author": "Seymour Dexter",
     "year": 1889,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.8,
     "key_finding": "",
     "has_note": false
@@ -154,7 +154,7 @@
     "title": "Appreciation and Interest",
     "author": "Fisher",
     "year": 1896,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.943,
     "key_finding": "",
     "has_note": false
@@ -184,7 +184,7 @@
     "title": "A Century of Finance Martins History of the Boston Stock and Money Markets One Hundred Years from January 1798 to January 1898",
     "author": "Martin",
     "year": 1898,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.988,
     "key_finding": "",
     "has_note": false
@@ -224,7 +224,7 @@
     "title": "Advanced accounting",
     "author": "Lawrence Robert Dicksee",
     "year": 1903,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.911,
     "key_finding": "",
     "has_note": false
@@ -284,7 +284,7 @@
     "title": "Financing an Enterprise",
     "author": "Cooper, Francis",
     "year": 1907,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.2,
     "key_finding": "",
     "has_note": false
@@ -354,7 +354,7 @@
     "title": "A Manual of Corporate Organization",
     "author": "Conyngton, Hugh Ronald",
     "year": 1908,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.994,
     "key_finding": "",
     "has_note": false
@@ -364,7 +364,7 @@
     "title": "The Modern Corporation- Its Mechanism, Methods, Formation and Management",
     "author": "Conyngton, Hugh Ronald",
     "year": 1908,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.994,
     "key_finding": "",
     "has_note": false
@@ -374,7 +374,7 @@
     "title": "Accounting in theory and practice",
     "author": "Lisle",
     "year": 1908,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.231,
     "key_finding": "",
     "has_note": false
@@ -404,7 +404,7 @@
     "title": "Corporation Finance",
     "author": "Lough",
     "year": 1909,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.933,
     "key_finding": "",
     "has_note": false
@@ -454,7 +454,7 @@
     "title": "Stocks and the stock market",
     "author": "American Academy of Political and Social Science.",
     "year": 1910,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.957,
     "key_finding": "",
     "has_note": false
@@ -504,7 +504,7 @@
     "title": "Investment and Speculation a Description of the Modern Money Market And",
     "author": "Thomas Conway (Jr.); Albert William Atwood",
     "year": 1911,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.964,
     "key_finding": "",
     "has_note": false
@@ -524,7 +524,7 @@
     "title": "Financing an Enterprise",
     "author": "Cooper",
     "year": 1911,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.2,
     "key_finding": "",
     "has_note": false
@@ -564,7 +564,7 @@
     "title": "Elementary Principles of Economics",
     "author": "Fisher, Irving",
     "year": 1912,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.778,
     "key_finding": "",
     "has_note": false
@@ -584,7 +584,7 @@
     "title": "Corporation Finance",
     "author": "Hastings",
     "year": 1912,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.821,
     "key_finding": "",
     "has_note": false
@@ -594,7 +594,7 @@
     "title": "Capitalization- a Book on Corporation Finance",
     "author": "Lyon, Hastings, 1876-1953",
     "year": 1912,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.833,
     "key_finding": "",
     "has_note": false
@@ -634,7 +634,7 @@
     "title": "Corporation Finance",
     "author": "Lyon",
     "year": 1912,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.836,
     "key_finding": "",
     "has_note": false
@@ -694,7 +694,7 @@
     "title": "Accounting practice and procedure",
     "author": "Dickinson, Arthur Lowes Sir",
     "year": 1914,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.037,
     "key_finding": "",
     "has_note": false
@@ -724,7 +724,7 @@
     "title": "Regulation of the Stock Exchange",
     "author": "US Senate Committee on Banking",
     "year": 1914,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.905,
     "key_finding": "",
     "has_note": false
@@ -744,7 +744,7 @@
     "title": "Corporation Finance",
     "author": "Lough",
     "year": 1915,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -1.0,
     "key_finding": "",
     "has_note": false
@@ -804,7 +804,7 @@
     "title": "Business Finance",
     "author": "Lough",
     "year": 1917,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -1.0,
     "key_finding": "",
     "has_note": false
@@ -824,7 +824,7 @@
     "title": "Investments",
     "author": "Jones",
     "year": 1917,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.9,
     "key_finding": "",
     "has_note": false
@@ -854,7 +854,7 @@
     "title": "Accounting Theory and Practice",
     "author": "Kester",
     "year": 1918,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.646,
     "key_finding": "",
     "has_note": false
@@ -864,7 +864,7 @@
     "title": "Business Finance",
     "author": "Lough",
     "year": 1918,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -1.0,
     "key_finding": "",
     "has_note": false
@@ -874,7 +874,7 @@
     "title": "Manual of Industrials",
     "author": "Poor's",
     "year": 1918,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.99,
     "key_finding": "",
     "has_note": false
@@ -914,7 +914,7 @@
     "title": "Trust Finance Genesis and Organization",
     "author": "Mead, Edward Sherwood",
     "year": 1920,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.895,
     "key_finding": "",
     "has_note": false
@@ -974,7 +974,7 @@
     "title": "C. P. A. accounting",
     "author": "George Hillis Newlove",
     "year": 1921,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.7,
     "key_finding": "",
     "has_note": false
@@ -984,7 +984,7 @@
     "title": "Corporation Finance Textbook",
     "author": "Dewing, Arthur Stone",
     "year": 1922,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.905,
     "key_finding": "",
     "has_note": false
@@ -1004,7 +1004,7 @@
     "title": "Consolidated Statements for Holding Company",
     "author": "H. A. Finney",
     "year": 1922,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.992,
     "key_finding": "",
     "has_note": false
@@ -1024,7 +1024,7 @@
     "title": "Investments",
     "author": "Jones, Laurence",
     "year": 1922,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.905,
     "key_finding": "",
     "has_note": false
@@ -1034,7 +1034,7 @@
     "title": "Interest and Bond Values",
     "author": "Michael A. Mackenzie",
     "year": 1922,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 1.0,
     "key_finding": "",
     "has_note": false
@@ -1064,7 +1064,7 @@
     "title": "Investment Analysis Fundamentals in the Analysis of Investment Securities",
     "author": "Lagerquist",
     "year": 1922,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.531,
     "key_finding": "",
     "has_note": false
@@ -1074,7 +1074,7 @@
     "title": "The art of investment",
     "author": "Gaines",
     "year": 1922,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.548,
     "key_finding": "",
     "has_note": false
@@ -1084,7 +1084,7 @@
     "title": "The Stock Market",
     "author": "Huebner",
     "year": 1922,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.974,
     "key_finding": "",
     "has_note": false
@@ -1094,7 +1094,7 @@
     "title": "Investment securities",
     "author": "James R. Bancroft",
     "year": 1922,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.739,
     "key_finding": "",
     "has_note": false
@@ -1114,7 +1114,7 @@
     "title": "Risk and Risk-bearing",
     "author": "Hardy",
     "year": 1923,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.158,
     "key_finding": "",
     "has_note": false
@@ -1124,7 +1124,7 @@
     "title": "Materials for the Study of Banking",
     "author": "Magee",
     "year": 1923,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.852,
     "key_finding": "",
     "has_note": false
@@ -1164,7 +1164,7 @@
     "title": "Bawerk - The Positive Theory of Capital",
     "author": "Bohm",
     "year": 1923,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.917,
     "key_finding": "",
     "has_note": false
@@ -1174,7 +1174,7 @@
     "title": "Selected Readings in Public Finance",
     "author": "Bullock",
     "year": 1924,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.067,
     "key_finding": "",
     "has_note": false
@@ -1184,7 +1184,7 @@
     "title": "Complete Accounting Course",
     "author": "David Himmelblau",
     "year": 1924,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.942,
     "key_finding": "",
     "has_note": false
@@ -1274,7 +1274,7 @@
     "title": "Principles of Corporation Finance",
     "author": "Reed, John T.",
     "year": 1925,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.471,
     "key_finding": "",
     "has_note": false
@@ -1284,7 +1284,7 @@
     "title": "Investments",
     "author": "Taylor",
     "year": 1925,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.707,
     "key_finding": "",
     "has_note": false
@@ -1294,7 +1294,7 @@
     "title": "Corporation Finance",
     "author": "Walker, Ernest Sykes",
     "year": 1925,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.833,
     "key_finding": "",
     "has_note": false
@@ -1324,7 +1324,7 @@
     "title": "Readings in Corporation Finance",
     "author": "Nelson, Samuel A.",
     "year": 1926,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.898,
     "key_finding": "",
     "has_note": false
@@ -1354,7 +1354,7 @@
     "title": "Accounting Its Principles and Problems",
     "author": "Hatfield",
     "year": 1927,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.559,
     "key_finding": "",
     "has_note": false
@@ -1374,7 +1374,7 @@
     "title": "Problems in Banking, Money and Credit",
     "author": "John Martin Chapman",
     "year": 1927,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.5,
     "key_finding": "",
     "has_note": false
@@ -1424,7 +1424,7 @@
     "title": "Investment Principles and Practices",
     "author": "Badger",
     "year": 1928,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.688,
     "key_finding": "",
     "has_note": false
@@ -1444,7 +1444,7 @@
     "title": "Mathematical Theory of Finance",
     "author": "Putnam",
     "year": 1928,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.593,
     "key_finding": "",
     "has_note": false
@@ -1654,7 +1654,7 @@
     "title": "A Study Of Corporation Securities",
     "author": "Dewing, Arthur Stone",
     "year": 1934,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.837,
     "key_finding": "",
     "has_note": false
@@ -1694,7 +1694,7 @@
     "title": "Industrial Profits in the United States",
     "author": "Epstein, Ralph C.; Clark, Florence M.",
     "year": 1934,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.875,
     "key_finding": "",
     "has_note": false
@@ -1714,7 +1714,7 @@
     "title": "Corporate Organization and Accounts",
     "author": "Lindsay",
     "year": 1935,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -1.0,
     "key_finding": "",
     "has_note": false
@@ -1724,7 +1724,7 @@
     "title": "Problems in Corporation Finance",
     "author": "Masson, Stratton",
     "year": 1935,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.917,
     "key_finding": "",
     "has_note": false
@@ -1754,7 +1754,7 @@
     "title": "Introduction to Corporate Finance",
     "author": "Baker, James C.",
     "year": 1936,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.987,
     "key_finding": "",
     "has_note": false
@@ -1804,7 +1804,7 @@
     "title": "The Interpretation of Financial Statements",
     "author": "Graham, McGolrick",
     "year": 1937,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.915,
     "key_finding": "",
     "has_note": false
@@ -1854,7 +1854,7 @@
     "title": "Problems in Investment",
     "author": "Livermore",
     "year": 1938,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.793,
     "key_finding": "",
     "has_note": false
@@ -1864,7 +1864,7 @@
     "title": "Corporations and Their Financing",
     "author": "Lyon, Hastings, 1876-1953",
     "year": 1938,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.881,
     "key_finding": "",
     "has_note": false
@@ -1874,7 +1874,7 @@
     "title": "Financial Instruments and Institutions a Case Book",
     "author": "Masson",
     "year": 1938,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.9,
     "key_finding": "",
     "has_note": false
@@ -1904,7 +1904,7 @@
     "title": "Corporation Finance",
     "author": "Hoagland",
     "year": 1938,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.944,
     "key_finding": "",
     "has_note": false
@@ -1914,7 +1914,7 @@
     "title": "Bond Yields and Stock Prices in the US Since 1856",
     "author": "Macaulay, Frederick R.",
     "year": 1938,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.303,
     "key_finding": "",
     "has_note": false
@@ -1924,7 +1924,7 @@
     "title": "Movements of Interest Rates Bond Yields and Stock Prices",
     "author": "Macaulay, Frederick R.",
     "year": 1938,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.303,
     "key_finding": "",
     "has_note": false
@@ -1964,7 +1964,7 @@
     "title": "Financing Government",
     "author": "Groves",
     "year": 1939,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.143,
     "key_finding": "",
     "has_note": false
@@ -2014,7 +2014,7 @@
     "title": "Investment trusts and investment companies",
     "author": "United States. Securities and Exchange Commission.",
     "year": 1939,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.73,
     "key_finding": "",
     "has_note": false
@@ -2024,7 +2024,7 @@
     "title": "Business Barometers and Investment",
     "author": "Babson",
     "year": 1940,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.5,
     "key_finding": "",
     "has_note": false
@@ -2074,7 +2074,7 @@
     "title": "Security Analysis 2nd ed",
     "author": "Graham, Dodd",
     "year": 1940,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.953,
     "key_finding": "",
     "has_note": false
@@ -2084,7 +2084,7 @@
     "title": "Corporate Financial Policy",
     "author": "Guthmann, Harry G.; Dougall, Herbert E.",
     "year": 1940,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.88,
     "key_finding": "",
     "has_note": false
@@ -2094,7 +2094,7 @@
     "title": "Problem Manual in Corporation Finance",
     "author": "Green",
     "year": 1941,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -1.0,
     "key_finding": "",
     "has_note": false
@@ -2124,7 +2124,7 @@
     "title": "Corporation Finance",
     "author": "Bogen",
     "year": 1946,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -1.0,
     "key_finding": "",
     "has_note": false
@@ -2144,7 +2144,7 @@
     "title": "Investment analysis",
     "author": "Prime",
     "year": 1946,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.802,
     "key_finding": "",
     "has_note": false
@@ -2174,7 +2174,7 @@
     "title": "Corporation Finance",
     "author": "Burtchett",
     "year": 1948,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.915,
     "key_finding": "",
     "has_note": false
@@ -2184,7 +2184,7 @@
     "title": "Corporate Financial Policy",
     "author": "Guthmann",
     "year": 1948,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.905,
     "key_finding": "",
     "has_note": false
@@ -2194,7 +2194,7 @@
     "title": "Economics An Introductory Analysis",
     "author": "Samuelson, Paul A.",
     "year": 1948,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.538,
     "key_finding": "",
     "has_note": false
@@ -2204,7 +2204,7 @@
     "title": "Corporation finance",
     "author": "Eiteman",
     "year": 1948,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.956,
     "key_finding": "",
     "has_note": false
@@ -2214,7 +2214,7 @@
     "title": "Corporation Finance",
     "author": "Jome",
     "year": 1948,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.791,
     "key_finding": "",
     "has_note": false
@@ -2234,7 +2234,7 @@
     "title": "Corporate Finance And Regulation",
     "author": "Bosland",
     "year": 1949,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.783,
     "key_finding": "",
     "has_note": false
@@ -2254,7 +2254,7 @@
     "title": "Corporation Finance Simplified",
     "author": "Silverstein",
     "year": 1949,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.949,
     "key_finding": "",
     "has_note": false
@@ -2264,7 +2264,7 @@
     "title": "Problem Manual in Corporation Finance",
     "author": "Van Arsdell",
     "year": 1949,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.973,
     "key_finding": "",
     "has_note": false
@@ -2334,7 +2334,7 @@
     "title": "Business Cycles and National Income",
     "author": "Hansen",
     "year": 1951,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.304,
     "key_finding": "",
     "has_note": false
@@ -2344,7 +2344,7 @@
     "title": "Anticipations Uncertainty And Dynamic Planning",
     "author": "Hart",
     "year": 1951,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.75,
     "key_finding": "",
     "has_note": false
@@ -2364,7 +2364,7 @@
     "title": "Corporation Finance",
     "author": "Harold",
     "year": 1952,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.927,
     "key_finding": "",
     "has_note": false
@@ -2374,7 +2374,7 @@
     "title": "Conference on Research in Business Finance",
     "author": "NBER",
     "year": 1952,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.767,
     "key_finding": "",
     "has_note": false
@@ -2394,7 +2394,7 @@
     "title": "A Theory of Price-Earnings Ratios",
     "author": "Molodovsky",
     "year": 1953,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.974,
     "key_finding": "",
     "has_note": false
@@ -2404,7 +2404,7 @@
     "title": "The Financial Policy of Corporations",
     "author": "Dewing",
     "year": 1953,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.772,
     "key_finding": "",
     "has_note": false
@@ -2434,7 +2434,7 @@
     "title": "History of Economic Analysis",
     "author": "Schumpeter, Joseph A.",
     "year": 1954,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.727,
     "key_finding": "",
     "has_note": false
@@ -2454,7 +2454,7 @@
     "title": "Fundamentals of Corporation Finance",
     "author": "Bradley",
     "year": 1955,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.972,
     "key_finding": "",
     "has_note": false
@@ -2464,7 +2464,7 @@
     "title": "Advanced Accounting Comprehensive Volume",
     "author": "Finney, Miller, Merton H.",
     "year": 1955,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.268,
     "key_finding": "",
     "has_note": false
@@ -2474,7 +2474,7 @@
     "title": "Corporate Financial Policy",
     "author": "Guthmann",
     "year": 1955,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.91,
     "key_finding": "",
     "has_note": false
@@ -2484,7 +2484,7 @@
     "title": "A Study of Saving in the United States Vol I",
     "author": "Goldsmith, Raymond W.",
     "year": 1955,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.901,
     "key_finding": "",
     "has_note": false
@@ -2524,7 +2524,7 @@
     "title": "Business Cycles and Economic Growth",
     "author": "Duesenberry",
     "year": 1958,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.553,
     "key_finding": "",
     "has_note": false
@@ -2534,7 +2534,7 @@
     "title": "Mathematics of Investment",
     "author": "Hart, A. G.",
     "year": 1958,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.565,
     "key_finding": "",
     "has_note": false
@@ -2544,7 +2544,7 @@
     "title": "Cases in Controllership",
     "author": "Hassler, Russell H.",
     "year": 1958,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.8,
     "key_finding": "",
     "has_note": false
@@ -2554,7 +2554,7 @@
     "title": "Microeconomic Theory",
     "author": "Henderson, Quandt",
     "year": 1958,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.75,
     "key_finding": "",
     "has_note": false
@@ -2564,7 +2564,7 @@
     "title": "Intermediate Accounting Comprehensive Volume",
     "author": "Karrenbrock",
     "year": 1958,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.941,
     "key_finding": "",
     "has_note": false
@@ -2574,7 +2574,7 @@
     "title": "Fundamentals of corporation finance",
     "author": "Bradley",
     "year": 1958,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.934,
     "key_finding": "",
     "has_note": false
@@ -2584,7 +2584,7 @@
     "title": "Problem manual in corporation finance",
     "author": "Van Arsdell",
     "year": 1958,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.981,
     "key_finding": "",
     "has_note": false
@@ -2594,7 +2594,7 @@
     "title": "Bawerk - Capital and Interest",
     "author": "Bohm",
     "year": 1958,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.519,
     "key_finding": "",
     "has_note": false
@@ -2714,7 +2714,7 @@
     "title": "Corporation Finance",
     "author": "Osborn, Richards Clinton, 1914-",
     "year": 1959,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.688,
     "key_finding": "",
     "has_note": false
@@ -2724,7 +2724,7 @@
     "title": "Instructor's Manual to Accompany Corporation Finance",
     "author": "Osborn, Richards Clinton, 1908-",
     "year": 1959,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.688,
     "key_finding": "",
     "has_note": false
@@ -2734,7 +2734,7 @@
     "title": "Ed., The Management of Corporate Capital",
     "author": "Solomon",
     "year": 1959,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.207,
     "key_finding": "",
     "has_note": false
@@ -2754,7 +2754,7 @@
     "title": "Principles of Corporation Finance",
     "author": "Van Arsdell",
     "year": 1959,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.934,
     "key_finding": "",
     "has_note": false
@@ -2834,7 +2834,7 @@
     "title": "Corporate Financial Management",
     "author": "Kent, Frederick C.",
     "year": 1960,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.917,
     "key_finding": "",
     "has_note": false
@@ -2844,7 +2844,7 @@
     "title": "Statistical Methods",
     "author": "Snedecor, Cochran",
     "year": 1960,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.975,
     "key_finding": "",
     "has_note": false
@@ -2904,7 +2904,7 @@
     "title": "The Speculative Merits of Common Stock Warrants",
     "author": "Fried, Sidney",
     "year": 1961,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.909,
     "key_finding": "",
     "has_note": false
@@ -2974,7 +2974,7 @@
     "title": "The Investment, Financing, and Valuation of the Corporation",
     "author": "Gordon, Myron J.",
     "year": 1962,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.629,
     "key_finding": "",
     "has_note": false
@@ -2994,7 +2994,7 @@
     "title": "Case Problems in Finance",
     "author": "Hunt, P. (Pearson), Andrews, V. L. \u2013 see Financial Management: Cases",
     "year": 1962,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.946,
     "key_finding": "",
     "has_note": false
@@ -3024,7 +3024,7 @@
     "title": "Corporation Finance",
     "author": "Schwartz",
     "year": 1962,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.754,
     "key_finding": "",
     "has_note": false
@@ -3064,7 +3064,7 @@
     "title": "Corporation Finance in Canada",
     "author": "Ashley, Smyth",
     "year": 1963,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.895,
     "key_finding": "",
     "has_note": false
@@ -3134,7 +3134,7 @@
     "title": "Financial Management Policies And Practices",
     "author": "Corrigan, Ward",
     "year": 1963,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.42,
     "key_finding": "",
     "has_note": false
@@ -3154,7 +3154,7 @@
     "title": "Introduction to Theory of Statistics",
     "author": "Mood, Graybill",
     "year": 1963,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.846,
     "key_finding": "",
     "has_note": false
@@ -3174,7 +3174,7 @@
     "title": "Capital and Rates of Return in Manufacturing Industries",
     "author": "Stigler, George J.",
     "year": 1963,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.826,
     "key_finding": "",
     "has_note": false
@@ -3194,7 +3194,7 @@
     "title": "Profitability accounting for planning and control",
     "author": "Robert Beyer",
     "year": 1963,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.123,
     "key_finding": "",
     "has_note": false
@@ -3244,7 +3244,7 @@
     "title": "Corporate Finance And Fixed Investment An Econometric",
     "author": "Anderson",
     "year": 1964,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.842,
     "key_finding": "",
     "has_note": false
@@ -3254,7 +3254,7 @@
     "title": "Financial Planning and Policy",
     "author": "Baughn, W. H.",
     "year": 1964,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.665,
     "key_finding": "",
     "has_note": false
@@ -3264,7 +3264,7 @@
     "title": "A Cash-Flow Concept of Profit",
     "author": "Bodenhorn",
     "year": 1964,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.238,
     "key_finding": "",
     "has_note": false
@@ -3274,7 +3274,7 @@
     "title": "Administrative Financial Management",
     "author": "Bradely",
     "year": 1964,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.591,
     "key_finding": "",
     "has_note": false
@@ -3284,7 +3284,7 @@
     "title": "The Random Character Of Stock Market Prices",
     "author": "Cootner, Paul H.",
     "year": 1964,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.795,
     "key_finding": "",
     "has_note": false
@@ -3294,7 +3294,7 @@
     "title": "Financial Analysis In Capital Budgeting",
     "author": "Pearson Hunt",
     "year": 1964,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.241,
     "key_finding": "",
     "has_note": false
@@ -3304,7 +3304,7 @@
     "title": "The Management of Corporate Capital",
     "author": "Solomon, Ezra",
     "year": 1964,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.207,
     "key_finding": "",
     "has_note": false
@@ -3324,7 +3324,7 @@
     "title": "Business Cycles And National Income",
     "author": "Hansen",
     "year": 1964,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.333,
     "key_finding": "",
     "has_note": false
@@ -3344,7 +3344,7 @@
     "title": "Corporate Financial Management",
     "author": "Kent",
     "year": 1964,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.917,
     "key_finding": "",
     "has_note": false
@@ -3354,7 +3354,7 @@
     "title": "The debt-equity ratio, the dividend payout ratio, growth and the rate at which",
     "author": "William L. White",
     "year": 1964,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.217,
     "key_finding": "",
     "has_note": false
@@ -3374,7 +3374,7 @@
     "title": "Corporate Earning Power and Market Valuation 1935-1955",
     "author": "Cottle, Whitman",
     "year": 1965,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.985,
     "key_finding": "",
     "has_note": false
@@ -3414,7 +3414,7 @@
     "title": "Investments: An Introduction to Analysis and Management",
     "author": "Amling, Frederick",
     "year": 1965,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.744,
     "key_finding": "",
     "has_note": false
@@ -3434,7 +3434,7 @@
     "title": "Business Finance - Theory and Management",
     "author": "Archer, S. H., D'Ambrosio, C. A.",
     "year": 1966,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.178,
     "key_finding": "",
     "has_note": false
@@ -3454,7 +3454,7 @@
     "title": "The Economics of Corporate Finance",
     "author": "Freidland",
     "year": 1966,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.449,
     "key_finding": "",
     "has_note": false
@@ -3484,7 +3484,7 @@
     "title": "The Economics Of Corporate Finance",
     "author": "Friedland",
     "year": 1966,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.474,
     "key_finding": "",
     "has_note": false
@@ -3514,7 +3514,7 @@
     "title": "The Behavior of Interest Rates",
     "author": "Conard, Joseph W.",
     "year": 1966,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.925,
     "key_finding": "",
     "has_note": false
@@ -3524,7 +3524,7 @@
     "title": "The Behavior of Interest Rates: A Progress Report",
     "author": "Conard, Joseph W.",
     "year": 1966,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.925,
     "key_finding": "",
     "has_note": false
@@ -3574,7 +3574,7 @@
     "title": "Business Financial Management",
     "author": "Cooke",
     "year": 1967,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.409,
     "key_finding": "",
     "has_note": false
@@ -3604,7 +3604,7 @@
     "title": "Mathematical Programming and the Analysis of Capital Budgeting Problems",
     "author": "H. Martin Weingartner",
     "year": 1967,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.923,
     "key_finding": "",
     "has_note": false
@@ -3614,7 +3614,7 @@
     "title": "Techniques of Financial Analysis-A Guide to Value Creation",
     "author": "Helfert",
     "year": 1967,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.28,
     "key_finding": "",
     "has_note": false
@@ -3634,7 +3634,7 @@
     "title": "The Over-the-Counter Securities Markets",
     "author": "Loll, Buckley",
     "year": 1967,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.869,
     "key_finding": "",
     "has_note": false
@@ -3674,7 +3674,7 @@
     "title": "Theory Of Business Finance",
     "author": "Weston, J. Fred",
     "year": 1967,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.441,
     "key_finding": "",
     "has_note": false
@@ -3694,7 +3694,7 @@
     "title": "Financial Management an Analytical Approach",
     "author": "Lindsay",
     "year": 1967,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.177,
     "key_finding": "",
     "has_note": false
@@ -3724,7 +3724,7 @@
     "title": "Trends in Corporate Bond Quality",
     "author": "Atkinson, Thomas R.",
     "year": 1967,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.63,
     "key_finding": "",
     "has_note": false
@@ -3864,7 +3864,7 @@
     "title": "Executive Compensation in Large Industrial Corporations",
     "author": "Lewellen, Wilbur G.",
     "year": 1968,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.844,
     "key_finding": "",
     "has_note": false
@@ -3904,7 +3904,7 @@
     "title": "Managing Money and Finance",
     "author": "Clarkson, G. P. E.; Elliott, B. J.",
     "year": 1969,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.598,
     "key_finding": "",
     "has_note": false
@@ -3934,7 +3934,7 @@
     "title": "Essays on Interest Rates, Vol. I",
     "author": "Jack M. Guttentag; Phillip Cagan (Eds.)",
     "year": 1969,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.37,
     "key_finding": "",
     "has_note": false
@@ -3964,7 +3964,7 @@
     "title": "Quantitative Analysis Of Financial Decisions",
     "author": "Mao",
     "year": 1969,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.63,
     "key_finding": "",
     "has_note": false
@@ -4014,7 +4014,7 @@
     "title": "An Introduction to Risk and Return from Common Stocks",
     "author": "Brealey, Richard A.",
     "year": 1969,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.696,
     "key_finding": "",
     "has_note": false
@@ -4024,7 +4024,7 @@
     "title": "Essays on Interest Rates, Volume 1",
     "author": "Guttentag, Jack M.; Cagan, Phillip (eds.)",
     "year": 1969,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.37,
     "key_finding": "",
     "has_note": false
@@ -4034,7 +4034,7 @@
     "title": "The Optimum Quantity of Money and Other Essays",
     "author": "Friedman, Milton",
     "year": 1969,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.325,
     "key_finding": "",
     "has_note": false
@@ -4054,7 +4054,7 @@
     "title": "Essays on Interest Rates Vol 1",
     "author": "Guttentag, Jack M.; Cagan, Phillip",
     "year": 1969,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.37,
     "key_finding": "",
     "has_note": false
@@ -4064,7 +4064,7 @@
     "title": "Investment Company Portfolio Management",
     "author": "Andrew P. Ferretti (Ed.)",
     "year": 1970,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.0,
     "key_finding": "",
     "has_note": false
@@ -4074,7 +4074,7 @@
     "title": "Management Accounting Text And Cases",
     "author": "Anthony",
     "year": 1970,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.024,
     "key_finding": "",
     "has_note": false
@@ -4084,7 +4084,7 @@
     "title": "Financial Policy Decisions",
     "author": "Bierman, Harold",
     "year": 1970,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.252,
     "key_finding": "",
     "has_note": false
@@ -4094,7 +4094,7 @@
     "title": "Investment Interest And Capital",
     "author": "Hirshleifer, Jack",
     "year": 1970,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.949,
     "key_finding": "",
     "has_note": false
@@ -4104,7 +4104,7 @@
     "title": "The Analytical Theory Of Finance",
     "author": "Jean",
     "year": 1970,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.756,
     "key_finding": "",
     "has_note": false
@@ -4114,7 +4114,7 @@
     "title": "The Behavior Of Interest Rates",
     "author": "Roll",
     "year": 1970,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 1.0,
     "key_finding": "",
     "has_note": false
@@ -4124,7 +4124,7 @@
     "title": "The Function and Analysis of Capital Market Rates",
     "author": "van Horne",
     "year": 1970,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.753,
     "key_finding": "",
     "has_note": false
@@ -4174,7 +4174,7 @@
     "title": "The Economics Of Corporation Finance",
     "author": "Dobrovolsky, Sergei P.",
     "year": 1971,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.17,
     "key_finding": "",
     "has_note": false
@@ -4184,7 +4184,7 @@
     "title": "The Theory of Finance",
     "author": "Fama, Eugene F., Miller, Merton H.",
     "year": 1971,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.887,
     "key_finding": "",
     "has_note": false
@@ -4234,7 +4234,7 @@
     "title": "Takeovers - Their Relevance To The Stock Market And The Theory of the Firm",
     "author": "Singh, Ajit",
     "year": 1971,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.257,
     "key_finding": "",
     "has_note": false
@@ -4244,7 +4244,7 @@
     "title": "Essays In Economics",
     "author": "Tobin, James",
     "year": 1971,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.224,
     "key_finding": "",
     "has_note": false
@@ -4254,7 +4254,7 @@
     "title": "Financial Management and Policy",
     "author": "van Horne",
     "year": 1971,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.11,
     "key_finding": "",
     "has_note": false
@@ -4394,7 +4394,7 @@
     "title": "Financial Risk Analysis",
     "author": "Maxim",
     "year": 1972,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.091,
     "key_finding": "",
     "has_note": false
@@ -4404,7 +4404,7 @@
     "title": "Mathematical Methods in Investment and Finance",
     "author": "Szego, Shell",
     "year": 1972,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.797,
     "key_finding": "",
     "has_note": false
@@ -4424,7 +4424,7 @@
     "title": "The Theory Of Finance",
     "author": "Fama, Miller",
     "year": 1972,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.887,
     "key_finding": "",
     "has_note": false
@@ -4494,7 +4494,7 @@
     "title": "Multinational Business Finance",
     "author": "Eiteman, Stonehill",
     "year": 1973,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.611,
     "key_finding": "",
     "has_note": false
@@ -4504,7 +4504,7 @@
     "title": "The Go-Go Years: The Drama and Crashing Finale of Wall Street's Bullish 60s",
     "author": "John Brooks",
     "year": 1973,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.586,
     "key_finding": "",
     "has_note": false
@@ -4524,7 +4524,7 @@
     "title": "Financial Management Theory And Techniques",
     "author": "Philippatos",
     "year": 1973,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.531,
     "key_finding": "",
     "has_note": false
@@ -4544,7 +4544,7 @@
     "title": "Theory of Rational Option Pricing",
     "author": "Merton",
     "year": 1973,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.582,
     "key_finding": "",
     "has_note": false
@@ -4574,7 +4574,7 @@
     "title": "Portfolio Aspects Of Corporate Capital Budgeting Methods",
     "author": "Carter",
     "year": 1974,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.077,
     "key_finding": "",
     "has_note": false
@@ -4584,7 +4584,7 @@
     "title": "Finance As A Dynamic Process",
     "author": "Elton, Edwin J.",
     "year": 1974,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.917,
     "key_finding": "",
     "has_note": false
@@ -4654,7 +4654,7 @@
     "title": "Business Financial Management",
     "author": "Engler",
     "year": 1975,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.145,
     "key_finding": "",
     "has_note": false
@@ -4664,7 +4664,7 @@
     "title": "Introduction to Modern Theories of Economic Growth",
     "author": "Jones, Laurence",
     "year": 1975,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.267,
     "key_finding": "",
     "has_note": false
@@ -4684,7 +4684,7 @@
     "title": "Management Of Company Finance",
     "author": "Samuels, John M.",
     "year": 1975,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.133,
     "key_finding": "",
     "has_note": false
@@ -4704,7 +4704,7 @@
     "title": "Modern Financial Accounting",
     "author": "Lee, G.A",
     "year": 1975,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.771,
     "key_finding": "",
     "has_note": false
@@ -4724,7 +4724,7 @@
     "title": "Corporation Finance",
     "author": "Kristein",
     "year": 1975,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.874,
     "key_finding": "",
     "has_note": false
@@ -4774,7 +4774,7 @@
     "title": "Managerial Finance Principles And Practice",
     "author": "Bolten",
     "year": 1976,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.158,
     "key_finding": "",
     "has_note": false
@@ -4824,7 +4824,7 @@
     "title": "An Introduction to Business Finance",
     "author": "Hemingway",
     "year": 1976,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.283,
     "key_finding": "",
     "has_note": false
@@ -4844,7 +4844,7 @@
     "title": "Modern Developments In Financial Management",
     "author": "Myers, Stewart C.",
     "year": 1976,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.512,
     "key_finding": "",
     "has_note": false
@@ -4904,7 +4904,7 @@
     "title": "The Arbitrage Theory of Capital Asset Pricing",
     "author": "Ross",
     "year": 1976,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 1.0,
     "key_finding": "",
     "has_note": false
@@ -4934,7 +4934,7 @@
     "title": "Banking and Monetary Statistics 1941-1970",
     "author": "Federal Reserve Board",
     "year": 1976,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.826,
     "key_finding": "",
     "has_note": false
@@ -4944,7 +4944,7 @@
     "title": "Capital Market Equilibrium And Efficiency",
     "author": "Bicksler, James",
     "year": 1977,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.929,
     "key_finding": "",
     "has_note": false
@@ -4964,7 +4964,7 @@
     "title": "Corporate Financial Management",
     "author": "Franks",
     "year": 1977,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.077,
     "key_finding": "",
     "has_note": false
@@ -4974,7 +4974,7 @@
     "title": "Risk and Return in Finance",
     "author": "Friend, Irwin, Bicksler, James",
     "year": 1977,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.854,
     "key_finding": "",
     "has_note": false
@@ -5004,7 +5004,7 @@
     "title": "Making Accounting Decisions",
     "author": "Staubus",
     "year": 1977,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.417,
     "key_finding": "",
     "has_note": false
@@ -5014,7 +5014,7 @@
     "title": "Fundamentals Of Financial Management",
     "author": "van Horne",
     "year": 1977,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.078,
     "key_finding": "",
     "has_note": false
@@ -5024,7 +5024,7 @@
     "title": "Capital Budgeting Techniques",
     "author": "Wilkes",
     "year": 1977,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.89,
     "key_finding": "",
     "has_note": false
@@ -5034,7 +5034,7 @@
     "title": "Empirical Investigation of Purchasing Power Adjustments on EPS",
     "author": "William A. Hillison",
     "year": 1977,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.934,
     "key_finding": "",
     "has_note": false
@@ -5074,7 +5074,7 @@
     "title": "Report of the Ontario Committee on Inflation Accounting",
     "author": "Ontario. Committee on Inflation Accounting.",
     "year": 1977,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.927,
     "key_finding": "",
     "has_note": false
@@ -5084,7 +5084,7 @@
     "title": "Essentials of Managerial Finance: Principles and Practice",
     "author": "Bolten",
     "year": 1978,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.158,
     "key_finding": "",
     "has_note": false
@@ -5124,7 +5124,7 @@
     "title": "Capital Asset Pricing Model Tests",
     "author": "Jahankhani",
     "year": 1978,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.968,
     "key_finding": "",
     "has_note": false
@@ -5154,7 +5154,7 @@
     "title": "Financial markets and foreign ownership",
     "author": "John C Pattison",
     "year": 1978,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.156,
     "key_finding": "",
     "has_note": false
@@ -5184,7 +5184,7 @@
     "title": "Manias, Panics, and Crashes (1st ed.)",
     "author": "Kindleberger, Charles P.",
     "year": 1978,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.333,
     "key_finding": "",
     "has_note": false
@@ -5214,7 +5214,7 @@
     "title": "Corporate Growth And Common Stock Risk",
     "author": "Fewings",
     "year": 1979,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.111,
     "key_finding": "",
     "has_note": false
@@ -5244,7 +5244,7 @@
     "title": "Basic Financial Management",
     "author": "Martin",
     "year": 1979,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.074,
     "key_finding": "",
     "has_note": false
@@ -5254,7 +5254,7 @@
     "title": "Intermediate and Long-term Capital for Small Corporations",
     "author": "Richards",
     "year": 1979,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.645,
     "key_finding": "",
     "has_note": false
@@ -5314,7 +5314,7 @@
     "title": "Issues In Managerial Finance",
     "author": "Brigham, Eugene F., Johnson, Keith B.",
     "year": 1980,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.65,
     "key_finding": "",
     "has_note": false
@@ -5324,7 +5324,7 @@
     "title": "Interest and Profit",
     "author": "Dougherty",
     "year": 1980,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.812,
     "key_finding": "",
     "has_note": false
@@ -5334,7 +5334,7 @@
     "title": "The Money Masters",
     "author": "John Train",
     "year": 1980,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.784,
     "key_finding": "",
     "has_note": false
@@ -5344,7 +5344,7 @@
     "title": "Corporate Planning and Policy Design - A System Dynamics Approach",
     "author": "Lyneis",
     "year": 1980,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.783,
     "key_finding": "",
     "has_note": false
@@ -5354,7 +5354,7 @@
     "title": "An Introduction to Financial Management",
     "author": "Solomon, Pringle",
     "year": 1980,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.259,
     "key_finding": "",
     "has_note": false
@@ -5364,7 +5364,7 @@
     "title": "Quantitative Techniques for Financial Analysis",
     "author": "Valentine, Mennis",
     "year": 1980,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.691,
     "key_finding": "",
     "has_note": false
@@ -5404,7 +5404,7 @@
     "title": "Stockpak and Portfolio Management System",
     "author": "Poor's",
     "year": 1980,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.936,
     "key_finding": "",
     "has_note": false
@@ -5544,7 +5544,7 @@
     "title": "The Changing Roles Of Debt And Equity In Financing US Capital Formation",
     "author": "Friedman, Milton",
     "year": 1982,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.876,
     "key_finding": "",
     "has_note": false
@@ -5574,7 +5574,7 @@
     "title": "Quantifying the Probability of Default as Assessed by the Bond Market",
     "author": "Mary Stearns Broske",
     "year": 1982,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 1.0,
     "key_finding": "",
     "has_note": false
@@ -5584,7 +5584,7 @@
     "title": "An Evolutionary Theory of Economic Change",
     "author": "Nelson, Winter",
     "year": 1982,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.286,
     "key_finding": "",
     "has_note": false
@@ -5604,7 +5604,7 @@
     "title": "Money Banking And The Economy A Monetarist View",
     "author": "Siegel, Jeremy J.",
     "year": 1982,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.721,
     "key_finding": "",
     "has_note": false
@@ -5624,7 +5624,7 @@
     "title": "Financial Management",
     "author": "Johnson",
     "year": 1982,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.139,
     "key_finding": "",
     "has_note": false
@@ -5654,7 +5654,7 @@
     "title": "Monetary Trends in the United States and the United Kingdom",
     "author": "Friedman, Milton; Schwartz, Anna J.",
     "year": 1982,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.375,
     "key_finding": "",
     "has_note": false
@@ -5664,7 +5664,7 @@
     "title": "The Theory of Business Finance",
     "author": "Archer, S. H., D'Ambrosio, C. A.",
     "year": 1983,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.782,
     "key_finding": "",
     "has_note": false
@@ -5704,7 +5704,7 @@
     "title": "Financial Institutions Financial Markets And Money",
     "author": "Kaufman",
     "year": 1983,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.745,
     "key_finding": "",
     "has_note": false
@@ -5714,7 +5714,7 @@
     "title": "Inflation, Tax Rules, and Capital Formation",
     "author": "Feldstein, Martin",
     "year": 1983,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.102,
     "key_finding": "",
     "has_note": false
@@ -5734,7 +5734,7 @@
     "title": "The Modern Theory Of Corporate Finance",
     "author": "Jensen, Michael C.; Smith, Clifford W. Jr.",
     "year": 1984,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.744,
     "key_finding": "",
     "has_note": false
@@ -5804,7 +5804,7 @@
     "title": "Financial Theory Financial Institutions Mone",
     "author": "Dean, Schwindt",
     "year": 1985,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.967,
     "key_finding": "",
     "has_note": false
@@ -5824,7 +5824,7 @@
     "title": "Applied Theory of Price",
     "author": "McCloskey",
     "year": 1985,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.947,
     "key_finding": "",
     "has_note": false
@@ -5904,7 +5904,7 @@
     "title": "Corporate Capital Structures in the United States",
     "author": "Friedman, Benjamin M. (ed.)",
     "year": 1985,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.346,
     "key_finding": "",
     "has_note": false
@@ -5914,7 +5914,7 @@
     "title": "Options Markets",
     "author": "Cox, John C.; Rubinstein, Mark",
     "year": 1985,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.888,
     "key_finding": "",
     "has_note": false
@@ -5934,7 +5934,7 @@
     "title": "Corporate Capital Investment A Behavioral Approach",
     "author": "Bromiley",
     "year": 1986,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.429,
     "key_finding": "",
     "has_note": false
@@ -5944,7 +5944,7 @@
     "title": "Mergers and Acquisitions",
     "author": "Cooke",
     "year": 1986,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.194,
     "key_finding": "",
     "has_note": false
@@ -5954,7 +5954,7 @@
     "title": "Recent Developments In Corporate Finance",
     "author": "Edwards, Franks, Mayer, Martin, Schaefer",
     "year": 1986,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.399,
     "key_finding": "",
     "has_note": false
@@ -5984,7 +5984,7 @@
     "title": "Technical Analysis of the Futures Markets",
     "author": "John J. Murphy",
     "year": 1986,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.833,
     "key_finding": "",
     "has_note": false
@@ -5994,7 +5994,7 @@
     "title": "Capital Investment And Financial Decisions",
     "author": "Levy, Haim",
     "year": 1986,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.584,
     "key_finding": "",
     "has_note": false
@@ -6084,7 +6084,7 @@
     "title": "Financing Corporate Capital Formation",
     "author": "Friedman, Benjamin M. (ed.)",
     "year": 1986,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.744,
     "key_finding": "",
     "has_note": false
@@ -6134,7 +6134,7 @@
     "title": "Quantitative Methods For Financial Analysis",
     "author": "Mao",
     "year": 1987,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.753,
     "key_finding": "",
     "has_note": false
@@ -6144,7 +6144,7 @@
     "title": "Essentials of Corporate Finance",
     "author": "Moshe Ben-Horim",
     "year": 1987,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.333,
     "key_finding": "",
     "has_note": false
@@ -6204,7 +6204,7 @@
     "title": "The International monetary system and its reform",
     "author": "Sidney Samuel Dell",
     "year": 1987,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.812,
     "key_finding": "",
     "has_note": false
@@ -6214,7 +6214,7 @@
     "title": "Horim, Moshe - Essentials Of Corporate Finance",
     "author": "Ben",
     "year": 1987,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.333,
     "key_finding": "",
     "has_note": false
@@ -6294,7 +6294,7 @@
     "title": "What Should Banks Do",
     "author": "Litan",
     "year": 1987,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.788,
     "key_finding": "",
     "has_note": false
@@ -6324,7 +6324,7 @@
     "title": "The Predators' Ball: The Junk-Bond Raiders and the Man Who Staked Them",
     "author": "Connie Bruck",
     "year": 1988,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.538,
     "key_finding": "",
     "has_note": false
@@ -6354,7 +6354,7 @@
     "title": "Money Interest And Banking In Economic Development",
     "author": "Fry",
     "year": 1988,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.52,
     "key_finding": "",
     "has_note": false
@@ -6424,7 +6424,7 @@
     "title": "Introduction To Corporate Finance Study Guide",
     "author": "Pantalone",
     "year": 1988,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.33,
     "key_finding": "",
     "has_note": false
@@ -6454,7 +6454,7 @@
     "title": "The Theory of Market Failure: A Critical Examination",
     "author": "Tyler Cowen (ed.)",
     "year": 1988,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.101,
     "key_finding": "",
     "has_note": false
@@ -6464,7 +6464,7 @@
     "title": "Capital Budgeting in the 1990s (Chartered Institute of Management Accountants)",
     "author": "Pike, R. H. and Wolfe, M",
     "year": 1988,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.6,
     "key_finding": "",
     "has_note": false
@@ -6474,7 +6474,7 @@
     "title": "Introduction to Financial Management",
     "author": "Schall, Haley",
     "year": 1988,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.345,
     "key_finding": "",
     "has_note": false
@@ -6504,7 +6504,7 @@
     "title": "Capital Budgeting for the 1990s",
     "author": "Pike, Richard",
     "year": 1988,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.6,
     "key_finding": "",
     "has_note": false
@@ -6544,7 +6544,7 @@
     "title": "Takerover Laws - Interim report of the Commission to Review",
     "author": "Anti",
     "year": 1988,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.533,
     "key_finding": "",
     "has_note": false
@@ -6554,7 +6554,7 @@
     "title": "Takerover Laws - Interim report of the Commission to Review Massachusetts Anti-Takeover Laws",
     "author": "Commission to Review Massachusetts Anti",
     "year": 1988,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.533,
     "key_finding": "",
     "has_note": false
@@ -6564,7 +6564,7 @@
     "title": "Corporate Takeovers: Causes and Consequences",
     "author": "Auerbach, Alan J. (ed.)",
     "year": 1988,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.429,
     "key_finding": "",
     "has_note": false
@@ -6594,7 +6594,7 @@
     "title": "Corporation Finance Cases And Materials",
     "author": "Hamilton, William Peter",
     "year": 1989,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.496,
     "key_finding": "",
     "has_note": false
@@ -6614,7 +6614,7 @@
     "title": "The New Money Masters",
     "author": "John Train",
     "year": 1989,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.784,
     "key_finding": "",
     "has_note": false
@@ -6624,7 +6624,7 @@
     "title": "Money Interest And Prices An Integration Of Monetary A",
     "author": "Patinkin, Don",
     "year": 1989,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.793,
     "key_finding": "",
     "has_note": false
@@ -6724,7 +6724,7 @@
     "title": "Corporation Finance",
     "author": "Hamilton",
     "year": 1989,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.511,
     "key_finding": "",
     "has_note": false
@@ -6734,7 +6734,7 @@
     "title": "Handbook Of International Financial Management",
     "author": "Brooke",
     "year": 1990,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.568,
     "key_finding": "",
     "has_note": false
@@ -6764,7 +6764,7 @@
     "title": "Financial Management",
     "author": "Coyle",
     "year": 1990,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.457,
     "key_finding": "",
     "has_note": false
@@ -6774,7 +6774,7 @@
     "title": "Continuous-Time Finance",
     "author": "Merton, Robert C.",
     "year": 1990,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 1.0,
     "key_finding": "",
     "has_note": false
@@ -6794,7 +6794,7 @@
     "title": "Asymmetric Information, Corporate Finance, and Investment",
     "author": "Hubbard, R. Glenn (ed.)",
     "year": 1990,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.454,
     "key_finding": "",
     "has_note": false
@@ -6814,7 +6814,7 @@
     "title": "The Theory of Capital Structure",
     "author": "Harris",
     "year": 1991,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.882,
     "key_finding": "",
     "has_note": false
@@ -6834,7 +6834,7 @@
     "title": "Intermarket Technical Analysis: Trading Strategies for the Global Stock, Bond, Commodity, and Currency Markets",
     "author": "John J. Murphy",
     "year": 1991,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 1.0,
     "key_finding": "",
     "has_note": false
@@ -6864,7 +6864,7 @@
     "title": "The Future Of Banking",
     "author": "Pierce",
     "year": 1991,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.118,
     "key_finding": "",
     "has_note": false
@@ -6904,7 +6904,7 @@
     "title": "The Modern Corporation And Private Property",
     "author": "Berle, Means",
     "year": 1991,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.931,
     "key_finding": "",
     "has_note": false
@@ -6964,7 +6964,7 @@
     "title": "The Bond Book",
     "author": "Annette Thau",
     "year": 1991,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.115,
     "key_finding": "",
     "has_note": false
@@ -6974,7 +6974,7 @@
     "title": "Financial Markets and Financial Crises",
     "author": "Hubbard, R. Glenn (ed.)",
     "year": 1991,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.101,
     "key_finding": "",
     "has_note": false
@@ -6994,7 +6994,7 @@
     "title": "The New Financial Capitalists - KKR and the Creation of Corporate Value",
     "author": "Baker, George P.; Smith, George David",
     "year": 1992,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.269,
     "key_finding": "",
     "has_note": false
@@ -7014,7 +7014,7 @@
     "title": "Fundamentals Of Financial Management",
     "author": "Brigham, Eugene F.",
     "year": 1992,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.215,
     "key_finding": "",
     "has_note": false
@@ -7024,7 +7024,7 @@
     "title": "The Impact of the Frequency of Accounting-based Performance Reports on Capital",
     "author": "Devaun Marie Kite",
     "year": 1992,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.769,
     "key_finding": "",
     "has_note": false
@@ -7104,7 +7104,7 @@
     "title": "Empirical Research In Capital Markets",
     "author": "Schwert, G. William; Smith, Clifford W. Jr.",
     "year": 1992,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.948,
     "key_finding": "",
     "has_note": false
@@ -7154,7 +7154,7 @@
     "title": "Human Capital",
     "author": "Becker",
     "year": 1993,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.542,
     "key_finding": "",
     "has_note": false
@@ -7164,7 +7164,7 @@
     "title": "Intermediate Financial Management",
     "author": "Brigham, Eugene F.",
     "year": 1993,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.833,
     "key_finding": "",
     "has_note": false
@@ -7174,7 +7174,7 @@
     "title": "The Mcgraw Hill 36 Hour Course In Finance For Nonfinanince",
     "author": "Cooke",
     "year": 1993,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.251,
     "key_finding": "",
     "has_note": false
@@ -7204,7 +7204,7 @@
     "title": "Essentials Of Risk Financing",
     "author": "Head",
     "year": 1993,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.846,
     "key_finding": "",
     "has_note": false
@@ -7224,7 +7224,7 @@
     "title": "Accounting and Society",
     "author": "Perks",
     "year": 1993,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.271,
     "key_finding": "",
     "has_note": false
@@ -7254,7 +7254,7 @@
     "title": "The Crisis In American Banking",
     "author": "White",
     "year": 1993,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.429,
     "key_finding": "",
     "has_note": false
@@ -7294,7 +7294,7 @@
     "title": "Financial Institutions And Capital Markets",
     "author": "Campbell, John Y.",
     "year": 1994,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.774,
     "key_finding": "",
     "has_note": false
@@ -7304,7 +7304,7 @@
     "title": "Basics of Corporate Finance",
     "author": "Citibank",
     "year": 1994,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.609,
     "key_finding": "",
     "has_note": false
@@ -7324,7 +7324,7 @@
     "title": "Finance Investment And Macroeconomics The Neoclassical and a Post Keynesian",
     "author": "Gordon, Myron J.",
     "year": 1994,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.482,
     "key_finding": "",
     "has_note": false
@@ -7344,7 +7344,7 @@
     "title": "The Craft of Investing",
     "author": "John Train",
     "year": 1994,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.583,
     "key_finding": "",
     "has_note": false
@@ -7354,7 +7354,7 @@
     "title": "Financial Management And Analysis",
     "author": "Peterson",
     "year": 1994,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.415,
     "key_finding": "",
     "has_note": false
@@ -7374,7 +7374,7 @@
     "title": "The Economics Of Business Enterprise",
     "author": "Ricketts",
     "year": 1994,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.818,
     "key_finding": "",
     "has_note": false
@@ -7474,7 +7474,7 @@
     "title": "Corporate Finance Principles Of Investment Financing and Valuation",
     "author": "Hutchinson",
     "year": 1995,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.486,
     "key_finding": "",
     "has_note": false
@@ -7484,7 +7484,7 @@
     "title": "Financial Management",
     "author": "Kennedy, MacCormac, Telley",
     "year": 1995,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.249,
     "key_finding": "",
     "has_note": false
@@ -7494,7 +7494,7 @@
     "title": "The Cost of Capital - Theory and Estimation",
     "author": "Patterson",
     "year": 1995,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.727,
     "key_finding": "",
     "has_note": false
@@ -7574,7 +7574,7 @@
     "title": "Modelling Techniques for Financial Markets and Bank Management",
     "author": "Bertocchi, Cavalli, Koml\u00f3si",
     "year": 1996,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.987,
     "key_finding": "",
     "has_note": false
@@ -7584,7 +7584,7 @@
     "title": "Building A Modern Financial System The Indonesian Experiment",
     "author": "Cole",
     "year": 1996,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.043,
     "key_finding": "",
     "has_note": false
@@ -7624,7 +7624,7 @@
     "title": "Investment",
     "author": "Jorgenson",
     "year": 1996,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.467,
     "key_finding": "",
     "has_note": false
@@ -7674,7 +7674,7 @@
     "title": "The Industrial Organization of the Securities Industry",
     "author": "Lo, Andrew W. (ed.)",
     "year": 1996,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.067,
     "key_finding": "",
     "has_note": false
@@ -7684,7 +7684,7 @@
     "title": "A History of Corporate Finance",
     "author": "Baskin, Miranti",
     "year": 1997,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.605,
     "key_finding": "",
     "has_note": false
@@ -7694,7 +7694,7 @@
     "title": "Corporate Financial Policy",
     "author": "Benninga, Simon",
     "year": 1997,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.484,
     "key_finding": "",
     "has_note": false
@@ -7714,7 +7714,7 @@
     "title": "Stocks Strategies Common Sense",
     "author": "DiLiddo",
     "year": 1997,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.829,
     "key_finding": "",
     "has_note": false
@@ -7734,7 +7734,7 @@
     "title": "You Can Be a Stock Market Genius",
     "author": "Joel Greenblatt",
     "year": 1997,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.605,
     "key_finding": "",
     "has_note": false
@@ -7764,7 +7764,7 @@
     "title": "Financial Management- A Practical Approach",
     "author": "Nunnally, Kester",
     "year": 1997,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.113,
     "key_finding": "",
     "has_note": false
@@ -7784,7 +7784,7 @@
     "title": "The Analysis and Use of Financial Statements",
     "author": "White, Sondhi, Fried, Sidney",
     "year": 1997,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.301,
     "key_finding": "",
     "has_note": false
@@ -7804,7 +7804,7 @@
     "title": "The Mathematics Of Investment Mathematics For Everyd",
     "author": "Larson, Ron",
     "year": 1997,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -1.0,
     "key_finding": "",
     "has_note": false
@@ -7834,7 +7834,7 @@
     "title": "Valuing The Future Economic Theory And Sustainability",
     "author": "Heal",
     "year": 1998,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.903,
     "key_finding": "",
     "has_note": false
@@ -8004,7 +8004,7 @@
     "title": "Capital Structure Determination Evaluation And Accounting",
     "author": "Riahi-Belkaoui",
     "year": 1999,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.458,
     "key_finding": "",
     "has_note": false
@@ -8084,7 +8084,7 @@
     "title": "Capital Structuring Corporate Finance",
     "author": "Coyle",
     "year": 2000,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.015,
     "key_finding": "",
     "has_note": false
@@ -8094,7 +8094,7 @@
     "title": "Pioneering Portfolio Management",
     "author": "David F. Swensen",
     "year": 2000,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.588,
     "key_finding": "",
     "has_note": false
@@ -8104,7 +8104,7 @@
     "title": "Risk Financing",
     "author": "Ellioty",
     "year": 2000,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.811,
     "key_finding": "",
     "has_note": false
@@ -8274,7 +8274,7 @@
     "title": "Financial Accounting Practice And Principles",
     "author": "Bebbington",
     "year": 2001,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.89,
     "key_finding": "",
     "has_note": false
@@ -8294,7 +8294,7 @@
     "title": "Fundamentals of Corporate Finance",
     "author": "Brealey, Richard A., Myers, Stewart C., Marcus, Alan J.",
     "year": 2001,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.51,
     "key_finding": "",
     "has_note": false
@@ -8324,7 +8324,7 @@
     "title": "The Motley Fool You Have More Than You Think: The Foolish Guide to Personal Finance",
     "author": "David Gardner, Tom Gardner",
     "year": 2001,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.824,
     "key_finding": "",
     "has_note": false
@@ -8334,7 +8334,7 @@
     "title": "Managerial Economics An Analysis Of Business Issues",
     "author": "Davies, J. P.",
     "year": 2001,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.835,
     "key_finding": "",
     "has_note": false
@@ -8344,7 +8344,7 @@
     "title": "Theoretical Foundations Of Corporate Finance",
     "author": "de Matos",
     "year": 2001,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.703,
     "key_finding": "",
     "has_note": false
@@ -8354,7 +8354,7 @@
     "title": "Dynamic Asset Pricing Theory",
     "author": "Duffie, Darrell",
     "year": 2001,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.929,
     "key_finding": "",
     "has_note": false
@@ -8394,7 +8394,7 @@
     "title": "Value Investing From Graham to Buffett and Beyond",
     "author": "Greenwald, Kahn, Sonkin, van Biema",
     "year": 2001,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 1.0,
     "key_finding": "",
     "has_note": false
@@ -8434,7 +8434,7 @@
     "title": "Financial Statement Analysis and Security Valuation",
     "author": "Stephen H. Penman",
     "year": 2001,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.231,
     "key_finding": "",
     "has_note": false
@@ -8444,7 +8444,7 @@
     "title": "The EVA Challenge",
     "author": "Stern",
     "year": 2001,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.067,
     "key_finding": "",
     "has_note": false
@@ -8454,7 +8454,7 @@
     "title": "Principles of Financial Economics",
     "author": "Werner, LeRoy",
     "year": 2001,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.967,
     "key_finding": "",
     "has_note": false
@@ -8464,7 +8464,7 @@
     "title": "Mergers and Acquisitions",
     "author": "Weston, J. Fred",
     "year": 2001,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.108,
     "key_finding": "",
     "has_note": false
@@ -8484,7 +8484,7 @@
     "title": "Corporation Finance Cases And Materials",
     "author": "Hamilton",
     "year": 2001,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.231,
     "key_finding": "",
     "has_note": false
@@ -8494,7 +8494,7 @@
     "title": "Analysis for Financial Management",
     "author": "Higgins",
     "year": 2001,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.23,
     "key_finding": "",
     "has_note": false
@@ -8504,7 +8504,7 @@
     "title": "Financial Management and policy",
     "author": "Van Horne",
     "year": 2001,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.393,
     "key_finding": "",
     "has_note": false
@@ -8514,7 +8514,7 @@
     "title": "Financial Management An Irish Text",
     "author": "Power, Thomas",
     "year": 2001,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.104,
     "key_finding": "",
     "has_note": false
@@ -8524,7 +8524,7 @@
     "title": "The Nasdaq Investor",
     "author": "Max Isaacman",
     "year": 2001,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.932,
     "key_finding": "",
     "has_note": false
@@ -8564,7 +8564,7 @@
     "title": "Credit Risk Measurement",
     "author": "Allen, Franklin",
     "year": 2002,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.674,
     "key_finding": "",
     "has_note": false
@@ -8624,7 +8624,7 @@
     "title": "The Foundations Of Modern Macroeconomics",
     "author": "Heijdra",
     "year": 2002,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.892,
     "key_finding": "",
     "has_note": false
@@ -8714,7 +8714,7 @@
     "title": "Commercial Bank Management",
     "author": "Rose",
     "year": 2002,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.278,
     "key_finding": "",
     "has_note": false
@@ -8744,7 +8744,7 @@
     "title": "The Smartest Guys in the Room: The Amazing Rise and Scandalous Fall of Enron",
     "author": "Bethany McLean, Peter Elkind",
     "year": 2003,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.795,
     "key_finding": "",
     "has_note": false
@@ -8764,7 +8764,7 @@
     "title": "Firms Investment And Finance Decisions Theory And Emperical Methodology",
     "author": "Butzen, Fuss",
     "year": 2003,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.756,
     "key_finding": "",
     "has_note": false
@@ -8784,7 +8784,7 @@
     "title": "Financial Managment Principles And Practice",
     "author": "Gallagher, Andrew",
     "year": 2003,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.441,
     "key_finding": "",
     "has_note": false
@@ -8794,7 +8794,7 @@
     "title": "Money Masters of Our Time",
     "author": "John Train",
     "year": 2003,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.784,
     "key_finding": "",
     "has_note": false
@@ -8804,7 +8804,7 @@
     "title": "Advanced Corporate Finance Policies And Strategies",
     "author": "Ogden",
     "year": 2003,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.517,
     "key_finding": "",
     "has_note": false
@@ -8844,7 +8844,7 @@
     "title": "Financial Accounting",
     "author": "Britton, Anne",
     "year": 2003,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.816,
     "key_finding": "",
     "has_note": false
@@ -8874,7 +8874,7 @@
     "title": "Multinational Business Finance",
     "author": "Eiteman, D. K., Stonehill, Moffett",
     "year": 2004,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.502,
     "key_finding": "",
     "has_note": false
@@ -8894,7 +8894,7 @@
     "title": "The Oxford Guide To Financial Modeling",
     "author": "Ho",
     "year": 2004,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.771,
     "key_finding": "",
     "has_note": false
@@ -8904,7 +8904,7 @@
     "title": "Analysis For Financial Management",
     "author": "Higgins",
     "year": 2004,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.204,
     "key_finding": "",
     "has_note": false
@@ -8914,7 +8914,7 @@
     "title": "Financial Statement Analysis And Security Valuation",
     "author": "Penman, Stephen H",
     "year": 2004,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.231,
     "key_finding": "",
     "has_note": false
@@ -8934,7 +8934,7 @@
     "title": "The Cost of Capital",
     "author": "Armitage",
     "year": 2005,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.779,
     "key_finding": "",
     "has_note": false
@@ -9014,7 +9014,7 @@
     "title": "Financial Management for Decision Makers",
     "author": "Atrill",
     "year": 2006,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.356,
     "key_finding": "",
     "has_note": false
@@ -9034,7 +9034,7 @@
     "title": "Principles of Finance",
     "author": "Besley, Brigham, Eugene F.",
     "year": 2006,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.201,
     "key_finding": "",
     "has_note": false
@@ -9054,7 +9054,7 @@
     "title": "Macroeconomics Imperfections Institutions And Policies",
     "author": "Carlin",
     "year": 2006,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.899,
     "key_finding": "",
     "has_note": false
@@ -9074,7 +9074,7 @@
     "title": "A Structural Framework for the Pricing of Corporate Securities",
     "author": "Genser",
     "year": 2006,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.898,
     "key_finding": "",
     "has_note": false
@@ -9094,7 +9094,7 @@
     "title": "The Little Book That Beats the Market",
     "author": "Joel Greenblatt",
     "year": 2006,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.863,
     "key_finding": "",
     "has_note": false
@@ -9214,7 +9214,7 @@
     "title": "The Little Book of Value Investing",
     "author": "Christopher H. Browne",
     "year": 2007,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.931,
     "key_finding": "",
     "has_note": false
@@ -9284,7 +9284,7 @@
     "title": "Corporate Finance And Valuation",
     "author": "Ryan",
     "year": 2007,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.712,
     "key_finding": "",
     "has_note": false
@@ -9304,7 +9304,7 @@
     "title": "Corporate Finance Principles Practice",
     "author": "Watson",
     "year": 2007,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.499,
     "key_finding": "",
     "has_note": false
@@ -9324,7 +9324,7 @@
     "title": "Project Financing Asset Based Financial Engineering",
     "author": "Finnerty",
     "year": 2007,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.622,
     "key_finding": "",
     "has_note": false
@@ -9374,7 +9374,7 @@
     "title": "Capital Structure and Firm Performance",
     "author": "Ghosh",
     "year": 2008,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.341,
     "key_finding": "",
     "has_note": false
@@ -9424,7 +9424,7 @@
     "title": "Cost of Capital- Applications and Examples",
     "author": "Pratt, Grabowski",
     "year": 2008,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.568,
     "key_finding": "",
     "has_note": false
@@ -9514,7 +9514,7 @@
     "title": "Managed By The Markets How Finance Reshaped America",
     "author": "Davis, Edward W.",
     "year": 2009,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.661,
     "key_finding": "",
     "has_note": false
@@ -9524,7 +9524,7 @@
     "title": "Corporate Payout Policy",
     "author": "DeAngelo, Harry, DeAngelo, Harry, Skinner, Douglas J.",
     "year": 2009,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.737,
     "key_finding": "",
     "has_note": false
@@ -9534,7 +9534,7 @@
     "title": "Advanced Corporate Finance A Practical Approach",
     "author": "Elali",
     "year": 2009,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.576,
     "key_finding": "",
     "has_note": false
@@ -9554,7 +9554,7 @@
     "title": "The Buyout or America - Now Private Equity is Destroying Jobs and Killing the American Economy",
     "author": "Kosman",
     "year": 2009,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.87,
     "key_finding": "",
     "has_note": false
@@ -9614,7 +9614,7 @@
     "title": "Fundamentals of Financial Management",
     "author": "van Horne, Wachowicz",
     "year": 2009,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.232,
     "key_finding": "",
     "has_note": false
@@ -9654,7 +9654,7 @@
     "title": "Finance Applications and Theory",
     "author": "Cornett, Marcia Millon",
     "year": 2009,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.382,
     "key_finding": "",
     "has_note": false
@@ -9684,7 +9684,7 @@
     "title": "Corporate Finance: An Introduction",
     "author": "Welch, Ivo",
     "year": 2009,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.624,
     "key_finding": "",
     "has_note": false
@@ -9694,7 +9694,7 @@
     "title": "The Investors Manifesto - Preparing for Prosperity, Armageddon, and Everything in...",
     "author": "Bernstein, Peter L.",
     "year": 2010,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.733,
     "key_finding": "",
     "has_note": false
@@ -9704,7 +9704,7 @@
     "title": "Introduction To Corporate Finance",
     "author": "Booth, Cleary, Rakita",
     "year": 2010,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.371,
     "key_finding": "",
     "has_note": false
@@ -9714,7 +9714,7 @@
     "title": "The Dark Side of Valuation",
     "author": "Damodaran, Aswath",
     "year": 2010,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.022,
     "key_finding": "",
     "has_note": false
@@ -9734,7 +9734,7 @@
     "title": "Corporate Finance Custom For UNC",
     "author": "Snively",
     "year": 2010,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.558,
     "key_finding": "",
     "has_note": false
@@ -9744,7 +9744,7 @@
     "title": "Valuation for MA - Building value in private firms",
     "author": "Mellen, Evans",
     "year": 2010,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.25,
     "key_finding": "",
     "has_note": false
@@ -9754,7 +9754,7 @@
     "title": "Survey Research in Corporate Finance",
     "author": "Baker, James C., Singleton, Veit",
     "year": 2011,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.604,
     "key_finding": "",
     "has_note": false
@@ -9764,7 +9764,7 @@
     "title": "Practical Financial Management",
     "author": "Barrow",
     "year": 2011,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.37,
     "key_finding": "",
     "has_note": false
@@ -9804,7 +9804,7 @@
     "title": "Finance for Executives- Managing for Value Creation",
     "author": "Hawawini",
     "year": 2011,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.41,
     "key_finding": "",
     "has_note": false
@@ -9814,7 +9814,7 @@
     "title": "Expected Returns",
     "author": "Ilmanen, Antti",
     "year": 2011,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.603,
     "key_finding": "",
     "has_note": false
@@ -9824,7 +9824,7 @@
     "title": "Corporate Finance Theory And Practice",
     "author": "Lumby",
     "year": 2011,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.86,
     "key_finding": "",
     "has_note": false
@@ -9854,7 +9854,7 @@
     "title": "The Cost of Capital",
     "author": "Porras",
     "year": 2011,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.628,
     "key_finding": "",
     "has_note": false
@@ -9924,7 +9924,7 @@
     "title": "The Most Important Thing",
     "author": "Marks, Howard",
     "year": 2011,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.422,
     "key_finding": "",
     "has_note": false
@@ -9964,7 +9964,7 @@
     "title": "The Outsiders Eight Unconventional CEOs and Their Radically Rational Blueprint for Success",
     "author": "Thorndike",
     "year": 2012,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.469,
     "key_finding": "",
     "has_note": false
@@ -9974,7 +9974,7 @@
     "title": "Fundamentals Of Financial Managing",
     "author": "Werner",
     "year": 2012,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.331,
     "key_finding": "",
     "has_note": false
@@ -10044,7 +10044,7 @@
     "title": "Applied Corporate Finance",
     "author": "Damodaran, Aswath",
     "year": 2014,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.204,
     "key_finding": "",
     "has_note": false
@@ -10084,7 +10084,7 @@
     "title": "Principles Of Corporate Finance",
     "author": "Brealey",
     "year": 2014,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.653,
     "key_finding": "",
     "has_note": false
@@ -10134,7 +10134,7 @@
     "title": "Corporate Finance And Investment - Decisions and Strategies",
     "author": "Pike, Richard",
     "year": 2015,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.59,
     "key_finding": "",
     "has_note": false
@@ -10144,7 +10144,7 @@
     "title": "Arbitrage Asymmetry and Idiosyncratic Volatility Puzzle",
     "author": "Stambaugh, Yu, Yuan",
     "year": 2015,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 1.0,
     "key_finding": "",
     "has_note": false
@@ -10154,7 +10154,7 @@
     "title": "A Practical Guide to Corporate Finance- Breaking the Financial Ice",
     "author": "Thibierge",
     "year": 2015,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.336,
     "key_finding": "",
     "has_note": false
@@ -10194,7 +10194,7 @@
     "title": "Introduction To Corporate Finance Managing Canadian Fir",
     "author": "Booth, Cleary",
     "year": 2016,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.36,
     "key_finding": "",
     "has_note": false
@@ -10214,7 +10214,7 @@
     "title": "Corporation Finance",
     "author": "Marshall, Alfred",
     "year": 2016,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.46,
     "key_finding": "",
     "has_note": false
@@ -10244,7 +10244,7 @@
     "title": "Financial Decisions and Markets A Course in Asset Pricing",
     "author": "Campbell, John Y.",
     "year": 2017,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.783,
     "key_finding": "",
     "has_note": false
@@ -10304,7 +10304,7 @@
     "title": "Cornerstones of Financial Accounting",
     "author": "Rich, Jones, Laurence",
     "year": 2017,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.629,
     "key_finding": "",
     "has_note": false
@@ -10324,7 +10324,7 @@
     "title": "Fundamentals of Corporate Finance",
     "author": "Brealey, Myers, Marcus",
     "year": 2017,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": 0.541,
     "key_finding": "",
     "has_note": false
@@ -10364,7 +10364,7 @@
     "title": "Corporate Finance CFA Level II",
     "author": "CFA Institute",
     "year": 2018,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.261,
     "key_finding": "",
     "has_note": false
@@ -10374,7 +10374,7 @@
     "title": "Business Planning Financing the Start-Up Business and Venture Capital Financing",
     "author": "Maynard, Warren, Trevino",
     "year": 2018,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.97,
     "key_finding": "",
     "has_note": false
@@ -10424,7 +10424,7 @@
     "title": "Equity Valuation CFA Level II",
     "author": "CFA Institute",
     "year": 2018,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.195,
     "key_finding": "",
     "has_note": false
@@ -10454,7 +10454,7 @@
     "title": "CFIN6 - Corporate Finance",
     "author": "Besley, Brigham, Eugene F.",
     "year": 2019,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.212,
     "key_finding": "",
     "has_note": false
@@ -10504,7 +10504,7 @@
     "title": "Low Price-to-book Ratios and Bank Dividend Payout",
     "author": "Gambacorta",
     "year": 2020,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.876,
     "key_finding": "",
     "has_note": false
@@ -10554,7 +10554,7 @@
     "title": "Fundamentals of Financial Management",
     "author": "Eugene F. Brigham, Joel F. Houston",
     "year": 2021,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.384,
     "key_finding": "",
     "has_note": false
@@ -10574,7 +10574,7 @@
     "title": "Lecture Notes in Investment - Investment Fundamentals",
     "author": "Prisman",
     "year": 2021,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.971,
     "key_finding": "",
     "has_note": false
@@ -10644,7 +10644,7 @@
     "title": "The Cumulant Risk Premium",
     "author": "Kyle, Todorov",
     "year": 2023,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.918,
     "key_finding": "",
     "has_note": false
@@ -10664,7 +10664,7 @@
     "title": "The Corporate Life Cycle Business, Investment, and Management Implications",
     "author": "Damodaran, Aswath",
     "year": 2024,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.124,
     "key_finding": "",
     "has_note": false
@@ -10684,7 +10684,7 @@
     "title": "Handbook Earnings Per Share",
     "author": "KPMG",
     "year": 2025,
-    "paradigm": "academic",
+    "paradigm": "practitioner",
     "score": -0.998,
     "key_finding": "",
     "has_note": false
@@ -10694,7 +10694,7 @@
     "title": "Financial Accounting",
     "author": "OpenStax",
     "year": 2025,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": -0.733,
     "key_finding": "",
     "has_note": false
@@ -10704,7 +10704,7 @@
     "title": "Managerial Accounting",
     "author": "OpenStax",
     "year": 2025,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.39,
     "key_finding": "",
     "has_note": false
@@ -10714,7 +10714,7 @@
     "title": "Principles of Finance",
     "author": "OpenStax",
     "year": 2025,
-    "paradigm": "practitioner",
+    "paradigm": "academic",
     "score": 0.332,
     "key_finding": "",
     "has_note": false
