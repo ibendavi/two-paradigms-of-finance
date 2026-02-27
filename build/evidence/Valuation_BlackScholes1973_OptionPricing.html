@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black & Scholes (1973): The Pricing of Options and Corporate Liabilities | The Two Paradigms of Finance</title>
+  <meta name="description" content="A primary-source history of how financial thinking split into two streams: the practitioner tradition of earnings capitalization (P = EPS × P/E) and the academic revolution of NPV, CAPM, and DCF.">
+  <meta name="author" content="Itzhak Ben-David & Alex Chinco">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📜</text></svg>">
+  <link rel="stylesheet" href="../static/css/style.css">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Two Paradigms</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="../the-split.html" >The Split</a></li>
+        <li><a href="../two-paradigms.html" >Two Paradigms</a></li>
+        <li><a href="../timeline.html" >Timeline</a></li>
+        <li><a href="../library.html" >Library</a></li>
+        <li><a href="../about.html" >About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+<div class="container">
+
+  <!-- Header -->
+  <div class="evidence-header">
+    <div class="evidence-meta">
+      <span class="paradigm-badge academic">Academic</span>
+      <span class="era-tag">The Great Divergence (1964–present)</span>
+      <span class="era-tag">&bull; 1973</span>
+    </div>
+    <h1 class="evidence-title">Black & Scholes (1973): The Pricing of Options and Corporate Liabilities</h1>
+    
+    <div class="evidence-source">Black, Fischer, and Myron Scholes. "The Pricing of Options and Corporate Liabilities." *Journal of Political Economy* 81, no. 3 (May-June 1973): 637-654.</div>
+    
+  </div>
+
+  <!-- Key Finding -->
+  
+  <div class="key-finding-box">
+    <h3>Key Finding</h3>
+    <p>Black &amp; Scholes's 1973 JPE paper derives a closed-form formula for option pricing using a no-arbitrage hedging argument. The core insight: a continuously rebalanced hedge (long stock + short options) eliminates ALL risk, so the hedged position must earn the risk-free rate. This yields a differential equation whose solution is the Black-Scholes formula: <em><em>w = xN(d₁) - ce^{r(t-t</em>)}N(d₂)</em>*. The formula's most remarkable property: <strong>the expected return on the stock does NOT appear</strong> — the option value depends only on the stock price, exercise price, time to maturity, risk-free rate, and variance. The paper extends the formula to puts (via put-call parity), warrants, and — most profoundly — to viewing <strong>equity as a call option on the firm's assets</strong> and <strong>bonds as risk-free debt minus a put option on the firm's assets</strong>. This unifies option pricing, corporate finance, and the theory of the firm. The paper launched the modern derivatives industry and, with M&amp;M (1958) and Ross (1976), established no-arbitrage as the central methodology of financial economics.</p>
+
+  </div>
+  
+
+  <!-- Main content + sidebar -->
+  <div class="evidence-layout">
+    <div class="prose">
+      
+      <h2>Details</h2>
+<h3>The Hedging Argument (pp. 640-643)</h3>
+<p>Assumptions (&quot;ideal conditions&quot;):</p>
+<ul>
+<li>(a) Constant, known risk-free interest rate</li>
+<li>(b) Stock price follows geometric Brownian motion (log-normal); constant variance rate v²</li>
+<li>(c) No dividends</li>
+<li>(d) European option (exercise only at maturity)</li>
+<li>(e) No transaction costs</li>
+<li>(f) Continuous borrowing/lending at the risk-free rate</li>
+<li>(g) No short-selling penalties</li>
+</ul>
+<p>The number of options to sell short against one share of stock long:</p>
+<blockquote>
+<p>1/w₁(x,t)    — expression (1)</p>
+</blockquote>
+<p>where w₁ is the partial derivative of the option price with respect to stock price. This creates a hedged position whose value <strong>does not depend on the stock price</strong> — only on time and known constants.</p>
+<p>Key step: if the hedge is maintained continuously, &quot;the return on the hedged position becomes certain&quot; (p. 642). By no-arbitrage, a riskless position must earn the risk-free rate r. This yields a differential equation:</p>
+<blockquote>
+<p>w₂ = rw - rxw₁ - ½v²x²w₁₁    — equation (7)</p>
+</blockquote>
+<p>with boundary condition w(x,t*) = max(x-c, 0).</p>
+<h3>The Black-Scholes Formula (p. 644)</h3>
+<p>The solution to equation (7):</p>
+<blockquote>
+<p><em><em>w(x,t) = xN(d₁) - ce^{r(t-t</em>)}N(d₂)</em>*    — equation (13)</p>
+</blockquote>
+<p>where:</p>
+<blockquote>
+<p>d₁ = [ln(x/c) + (r + ½v²)(t*-t)] / [v√(t*-t)]
+d₂ = [ln(x/c) + (r - ½v²)(t*-t)] / [v√(t*-t)]</p>
+</blockquote>
+<ul>
+<li>x = stock price</li>
+<li>c = exercise price</li>
+<li>t* = maturity date, t = current date</li>
+<li>v² = variance rate of return on the stock</li>
+<li>r = risk-free interest rate</li>
+<li>N(d) = cumulative normal density function</li>
+</ul>
+<p>The differential equation (7) is identified as &quot;the heat-transfer equation of physics&quot; (p. 644), solved via Churchill (1963).</p>
+<h3>The Stunning Absence of Expected Return (p. 644)</h3>
+<blockquote>
+<p>&quot;Note that the expected return on the stock does not appear in equation (13). The option value as a function of the stock price is independent of the expected return on the stock.&quot;</p>
+</blockquote>
+<p>This is the paper's deepest result. Because the hedge eliminates risk, the expected return is irrelevant — only variance matters. This is why options can be priced without knowing whether the stock will go up or down on average.</p>
+<h3>Alternative Derivation via CAPM (pp. 645-646)</h3>
+<p>A second derivation using the CAPM: define α = expected excess return on the stock and β_x = stock's beta. Then:</p>
+<blockquote>
+<p>E(Δw) = rwΔt + axw₁β_xΔt + ½v²x²w₁₁Δt    — equation (20)</p>
+</blockquote>
+<p>Combining with the CAPM equation for the option, <strong>the terms involving α and β cancel</strong>, yielding the same equation (7). This shows the result is robust: whether derived from hedging or from equilibrium, expected returns drop out.</p>
+<h3>The Option's Beta (p. 645)</h3>
+<blockquote>
+<p>β_w = (xw₁/w)·β_x    — equation (15)</p>
+</blockquote>
+<p>The option's beta equals the stock's beta times the &quot;elasticity&quot; of the option price with respect to the stock price. Since xw₁/w &gt; 1 always (from equations 13 and 14), the option is always more volatile than the stock.</p>
+<h3>Put Options (pp. 646-647)</h3>
+<p>Via put-call parity: w(x,t) - u(x,t) = x - ce^{r(t-t*)}</p>
+<blockquote>
+<p>u(x,t) = -xN(-d₁) + ce^{-r(t*-t)}N(-d₂)    — equation (27)</p>
+</blockquote>
+<p>American call on non-dividend stock = European call (early exercise never optimal). But American put &gt; European put (early exercise can be optimal when stock near zero).</p>
+<h3>Corporate Liabilities as Options (pp. 649-652)</h3>
+<p>The paper's most profound extension — viewing the firm through the lens of option theory:</p>
+<p><strong>Equity as a call option:</strong></p>
+<ul>
+<li>Consider a firm with assets (value x), bonds (face value c, maturity t*), and stock</li>
+<li>At maturity: stockholders receive max(x-c, 0) — exactly a call option on firm assets</li>
+<li>Stock value = w(x,t) from equation (13), where v² = variance of firm asset returns</li>
+</ul>
+<p><strong>Bonds as risk-free debt minus a put:</strong></p>
+<ul>
+<li>Bond value = x - w(x,t) = firm assets minus call option</li>
+<li>Equivalently: bond value = ce^{r(t-t*)} - [put option on firm assets]</li>
+<li>The <strong>default discount</strong> on bonds = value of the put option = probability-weighted cost of default</li>
+</ul>
+<p>This yields a formula for the credit spread on risky bonds — purely from option theory, with no need for credit rating models.</p>
+<p><strong>Capital structure implications (footnote 12, p. 650):</strong></p>
+<blockquote>
+<p>&quot;The fact that the total value of a corporation is not affected by its capital structure, in the absence of taxes and other imperfections, was first shown by Modigliani and Miller (1958).&quot;</p>
+</blockquote>
+<p>M&amp;M's capital structure irrelevance is EMBEDDED in the option framework: total firm value x is fixed, and the formula merely divides it between equity (call) and debt (firm minus call).</p>
+<h3>Dividend Policy and Capital Structure (pp. 650-651)</h3>
+<ul>
+<li>Increasing debt (raising c) → bond prices fall, stock prices rise (stockholders benefit at bondholders' expense)</li>
+<li>Increasing dividends → stock price rises, bond price falls (stockholders &quot;steal&quot; from bondholders)</li>
+<li>Bond indentures restrict dividends precisely because of this option-theoretic incentive → directly connects to Jensen &amp; Meckling (1976) agency costs of debt</li>
+</ul>
+<h3>Empirical Tests (p. 653)</h3>
+<ul>
+<li>Tested on call-option data (Black &amp; Scholes 1972)</li>
+<li>Systematic deviations: option <strong>buyers</strong> pay more than formula predicts; option <strong>writers</strong> receive approximately formula value</li>
+<li>Difference attributed to transaction costs effectively paid by buyers</li>
+<li>Market underestimates effect of variance differences (options on high-risk stocks underpriced by formula relative to market)</li>
+</ul>
+<h3>The Treynor Credit (p. 637, footnote)</h3>
+<blockquote>
+<p>&quot;The inspiration for this work was provided by Jack L. Treynor (1961a, 1961b).&quot;</p>
+</blockquote>
+<p>Treynor's unpublished memoranda on asset pricing also inspired Sharpe's CAPM. Black &amp; Scholes also thank &quot;Eugene F. Fama, Robert C. Merton, and Merton H. Miller&quot; for comments.</p>
+<h2>Who Is Cited</h2>
+<p><strong>Cited:</strong></p>
+<ul>
+<li><strong>Treynor (1961a, 1961b)</strong> — unpublished memoranda; &quot;the inspiration for this work&quot;</li>
+<li><strong>Sharpe (1964)</strong> — CAPM used in alternative derivation</li>
+<li><strong>Fama &amp; Miller (1972)</strong> — The Theory of Finance</li>
+<li><strong>Modigliani &amp; Miller (1958, 1961)</strong> — capital structure and dividend irrelevance (footnotes 12, 14)</li>
+<li><strong>Merton (1973)</strong> — companion paper on rational option pricing; extends results to more general assumptions</li>
+<li><strong>Samuelson (1965), Samuelson &amp; Merton (1969)</strong> — prior warrant pricing attempts</li>
+<li><strong>Sprenkle (1961), Boness (1964), Ayres (1963), Baumol et al. (1966), Chen (1970)</strong> — prior option formulas with unknown parameters</li>
+<li><strong>Thorp &amp; Kassouf (1967)</strong> — empirical hedging approach (the &quot;one concept that we use&quot;)</li>
+<li><strong>Lintner (1965), Mossin (1966)</strong> — CAPM extensions</li>
+</ul>
+<p><strong>NOT cited:</strong></p>
+<ul>
+<li><strong>Fisher, Williams</strong> — the pre-modern valuation tradition is absent</li>
+<li><strong>Graham &amp; Dodd</strong> — the practitioner tradition is absent</li>
+<li><strong>Markowitz</strong> — not directly cited (though portfolio theory underlies CAPM derivation)</li>
+<li><strong>Ross</strong> — APT came later (1976)</li>
+<li><strong>Bachelier (1900)</strong> — remarkable omission; Bachelier derived an option pricing formula 73 years earlier under different assumptions (arithmetic rather than geometric Brownian motion)</li>
+</ul>
+
+      
+
+      
+      <h2>Significance</h2>
+      <h3>1. The No-Arbitrage Pricing Revolution — Completed</h3>
+<p>M&amp;M (1958) introduced no-arbitrage reasoning for capital structure. Black-Scholes applied it to derivatives pricing with continuous hedging. Ross (1976) would apply it to asset pricing generally. Together, these three papers established <strong>no-arbitrage as the central methodology of financial economics</strong>, displacing the older optimization-based approach (Markowitz → CAPM).</p>
+<h3>2. Expected Returns Don't Matter for Pricing</h3>
+<p>The formula's independence from expected returns is philosophically profound: you don't need to know whether a stock is going up or down to price its options. Only the volatility (variance) matters. This &quot;preference-free&quot; pricing — where risk preferences cancel out — would later be generalized as &quot;risk-neutral pricing.&quot;</p>
+<h3>3. Corporate Liabilities as Options</h3>
+<p>The insight that equity = call option on firm assets and debt = risk-free debt minus put transformed corporate finance:</p>
+<ul>
+<li><strong>Credit risk modeling</strong>: Merton (1974) structural model of default builds directly on Black-Scholes</li>
+<li><strong>Capital structure</strong>: agency conflicts between debt and equity arise BECAUSE equity is an option (convex payoff → incentive for risk-shifting) — connects to Jensen &amp; Meckling (1976)</li>
+<li><strong>Convertible bonds, warrants, callable debt</strong>: all analyzed as packages of options</li>
+</ul>
+<h3>4. The Derivatives Industry Created</h3>
+<p>Before Black-Scholes: options were priced by intuition and rough rules. After: a mathematical formula that could be programmed into calculators and computers. The CBOE opened in April 1973, the same month the paper was published. Within a decade, Black-Scholes was the standard pricing model on trading floors worldwide. Scholes received the Nobel Prize in 1997 (Black had died in 1995).</p>
+<h3>5. The Assumptions and Their Limitations</h3>
+<p>The model assumes constant volatility, continuous trading, no transaction costs, and log-normal returns. All are violated in practice:</p>
+<ul>
+<li>Volatility is NOT constant → &quot;volatility smile/skew&quot;</li>
+<li>Trading is discrete → hedging error</li>
+<li>Transaction costs exist → delta-hedging is imperfect</li>
+<li>Fat tails (Fama 1965, Mandelbrot 1963) → underpricing of tail risk</li>
+<li>The 1987 crash and 2008 crisis exposed the real-world costs of these assumptions</li>
+<li>Yet the model remains the benchmark — deviations are measured FROM Black-Scholes, not from alternatives</li>
+</ul>
+
+      
+    </div>
+
+    <aside class="sidebar">
+      <!-- Paradigm info -->
+      <div class="sidebar-section">
+        <h4>Paradigm</h4>
+        <p><span class="paradigm-badge academic">Academic</span></p>
+        <p style="margin-top: 0.5rem;">NPV / DCF: P = Σ CF/(1+r)^t. Cost of equity from CAPM / factor model. Objective = maximize firm value.</p>
+      </div>
+
+      <!-- Era context -->
+      <div class="sidebar-section">
+        <h4>Era</h4>
+        <p><strong>The Great Divergence</strong> (1964–present)</p>
+        <p>Academic textbooks teach NPV/CAPM/DCF. Practitioners continue using EPS × P/E, earnings yields, and comps.</p>
+      </div>
+
+      <!-- Connections -->
+      
+      <div class="sidebar-section">
+        <h4>Connections</h4>
+        <ul>
+<li><strong>Built on:</strong> M&amp;M (1958) no-arbitrage methodology; Sharpe (1964) CAPM; Samuelson (1965) warrant pricing; Thorp &amp; Kassouf (1967) hedging concept</li>
+<li><strong>Companion paper:</strong> Merton (1973) &quot;Theory of Rational Option Pricing&quot; — extends to more general assumptions</li>
+<li><strong>Led to:</strong> Merton (1974) structural credit model; Cox-Ross-Rubinstein (1979) binomial model; the entire derivatives industry; risk-neutral pricing; financial engineering</li>
+<li><strong>Connected to:</strong> Jensen &amp; Meckling (1976) — equity as option explains risk-shifting agency cost of debt</li>
+<li><strong>Parallel methodology:</strong> Ross (1976) APT — both use no-arbitrage rather than optimization</li>
+<li><strong>Challenged by:</strong> 1987 crash (volatility not constant); Fama (1965) fat tails; 2008 crisis (model risk)</li>
+<li><strong>Did NOT cite:</strong> Fisher, Williams, Graham &amp; Dodd, Bachelier (1900), Markowitz</li>
+<li><strong>Stream:</strong> Pure academic — mathematical physics applied to finance; but immediately adopted by practitioners (unique among academic finance papers)</li>
+</ul>
+
+      </div>
+      
+    </aside>
+  </div>
+
+  <!-- Prev / Next navigation -->
+  <nav class="evidence-nav">
+    
+    <a href="../evidence/Textbook_VanHorne1971_FinancialManagementPolicy.html">
+      <span class="label">&larr; Previous</span>
+      Van, Horne (1971)
+    </a>
+    
+
+    
+    <a href="../evidence/EPS_Pringle1973_PriceEarningsRatiosEPSFinancialManagement.html" style="text-align: right;">
+      <span class="label">Next &rarr;</span>
+      Pringle (1973)
+    </a>
+    
+  </nav>
+
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>The Two Paradigms of Finance &mdash; Itzhak Ben-David & Alex Chinco</p>
+      <p>The Ohio State University & Michigan State University</p>
+      <p style="margin-top: 0.5rem;">Built from a collection of 2,800+ primary sources spanning 300 years.</p>
+    </div>
+  </footer>
+
+  
+  <script>
+  (function(){
+    var k='__tp_auth';
+    if(sessionStorage.getItem(k)==='1') return;
+    var p=prompt('Enter password:');
+    if(p==='EPS'){sessionStorage.setItem(k,'1');}
+    else{document.body.innerHTML='<p style="color:#ede8d8;text-align:center;margin-top:40vh;font-family:serif;font-size:1.2rem;">Access denied.</p>';}
+  })();
+  </script>
+</body>
+</html>

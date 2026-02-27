@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dasgupta, Harford & Ma (2024): EPS Sensitivity and Mergers | The Two Paradigms of Finance</title>
+  <meta name="description" content="A primary-source history of how financial thinking split into two streams: the practitioner tradition of earnings capitalization (P = EPS × P/E) and the academic revolution of NPV, CAPM, and DCF.">
+  <meta name="author" content="Itzhak Ben-David & Alex Chinco">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📜</text></svg>">
+  <link rel="stylesheet" href="../static/css/style.css">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Two Paradigms</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="../the-split.html" >The Split</a></li>
+        <li><a href="../two-paradigms.html" >Two Paradigms</a></li>
+        <li><a href="../timeline.html" >Timeline</a></li>
+        <li><a href="../library.html" >Library</a></li>
+        <li><a href="../about.html" >About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+<div class="container">
+
+  <!-- Header -->
+  <div class="evidence-header">
+    <div class="evidence-meta">
+      <span class="paradigm-badge practitioner">Practitioner</span>
+      <span class="era-tag">The Great Divergence (1964–present)</span>
+      <span class="era-tag">&bull; 2024</span>
+    </div>
+    <h1 class="evidence-title">Dasgupta, Harford & Ma (2024): EPS Sensitivity and Mergers</h1>
+    
+    <div class="evidence-source">Dasgupta, Sudipto, Jarrad Harford, and Fangyuan Ma. "EPS Sensitivity and Mergers." *Journal of Financial and Quantitative Analysis* 59, no. 2 (March 2024): 521-556. (Dasgupta at Chinese University of Hong Kong; Harford at University of Washington; Ma at Peking University.)</div>
+    
+  </div>
+
+  <!-- Key Finding -->
+  
+  <div class="key-finding-box">
+    <h3>Key Finding</h3>
+    <p>Dasgupta, Harford &amp; Ma's 2024 <em>Journal of Financial and Quantitative Analysis</em> paper provides the most comprehensive evidence that EPS accretion/dilution concerns shape M&amp;A deal structure, premiums, and acquirer behavior. Using 3,799 mergers from 1991-2017, they construct a novel measure — S_ΔEPS_AS, the standardized change in acquirer EPS if the deal were paid entirely in stock — and employ a regression discontinuity design (RDD) at the zero threshold. The key result: the probability of paying cash jumps by 5-17 percentage points at the exact threshold where an all-stock deal would become EPS-dilutive (DILUTIVE_AS coefficient = 0.130***, t = 5.02). 71.4% of completed deals would be dilutive if done entirely in stock. For mixed deals, the cash-stock mix is carefully calibrated so that the intended EPS (S_ΔEPS_INT) stays just above zero — managers optimally choose the payment fraction to achieve EPS accretion. Deals are structured to avoid shareholder voting when dilutive (keeping stock issuance below the 20% threshold). The market rewards accretive stock deals with higher announcement CARs (ACCRETIVE coefficient = 0.020***, 3-day window), but this advantage vanishes by deal completion. EPS sensitivity creates real distortions: acquirers of if-stock-dilutive deals finance cash payments by issuing debt and pre-deal cash hoarding, and they cut capital expenditures and R&amp;D prior to deals. Among &quot;high-buys-low&quot; stock deals (high P/E acquirer buying low P/E target), there is abnormal clustering of deals that are barely accretive, with accretive deals associated with significantly lower premiums (-0.130*** to -0.180***). The effect is STRONGER after 2001, when the abolition of pooling accounting (SFAS 141/142) made the purchase method mandatory, increasing EPS sensitivity for stock deals. For the EPS project, this paper extends Andrade (1997) and Garvey, Milbourne &amp; Xie (2013) to show that EPS concerns pervade every dimension of M&amp;A: payment method, deal structure, premium negotiation, shareholder voting, pre-deal financial policy, and post-announcement market reaction.</p>
+
+  </div>
+  
+
+  <!-- Main content + sidebar -->
+  <div class="evidence-layout">
+    <div class="prose">
+      
+      <h2>Details</h2>
+<h3>Section I: Introduction (pp. 521-527)</h3>
+<p><strong>The motivation:</strong> Practitioner focus on EPS accretion in M&amp;A is pervasive — a Factiva search yields 309,505 results for &quot;mergers&quot; combined with &quot;EPS accretion&quot; or &quot;EPS dilution.&quot; Yet only 20% of deals have synergy forecasts, and only 2% provide NPV numbers. EPS accretion is the metric practitioners actually use.</p>
+<p><strong>Novel contribution:</strong> While Andrade (1997) studied announcement returns and Garvey et al. (2013) studied deal propensity, Dasgupta et al. study HOW deals are STRUCTURED to achieve EPS accretion — the payment method, the cash-stock mix, the premium, and the associated financial policy distortions.</p>
+<p><strong>Key innovation — S_ΔEPS_AS:</strong> The standardized all-stock change in EPS = (combined EPS under all-stock - acquirer's pre-deal EPS) / acquirer's stock price. This measures what would happen to the acquirer's EPS if the ENTIRE deal were paid in stock, regardless of how it is actually paid.</p>
+<p><strong>DILUTIVE_AS:</strong> Indicator = 1 if S_ΔEPS_AS &lt; 0 (all-stock deal would be EPS-dilutive).</p>
+<h3>Section II: Empirical Design (pp. 527-530)</h3>
+<p><strong>Combined EPS formula:</strong></p>
+<blockquote>
+<p>e_AS = (e_T × n + e_B × m) / (n × x_AS + m)</p>
+</blockquote>
+<p>where e_T = target's consensus EPS forecast, e_B = acquirer's consensus EPS forecast, n = target shares, m = acquirer shares, x_AS = all-stock exchange ratio.</p>
+<p><strong>RDD specification:</strong></p>
+<blockquote>
+<p>CASH = α × DILUTIVE_AS + β₁ × S_ΔEPS_AS + β₂ × DILUTIVE_AS × S_ΔEPS_AS + X + η + t + ε</p>
+</blockquote>
+<p>The regression tests whether the cash fraction jumps discontinuously at S_ΔEPS_AS = 0.</p>
+<h3>Section III: Data (pp. 530-534)</h3>
+<p><strong>Sample:</strong> 3,799 mergers from SDC, 1991-2017. 3,319 completed.</p>
+<p><strong>Table 1 — Distribution:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Deal type</th>
+<th>% If-stock dilutive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All completed deals</td>
+<td><strong>71.4%</strong></td>
+</tr>
+<tr>
+<td>Cash deals</td>
+<td>81.0%</td>
+</tr>
+<tr>
+<td>Mixed deals</td>
+<td>75.4%</td>
+</tr>
+<tr>
+<td>Stock deals</td>
+<td>64.5%</td>
+</tr>
+</tbody>
+</table>
+<p>Nearly three-quarters of all deals would be EPS-dilutive if done entirely in stock. Cash deals have the highest dilutive percentage (81%), confirming that cash is used to AVOID dilution.</p>
+<p><strong>Figure 1:</strong> Strong time-series association between the proportion of deals that would be if-stock-dilutive and the proportion of deals paid in cash, especially after 2000.</p>
+<h3>Section IV: Main Results (pp. 534-541)</h3>
+<p><strong>4.A Payment method (Table 2):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Specification</th>
+<th>DILUTIVE_AS coefficient</th>
+<th>t-stat</th>
+<th>Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Narrow band [-0.001, 0.001]</td>
+<td><strong>0.130</strong>***</td>
+<td><strong>5.02</strong></td>
+<td>257</td>
+</tr>
+<tr>
+<td>Narrow band [-0.002, 0.002]</td>
+<td><strong>0.130</strong>***</td>
+<td><strong>3.02-3.96</strong></td>
+<td>399</td>
+</tr>
+<tr>
+<td>Full sample, 1st-order polynomial</td>
+<td><strong>0.096</strong>***</td>
+<td><strong>2.39</strong></td>
+<td>829</td>
+</tr>
+<tr>
+<td>Full sample, 3rd-order polynomial</td>
+<td><strong>0.170</strong>***</td>
+<td><strong>2.55</strong></td>
+<td>829</td>
+</tr>
+</tbody>
+</table>
+<p>Cash fraction jumps 5-17 percentage points at the zero threshold. Robust across all bandwidths and polynomial specifications.</p>
+<p><strong>Figure 2:</strong> Clear visual discontinuity — cash proportion jumps up sharply when S_ΔEPS_AS crosses from positive to negative.</p>
+<p><strong>4.B EPS-friendly cash for mixed deals:</strong></p>
+<p>For mixed deals with slightly negative S_ΔEPS_AS, the intended EPS (S_ΔEPS_INT) is managed to be just above zero. The cash-stock mix is calibrated precisely to achieve EPS accretion.</p>
+<p><strong>Figure 3:</strong> For mixed deals on the negative side of S_ΔEPS_AS, S_ΔEPS_INT is flat and just above zero — managers choose the exact cash fraction needed to flip from dilutive to accretive.</p>
+<p><strong>4.E Shareholder voting:</strong></p>
+<p>Deals are structured to avoid triggering the 20% stock issuance threshold (which requires shareholder vote) WHEN the deal would be dilutive. For dilutive deals, the fraction of mixed deals is 5% higher when an all-stock deal would cross the 20% threshold. No such effect for accretive deals. Dilutive stock deals also face higher deal failure rates (11.8% vs. 9.9%).</p>
+<h3>Section IV.F: Market Reactions (pp. 541-544)</h3>
+<p><strong>Table 5 — Acquirer CARs for pure stock deals:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Panel</th>
+<th>ACCRETIVE coefficient</th>
+<th>t-stat</th>
+<th>Window</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A: 3-day CAR [-1, +1]</strong></td>
+<td><strong>0.020</strong>***</td>
+<td><strong>4.58</strong></td>
+<td>Announcement</td>
+</tr>
+<tr>
+<td>B: CAR [-1, Completion]</td>
+<td>0.009</td>
+<td>0.32</td>
+<td>Through completion</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key finding:</strong> Accretive stock deals earn significantly higher announcement CARs (~2% in 3-day window), but this advantage VANISHES by the time of deal completion. The market initially rewards EPS accretion but the effect is short-lived.</p>
+<blockquote>
+<p>&quot;Investors form more favorable perceptions about the accretive stock deals at least in the short window around deal announcements... the return difference vanishes by the time of deal completion.&quot;</p>
+</blockquote>
+<p>The authors note this suggests the &quot;mechanical combined EPS measure mainly captures the cosmetic EPS impact and has little to do with deal fundamentals.&quot;</p>
+<h3>Section IV.G: Distortions to Financial and Investment Policies (pp. 544-545)</h3>
+<p><strong>Table 6 — Total shareholder gains and cash payment for if-stock-dilutive deals:</strong></p>
+<p>EPS-driven cash payments are financed through:</p>
+<ol>
+<li><strong>Issuing debt</strong> — Cash payments mainly financed by debt issuance</li>
+<li><strong>Preserving financial flexibility</strong> — Acquirers save cash prior to the deal</li>
+<li><strong>Cutting investment</strong> — Managers reduce capital expenditures and R&amp;D before deals</li>
+</ol>
+<p>These effects are found ONLY for &quot;if-stock-dilutive&quot; deals — deals that would have been dilutive if paid in stock. Cash is used to avoid dilution, but the cash must come from somewhere.</p>
+<p><strong>Combined CARs:</strong> DILUTIVE_AS × CASH% interaction is significantly negative (-0.074** to -0.079*). Deals structured to mitigate dilution via cash payment are associated with LOWER total shareholder gains. The EPS-friendly structure destroys value.</p>
+<blockquote>
+<p>&quot;Deals structured to alleviate the acquirer's EPS dilution are not associated with superior shareholder gains in the long run, although the EPS-friendly structure helps with gaining shareholder support in the shorter term following deal announcement.&quot;</p>
+</blockquote>
+<h3>Section V: Further Evidence (pp. 546-551)</h3>
+<p><strong>5.A Relative P/E and deal type (Table 7):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Deal type</th>
+<th>High-buys-low</th>
+<th>Low-buys-high</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cash deals</td>
+<td>38.92% (col %)</td>
+<td>61.08%</td>
+</tr>
+<tr>
+<td>Mixed deals</td>
+<td>45.42%</td>
+<td>54.58%</td>
+</tr>
+<tr>
+<td>Stock deals</td>
+<td><strong>54.45%</strong></td>
+<td>45.55%</td>
+</tr>
+</tbody>
+</table>
+<p>Among stock deals, the MAJORITY are &quot;high-buys-low&quot; (high P/E acquirer buying low P/E target) — 54.45%. This is consistent with Shleifer &amp; Vishny (2003) and with the EPS paradigm's prediction: high P/E acquirers can pay stock AND be EPS-accretive when buying low P/E targets.</p>
+<p><strong>Figure A1:</strong> Illustrates the geometry. When acquirer P/E &gt; target P/E, there exists a range of deal multiples that offer both a positive premium to the target AND EPS accretion to the acquirer. When acquirer P/E &lt; target P/E, this is impossible — the only way to be accretive is to pay cash.</p>
+<p><strong>5.B Deal premium (Table 9):</strong></p>
+<p>Among &quot;high-buys-low&quot; stock deals, accretive deals pay significantly LOWER premiums:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Premium coefficient</th>
+<th>Target CAR coefficient</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACCRETIVE</td>
+<td><strong>-0.130</strong>* to -0.180****</td>
+<td><strong>-0.094</strong>* to -0.120****</td>
+</tr>
+</tbody>
+</table>
+<p>Acquirers use EPS accretion to justify lower premiums. Target shareholders receive lower CARs for accretive deals — the benefits of accretion accrue to the acquirer, not the target.</p>
+<p><strong>Figure 4:</strong> Among &quot;high-buys-low&quot; stock deals, there is abnormal clustering of S_ΔEPS just above zero — deals that are barely accretive. The histogram shows a clear spike at the right side of zero, confirmed by McCrary density test and local polynomial estimation.</p>
+<p><strong>5.B Subperiod analysis (Table 8):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Period</th>
+<th>DILUTIVE_AS on cash fraction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1990-2001</td>
+<td><strong>0.092</strong>*-0.096****</td>
+</tr>
+<tr>
+<td>2002-2017</td>
+<td><strong>0.10</strong>*-0.16****</td>
+</tr>
+</tbody>
+</table>
+<p>EPS sensitivity is STRONGER after 2001. This coincides with the abolition of pooling accounting (SFAS 141/142 in June 2001). Under pooling, stock deals could be EPS-friendly because the target's book value (not market value) was used. Under the purchase method (mandatory post-2001), goodwill and fair value adjustments made stock deals more EPS-costly. The elimination of the EPS-friendly accounting method INCREASED EPS sensitivity.</p>
+<p><strong>5.C Accounting rules:</strong></p>
+<p>The pooling method was &quot;much more EPS-friendly&quot; for stock deals because book values (not fair values) were combined and there was no goodwill amortization. After SFAS 141/142 abolished pooling, &quot;methods of payment are even more sensitive to if-stock dilution after goodwill amortization was essentially abolished.&quot; The accounting rule change created MORE EPS sensitivity, not less — confirming that EPS concerns drive deal structure, and accounting rules mediate the relationship.</p>
+<h3>Section VI: Conclusion (pp. 551)</h3>
+<blockquote>
+<p>&quot;We argue that in the absence of hard information about deal synergy, the EPS impact of a deal is an easy-to-communicate metric that managers can use to convince shareholders about the merits of a deal. As a result, focus on EPS has become part of M&amp;A practice.&quot;</p>
+</blockquote>
+<blockquote>
+<p>&quot;Our results do not imply that EPS accretion is the primary driver of mergers; indeed, many dilutive deals are proposed and completed. Rather, we show that while efficiency would require that the NPV of the acquisition... should be the only consideration in determining which deals get done, the EPS impact of the deal is also an important factor and this factor distorts merger decisions.&quot;</p>
+</blockquote>
+
+      
+
+      
+      <h2>Significance</h2>
+      <h3>1. The Most Comprehensive Evidence on EPS in M&amp;A</h3>
+<p>This paper extends Andrade (1997) from market reactions to deal STRUCTURE and extends Garvey et al. (2013) from deal propensity to payment method, premiums, and financial policy. Every dimension of M&amp;A is affected by EPS concerns: what you pay (cash vs. stock), how much you pay (premium), how you finance cash (debt, cut investment), whether shareholders vote, and what the market thinks.</p>
+<h3>2. The RDD Provides Clean Identification</h3>
+<p>The sharp discontinuity at S_ΔEPS_AS = 0 in Figure 2 is the M&amp;A equivalent of Almeida et al.'s (2016) repurchase discontinuity. Investment opportunities, synergies, and other deal characteristics are continuous at zero; only EPS dilution status is discontinuous. The 5-17 pp cash fraction jump is identified by EPS concerns alone.</p>
+<h3>3. 71.4% of Deals Would Be Dilutive — EPS Binds for Most Deals</h3>
+<p>The finding that nearly three-quarters of deals would be EPS-dilutive if paid entirely in stock means EPS concerns are NOT marginal — they affect the MAJORITY of deals. This explains why cash has become the dominant payment method and why practitioners obsess over accretion/dilution.</p>
+<h3>4. Mixed Deals Are Precisely Calibrated for EPS</h3>
+<p>Figure 3 is stunning: for mixed deals, the cash-stock mix is chosen so that S_ΔEPS_INT sits JUST above zero. This is penny-level EPS management in M&amp;A — the exact analog of Hribar et al.'s (2006) finding that 84.1% of accretive repurchases change EPS by $0.01-$0.02. Whether repurchasing or acquiring, managers calibrate to the EPS threshold.</p>
+<h3>5. Accretive Deals Pay Lower Premiums — Targets Subsidize Accretion</h3>
+<p>The finding that accretive stock deals have premiums 13-18 pp lower and target CARs 9-12 pp lower means that EPS accretion comes at the target's expense. High P/E acquirers can use the &quot;accretive&quot; label to justify paying less. This is the EPS paradigm's M&amp;A prediction: accretion is treated as value, even when it is purely mechanical.</p>
+<h3>6. EPS-Driven Cash Destroys Value</h3>
+<p>The negative interaction (DILUTIVE_AS × CASH%) in Table 6 shows that deals structured to avoid dilution via cash payment produce LOWER combined shareholder gains. The EPS-friendly structure is NPV-unfriendly — exactly the distortion the EPS paradigm predicts when managers maximize EPS rather than value.</p>
+<h3>7. Pre-Deal Investment Cuts Confirm the Capital Budgeting Distortion</h3>
+<p>Managers cut capex and R&amp;D before deals to preserve cash for EPS-friendly payment. This connects directly to Almeida et al. (2016) and to the capital budgeting paper: EPS concerns distort not just payout but also real investment, even before the deal is announced.</p>
+<h3>8. The Pooling-to-Purchase Transition Is a Natural Experiment</h3>
+<p>The abolition of pooling accounting in 2001 made stock deals more EPS-costly, increasing EPS sensitivity of payment method. This is powerful evidence that ACCOUNTING RULES drive deal structure through the EPS channel. A change in reporting rules — with no change in economic fundamentals — changed how managers structure deals. This confirms that reported EPS, not economic value, is the operative metric.</p>
+<h3>9. Market Reaction: Short-Term Reward, Long-Term Irrelevance</h3>
+<p>The 2% announcement CAR for accretive deals that vanishes by completion suggests the market initially rewards EPS accretion but eventually recognizes its cosmetic nature. This parallels Andrade's (1997) finding of a coefficient of ~0.3 (partial capitalization) and Hribar et al.'s (2006) discounted ERC on repurchase-induced EPS.</p>
+<h3>10. The Factiva Evidence Quantifies Practitioner Obsession</h3>
+<p>309,505 search results for &quot;mergers&quot; + &quot;EPS accretion/dilution&quot; vs. only 20% of deals with synergy forecasts and 2% with NPV numbers. The ratio of EPS-to-NPV in practitioner discourse is approximately 100:1. This is the quantitative evidence that practitioners operate in the EPS paradigm, not the NPV paradigm.</p>
+
+      
+    </div>
+
+    <aside class="sidebar">
+      <!-- Paradigm info -->
+      <div class="sidebar-section">
+        <h4>Paradigm</h4>
+        <p><span class="paradigm-badge practitioner">Practitioner</span></p>
+        <p style="margin-top: 0.5rem;">Earnings capitalization: P = EPS × P/E from comps. Cost of equity = earnings yield. Objective = maximize EPS.</p>
+      </div>
+
+      <!-- Era context -->
+      <div class="sidebar-section">
+        <h4>Era</h4>
+        <p><strong>The Great Divergence</strong> (1964–present)</p>
+        <p>Academic textbooks teach NPV/CAPM/DCF. Practitioners continue using EPS × P/E, earnings yields, and comps.</p>
+      </div>
+
+      <!-- Connections -->
+      
+      <div class="sidebar-section">
+        <h4>Connections</h4>
+        <ul>
+<li><strong>Andrade (1997)</strong> — &quot;Do Appearances Matter?&quot; The precursor. Andrade shows EPS accretion predicts announcement returns (coefficient ~0.3). Dasgupta et al. extend to show EPS concerns drive deal STRUCTURE — payment method, premium, financing — not just market reaction.</li>
+<li><strong>Garvey, Milbourne &amp; Xie (2013)</strong> — &quot;What Will It Do for My EPS?&quot; Show EPS accretion predicts which firms become targets. Dasgupta et al. extend from target selection to deal structure.</li>
+<li><strong>Shleifer &amp; Vishny (2003)</strong> — &quot;Stock Market Driven Acquisitions.&quot; Propose overvalued acquirers use stock. Dasgupta et al. distinguish EPS sensitivity from misvaluation: EPS sensitivity is stronger after 2001, while the misvaluation channel would predict the opposite (more overvaluation-driven deals pre-2001). The two channels are &quot;not mutually exclusive&quot; but empirically separable.</li>
+<li><strong>Hribar, Jenkins &amp; Johnson (2006)</strong> — &quot;Stock Repurchases as an Earnings Management Device.&quot; Both papers show penny-level EPS management — repurchases calibrated to $0.01-$0.02 in Hribar et al., deal structures calibrated to just-above-zero accretion in Dasgupta et al.</li>
+<li><strong>Almeida, Fos &amp; Kronlund (2016)</strong> — &quot;The Real Effects of Share Repurchases.&quot; Both papers show EPS-motivated capital allocation distorts investment. Almeida et al. show post-repurchase investment cuts; Dasgupta et al. show pre-deal investment cuts to finance cash payments.</li>
+<li><strong>Huang, Marquardt &amp; Zhang (2014)</strong> — &quot;Why Do Managers Avoid EPS Dilution?&quot; Extend the same logic from financing choice (debt vs. equity) to M&amp;A payment choice (cash vs. stock). Both use the EPS dilution condition; both show managers prefer the EPS-friendly option.</li>
+<li><strong>Bens, Nagar, Skinner &amp; Wong (2003)</strong> — &quot;Employee Stock Options, EPS Dilution, and Stock Repurchases.&quot; Bens et al. show EPS dilution management via repurchases; Dasgupta et al. show EPS dilution management via M&amp;A payment method. Both involve managing the denominator (shares outstanding).</li>
+<li><strong>Lys &amp; Vincent (1995)</strong> — &quot;An Analysis of Value Destruction in AT&amp;T's Acquisition of NCR.&quot; The single case study; Dasgupta et al. provide the large-sample evidence.</li>
+<li><strong>Ben-David &amp; Chinco (EPS)</strong> — Dasgupta et al. demonstrate that the EPS paradigm operates across ALL dimensions of M&amp;A. The S_ΔEPS_AS measure IS the EPS paradigm's deal evaluation criterion: does the deal boost or dilute the acquirer's EPS? The finding that 71.4% of deals would be dilutive in stock explains the dominance of cash in modern M&amp;A.</li>
+<li><strong>Ben-David &amp; Chinco (EPS x PE)</strong> — The relative P/E analysis (Table 7, Figure A1) directly connects to the EPS x P/E pricing model. High P/E acquirers can buy low P/E targets with stock AND be accretive — this is the &quot;bootstrap game&quot; (high P/E × target E = EPS boost), quantified across 3,319 deals.</li>
+<li><strong>Ben-David &amp; Chinco (maxEPS paradigm)</strong> — The Factiva evidence (309,505 results for EPS accretion vs. 2% of deals with NPV numbers) quantifies the dominance of the EPS paradigm in M&amp;A practice. The historical shift from pooling to purchase accounting (2001) provides a dated structural break in the EPS-sensitivity of M&amp;A.</li>
+<li><strong>Ben-David &amp; Chinco (EPS and capital budgeting)</strong> — Pre-deal investment cuts to finance EPS-friendly cash payments are direct evidence that EPS maximization distorts capital budgeting. Managers forego investment to preserve cash for EPS-accretive deal structures.</li>
+<li><strong>Ben-David &amp; Chinco, Meli (EPS and financial markets)</strong> — When interest rates fall, the cost of financing cash payments declines, making cash deals more EPS-friendly. This may contribute to the secular increase in cash-financed M&amp;A documented alongside the bond boom and leverage increase.</li>
+</ul>
+
+      </div>
+      
+    </aside>
+  </div>
+
+  <!-- Prev / Next navigation -->
+  <nav class="evidence-nav">
+    
+    <a href="../evidence/EPS_Almeida2019_IsItTimeToGetRidOfEPS.html">
+      <span class="label">&larr; Previous</span>
+      Almeida (2019)
+    </a>
+    
+
+    
+    <a href="../evidence/Brealey_Myers_EPS_Treatment_6th7thEd.html" style="text-align: right;">
+      <span class="label">Next &rarr;</span>
+       (0)
+    </a>
+    
+  </nav>
+
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>The Two Paradigms of Finance &mdash; Itzhak Ben-David & Alex Chinco</p>
+      <p>The Ohio State University & Michigan State University</p>
+      <p style="margin-top: 0.5rem;">Built from a collection of 2,800+ primary sources spanning 300 years.</p>
+    </div>
+  </footer>
+
+  
+  <script>
+  (function(){
+    var k='__tp_auth';
+    if(sessionStorage.getItem(k)==='1') return;
+    var p=prompt('Enter password:');
+    if(p==='EPS'){sessionStorage.setItem(k,'1');}
+    else{document.body.innerHTML='<p style="color:#ede8d8;text-align:center;margin-top:40vh;font-family:serif;font-size:1.2rem;">Access denied.</p>';}
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ball & Brown (1968): An Empirical Evaluation of Accounting Income Numbers | The Two Paradigms of Finance</title>
+  <meta name="description" content="A primary-source history of how financial thinking split into two streams: the practitioner tradition of earnings capitalization (P = EPS × P/E) and the academic revolution of NPV, CAPM, and DCF.">
+  <meta name="author" content="Itzhak Ben-David & Alex Chinco">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📜</text></svg>">
+  <link rel="stylesheet" href="../static/css/style.css">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Two Paradigms</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="../the-split.html" >The Split</a></li>
+        <li><a href="../two-paradigms.html" >Two Paradigms</a></li>
+        <li><a href="../timeline.html" >Timeline</a></li>
+        <li><a href="../library.html" >Library</a></li>
+        <li><a href="../about.html" >About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+<div class="container">
+
+  <!-- Header -->
+  <div class="evidence-header">
+    <div class="evidence-meta">
+      <span class="paradigm-badge practitioner">Practitioner</span>
+      <span class="era-tag">The Great Divergence (1964–present)</span>
+      <span class="era-tag">&bull; 1968</span>
+    </div>
+    <h1 class="evidence-title">Ball & Brown (1968): An Empirical Evaluation of Accounting Income Numbers</h1>
+    
+    <div class="evidence-source">Ball, Ray, and Philip Brown. "An Empirical Evaluation of Accounting Income Numbers." *Journal of Accounting Research* 6, no. 2 (Autumn 1968): 159-178. (Ball was at the University of Chicago; Brown was at the University of Western Australia and the University of Chicago.)</div>
+    
+  </div>
+
+  <!-- Key Finding -->
+  
+  <div class="key-finding-box">
+    <h3>Key Finding</h3>
+    <p>Ball &amp; Brown's 1968 <em>Journal of Accounting Research</em> paper is the foundational event study in accounting and finance, establishing that accounting income numbers have substantial information content for stock prices. Using 261 NYSE firms over fiscal years 1957-1965, they develop the Abnormal Performance Index (API) methodology and show that approximately 50% of all information about a firm available during a year is captured by that year's income number. However, 85-90% of this content is anticipated by the market before the annual report is released, with only 10-15% of the information value arriving in the announcement month itself. Post-announcement drift persists for approximately two months. For the EPS project, this paper provides the earliest systematic evidence that earnings are the CENTRAL information variable for equity pricing — prices move with earnings, earnings predict returns, and the market's primary task is forecasting earnings.</p>
+
+  </div>
+  
+
+  <!-- Main content + sidebar -->
+  <div class="evidence-layout">
+    <div class="prose">
+      
+      <h2>Details</h2>
+<h3>The Research Question (pp. 159-160)</h3>
+<p>Ball &amp; Brown pose a deceptively simple question: do accounting income numbers have information content? Prior to this paper, accounting theorists debated the &quot;usefulness&quot; of income measures on purely theoretical grounds. Ball &amp; Brown propose an empirical test: if income numbers convey information, then observing the income number should be associated with stock price changes. If not, income numbers are mere noise.</p>
+<blockquote>
+<p>&quot;An empirical evaluation of accounting income numbers requires agreement as to what real-world outcome constitutes an appropriate test of usefulness. Because net income is a number of particular interest to investors, the outcome we use as a predictive criterion is the investment decision as it is reflected in security prices.&quot; (p. 159)</p>
+</blockquote>
+<h3>Methodology: The Abnormal Performance Index (pp. 161-165)</h3>
+<p><strong>Income expectations models:</strong> Two models decompose income into expected and unexpected components:</p>
+<ol>
+<li>
+<p><strong>Regression model:</strong> For each firm i, regress firm income change on market income change:</p>
+<blockquote>
+<p>ΔI_it = α_i + β_i ΔM_t + u_it</p>
+</blockquote>
+<p>where ΔI_it is the change in income for firm i in year t, and ΔM_t is the change in market-wide income. The residual u_it is the &quot;unexpected&quot; income — the firm-specific component not explained by economy-wide factors.</p>
+</li>
+<li>
+<p><strong>Naive model:</strong> Expected income = last year's income. The forecast error is simply ΔI_it = I_it - I_{it-1}.</p>
+</li>
+</ol>
+<p><strong>Three income variables tested:</strong></p>
+<ul>
+<li>Variable 1: Net income available for common (regression model)</li>
+<li>Variable 2: EPS (regression model)</li>
+<li>Variable 3: EPS (naive model — simple change in EPS)</li>
+</ul>
+<p><strong>Income forecast errors classified:</strong> Each firm-year is classified as &quot;positive&quot; (actual income &gt; expected) or &quot;negative&quot; (actual &lt; expected). The sign of the forecast error is the key signal.</p>
+<p><strong>Stock return expectations:</strong> Monthly stock returns are decomposed using a market model:</p>
+<blockquote>
+<p>R_it = α_i + β_i R_mt + e_it</p>
+</blockquote>
+<p>The residual e_it is the abnormal return — the firm-specific return not explained by the market.</p>
+<p><strong>The Abnormal Performance Index (API):</strong> For a portfolio of N firms, the API in month M relative to the announcement date is:</p>
+<blockquote>
+<p>API_M = (1/N) Σ_i Π_{m=-11}^{M} (1 + ê_im)</p>
+</blockquote>
+<p>The API cumulates abnormal returns from 12 months before to 6 months after the annual report announcement. An API &gt; 1 means the portfolio outperforms; API &lt; 1 means it underperforms.</p>
+<h3>Table 1: How Much of Firm Income Is Explained by Market Income? (p. 163)</h3>
+<p>Deciles of R² from the regression of firm income changes on market income changes:</p>
+<table>
+<thead>
+<tr>
+<th>Decile</th>
+<th>Net Income R²</th>
+<th>EPS R²</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10%</td>
+<td>0.05</td>
+<td>0.02</td>
+</tr>
+<tr>
+<td>30%</td>
+<td>0.12</td>
+<td>0.10</td>
+</tr>
+<tr>
+<td>50% (median)</td>
+<td>0.23</td>
+<td>0.23</td>
+</tr>
+<tr>
+<td>70%</td>
+<td>0.38</td>
+<td>0.36</td>
+</tr>
+<tr>
+<td>90%</td>
+<td>0.62</td>
+<td>0.61</td>
+</tr>
+</tbody>
+</table>
+<p>The median firm has about 23% of its income variation explained by market-wide income changes. This means 77% of income variation is firm-specific — providing scope for the income number to convey firm-specific information.</p>
+<h3>Figure 1: The Famous Drift Chart (pp. 167-168)</h3>
+<p>Figure 1 is one of the most reproduced figures in finance. It plots the API for three portfolios:</p>
+<ul>
+<li><strong>Positive forecast error firms</strong> (actual income &gt; expected): API rises steadily</li>
+<li><strong>Negative forecast error firms</strong> (actual income &lt; expected): API falls steadily</li>
+<li><strong>All firms combined</strong>: API approximately flat</li>
+</ul>
+<p>The divergence begins a full 12 months before the annual report announcement date and continues for about 2 months after. The chart demonstrates three facts simultaneously:</p>
+<ol>
+<li>Earnings have information content (prices and earnings move together)</li>
+<li>Markets anticipate most of the information before the announcement</li>
+<li>Post-announcement drift exists (prices continue adjusting after the announcement)</li>
+</ol>
+<h3>Table 5: API Values by Month Relative to Announcement (pp. 167-168)</h3>
+<table>
+<thead>
+<tr>
+<th>Month</th>
+<th>Variable 1 (NI) Positive</th>
+<th>Variable 1 (NI) Negative</th>
+<th>Variable 2 (EPS Reg) Positive</th>
+<th>Variable 2 (EPS Reg) Negative</th>
+<th>Variable 3 (EPS Naive) Positive</th>
+<th>Variable 3 (EPS Naive) Negative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-11</td>
+<td>1.006</td>
+<td>1.006</td>
+<td>1.006</td>
+<td>1.006</td>
+<td>1.007</td>
+<td>1.005</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>1.029</td>
+<td>0.970</td>
+<td>1.032</td>
+<td>0.967</td>
+<td>1.023</td>
+<td>0.969</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>1.050</td>
+<td>0.932</td>
+<td>1.053</td>
+<td>0.933</td>
+<td>1.038</td>
+<td>0.929</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>1.063</td>
+<td>0.905</td>
+<td>1.065</td>
+<td>0.903</td>
+<td>1.049</td>
+<td>0.893</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1.071</td>
+<td>0.907</td>
+<td>1.073</td>
+<td>0.905</td>
+<td>1.056</td>
+<td>0.887</td>
+</tr>
+<tr>
+<td>+1</td>
+<td>1.075</td>
+<td>0.894</td>
+<td>1.076</td>
+<td>0.893</td>
+<td>1.059</td>
+<td>0.878</td>
+</tr>
+<tr>
+<td>+6</td>
+<td>1.077</td>
+<td>0.885</td>
+<td>1.078</td>
+<td>0.883</td>
+<td>1.062</td>
+<td>0.868</td>
+</tr>
+</tbody>
+</table>
+<p>Key observations:</p>
+<ul>
+<li>Total spread between positive and negative at month +6: ~19% (Variable 1), ~20% (Variable 2), ~19% (Variable 3)</li>
+<li>The three income variables produce remarkably similar results</li>
+<li>Most of the movement occurs before month 0 (the announcement month)</li>
+</ul>
+<h3>The Information Content of Income Numbers (pp. 168-170)</h3>
+<p>Ball &amp; Brown quantify the information content of income numbers using three measures:</p>
+<p><strong>II₀ — Information content at the announcement month:</strong></p>
+<ul>
+<li>Variable 1 (net income): II₀ = 0.081 (8.1% of total abnormal return occurs at announcement)</li>
+<li>Variable 2 (EPS regression): II₀ = 0.083 (8.3%)</li>
+<li>Variable 3 (EPS naive): II₀ = 0.077 (7.7%)</li>
+</ul>
+<p><strong>Interpretation:</strong> Only about 8% of the total annual abnormal return associated with income arrives in the announcement month. The other 92% has already been anticipated by the market.</p>
+<p><strong>50% of all information:</strong> Ball &amp; Brown estimate that about half of all the information about a firm that becomes available during a year is captured by the annual income number: &quot;of all the information about an individual firm which becomes available during a year, one-half or more is captured in that year's income number&quot; (p. 169).</p>
+<p><strong>85-90% anticipated:</strong> Of the information contained in the income number, 85-90% has been anticipated by the market before the annual report is released. Only 10-15% is genuinely &quot;new news&quot; at the announcement date.</p>
+<h3>Table 6: Contingency Table — Net Income vs. EPS Forecast Errors (p. 170)</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>EPS Positive</th>
+<th>EPS Negative</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NI Positive</td>
+<td>1,148</td>
+<td>72</td>
+<td>1,220</td>
+</tr>
+<tr>
+<td>NI Negative</td>
+<td>94</td>
+<td>1,026</td>
+<td>1,120</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>1,242</td>
+<td>1,098</td>
+<td>2,340</td>
+</tr>
+</tbody>
+</table>
+<p>Net income and EPS forecast errors agree on sign 93% of the time (2,174 of 2,340 observations). This high concordance explains why the three income variables produce such similar API patterns.</p>
+<h3>Sources of Anticipation (pp. 170-174)</h3>
+<p>Ball &amp; Brown identify four channels through which the market anticipates earnings:</p>
+<ol>
+<li><strong>Interim reports</strong> — Quarterly earnings releases during the fiscal year</li>
+<li><strong>Industry information</strong> — Economy-wide and industry-level earnings trends</li>
+<li><strong>Non-accounting sources</strong> — Dividends, capital expenditure announcements, management forecasts</li>
+<li><strong>Competing information providers</strong> — Analysts, credit agencies, financial press</li>
+</ol>
+<p>The key insight: earnings are anticipated because many information sources provide overlapping signals about the firm's profitability. The annual income report largely confirms what the market already knows.</p>
+<h3>Conclusion (pp. 175-176)</h3>
+<blockquote>
+<p>&quot;The results are consistent with the view that the market anticipates most of the content of the annual report... The annual income report does not rate highly as a timely medium... its content is useful.&quot; (p. 176)</p>
+</blockquote>
+<p>Ball &amp; Brown note that while the annual report is not timely (most information is old by the time it arrives), it is still useful because the income number CONFIRMS or DISCONFIRMS the market's expectations. The 10-15% of information value that arrives at the announcement is economically meaningful.</p>
+
+      
+
+      
+      <h2>Significance</h2>
+      <h3>1. Earnings Are the Central Information Variable</h3>
+<p>Ball &amp; Brown's finding that 50% of all annual information about a firm is captured by its income number directly supports the EPS paradigm's view that earnings are the central variable for equity pricing. The market doesn't track cash flows, book values, or dividends with the same intensity — it tracks earnings. This is why P = EPS × P/E is the pricing framework: earnings are the single most informative variable about firm value.</p>
+<h3>2. The Market FORECASTS Earnings — That's Its Job</h3>
+<p>The finding that 85-90% of income information is anticipated before the annual report confirms that the market's primary activity is forecasting earnings. Stock prices adjust continuously as new information about future earnings arrives. This is exactly the EPS paradigm's view: investors forecast next-twelve-month EPS and apply a P/E multiple. The market is an earnings-forecasting machine.</p>
+<h3>3. EPS and Net Income Are Informationally Equivalent</h3>
+<p>The 93% concordance between net income and EPS forecast errors (Table 6) and the nearly identical API patterns for all three income variables (Table 5) show that EPS — the variable managers and investors focus on — captures essentially the same information as net income. The EPS paradigm's focus on EPS rather than broader income measures is empirically justified.</p>
+<h3>4. Post-Announcement Drift — The Earnings Yield Connection</h3>
+<p>The post-announcement drift (prices continue adjusting for ~2 months after the report) will later become one of the most robust anomalies in finance. In the EPS paradigm, drift occurs because the market is adjusting the earnings yield: a positive earnings surprise raises E in P = EPS × P/E, and the price adjustment may be gradual as investors update their forward EPS estimates. The drift is consistent with earnings-based pricing where earnings information is incorporated incrementally.</p>
+<h3>5. The API Methodology and Earnings Events</h3>
+<p>Ball &amp; Brown invented the event study methodology that will be used by hundreds of subsequent papers studying earnings announcements, stock splits, mergers, and other corporate events. The methodology implicitly assumes that stock returns are driven by information events — and the single most informative event category is earnings. This methodological legacy reinforces the centrality of earnings to equity pricing.</p>
+<h3>6. Accounting Numbers ARE Informative — Not Garbled</h3>
+<p>Ball &amp; Brown's empirical result contradicts the accounting theory view (prevalent in the 1960s) that accounting income is too distorted by arbitrary rules (depreciation methods, inventory valuation, revenue recognition) to be informative. The market uses accounting income — warts and all — as its primary information variable. This supports the EPS paradigm's reliance on reported EPS: managers maximize reported EPS because that's what investors use to price stocks.</p>
+
+      
+    </div>
+
+    <aside class="sidebar">
+      <!-- Paradigm info -->
+      <div class="sidebar-section">
+        <h4>Paradigm</h4>
+        <p><span class="paradigm-badge practitioner">Practitioner</span></p>
+        <p style="margin-top: 0.5rem;">Earnings capitalization: P = EPS × P/E from comps. Cost of equity = earnings yield. Objective = maximize EPS.</p>
+      </div>
+
+      <!-- Era context -->
+      <div class="sidebar-section">
+        <h4>Era</h4>
+        <p><strong>The Great Divergence</strong> (1964–present)</p>
+        <p>Academic textbooks teach NPV/CAPM/DCF. Practitioners continue using EPS × P/E, earnings yields, and comps.</p>
+      </div>
+
+      <!-- Connections -->
+      
+      <div class="sidebar-section">
+        <h4>Connections</h4>
+        <ul>
+<li><strong>Hicks (1939)</strong> — <em>Value and Capital</em>. The theoretical concept of &quot;income&quot; that accounting income attempts to measure. Ball &amp; Brown test whether accounting income, imperfect as it is, conveys Hicksian income information.</li>
+<li><strong>Fama, Fisher, Jensen &amp; Roll (1969)</strong> — &quot;The Adjustment of Stock Prices to New Information.&quot; The companion event study (on stock splits) that, with Ball &amp; Brown, establishes the event study methodology.</li>
+<li><strong>Beaver (1968)</strong> — &quot;The Information Content of Annual Earnings Announcements&quot; in JAR Supplement. Beaver's paper (same journal, same year) shows that trading volume and return variance increase around earnings announcements — complementing Ball &amp; Brown's price-level results.</li>
+<li><strong>Basu (1977)</strong> — Documents the P/E effect (high E/P stocks earn higher returns). Ball &amp; Brown show earnings are informative; Basu shows the earnings yield predicts returns — both support earnings as the central pricing variable.</li>
+<li><strong>Ou &amp; Penman (1989)</strong> — Extend Ball &amp; Brown by showing that financial statement information predicts future earnings changes (the Pr measure). Ou &amp; Penman's work is a direct intellectual descendant of Ball &amp; Brown's demonstration that accounting numbers are informative.</li>
+<li><strong>Bernard &amp; Thomas (1989, 1990)</strong> — Provide definitive evidence of post-earnings-announcement drift (PEAD), building directly on Ball &amp; Brown's observation that prices continue to drift after announcements.</li>
+<li><strong>Sloan (1996)</strong> — Shows the market fails to distinguish accrual vs. cash components of earnings. Extends Ball &amp; Brown's question (are earnings informative?) to the components of earnings.</li>
+<li><strong>Kothari (2001)</strong> — &quot;Capital Markets Research in Accounting&quot; — comprehensive survey that identifies Ball &amp; Brown as the single most influential paper in capital markets accounting research.</li>
+<li><strong>Modigliani &amp; Miller (1958)</strong> — MM assume perfect markets where accounting numbers are irrelevant (investors see through the veil). Ball &amp; Brown show empirically that accounting income IS what the market processes.</li>
+<li><strong>Ben-David &amp; Chinco (EPS)</strong> — Ball &amp; Brown's demonstration that earnings are the central information variable for equity pricing is the empirical foundation for the EPS paradigm. If the market prices stocks based on earnings (as Ball &amp; Brown show), then managers who maximize EPS are maximizing the input that drives their stock price.</li>
+<li><strong>Ben-David &amp; Chinco (EPS x PE)</strong> — Ball &amp; Brown show that P adjusts to E. The investor-side paper argues P = E(EPS) × P/E, where the E(EPS) component is exactly the earnings forecast that Ball &amp; Brown document the market producing. Investors forecast earnings (85-90% anticipated before announcement) and apply a multiple.</li>
+<li><strong>Ben-David &amp; Chinco (Backward-looking AP)</strong> — Ball &amp; Brown's framework implicitly shows backward-looking pricing: the market uses current and recent earnings to form expectations about future earnings. The &quot;information content&quot; of income is precisely its role as the pricing input in the backward-looking asset pricing framework.</li>
+</ul>
+
+      </div>
+      
+    </aside>
+  </div>
+
+  <!-- Prev / Next navigation -->
+  <nav class="evidence-nav">
+    
+    <a href="../evidence/Valuation_Lintner1965_ValuationRiskAssets.html">
+      <span class="label">&larr; Previous</span>
+      Lintner (1965)
+    </a>
+    
+
+    
+    <a href="../evidence/Valuation_Brealey1969_RiskAndReturn.html" style="text-align: right;">
+      <span class="label">Next &rarr;</span>
+      Brealey (1969)
+    </a>
+    
+  </nav>
+
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>The Two Paradigms of Finance &mdash; Itzhak Ben-David & Alex Chinco</p>
+      <p>The Ohio State University & Michigan State University</p>
+      <p style="margin-top: 0.5rem;">Built from a collection of 2,800+ primary sources spanning 300 years.</p>
+    </div>
+  </footer>
+
+  
+  <script>
+  (function(){
+    var k='__tp_auth';
+    if(sessionStorage.getItem(k)==='1') return;
+    var p=prompt('Enter password:');
+    if(p==='EPS'){sessionStorage.setItem(k,'1');}
+    else{document.body.innerHTML='<p style="color:#ede8d8;text-align:center;margin-top:40vh;font-family:serif;font-size:1.2rem;">Access denied.</p>';}
+  })();
+  </script>
+</body>
+</html>

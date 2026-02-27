@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De Bondt & Thaler (1985): Does the Stock Market Overreact? | The Two Paradigms of Finance</title>
+  <meta name="description" content="A primary-source history of how financial thinking split into two streams: the practitioner tradition of earnings capitalization (P = EPS × P/E) and the academic revolution of NPV, CAPM, and DCF.">
+  <meta name="author" content="Itzhak Ben-David & Alex Chinco">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📜</text></svg>">
+  <link rel="stylesheet" href="../static/css/style.css">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Two Paradigms</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="../the-split.html" >The Split</a></li>
+        <li><a href="../two-paradigms.html" >Two Paradigms</a></li>
+        <li><a href="../timeline.html" >Timeline</a></li>
+        <li><a href="../library.html" >Library</a></li>
+        <li><a href="../about.html" >About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+<div class="container">
+
+  <!-- Header -->
+  <div class="evidence-header">
+    <div class="evidence-meta">
+      <span class="paradigm-badge transitional">Transitional</span>
+      <span class="era-tag">The Great Divergence (1964–present)</span>
+      <span class="era-tag">&bull; 1985</span>
+    </div>
+    <h1 class="evidence-title">De Bondt & Thaler (1985): Does the Stock Market Overreact?</h1>
+    
+    <div class="evidence-source">De Bondt, Werner F. M., and Richard Thaler. "Does the Stock Market Overreact?" *Journal of Finance* 40, no. 3 (July 1985): 793-805. (De Bondt at Cornell University; Thaler at Cornell University. Presidential Address session paper.)</div>
+    
+  </div>
+
+  <!-- Key Finding -->
+  
+  <div class="key-finding-box">
+    <h3>Key Finding</h3>
+    <p>De Bondt &amp; Thaler's 1985 <em>Journal of Finance</em> paper provides the first systematic evidence that stock prices overreact to information. Using NYSE stocks from 1926-1982, they form portfolios of extreme past &quot;winners&quot; (top 35 stocks by 3-year cumulative excess returns) and &quot;losers&quot; (bottom 35) and track subsequent performance. Losers outperform winners by 24.6% (t = 2.20) over the following 36 months. The effect is strongly asymmetric: losers gain 19.6% in abnormal returns while winners lose only 5.0%. Much of the loser effect is concentrated in January. Critically, loser portfolios have LOWER betas than winner portfolios (1.026 vs. 1.369), so the reversal cannot be explained by risk compensation. The authors motivate the finding with Kahneman &amp; Tversky's representativeness heuristic — investors overweight recent information and extrapolate trends — creating predictable reversals. For the EPS project, this paper connects directly to the P/E anomaly: &quot;losers&quot; are low P/E stocks (earnings yield is high relative to depressed price), and &quot;winners&quot; are high P/E stocks (earnings yield is low relative to inflated price). The overreaction-driven reversal is the mechanism by which extreme P/E ratios revert to normal, generating the value premium.</p>
+
+  </div>
+  
+
+  <!-- Main content + sidebar -->
+  <div class="evidence-layout">
+    <div class="prose">
+      
+      <h2>Details</h2>
+<h3>Introduction and Hypotheses (pp. 793-795)</h3>
+<p><strong>Motivation from psychology:</strong></p>
+<p>The paper opens by connecting to Kahneman &amp; Tversky's (1982) work on &quot;intuitive prediction.&quot; People overreact to dramatic, salient information and underweight base rates. Applied to stock markets:</p>
+<blockquote>
+<p>&quot;If stock prices systematically overshoot, then their reversal should be predictable from past return data alone, with no use of any accounting data such as earnings.&quot;</p>
+</blockquote>
+<p><strong>Two hypotheses:</strong></p>
+<ol>
+<li>Extreme movements in stock prices will be followed by subsequent price movements in the opposite direction</li>
+<li>The more extreme the initial price movement, the greater will be the subsequent adjustment</li>
+</ol>
+<p>These hypotheses directly contradict the weak form of the efficient markets hypothesis, which says past returns should not predict future returns.</p>
+<h3>Methodology (pp. 795-797)</h3>
+<p><strong>Data:</strong> Monthly returns for all NYSE stocks on CRSP, January 1926 - December 1982.</p>
+<p><strong>Portfolio formation:</strong></p>
+<ul>
+<li>At the end of each December, compute cumulative excess returns for each stock over the prior 3 years (the &quot;formation period&quot;)</li>
+<li>Rank all stocks; form &quot;winner&quot; portfolio (top 35 stocks) and &quot;loser&quot; portfolio (bottom 35 stocks)</li>
+<li>Track both portfolios over the next 3 years (the &quot;test period&quot;)</li>
+<li>Repeat: 16 non-overlapping 3-year formation/test cycles from 1933-1980</li>
+</ul>
+<p><strong>Performance metric:</strong> Cumulative average residual (CAR) — the average cumulative market-adjusted return for the portfolio. Market adjustment is the equally weighted NYSE index.</p>
+<h3>Main Results — Figure 1 (pp. 797-799)</h3>
+<p><strong>The central finding:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Portfolio</th>
+<th>36-month CAR</th>
+<th>t-statistic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Loser (bottom 35)</td>
+<td>+19.6%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Winner (top 35)</td>
+<td>-5.0%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Loser - Winner</td>
+<td><strong>24.6%</strong></td>
+<td><strong>2.20</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The loser portfolio dramatically outperforms the winner portfolio. The effect builds gradually over 36 months, with most of the divergence occurring in months 13-36.</p>
+<p><strong>Strong asymmetry:</strong> The loser effect (19.6%) is roughly four times the winner effect (5.0%). Prior losers gain substantially more than prior winners lose. This asymmetry is consistent with the idea that investors overreact more to bad news than to good news — or that extreme price declines create larger mispricings than extreme price increases.</p>
+<h3>Varying Formation Periods — Table I (pp. 800-801)</h3>
+<p><strong>Table I: Test period CARs by formation period length</strong></p>
+<table>
+<thead>
+<tr>
+<th>Formation period</th>
+<th>Loser CAR (25 months)</th>
+<th>Winner CAR (25 months)</th>
+<th>Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 year</td>
+<td>5.4%</td>
+<td>-1.3%</td>
+<td>6.7%</td>
+</tr>
+<tr>
+<td>2 years</td>
+<td>12.2%</td>
+<td>-4.7%</td>
+<td>16.9%</td>
+</tr>
+<tr>
+<td>3 years</td>
+<td>18.1%</td>
+<td>-6.6%</td>
+<td>24.7%</td>
+</tr>
+<tr>
+<td>5 years</td>
+<td>~30%</td>
+<td>~-10%</td>
+<td>~40%</td>
+</tr>
+</tbody>
+</table>
+<p>The longer the formation period, the larger the subsequent reversal — confirming Hypothesis 2 that more extreme movements generate larger corrections. Even 1-year formation periods produce significant reversals.</p>
+<h3>January Seasonality (pp. 799-801)</h3>
+<p>A large fraction of the excess returns for loser portfolios is earned in January — particularly the January of each test year. The January effect is concentrated in the loser portfolio: winners show no particular January seasonality.</p>
+<blockquote>
+<p>&quot;Most of the excess returns are realized in January.&quot;</p>
+</blockquote>
+<p><strong>De Bondt &amp; Thaler link this to the tax-loss selling hypothesis:</strong> losers are disproportionately sold in December for tax reasons, depressing their prices further, then rebound in January. However, they argue tax-loss selling cannot fully explain the overreaction effect because: (1) the reversal persists across all months (not just January), (2) the effect exists even for formation periods that don't include year-end, and (3) the magnitude is too large for tax-motivated selling to explain.</p>
+<h3>Risk: The CAPM Beta Argument (pp. 801-802)</h3>
+<p><strong>Critical finding — losers are LESS risky than winners:</strong></p>
+<p>If the loser-winner spread were compensation for risk, losers should have higher betas. But the data show the opposite:</p>
+<table>
+<thead>
+<tr>
+<th>Portfolio</th>
+<th>Average beta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Loser</td>
+<td>1.026</td>
+</tr>
+<tr>
+<td>Winner</td>
+<td>1.369</td>
+</tr>
+</tbody>
+</table>
+<p>Losers have beta 1.026 (slightly above market) while winners have beta 1.369 (well above market). The risk-based explanation goes in the wrong direction: winners are riskier but earn lower returns, losers are safer but earn higher returns.</p>
+<p>Using the Sharpe-Lintner CAPM to adjust for risk INCREASES the loser-winner spread from 24.6% to approximately 32% over 36 months.</p>
+<h3>Extended Formation/Test Period — Figure 3 (pp. 802-803)</h3>
+<p>With a 5-year formation period and 5-year test period:</p>
+<ul>
+<li>Loser CARs reach approximately 30% by month 60</li>
+<li>Winner CARs reach approximately -10% by month 60</li>
+<li>The January seasonality persists even into years 4-5 of the test period</li>
+<li>The spread continues to widen, though at a declining rate</li>
+</ul>
+<h3>Connection to P/E and Accounting Variables (pp. 803-804)</h3>
+<p><strong>This section is important for the EPS paradigm.</strong></p>
+<p>De Bondt &amp; Thaler explicitly connect their findings to the P/E anomaly:</p>
+<blockquote>
+<p>&quot;There is also a clear connection between the overreaction hypothesis and what is sometimes called the P/E effect: extreme losers... tend to have low P/E ratios (since their earnings are low relative to what they once were). The overreaction hypothesis predicts that these stocks will earn above-normal returns.&quot;</p>
+</blockquote>
+<p>They note that Basu (1977) documented that low P/E stocks outperform high P/E stocks, and that this finding can be understood as a manifestation of overreaction: stocks with low P/Es are prior losers whose prices have overshot to the downside.</p>
+<p>They also reference Graham (1959) who had noted that &quot;the market always over-values stocks that show an excellent growth record and under-values companies in difficulties.&quot; This is essentially the overreaction hypothesis expressed in practitioner language decades earlier.</p>
+<h3>Conclusions (pp. 804-805)</h3>
+<blockquote>
+<p>&quot;The main conclusion of this paper is that the stock market appears to overreact.&quot;</p>
+</blockquote>
+<p>The authors acknowledge that their findings are &quot;consistent with the predictions of the overreaction hypothesis&quot; but cannot rule out all alternative explanations. They note the findings challenge the efficient market hypothesis and suggest that contrarian strategies — buying losers, selling winners — can generate abnormal returns.</p>
+
+      
+
+      
+      <h2>Significance</h2>
+      <h3>1. Overreaction IS P/E Mean Reversion</h3>
+<p>De Bondt &amp; Thaler's &quot;overreaction&quot; is, in the EPS paradigm's language, P/E mean reversion. Extreme losers have collapsed prices but relatively stable earnings, producing very LOW P/E ratios (high earnings yields). Extreme winners have inflated prices relative to earnings, producing very HIGH P/E ratios (low earnings yields). The subsequent &quot;reversal&quot; is simply P/E ratios reverting toward normal levels. In P = EPS x P/E, the overreaction occurs in the P/E component, and the reversal is the correction of the P/E component.</p>
+<h3>2. Loser Asymmetry Reflects Earnings Yield Mechanics</h3>
+<p>The strong asymmetry — losers gain 19.6% but winners lose only 5.0% — is consistent with the EPS paradigm. A stock that drops 80% in price (to a very low P/E) needs only a modest P/E expansion to gain substantially. But a stock that rises 80% (to a very high P/E) needs only a small P/E contraction to lose a modest amount. The asymmetry in returns reflects the convexity of the P/E-to-price relationship.</p>
+<h3>3. January Effect Is Earnings-Related</h3>
+<p>Much of the loser outperformance comes in January. In the EPS paradigm, the turn of the year brings new analyst forecasts for next-12-month EPS. If losers' EPS forecasts stabilize or improve (because earnings are mean-reverting), the market reprices these stocks using updated EPS forecasts × comps-based P/E. The January effect may reflect the annual repricing of EPS expectations for beaten-down stocks.</p>
+<h3>4. Risk Goes the Wrong Way — Consistent with EPS Paradigm</h3>
+<p>Losers have LOWER betas than winners, meaning the reversal cannot be risk compensation. In the EPS paradigm, this is expected: prior losers have low earnings yields (high P/E... wait, no) — actually, prior losers have HIGH earnings yields (low P/E) because price has fallen more than earnings. High earnings yield stocks are &quot;cheap&quot; in the EPS paradigm and should outperform as P/E reverts. The CAPM has nothing to say about this mechanism.</p>
+<h3>5. Graham Anticipated This in Practitioner Language</h3>
+<p>De Bondt &amp; Thaler cite Graham (1959): the market &quot;always over-values stocks that show an excellent growth record and under-values companies in difficulties.&quot; Graham was an earnings-capitalization practitioner. His entire methodology — buy below &quot;intrinsic value&quot; based on earnings power, sell when price exceeds fair value — is the EPS paradigm in action. The overreaction effect is what creates the opportunity Graham's methodology exploits.</p>
+<h3>6. This Is the Mirror Image of Momentum (Jegadeesh &amp; Titman 1993)</h3>
+<p>De Bondt &amp; Thaler find reversals at 3-5 year horizons. Jegadeesh &amp; Titman (1993) find momentum at 3-12 month horizons. Together they describe the full lifecycle of price adjustment in the EPS paradigm: (1) an earnings surprise moves the P/E multiple, (2) the P/E overshoots in the direction of the surprise (momentum phase, 3-12 months), (3) the P/E reverts toward equilibrium (reversal phase, 1-5 years). The EPS paradigm explains both effects through the dynamics of the P/E multiple.</p>
+<h3>7. The &quot;Overreaction&quot; Is Not Irrational — It's Comps-Based Pricing</h3>
+<p>De Bondt &amp; Thaler frame their finding as evidence of investor irrationality (via Kahneman &amp; Tversky). The EPS paradigm offers a non-behavioral alternative: investors use comps to set P/E multiples. When a stock drops sharply, its P/E falls because peer-comparison metrics show it's now &quot;cheap.&quot; But comps are backward-looking — the stock's new low P/E gradually attracts buyers who recognize the earnings yield is high, slowly pushing the P/E back up. The &quot;overreaction&quot; is not irrational — it's the natural dynamics of comps-based pricing where recent price changes temporarily push P/E away from its comps-implied level.</p>
+
+      
+    </div>
+
+    <aside class="sidebar">
+      <!-- Paradigm info -->
+      <div class="sidebar-section">
+        <h4>Paradigm</h4>
+        <p><span class="paradigm-badge transitional">Transitional</span></p>
+        <p style="margin-top: 0.5rem;">Works that bridge or straddle both paradigms.</p>
+      </div>
+
+      <!-- Era context -->
+      <div class="sidebar-section">
+        <h4>Era</h4>
+        <p><strong>The Great Divergence</strong> (1964–present)</p>
+        <p>Academic textbooks teach NPV/CAPM/DCF. Practitioners continue using EPS × P/E, earnings yields, and comps.</p>
+      </div>
+
+      <!-- Connections -->
+      
+      <div class="sidebar-section">
+        <h4>Connections</h4>
+        <ul>
+<li><strong>Basu (1977)</strong> — &quot;Investment Performance of Common Stocks in Relation to Their Price-Earnings Ratios.&quot; Documents that low P/E stocks outperform high P/E stocks. De Bondt &amp; Thaler explicitly connect their overreaction finding to the P/E effect. In the EPS paradigm, both papers document P/E mean reversion.</li>
+<li><strong>Kahneman &amp; Tversky (1982)</strong> — <em>Judgment under Uncertainty: Heuristics and Biases.</em> Provides the psychological foundation for overreaction — the representativeness heuristic. De Bondt &amp; Thaler's entire paper is motivated by this work.</li>
+<li><strong>Jegadeesh &amp; Titman (1993)</strong> — &quot;Returns to Buying Winners and Selling Losers.&quot; Documents momentum at short horizons (3-12 months) — the opposite of De Bondt &amp; Thaler's reversal at long horizons (3-5 years). Together they describe the full price adjustment cycle.</li>
+<li><strong>Fama &amp; French (1992, 1993)</strong> — &quot;The Cross-Section of Expected Stock Returns&quot; and &quot;Common Risk Factors.&quot; The value premium (HML factor) is closely related to the overreaction effect. Losers are value stocks; winners are growth stocks. Fama &amp; French attribute the premium to risk; De Bondt &amp; Thaler attribute it to overreaction.</li>
+<li><strong>Shiller (1981)</strong> — &quot;Do Stock Prices Move Too Much?&quot; De Bondt &amp; Thaler cite Shiller's excess volatility finding as consistent with overreaction — prices are too volatile relative to fundamentals because investors overreact.</li>
+<li><strong>Graham (1934, 1949)</strong> — <em>Security Analysis</em> and <em>The Intelligent Investor.</em> Graham's value investing methodology is explicitly based on buying stocks that the market has &quot;overreacted&quot; against — stocks trading below intrinsic value (calculated from earnings power). De Bondt &amp; Thaler provide the first formal evidence that Graham's approach works.</li>
+<li><strong>Lakonishok, Shleifer &amp; Vishny (1994)</strong> — &quot;Contrarian Investing, Extrapolation, and Risk.&quot; Follow-up showing that value strategies (buying low P/E, low B/M) generate abnormal returns not explainable by risk. Extends De Bondt &amp; Thaler's findings with more sophisticated methodology.</li>
+<li><strong>Campbell &amp; Shiller (1988)</strong> — &quot;The Dividend-Price Ratio and Expectations of Future Dividends and Discount Rates.&quot; The dividend-price ratio (closely related to earnings yield) predicts returns — consistent with De Bondt &amp; Thaler's finding that extreme past returns predict future returns through the P/E channel.</li>
+<li><strong>Ben-David &amp; Chinco (EPS x PE)</strong> — De Bondt &amp; Thaler's overreaction is P/E mean reversion in the EPS paradigm. When P = EPS x P/E and the P/E overshoots (high for winners, low for losers), the subsequent correction generates the winner-loser spread. The 24.6% reversal over 3 years is the time it takes for P/E multiples to return toward their comps-implied levels.</li>
+<li><strong>Ben-David &amp; Chinco (Backward-looking AP)</strong> — The overreaction finding is consistent with backward-looking asset pricing: investors set P/E based on recent past performance (extrapolation of trends), not rational forecasts of future cash flows. The reversal occurs as reality corrects the backward-looking P/E.</li>
+<li><strong>Ben-David &amp; Chinco (Equity risk premium)</strong> — The loser-winner spread is a spread in earnings yields. Losers have high earnings yields (low P/E); winners have low earnings yields (high P/E). The 24.6% reversal over 3 years reflects the convergence of extreme earnings yields toward the mean — a phenomenon that the equity risk premium paper should discuss as evidence that the earnings yield is mean-reverting.</li>
+</ul>
+
+      </div>
+      
+    </aside>
+  </div>
+
+  <!-- Prev / Next navigation -->
+  <nav class="evidence-nav">
+    
+    <a href="../evidence/Valuation_Myers1984_CapitalStructurePuzzle.html">
+      <span class="label">&larr; Previous</span>
+      Myers (1984)
+    </a>
+    
+
+    
+    <a href="../evidence/AgencyCosts_Jensen1986_FreeCashFlowCorporateFinanceTakeovers.html" style="text-align: right;">
+      <span class="label">Next &rarr;</span>
+      Jensen (1986)
+    </a>
+    
+  </nav>
+
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>The Two Paradigms of Finance &mdash; Itzhak Ben-David & Alex Chinco</p>
+      <p>The Ohio State University & Michigan State University</p>
+      <p style="margin-top: 0.5rem;">Built from a collection of 2,800+ primary sources spanning 300 years.</p>
+    </div>
+  </footer>
+
+  
+  <script>
+  (function(){
+    var k='__tp_auth';
+    if(sessionStorage.getItem(k)==='1') return;
+    var p=prompt('Enter password:');
+    if(p==='EPS'){sessionStorage.setItem(k,'1');}
+    else{document.body.innerHTML='<p style="color:#ede8d8;text-align:center;margin-top:40vh;font-family:serif;font-size:1.2rem;">Access denied.</p>';}
+  })();
+  </script>
+</body>
+</html>

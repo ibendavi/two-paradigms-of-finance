@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two Paradigms Compared | The Two Paradigms of Finance</title>
+  <meta name="description" content="A primary-source history of how financial thinking split into two streams: the practitioner tradition of earnings capitalization (P = EPS × P/E) and the academic revolution of NPV, CAPM, and DCF.">
+  <meta name="author" content="Itzhak Ben-David & Alex Chinco">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📜</text></svg>">
+  <link rel="stylesheet" href="static/css/style.css">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Two Paradigms</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html" >Home</a></li>
+        <li><a href="the-split.html" >The Split</a></li>
+        <li><a href="two-paradigms.html" class="active">Two Paradigms</a></li>
+        <li><a href="timeline.html" >Timeline</a></li>
+        <li><a href="library.html" >Library</a></li>
+        <li><a href="about.html" >About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+<div class="container">
+
+  <div class="page-header">
+    <h1>The Two Paradigms</h1>
+    <p class="subtitle">
+      Every concept in corporate finance has two versions: the one in the textbook
+      and the one in the boardroom. Here they are, side by side, with evidence.
+    </p>
+  </div>
+
+  <div class="prose" style="max-width: 100%;">
+
+    <p style="max-width: 780px;">
+      The <span class="text-blue">Academic Paradigm</span> (post-1958) derives from
+      Modigliani-Miller, CAPM, and efficient markets theory. The
+      <span class="text-gold">Practitioner Paradigm</span> is the older framework — earnings
+      capitalization, market multiples, EPS maximization — that survived the revolution
+      unchanged. Neither is "wrong." They are different objective functions with different
+      inputs, producing different answers.
+    </p>
+
+    <table class="paradigm-table">
+      <thead>
+        <tr>
+          <th style="width: 16%;">Concept</th>
+          <th style="width: 28%;"><span class="text-blue">Academic Paradigm</span></th>
+          <th style="width: 28%;"><span class="text-gold">Practitioner Paradigm</span></th>
+          <th style="width: 28%;">Evidence</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td><strong>Firm's objective</strong></td>
+          <td>Maximize net present value (NPV) of future cash flows</td>
+          <td>Maximize earnings per share (EPS)</td>
+          <td class="evidence-links">
+            
+            <a href="evidence/Valuation_Solomon1963_TheoryOfFinancialManagement.html">Solomon 1963</a><br>
+            
+            <a href="evidence/EPS_GrahamHarveyRajgopal2005_EconomicImplicationsCorporateReporting.html">Graham, Harvey & Rajgopal 2005</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td><strong>Cost of equity</strong></td>
+          <td>Required return from CAPM: E(R) = Rf + beta x (Rm - Rf)</td>
+          <td>Earnings yield (E/P) — observable from price and earnings</td>
+          <td class="evidence-links">
+            
+            <a href="evidence/Valuation_Sharpe1964_CAPM.html">Sharpe 1964</a><br>
+            
+            <a href="evidence/Valuation_Dean1951_CapitalBudgeting.html">Dean 1951</a><br>
+            
+            <a href="evidence/Textbook_Weston1962_ManagerialFinance.html">Weston 1962</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td><strong>Equity valuation</strong></td>
+          <td>P = Sum of discounted future cash flows (DCF)</td>
+          <td>P = Expected EPS x P/E multiple from comparables</td>
+          <td class="evidence-links">
+            
+            <a href="evidence/Valuation_Williams1938_InvestmentValue.html">Williams 1938</a><br>
+            
+            <a href="evidence/Valuation_GrahamDodd1940_SecurityAnalysis.html">Graham & Dodd 1934</a><br>
+            
+            <a href="evidence/Valuation_Damodaran2012_InvestmentValuation.html">Damodaran 2012</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td><strong>Why lever up?</strong></td>
+          <td>Tax shields, trade-off theory, optimal capital structure</td>
+          <td>Earnings yield > borrowing cost, so debt is cheaper — boosts EPS</td>
+          <td class="evidence-links">
+            
+            <a href="evidence/Valuation_ModiglianiMiller1958_CostOfCapital.html">M&M 1958</a><br>
+            
+            <a href="evidence/Valuation_GuthmannDougall1940_CorporateFinancialPolicy.html">Guthmann & Dougall 1940</a><br>
+            
+            <a href="evidence/Textbook_Weston1962_ManagerialFinance.html">Weston 1962</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td><strong>Why buy back shares?</strong></td>
+          <td>Signal undervaluation, distribute excess cash, tax-efficient payout</td>
+          <td>Retiring shares at the earnings yield boosts EPS mechanically</td>
+          <td class="evidence-links">
+            
+            <a href="evidence/Brealey_Myers_EPS_Treatment_6th7thEd.html">Brealey & Myers (Bootstrap Game)</a><br>
+            
+            <a href="evidence/EPS_Almeida2019_IsItTimeToGetRidOfEPS.html">Almeida 2019</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td><strong>Dividend policy</strong></td>
+          <td>Irrelevant (Miller-Modigliani 1961); or signal / agency tool</td>
+          <td>Maintain stable, growing dividends; payout from earnings</td>
+          <td class="evidence-links">
+            
+            <a href="evidence/Valuation_MillerModigliani1961_DividendPolicy.html">M&M 1961</a><br>
+            
+            <a href="evidence/Valuation_Lintner1956_DistributionOfIncomes.html">Lintner 1956</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td><strong>M&A valuation</strong></td>
+          <td>NPV of synergies; acquirer should not overpay</td>
+          <td>Is the deal EPS-accretive or dilutive? EPS accretion = good deal</td>
+          <td class="evidence-links">
+            
+            <a href="evidence/EPS_Andrade1997_AppearancesMatterEPSAccretionDilution.html">Andrade et al. 1997</a><br>
+            
+            <a href="evidence/MA_ShleiferVishny2003_StockMarketDrivenAcquisitions.html">Shleifer & Vishny 2003</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td><strong>Capital budgeting</strong></td>
+          <td>Accept all positive-NPV projects; reject negative-NPV</td>
+          <td>Will this project maintain or increase EPS? Payback period.</td>
+          <td class="evidence-links">
+            
+            <a href="evidence/Valuation_Dean1951_CapitalBudgeting.html">Dean 1951</a><br>
+            
+            <a href="evidence/EPS_GrahamHarveyRajgopal2005_EconomicImplicationsCorporateReporting.html">Graham, Harvey & Rajgopal 2005</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td><strong>Equity risk premium</strong></td>
+          <td>Deep structural puzzle (Mehra-Prescott 1985); requires models of preferences</td>
+          <td>Observable spread: earnings yield minus risk-free rate</td>
+          <td class="evidence-links">
+            
+            <a href="evidence/Valuation_Dean1951_CapitalBudgeting.html">Dean 1951</a>
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td><strong>Role of frictions</strong></td>
+          <td>Essential — taxes, information asymmetry, agency costs explain every corporate policy</td>
+          <td>Unnecessary — corporate policies follow directly from the EPS objective</td>
+          <td class="evidence-links">
+            
+            <a href="evidence/CapitalStructure_Myers1984_CapitalStructurePuzzle.html">Myers 1984</a><br>
+            
+            <a href="evidence/Valuation_Solomon1963_TheoryOfFinancialManagement.html">Solomon 1963</a>
+            
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+
+    <h2 style="margin-top: 3rem;">Key Insight</h2>
+
+    <div class="split-comparison">
+      <div class="split-panel after">
+        <h3>The Academic View</h3>
+        <p>
+          Practitioners who use EPS are making a <strong>mistake</strong>.
+          They confuse the earnings-price ratio with the market capitalization rate
+          (Brealey &amp; Myers). They fall for the "bootstrap game" in M&amp;A.
+          They need to be educated out of these errors.
+        </p>
+        <blockquote style="border-left-color: var(--blue);">
+          "Managers frequently make poor financial decisions because they confuse
+          earnings-price ratios with the market capitalization rate."
+          <br><span class="text-muted">— Brealey &amp; Myers, Ch. 4</span>
+        </blockquote>
+      </div>
+      <div class="split-panel before">
+        <h3>The EPS Paradigm View</h3>
+        <p>
+          Practitioners who use EPS are following a <strong>different objective function</strong>,
+          not making a mistake. EPS maximization is internally consistent and historically
+          predates NPV by centuries. It's a robust business method, not a behavioral bias.
+        </p>
+        <blockquote>
+          "Earnings are in a class by themselves. Cash flows are nowhere
+          near as important as earnings."
+          <br><span class="text-muted">— CFO interview, Graham, Harvey &amp; Rajgopal 2005</span>
+        </blockquote>
+      </div>
+    </div>
+
+    <p style="max-width: 780px; margin-top: 2rem;">
+      The academic paradigm needs <strong>many frictions</strong> (taxes, information asymmetry,
+      agency costs, behavioral biases) to explain why firms do what they do — because the
+      frictionless baseline (MM) predicts nothing should matter. The EPS paradigm generates
+      predictions <strong>without frictions</strong>: leverage exists because debt is cheaper
+      than the earnings yield; buybacks exist because retiring shares boosts EPS; M&amp;A is
+      evaluated by EPS accretion.
+    </p>
+
+    <p style="margin-top: 2rem;">
+      <a href="the-split.html" class="moment-link">&larr; How the split happened</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <a href="timeline.html" class="moment-link">Explore the full timeline &rarr;</a>
+    </p>
+
+  </div>
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>The Two Paradigms of Finance &mdash; Itzhak Ben-David & Alex Chinco</p>
+      <p>The Ohio State University & Michigan State University</p>
+      <p style="margin-top: 0.5rem;">Built from a collection of 2,800+ primary sources spanning 300 years.</p>
+    </div>
+  </footer>
+
+  
+  <script>
+  (function(){
+    var k='__tp_auth';
+    if(sessionStorage.getItem(k)==='1') return;
+    var p=prompt('Enter password:');
+    if(p==='EPS'){sessionStorage.setItem(k,'1');}
+    else{document.body.innerHTML='<p style="color:#ede8d8;text-align:center;margin-top:40vh;font-family:serif;font-size:1.2rem;">Access denied.</p>';}
+  })();
+  </script>
+</body>
+</html>

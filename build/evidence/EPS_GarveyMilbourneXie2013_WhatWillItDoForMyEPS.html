@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garvey, Milbourne & Xie (2013): What Will It Do For My EPS? An Algorithm to Predict Merger Targets | The Two Paradigms of Finance</title>
+  <meta name="description" content="A primary-source history of how financial thinking split into two streams: the practitioner tradition of earnings capitalization (P = EPS × P/E) and the academic revolution of NPV, CAPM, and DCF.">
+  <meta name="author" content="Itzhak Ben-David & Alex Chinco">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📜</text></svg>">
+  <link rel="stylesheet" href="../static/css/style.css">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Two Paradigms</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="../the-split.html" >The Split</a></li>
+        <li><a href="../two-paradigms.html" >Two Paradigms</a></li>
+        <li><a href="../timeline.html" >Timeline</a></li>
+        <li><a href="../library.html" >Library</a></li>
+        <li><a href="../about.html" >About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+<div class="container">
+
+  <!-- Header -->
+  <div class="evidence-header">
+    <div class="evidence-meta">
+      <span class="paradigm-badge practitioner">Practitioner</span>
+      <span class="era-tag">The Great Divergence (1964–present)</span>
+      <span class="era-tag">&bull; 2013</span>
+    </div>
+    <h1 class="evidence-title">Garvey, Milbourne & Xie (2013): What Will It Do For My EPS? An Algorithm to Predict Merger Targets</h1>
+    
+    <div class="evidence-source">Garvey, Gerald, Ross Milbourne, and Kangyi Xie. "What Will It Do For My EPS? An Algorithm to Predict Merger Targets." Working paper, December 20, 2013. (Garvey at Duquesne University; Milbourne at University of New South Wales; Xie at University of New South Wales.) Note: This paper circulated...</div>
+    
+  </div>
+
+  <!-- Key Finding -->
+  
+  <div class="key-finding-box">
+    <h3>Key Finding</h3>
+    <p>Garvey, Milbourne &amp; Xie's 2013 working paper develops an algorithm that predicts merger targets based on EPS accretion. For any pair of firms in the same 2-digit SIC industry, they compute whether an all-stock acquisition (with a 20% premium) would be EPS-accretive to the higher-P/E buyer. Their key variable, &quot;Accretive Bidders&quot; (the number of industry peers that could make an EPS-accretive acquisition of a given firm), strongly predicts which firms become takeover targets. Moving from the median to the maximum number of Accretive Bidders increases the probability of being a target by 85% (from 3.4% to 6.3%, marginal effect = 0.058). This EPS-based measure dominates alternative measures based on book value (coefficient 0.016) and residual income model valuation (coefficient 0.034). The authors also show that: (1) the likelihood of being an acquirer is predicted by the number of viable targets available, (2) the number of Accretive Bidders predicts industry-level merger waves with R² of 0.79-0.82, (3) more viable targets predict the use of stock as a method of payment, and (4) results are robust to varying acquisition premia (10%-200%). Using I/B/E/S analyst forecast EPS produces stronger results than historical earnings, consistent with the EPS paradigm's emphasis on forward-looking EPS. For the EPS project, this paper provides direct evidence that M&amp;A activity is driven by the EPS accretion/dilution motive — exactly the mechanism described in the EPS paradigm paper.</p>
+
+  </div>
+  
+
+  <!-- Main content + sidebar -->
+  <div class="evidence-layout">
+    <div class="prose">
+      
+      <h2>Details</h2>
+<h3>Section 1: Introduction (pp. 1-6)</h3>
+<p><strong>Central premise:</strong> When deciding whether to acquire a target, managers ask &quot;What will it do for my EPS?&quot; If paying with stock, the deal is EPS-accretive to the buyer when the buyer's P/E ratio exceeds the target's P/E ratio (after accounting for the acquisition premium). This &quot;bootstrap game&quot; — acquiring low-P/E firms to boost EPS — has been discussed since the 1960s merger wave but never formally tested as a predictor of merger activity.</p>
+<p><strong>The Shleifer-Vishny (2003) framework:</strong> Shleifer &amp; Vishny model stock-financed acquisitions as driven by relative overvaluation — rational managers of overvalued firms use their inflated stock to buy real assets. Garvey et al. note that an overvalued acquirer (high P/E) buying an undervalued target (low P/E) is mechanically the same as an EPS-accretive stock deal. Their contribution is making this P/E-based criterion operational and testing it.</p>
+<p><strong>The key distinction:</strong> Are acquirers trying to increase their EPS (the &quot;bootstrap&quot; story), increase their book value, or increase their intrinsic value? The paper tests all three and finds EPS dominates.</p>
+<h3>Section 2: Hypothesis Development (pp. 6-10)</h3>
+<p><strong>The EPS accretion condition (Eq. 1):</strong></p>
+<p>For a stock deal with acquisition premium δ, the deal is EPS-accretive to the buyer if:</p>
+<blockquote>
+<p>P/E_buyer &gt; (1 + δ) × P/E_target</p>
+</blockquote>
+<p>With δ = 20% (the paper's baseline), the buyer needs a P/E at least 20% higher than the target's.</p>
+<p><strong>Definition of &quot;viable buyer&quot; (Eq. 2-3):</strong></p>
+<p>A firm j is a &quot;viable buyer&quot; of firm i if:</p>
+<ol>
+<li>Both firms are in the same 2-digit SIC industry</li>
+<li>Firm j's market cap exceeds firm i's market cap</li>
+<li>The all-stock deal (with 20% premium) is EPS-accretive: ForecastEPS_j / P_j &lt; ForecastEPS_i / [(1+δ) × P_i]</li>
+</ol>
+<p>This is equivalent to: the buyer's earnings yield &lt; the target's earnings yield / (1+δ).</p>
+<p><strong>Three measures of viable buyers:</strong></p>
+<ul>
+<li><strong>Accretive Bidders:</strong> based on I/B/E/S forecast EPS (forward P/E)</li>
+<li><strong>Book Bidders:</strong> based on book value — deal is &quot;accretive&quot; if target's P/B &lt; buyer's P/B</li>
+<li><strong>RIM Bidders:</strong> based on residual income model intrinsic value — deal is &quot;accretive&quot; if target trades below RIM value</li>
+</ul>
+<p><strong>Two hypotheses:</strong></p>
+<ul>
+<li>H1: The likelihood of being a takeover target is increasing in the number of viable buyers</li>
+<li>H2: Stock payment is more likely when there are more viable targets for the acquirer</li>
+</ul>
+<h3>Section 3: Data and Methodology (pp. 10-18)</h3>
+<p><strong>Data:</strong> Compustat + SDC Platinum + I/B/E/S, 1981-2012. After filters: 7,367 target firm-years, 7,404 acquirer firm-years, 127,188 non-merger firm-year observations.</p>
+<p><strong>Summary statistics (Table 1, Panel B):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Acquirer (median)</th>
+<th>Target (median)</th>
+<th>Non-merger (median)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accretive Bidders</td>
+<td>68</td>
+<td><strong>83</strong></td>
+<td><strong>50</strong></td>
+</tr>
+<tr>
+<td>Book Bidders</td>
+<td>62</td>
+<td>80</td>
+<td>55</td>
+</tr>
+<tr>
+<td>RIM Bidders</td>
+<td>59</td>
+<td>72</td>
+<td>41</td>
+</tr>
+<tr>
+<td>Accretive Targets</td>
+<td>87</td>
+<td>58</td>
+<td>48</td>
+</tr>
+<tr>
+<td>P/FE</td>
+<td>18.95</td>
+<td><strong>14.43</strong></td>
+<td><strong>15.96</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Target firms have substantially more Accretive Bidders (median 83) than non-merger firms (median 50) — they are in a richer &quot;EPS accretion opportunity set.&quot; Target firms also have lower forward P/E (14.43 vs. 15.96 for non-mergers), meaning they offer more EPS accretion potential.</p>
+<p><strong>Controls:</strong> Rhodes-Kropf, Robinson &amp; Viswanathan (2005) decomposition into firm-specific error, time-series error, and long-run value-to-book. Also: size, leverage, P/FE, industry takeover count, number of firms in industry.</p>
+<h3>Section 4: Main Empirical Results (pp. 19-29)</h3>
+<p><strong>4.1 Predicting takeover targets (Table 2):</strong></p>
+<p>Probit regression with dependent variable = 1 if firm is a takeover target.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Coefficient (marginal effect)</th>
+<th>Significance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accretive Bidders</td>
+<td><strong>0.058</strong></td>
+<td><strong>1%</strong></td>
+</tr>
+<tr>
+<td>Book Bidders</td>
+<td>0.016</td>
+<td>1%</td>
+</tr>
+<tr>
+<td>RIM Bidders</td>
+<td>0.034</td>
+<td>1%</td>
+</tr>
+<tr>
+<td>All three together: Accretive Bidders</td>
+<td><strong>0.042</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>All three together: Book Bidders</td>
+<td>0.09</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>All three together: RIM Bidders</td>
+<td>0.10</td>
+<td>5%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The EPS-based measure dominates.</strong> The coefficient on Accretive Bidders (0.058) is nearly 4x that of Book Bidders (0.016). When all three are included together, Accretive Bidders retains a coefficient of 0.042, still the largest. The 0.058 marginal effect means: for a firm with average attributes, moving from the median to the maximum number of Accretive Bidders increases the target probability from 3.4% to 6.3% — an 85% increase.</p>
+<p>Other controls: prior industry takeover activity increases target likelihood; P/E increases it; leverage is negatively related but insignificant; firm size has a nonlinear relationship.</p>
+<p><strong>4.2 Predicting acquirers (Table 3):</strong></p>
+<p>The number of Accretive Targets predicts being a bidder (coefficient 0.032, sig at 1%). However, once P/FE is added as a control, the Accretive Targets variable becomes insignificant — the P/FE ratio subsumes it. &quot;Firms with high price earnings ratios are more likely to be an acquirer, and this effect subsumes our measure's predictive effect.&quot;</p>
+<p>The Rhodes-Kropf misvaluation measures are MORE important for predicting acquirers than for predicting targets — overvalued firms (high P/E relative to fundamentals) are more likely to acquire.</p>
+<p><strong>4.3 Merger activity at firm and industry levels (Tables 4-5):</strong></p>
+<p>At the firm level: both Accretive Bidders and Accretive Targets are positive and significant at 1% for predicting whether a firm is involved in ANY merger (as target or acquirer).</p>
+<p>At the industry level (Table 5): &quot;Ind Average Accretive Bidders&quot; (the average number of Accretive Bidders across all firms in an industry-year) predicts industry-level merger waves. This variable is consistently positive and significant at 1% across all specifications, controlling for number of firms, industry M/B, Rhodes-Kropf measures, and lagged merger activity.</p>
+<p><strong>Table 1, Panel A — Aggregate merger activity:</strong></p>
+<p>OLS regressions of total number of takeovers per year on the median number of Accretive Bidders. R² = 0.79-0.82. Coefficient on Median Num Accretive Bidders (lagged) = 9.05-9.92 (t = 7.12-7.46). This shows that the economy-wide count of EPS-accretive opportunities explains nearly 80% of the variation in aggregate merger activity.</p>
+<p><strong>4.4 Predicting medium of exchange (Table 6a-6b):</strong></p>
+<p>Stock-only payment is positively related to:</p>
+<ul>
+<li>Target Accretive Bidders (more viable EPS-accretive buyers → more stock deals)</li>
+<li>Target Accretive Targets (more viable EPS-accretive targets → more stock deals)</li>
+</ul>
+<p>Economic significance: moving from the median to the maximum number of viable targets increases the probability of 100% stock payment by 20%.</p>
+<p>At the industry level, Industry Average Accretive Bidders also predicts stock usage.</p>
+<p><strong>4.5 Horizontal mergers (Table 7):</strong></p>
+<p>Results are positive when controlling only for year effects, but become insignificant with industry fixed effects. Horizontal mergers are driven more by industry shocks (deregulation, technology) than by P/E dispersion.</p>
+<p><strong>4.6 Sensitivity to acquisition premium (Table 8):</strong></p>
+<p>Results robust to premia of 10%, 50%, 100%, and 200%. The count of viable bidders naturally declines with higher premia, but the distribution of P/E ratios within industries is sufficiently dispersed (and bimodal) that even doubling the premium &quot;only cuts in half&quot; the number of viable bidders.</p>
+<h3>Section 5: Conclusion (pp. 29)</h3>
+<blockquote>
+<p>&quot;We find that the likelihood of being a target is positively related to the number of viable buyers for the firm, and that the likelihood of observing stock as a method of payment is positively related to the number of viable buyers for each target and the number of stock targets for each acquirer.&quot;</p>
+</blockquote>
+<p>The authors note that the EPS-based, book-based, and RIM-based measures are correlated, so they cannot fully distinguish whether managers are maximizing EPS, book value, or intrinsic value. However, the EPS measure consistently has the largest coefficient.</p>
+
+      
+
+      
+      <h2>Significance</h2>
+      <h3>1. Direct Test of EPS Accretion as a Merger Motive</h3>
+<p>This paper operationalizes and tests the central claim of the EPS paradigm regarding M&amp;A: that managers acquire firms to boost EPS. The &quot;Accretive Bidders&quot; variable is a direct measure of the EPS accretion opportunity available to a firm. Its strong predictive power for merger targets, acquirers, merger waves, and payment method is evidence that EPS accretion drives M&amp;A decisions.</p>
+<h3>2. EPS-Based Measure Dominates Book-Value and RIM Measures</h3>
+<p>The coefficient on Accretive Bidders (0.058) is nearly 4x that of Book Bidders (0.016), confirming that managers care more about EPS accretion than about book-value accretion or intrinsic-value accretion. This is exactly what the EPS paradigm predicts: the relevant question is &quot;will this deal boost my EPS?&quot;, not &quot;will this deal increase my book value?&quot; or &quot;will this deal create NPV?&quot;</p>
+<h3>3. Forward-Looking EPS Matters Most — Consistent with P = E(EPS) x P/E</h3>
+<p>The use of I/B/E/S analyst forecast EPS (rather than trailing EPS) to compute Accretive Bidders is significant. The paper notes that forward P/E produces stronger results than historical measures. In the EPS paradigm, P = E(EPS) x P/E, where E(EPS) is the analyst consensus forecast. The finding that forecast-based measures predict merger activity better than historical measures confirms the role of expected (not reported) EPS.</p>
+<h3>4. P/E Dispersion Drives Merger Waves</h3>
+<p>The aggregate result — that the median number of Accretive Bidders explains 79-82% of the variation in annual merger activity — connects EPS accretion to merger waves. In the EPS paradigm, merger waves occur when P/E dispersion within industries is high: high-P/E firms can make EPS-accretive acquisitions of low-P/E firms. When P/E dispersion contracts (e.g., in recessions), the accretion opportunity disappears and merger activity declines.</p>
+<h3>5. Stock Payment Is the Vehicle for the Bootstrap Game</h3>
+<p>The finding that stock payment increases with the number of viable targets confirms the classic &quot;bootstrap&quot; mechanism: high-P/E firms use their &quot;expensive&quot; stock to buy low-P/E firms, boosting their EPS. This is the M&amp;A version of the EPS paradigm's capital structure prediction: managers issue equity when the earnings yield is low (stock is &quot;cheap&quot; to issue).</p>
+<h3>6. P/FE Subsumes the Acquirer Prediction</h3>
+<p>The finding that P/FE subsumes the Accretive Targets variable in predicting acquirers is important: a high P/E (low earnings yield) is the necessary condition for EPS-accretive acquisitions. In the EPS paradigm, a high P/E firm has &quot;expensive equity&quot; — its earnings yield is low — and can boost EPS by using that expensive stock to buy higher-yielding (lower P/E) assets.</p>
+<h3>7. Target Firms Have Lower P/E and More Potential Buyers</h3>
+<p>Target firms have median P/FE of 14.43 vs. 15.96 for non-merger firms, and many more Accretive Bidders (83 vs. 50). This confirms the EPS paradigm's prediction: firms become targets when their earnings yield is HIGH (P/E is low) relative to potential acquirers, because the acquisition would be EPS-accretive to more buyers.</p>
+<h3>8. The Algorithm Is Operational — Managers Can (and Do) Use It</h3>
+<p>The paper's algorithm is essentially a formalization of what investment bankers do: screen for targets where the buyer's P/E exceeds the target's P/E by enough to absorb the premium. The fact that this simple screen predicts actual mergers confirms that practitioners operate within the EPS accretion framework.</p>
+
+      
+    </div>
+
+    <aside class="sidebar">
+      <!-- Paradigm info -->
+      <div class="sidebar-section">
+        <h4>Paradigm</h4>
+        <p><span class="paradigm-badge practitioner">Practitioner</span></p>
+        <p style="margin-top: 0.5rem;">Earnings capitalization: P = EPS × P/E from comps. Cost of equity = earnings yield. Objective = maximize EPS.</p>
+      </div>
+
+      <!-- Era context -->
+      <div class="sidebar-section">
+        <h4>Era</h4>
+        <p><strong>The Great Divergence</strong> (1964–present)</p>
+        <p>Academic textbooks teach NPV/CAPM/DCF. Practitioners continue using EPS × P/E, earnings yields, and comps.</p>
+      </div>
+
+      <!-- Connections -->
+      
+      <div class="sidebar-section">
+        <h4>Connections</h4>
+        <ul>
+<li><strong>Shleifer &amp; Vishny (2003)</strong> — &quot;Stock Market Driven Acquisitions.&quot; The theoretical framework that Garvey et al. extend. Overvalued firms (high P/E) use stock to buy undervalued firms (low P/E). Garvey et al. show this is equivalent to EPS accretion.</li>
+<li><strong>Rhodes-Kropf, Robinson &amp; Viswanathan (2005)</strong> — &quot;Valuation Waves and Merger Activity.&quot; Decompose M/B into misvaluation and growth components. Garvey et al. use their controls and compare their EPS-based measures against the R-K decomposition.</li>
+<li><strong>Andrade (1999)</strong> — &quot;How Costly Is Financial (Not Economic) Distress? Evidence from Highly Leveraged Transactions That Became Distressed.&quot; Early work on EPS accretion and dilution in M&amp;A context.</li>
+<li><strong>Fuller &amp; Jensen (2002)</strong> — &quot;Just Say No to Wall Street.&quot; Argue against the &quot;earnings game&quot; in M&amp;A. Garvey et al. provide evidence that the game drives actual deal activity.</li>
+<li><strong>Dong, Hirshleifer, Richardson &amp; Teoh (2006)</strong> — &quot;Does Investor Misvaluation Drive the Takeover Market?&quot; Show misvaluation drives acquisitions. Garvey et al. show EPS accretion is a more specific and powerful predictor.</li>
+<li><strong>Harford (2005)</strong> — &quot;What Drives Merger Waves?&quot; Shows liquidity and capital availability drive waves. Garvey et al. add P/E dispersion (EPS accretion opportunities) as an additional driver.</li>
+<li><strong>Ben-David &amp; Chinco (EPS)</strong> — Garvey et al. provide the strongest empirical evidence for the EPS paradigm's M&amp;A predictions. The EPS accretion variable's dominance over book-value and intrinsic-value alternatives confirms that managers use EPS as the criterion for M&amp;A decisions.</li>
+<li><strong>Ben-David &amp; Chinco (EPS x PE)</strong> — The finding that forward P/E (from I/B/E/S) produces the best predictions confirms P = E(EPS) x P/E as the pricing model underlying M&amp;A decisions. Acquirers and targets are matched based on their relative P/E ratios.</li>
+<li><strong>Ben-David &amp; Chinco (maxEPS paradigm)</strong> — The &quot;bootstrap game&quot; has been understood since at least the 1960s conglomerate merger wave. Garvey et al. provide the first rigorous test and confirmation, showing that the EPS accretion motive predicts modern mergers just as it explained the 1960s wave.</li>
+<li><strong>Ben-David &amp; Chinco, Meli (EPS and financial markets)</strong> — The prediction that P/E dispersion drives merger waves connects to the Meli paper: as interest rates fall and P/E multiples rise, the dispersion of P/E within industries may change, altering the EPS accretion opportunity set and influencing aggregate M&amp;A activity.</li>
+</ul>
+
+      </div>
+      
+    </aside>
+  </div>
+
+  <!-- Prev / Next navigation -->
+  <nav class="evidence-nav">
+    
+    <a href="../evidence/EPS_DichevGrahamHarveyRajgopal2013_EarningsQualityFromField.html">
+      <span class="label">&larr; Previous</span>
+      Dichev, Graham, Harvey, Rajgopal (2013)
+    </a>
+    
+
+    
+    <a href="../evidence/EPS_HuangMarquardtZhang2014_ManagersAvoidEPSDilution.html" style="text-align: right;">
+      <span class="label">Next &rarr;</span>
+      Huang, Marquardt, Zhang (2014)
+    </a>
+    
+  </nav>
+
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>The Two Paradigms of Finance &mdash; Itzhak Ben-David & Alex Chinco</p>
+      <p>The Ohio State University & Michigan State University</p>
+      <p style="margin-top: 0.5rem;">Built from a collection of 2,800+ primary sources spanning 300 years.</p>
+    </div>
+  </footer>
+
+  
+  <script>
+  (function(){
+    var k='__tp_auth';
+    if(sessionStorage.getItem(k)==='1') return;
+    var p=prompt('Enter password:');
+    if(p==='EPS'){sessionStorage.setItem(k,'1');}
+    else{document.body.innerHTML='<p style="color:#ede8d8;text-align:center;margin-top:40vh;font-family:serif;font-size:1.2rem;">Access denied.</p>';}
+  })();
+  </script>
+</body>
+</html>
