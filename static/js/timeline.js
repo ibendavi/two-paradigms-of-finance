@@ -208,16 +208,18 @@
     ctx.fillText('VALUATION METHOD', 0, 0);
     ctx.restore();
 
-    ctx.fillStyle = TEXT_MUTED;
+    ctx.fillStyle = COLORS.academic;
     ctx.font = '10px "JetBrains Mono", "Consolas", monospace';
     ctx.textAlign = 'left';
     ctx.fillText('\u2191 Discounted Cash Flows', PADDING.left - 10, PADDING.top - 8);
+    ctx.fillStyle = COLORS.practitioner;
     ctx.fillText('\u2193 Earnings Capitalization', PADDING.left - 10, h - PADDING.bottom + 18);
 
-    ctx.fillStyle = TEXT_MUTED;
+    ctx.fillStyle = COLORS.academic;
     ctx.font = 'bold 11px "JetBrains Mono", "Consolas", monospace';
     ctx.textAlign = 'right';
     ctx.fillText('DCF', w - 12, PADDING.top + 12);
+    ctx.fillStyle = COLORS.practitioner;
     ctx.fillText('EARNINGS CAP', w - 12, h - PADDING.bottom - 4);
 
     // --- Dots ---
