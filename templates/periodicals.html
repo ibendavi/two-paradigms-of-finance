@@ -139,6 +139,9 @@
       <div class="count-value" id="acad-count">0</div>
       <div class="count-label">Academic journal articles</div>
       <div class="count-label" style="margin-top:0.3rem; font-size:0.75rem; color:var(--text-muted);">
+        American Economic Review (1911&ndash;) &bull;
+        Quarterly Journal of Economics (1886&ndash;) &bull;
+        Econometrica (1933&ndash;) &bull;
         Journal of Finance (1946&ndash;) &bull;
         Journal of Financial Economics (1974&ndash;) &bull;
         Review of Financial Studies (1988&ndash;)
@@ -150,12 +153,13 @@
   <div class="chart-section">
     <h2>How Different Are the Two Literatures?</h2>
     <p class="chart-subtitle">
-      Cosine distance between topic-frequency vectors.
-      0 = identical vocabulary, 1 = completely disjoint.
-      Computed only for windows where both streams have 10+ documents.
+      <span style="color:var(--purple);">Purple</span>: cosine distance between practitioner and academic topic vectors (same window).
+      <span style="color:var(--gold);">Gold</span>: practitioner vs. its own previous window.
+      <span style="color:var(--blue);">Blue</span>: academic vs. its own previous window.
+      0 = identical, 1 = completely disjoint. Requires 10+ documents per window.
     </p>
     <div class="chart-canvas-wrap">
-      <canvas id="divergence-canvas" height="220"></canvas>
+      <canvas id="divergence-canvas" height="280"></canvas>
     </div>
   </div>
 

@@ -11,6 +11,8 @@
   var prac = D.practitioner;    // {window: {topic: freq, total_docs: n}}
   var acad = D.academic;
   var divergence = D.divergence; // {window: {cosine_distance, ...}}
+  var pracLag = D.prac_lag || {};  // {window: {cosine_distance, vs_window}}
+  var acadLag = D.acad_lag || {};  // {window: {cosine_distance, vs_window}}
 
   // Colors
   var GOLD = '#d4a017';
@@ -67,27 +69,39 @@
   }
 
   // ═══════════════════════════════════════════════════════════════
-  // 1. DIVERGENCE CHART
+  // 1. DIVERGENCE CHART — three series
+  //    Purple: cross-stream (practitioner vs academic, same window)
+  //    Gold:   practitioner vs own previous window
+  //    Blue:   academic vs own previous window
   // ═══════════════════════════════════════════════════════════════
+
+  function getSeries(obj) {
+    var wins = Object.keys(obj).sort();
+    return {
+      mids: wins.map(function (w) { return parseInt(w.split('-')[0]) + 2; }),
+      vals: wins.map(function (w) { return obj[w].cosine_distance; })
+    };
+  }
+
   function drawDivergence() {
     var canvas = document.getElementById('divergence-canvas');
-    if (!canvas || !divergence) return;
+    if (!canvas) return;
     var s = setupCanvas(canvas);
     var ctx = s.ctx, w = s.w, h = s.h;
 
-    var pad = { top: 30, bottom: 45, left: 60, right: 20 };
+    var pad = { top: 30, bottom: 55, left: 60, right: 20 };
     var chartW = w - pad.left - pad.right;
     var chartH = h - pad.top - pad.bottom;
 
     ctx.fillStyle = BG;
     ctx.fillRect(0, 0, w, h);
 
-    // Get divergence data
-    var divWindows = Object.keys(divergence).sort();
-    if (!divWindows.length) return;
+    var cross = getSeries(divergence || {});
+    var pLag  = getSeries(pracLag);
+    var aLag  = getSeries(acadLag);
 
-    var divMids = divWindows.map(function (dw) { return parseInt(dw.split('-')[0]) + 2; });
-    var divVals = divWindows.map(function (dw) { return divergence[dw].cosine_distance; });
+    // If nothing to show, bail
+    if (!cross.mids.length && !pLag.mids.length && !aLag.mids.length) return;
 
     var minYear = Math.min.apply(null, windowMids) - 5;
     var maxYear = Math.max.apply(null, windowMids) + 5;
@@ -116,6 +130,7 @@
       var xx = xPos(yr);
       if (xx > pad.left && xx < w - pad.right) {
         ctx.fillStyle = MUTED;
+        ctx.font = '10px ' + FONT;
         ctx.fillText(yr, xx, h - pad.bottom + 16);
         ctx.beginPath();
         ctx.moveTo(xx, pad.top);
@@ -131,52 +146,46 @@
     ctx.save();
     ctx.setLineDash([4, 4]);
     ctx.strokeStyle = PURPLE;
-    ctx.lineWidth = 1.5;
+    ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(splitX, pad.top);
     ctx.lineTo(splitX, h - pad.bottom);
     ctx.stroke();
     ctx.restore();
     ctx.fillStyle = PURPLE;
-    ctx.font = 'bold 10px ' + FONT;
+    ctx.font = '9px ' + FONT;
     ctx.textAlign = 'center';
-    ctx.fillText('1958: M&M', splitX, pad.top - 8);
+    ctx.fillText('M&M 1958', splitX, pad.top - 8);
 
-    // Area fill
-    if (divMids.length > 1) {
+    // Helper: draw a line+dot series
+    function drawSeries(mids, vals, color, dotRadius) {
+      if (mids.length < 2) return;
+      // Line
       ctx.beginPath();
-      ctx.moveTo(xPos(divMids[0]), yPos(0));
-      for (var i = 0; i < divMids.length; i++) {
-        ctx.lineTo(xPos(divMids[i]), yPos(divVals[i]));
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2;
+      for (var i = 0; i < mids.length; i++) {
+        var px = xPos(mids[i]), py = yPos(vals[i]);
+        if (i === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
       }
-      ctx.lineTo(xPos(divMids[divMids.length - 1]), yPos(0));
-      ctx.closePath();
-      ctx.fillStyle = 'rgba(167, 139, 250, 0.15)';
-      ctx.fill();
-    }
-
-    // Line
-    ctx.beginPath();
-    ctx.strokeStyle = PURPLE;
-    ctx.lineWidth = 2.5;
-    for (var i = 0; i < divMids.length; i++) {
-      var px = xPos(divMids[i]);
-      var py = yPos(divVals[i]);
-      if (i === 0) ctx.moveTo(px, py);
-      else ctx.lineTo(px, py);
-    }
-    ctx.stroke();
-
-    // Dots
-    for (var i = 0; i < divMids.length; i++) {
-      ctx.beginPath();
-      ctx.arc(xPos(divMids[i]), yPos(divVals[i]), 4, 0, Math.PI * 2);
-      ctx.fillStyle = PURPLE;
-      ctx.fill();
-      ctx.strokeStyle = BG;
-      ctx.lineWidth = 1.5;
       ctx.stroke();
+      // Dots
+      for (var i = 0; i < mids.length; i++) {
+        ctx.beginPath();
+        ctx.arc(xPos(mids[i]), yPos(vals[i]), dotRadius || 3, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.strokeStyle = BG;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
     }
+
+    // Draw: practitioner lag (gold), academic lag (blue), cross-stream (purple)
+    drawSeries(pLag.mids, pLag.vals, GOLD, 3);
+    drawSeries(aLag.mids, aLag.vals, BLUE, 3);
+    drawSeries(cross.mids, cross.vals, PURPLE, 4);
 
     // Y-axis label
     ctx.save();
@@ -187,6 +196,25 @@
     ctx.textAlign = 'center';
     ctx.fillText('COSINE DISTANCE', 0, 0);
     ctx.restore();
+
+    // Legend at bottom
+    ctx.font = '9px ' + FONT;
+    ctx.textAlign = 'left';
+    var lx = pad.left, ly = h - 10;
+    // Purple: cross-stream
+    ctx.fillStyle = PURPLE;
+    ctx.fillRect(lx, ly - 4, 14, 3);
+    ctx.fillText('Practitioner vs Academic', lx + 18, ly);
+    // Gold: prac lag
+    var lx2 = lx + 180;
+    ctx.fillStyle = GOLD;
+    ctx.fillRect(lx2, ly - 4, 14, 3);
+    ctx.fillText('Practitioner vs own lag', lx2 + 18, ly);
+    // Blue: acad lag
+    var lx3 = lx2 + 170;
+    ctx.fillStyle = BLUE;
+    ctx.fillRect(lx3, ly - 4, 14, 3);
+    ctx.fillText('Academic vs own lag', lx3 + 18, ly);
   }
 
   // ═══════════════════════════════════════════════════════════════
