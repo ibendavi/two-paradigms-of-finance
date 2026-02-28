@@ -234,8 +234,8 @@
     '#d4a017', '#e6b800', '#c49000', '#f0c040', '#b8860b', '#daa520', '#cd853f',
     '#e8a920', '#c8a000', '#d4b030', '#bfa020', '#c09820'
   ];
-  // Use residuals data as the primary source for the per-source chart
-  var sourceData = Object.keys(perSourceResid).length ? perSourceResid : perSourceDiv;
+  // Use raw distances from practitioner core (not FE residuals)
+  var sourceData = perSourceDiv;
   var sourceNames = Object.keys(sourceData).sort();
   var sourceColors = {};
   var aidx = 0, pidx = 0;
@@ -311,25 +311,17 @@
     var minYear = Math.min.apply(null, windowMids) - 5;
     var maxYear = Math.max.apply(null, windowMids) + 5;
 
-    // Determine y-axis range from data (residuals center around 0)
-    var hasResiduals = Object.keys(perSourceResid).length > 0;
-    var yMin, yMax;
-    if (hasResiduals) {
-      yMin = -0.5; yMax = 0.5;
-      // Check actual range
-      sourceNames.forEach(function (name) {
-        if (!activeSources[name]) return;
-        var info = sourceData[name];
-        if (!info || !info.series) return;
-        Object.keys(info.series).forEach(function (w) {
-          var v = info.series[w];
-          if (v < yMin) yMin = v - 0.05;
-          if (v > yMax) yMax = v + 0.05;
-        });
+    // Determine y-axis range from data
+    var yMin = 0, yMax = 1;
+    sourceNames.forEach(function (name) {
+      if (!activeSources[name]) return;
+      var info = sourceData[name];
+      if (!info || !info.series) return;
+      Object.keys(info.series).forEach(function (w) {
+        var v = info.series[w];
+        if (v > yMax) yMax = v + 0.05;
       });
-    } else {
-      yMin = 0; yMax = 1;
-    }
+    });
 
     function xPos(year) { return pad.left + ((year - minYear) / (maxYear - minYear)) * chartW; }
     function yPos(val) { return pad.top + ((yMax - val) / (yMax - yMin)) * chartH; }
@@ -337,26 +329,20 @@
     // Grid
     ctx.strokeStyle = AXIS;
     ctx.lineWidth = 0.5;
-    var gridStep = hasResiduals ? 0.1 : 0.25;
-    for (var g = Math.ceil(yMin / gridStep) * gridStep; g <= yMax + 0.001; g += gridStep) {
+    var gridStep = 0.25;
+    for (var g = 0; g <= yMax + 0.001; g += gridStep) {
       var gy = yPos(g);
       if (gy < pad.top - 1 || gy > h - pad.bottom + 1) continue;
       ctx.beginPath();
       ctx.moveTo(pad.left, gy);
       ctx.lineTo(w - pad.right, gy);
-      // Emphasize zero line for residuals
-      if (hasResiduals && Math.abs(g) < 0.001) {
-        ctx.strokeStyle = MUTED;
-        ctx.lineWidth = 1;
-      } else {
-        ctx.strokeStyle = AXIS;
-        ctx.lineWidth = 0.5;
-      }
+      ctx.strokeStyle = AXIS;
+      ctx.lineWidth = 0.5;
       ctx.stroke();
       ctx.fillStyle = MUTED;
       ctx.font = '10px ' + FONT;
       ctx.textAlign = 'right';
-      ctx.fillText((g >= 0 ? '+' : '') + g.toFixed(1), pad.left - 6, gy + 3);
+      ctx.fillText(g.toFixed(2), pad.left - 6, gy + 3);
     }
 
     // X axis labels
@@ -399,10 +385,10 @@
     ctx.fillStyle = MUTED;
     ctx.font = '10px ' + FONT;
     ctx.textAlign = 'center';
-    ctx.fillText(hasResiduals ? 'RESIDUAL DISTANCE (source + time FE removed)' : 'COSINE DISTANCE', 0, 0);
+    ctx.fillText('COSINE DISTANCE FROM PRACTITIONER CORE (1800\u20131920)', 0, 0);
     ctx.restore();
 
-    // Draw each active source
+    // Draw each active source — dots only, no lines
     sourceNames.forEach(function (name) {
       if (!activeSources[name]) return;
       var info = sourceData[name];
@@ -411,27 +397,16 @@
       var wins = Object.keys(info.series).sort();
       var mids = wins.map(function (w) { return parseInt(w.split('-')[0]) + 2; });
       var vals = wins.map(function (w) { return info.series[w]; });
-      if (mids.length < 2) return;
+      if (mids.length === 0) return;
 
-      // Line
-      ctx.beginPath();
-      ctx.strokeStyle = color;
-      ctx.lineWidth = 1.5;
-      ctx.globalAlpha = 0.8;
-      for (var i = 0; i < mids.length; i++) {
-        var px = xPos(mids[i]), py = yPos(vals[i]);
-        if (i === 0) ctx.moveTo(px, py);
-        else ctx.lineTo(px, py);
-      }
-      ctx.stroke();
-      ctx.globalAlpha = 1.0;
-
-      // Dots
+      // Dots only
       for (var i = 0; i < mids.length; i++) {
         ctx.beginPath();
-        ctx.arc(xPos(mids[i]), yPos(vals[i]), 2.5, 0, Math.PI * 2);
+        ctx.arc(xPos(mids[i]), yPos(vals[i]), 3.5, 0, Math.PI * 2);
         ctx.fillStyle = color;
+        ctx.globalAlpha = 0.7;
         ctx.fill();
+        ctx.globalAlpha = 1.0;
       }
     });
   }
