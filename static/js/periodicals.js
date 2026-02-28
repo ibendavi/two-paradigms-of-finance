@@ -14,6 +14,9 @@
   var pracLag = D.prac_lag || {};  // {window: {cosine_distance, vs_window}}
   var acadLag = D.acad_lag || {};  // {window: {cosine_distance, vs_window}}
   var perSourceDiv = D.per_source_divergence || {};
+  var perSourceResid = D.per_source_residuals || {};
+  var sourceFE = D.source_fe || {};
+  var windowFE = D.window_fe || {};
 
   // Colors
   var GOLD = '#d4a017';
@@ -231,11 +234,13 @@
     '#d4a017', '#e6b800', '#c49000', '#f0c040', '#b8860b', '#daa520', '#cd853f',
     '#e8a920', '#c8a000', '#d4b030', '#bfa020', '#c09820'
   ];
-  var sourceNames = Object.keys(perSourceDiv).sort();
+  // Use residuals data as the primary source for the per-source chart
+  var sourceData = Object.keys(perSourceResid).length ? perSourceResid : perSourceDiv;
+  var sourceNames = Object.keys(sourceData).sort();
   var sourceColors = {};
   var aidx = 0, pidx = 0;
   sourceNames.forEach(function (name) {
-    if (perSourceDiv[name].stream === 'academic') {
+    if (sourceData[name].stream === 'academic') {
       sourceColors[name] = SOURCE_PALETTE_ACAD[aidx % SOURCE_PALETTE_ACAD.length];
       aidx++;
     } else {
@@ -254,8 +259,8 @@
     container.innerHTML = '';
 
     // Group by stream
-    var acadSources = sourceNames.filter(function (n) { return perSourceDiv[n].stream === 'academic'; });
-    var pracSources = sourceNames.filter(function (n) { return perSourceDiv[n].stream === 'practitioner'; });
+    var acadSources = sourceNames.filter(function (n) { return sourceData[n].stream === 'academic'; });
+    var pracSources = sourceNames.filter(function (n) { return sourceData[n].stream === 'practitioner'; });
 
     function addGroup(label, sources, className) {
       var group = document.createElement('div');
@@ -306,22 +311,52 @@
     var minYear = Math.min.apply(null, windowMids) - 5;
     var maxYear = Math.max.apply(null, windowMids) + 5;
 
+    // Determine y-axis range from data (residuals center around 0)
+    var hasResiduals = Object.keys(perSourceResid).length > 0;
+    var yMin, yMax;
+    if (hasResiduals) {
+      yMin = -0.5; yMax = 0.5;
+      // Check actual range
+      sourceNames.forEach(function (name) {
+        if (!activeSources[name]) return;
+        var info = sourceData[name];
+        if (!info || !info.series) return;
+        Object.keys(info.series).forEach(function (w) {
+          var v = info.series[w];
+          if (v < yMin) yMin = v - 0.05;
+          if (v > yMax) yMax = v + 0.05;
+        });
+      });
+    } else {
+      yMin = 0; yMax = 1;
+    }
+
     function xPos(year) { return pad.left + ((year - minYear) / (maxYear - minYear)) * chartW; }
-    function yPos(val) { return pad.top + (1 - val) * chartH; }
+    function yPos(val) { return pad.top + ((yMax - val) / (yMax - yMin)) * chartH; }
 
     // Grid
     ctx.strokeStyle = AXIS;
     ctx.lineWidth = 0.5;
-    for (var g = 0; g <= 1; g += 0.25) {
+    var gridStep = hasResiduals ? 0.1 : 0.25;
+    for (var g = Math.ceil(yMin / gridStep) * gridStep; g <= yMax + 0.001; g += gridStep) {
       var gy = yPos(g);
+      if (gy < pad.top - 1 || gy > h - pad.bottom + 1) continue;
       ctx.beginPath();
       ctx.moveTo(pad.left, gy);
       ctx.lineTo(w - pad.right, gy);
+      // Emphasize zero line for residuals
+      if (hasResiduals && Math.abs(g) < 0.001) {
+        ctx.strokeStyle = MUTED;
+        ctx.lineWidth = 1;
+      } else {
+        ctx.strokeStyle = AXIS;
+        ctx.lineWidth = 0.5;
+      }
       ctx.stroke();
       ctx.fillStyle = MUTED;
       ctx.font = '10px ' + FONT;
       ctx.textAlign = 'right';
-      ctx.fillText(g.toFixed(2), pad.left - 6, gy + 3);
+      ctx.fillText((g >= 0 ? '+' : '') + g.toFixed(1), pad.left - 6, gy + 3);
     }
 
     // X axis labels
@@ -364,13 +399,13 @@
     ctx.fillStyle = MUTED;
     ctx.font = '10px ' + FONT;
     ctx.textAlign = 'center';
-    ctx.fillText('COSINE DISTANCE', 0, 0);
+    ctx.fillText(hasResiduals ? 'RESIDUAL DISTANCE (source + time FE removed)' : 'COSINE DISTANCE', 0, 0);
     ctx.restore();
 
     // Draw each active source
     sourceNames.forEach(function (name) {
       if (!activeSources[name]) return;
-      var info = perSourceDiv[name];
+      var info = sourceData[name];
       if (!info || !info.series) return;
       var color = sourceColors[name];
       var wins = Object.keys(info.series).sort();
