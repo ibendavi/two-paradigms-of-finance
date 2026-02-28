@@ -190,9 +190,9 @@
   }
 
   // ═══════════════════════════════════════════════════════════════
-  // 2. TOPIC TRAJECTORIES CHART
+  // 2. TOPIC TRAJECTORIES CHART — single-topic, gold vs blue
   // ═══════════════════════════════════════════════════════════════
-  var selectedTopics = ['earnings_capitalization', 'dcf_npv', 'speculation_trading', 'portfolio_theory'];
+  var activeTopic = 'earnings_capitalization';
 
   function buildTopicButtons() {
     var container = document.getElementById('topic-selector');
@@ -200,27 +200,22 @@
     container.innerHTML = '';
     topicKeys.forEach(function (key) {
       var btn = document.createElement('button');
-      btn.className = 'topic-btn' + (selectedTopics.indexOf(key) >= 0 ? ' active' : '');
+      btn.className = 'topic-btn' + (key === activeTopic ? ' active' : '');
       btn.textContent = topics[key];
       btn.dataset.topic = key;
       btn.addEventListener('click', function () {
-        var idx = selectedTopics.indexOf(key);
-        if (idx >= 0) selectedTopics.splice(idx, 1);
-        else selectedTopics.push(key);
-        this.classList.toggle('active');
+        if (key === activeTopic) return;
+        activeTopic = key;
+        // update button states
+        var btns = container.querySelectorAll('.topic-btn');
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].classList.toggle('active', btns[i].dataset.topic === key);
+        }
         drawTopics();
       });
       container.appendChild(btn);
     });
   }
-
-  // Distinct colors for topics
-  var TOPIC_COLORS = [
-    '#e8c547', '#5ba4cf', '#e06c75', '#98c379',
-    '#c678dd', '#56b6c2', '#d19a66', '#61afef',
-    '#be5046', '#7ec699', '#e5c07b', '#abb2bf',
-    '#ff6b6b', '#4ecdc4', '#ffe66d'
-  ];
 
   function drawTopics() {
     var canvas = document.getElementById('topics-canvas');
@@ -228,45 +223,56 @@
     var s = setupCanvas(canvas);
     var ctx = s.ctx, w = s.w, h = s.h;
 
-    var pad = { top: 20, bottom: 45, left: 60, right: 160 };
+    var pad = { top: 30, bottom: 45, left: 60, right: 20 };
     var chartW = w - pad.left - pad.right;
     var chartH = h - pad.top - pad.bottom;
 
     ctx.fillStyle = BG;
     ctx.fillRect(0, 0, w, h);
 
-    if (!selectedTopics.length) {
-      ctx.fillStyle = MUTED;
-      ctx.font = '14px ' + FONT;
-      ctx.textAlign = 'center';
-      ctx.fillText('Select topics above', w / 2, h / 2);
-      return;
-    }
+    var tk = activeTopic;
+    if (!tk) return;
 
-    // Find max value across selected topics
-    var maxVal = 0.05;
-    allWindows.forEach(function (wi) {
-      selectedTopics.forEach(function (tk) {
-        var pv = prac[wi] ? (prac[wi][tk] || 0) : 0;
-        var av = acad[wi] ? (acad[wi][tk] || 0) : 0;
-        if (pv > maxVal) maxVal = pv;
-        if (av > maxVal) maxVal = av;
-      });
+    // Title
+    ctx.fillStyle = TEXT;
+    ctx.font = 'bold 13px ' + FONT;
+    ctx.textAlign = 'left';
+    ctx.fillText(topics[tk], pad.left, 18);
+
+    // Gather data points (with >=5 doc threshold)
+    var pracPts = [], acadPts = [];
+    allWindows.forEach(function (wi, idx) {
+      var mid = windowMids[idx];
+      var pd = prac[wi] ? (prac[wi].total_docs || 0) : 0;
+      var ad = acad[wi] ? (acad[wi].total_docs || 0) : 0;
+      if (pd >= 5) pracPts.push({ mid: mid, val: prac[wi][tk] || 0 });
+      if (ad >= 5) acadPts.push({ mid: mid, val: acad[wi][tk] || 0 });
     });
-    maxVal = Math.ceil(maxVal * 10) / 10;
-    if (maxVal < 0.05) maxVal = 0.05;
+
+    // Auto-scale y axis
+    var maxVal = 0.05;
+    pracPts.forEach(function (p) { if (p.val > maxVal) maxVal = p.val; });
+    acadPts.forEach(function (p) { if (p.val > maxVal) maxVal = p.val; });
+    // Round up to nice value
+    if (maxVal <= 0.05) maxVal = 0.05;
+    else if (maxVal <= 0.1) maxVal = 0.1;
+    else if (maxVal <= 0.2) maxVal = 0.2;
+    else if (maxVal <= 0.3) maxVal = 0.3;
+    else if (maxVal <= 0.5) maxVal = 0.5;
+    else maxVal = 1.0;
 
     var minYear = Math.min.apply(null, windowMids) - 5;
     var maxYear = Math.max.apply(null, windowMids) + 5;
 
     function xPos(year) { return pad.left + ((year - minYear) / (maxYear - minYear)) * chartW; }
     function yPos(val) { return pad.top + (1 - val / maxVal) * chartH; }
+    var baseY = yPos(0);
 
-    // Grid
+    // Grid lines
     ctx.strokeStyle = AXIS;
     ctx.lineWidth = 0.5;
-    var gridStep = maxVal > 0.3 ? 0.1 : maxVal > 0.1 ? 0.05 : 0.01;
-    for (var g = 0; g <= maxVal; g += gridStep) {
+    var gridStep = maxVal >= 0.5 ? 0.1 : maxVal >= 0.2 ? 0.05 : 0.01;
+    for (var g = 0; g <= maxVal + 0.001; g += gridStep) {
       var gy = yPos(g);
       ctx.beginPath();
       ctx.moveTo(pad.left, gy);
@@ -278,7 +284,7 @@
       ctx.fillText((g * 100).toFixed(0) + '%', pad.left - 6, gy + 3);
     }
 
-    // X axis
+    // X axis labels
     ctx.textAlign = 'center';
     for (var yr = 1880; yr <= 2020; yr += 20) {
       var xx = xPos(yr);
@@ -289,7 +295,7 @@
       }
     }
 
-    // 1958 marker
+    // 1958 M&M marker
     var splitX = xPos(1958);
     ctx.save();
     ctx.setLineDash([4, 4]);
@@ -300,100 +306,85 @@
     ctx.lineTo(splitX, h - pad.bottom);
     ctx.stroke();
     ctx.restore();
+    ctx.fillStyle = PURPLE;
+    ctx.font = '9px ' + FONT;
+    ctx.textAlign = 'center';
+    ctx.fillText('M&M 1958', splitX, h - pad.bottom + 28);
 
-    // Draw each selected topic: two lines (prac=solid, acad=dashed)
-    selectedTopics.forEach(function (tk, ti) {
-      var color = TOPIC_COLORS[topicKeys.indexOf(tk) % TOPIC_COLORS.length];
-
-      // Practitioner line (solid)
-      var pracPts = [];
-      allWindows.forEach(function (wi, idx) {
-        var val = prac[wi] ? (prac[wi][tk] || 0) : 0;
-        var docs = prac[wi] ? (prac[wi].total_docs || 0) : 0;
-        if (docs >= 5) pracPts.push({ x: xPos(windowMids[idx]), y: yPos(val) });
+    // --- Practitioner: gold filled area + line ---
+    if (pracPts.length > 1) {
+      // Area
+      ctx.beginPath();
+      ctx.moveTo(xPos(pracPts[0].mid), baseY);
+      pracPts.forEach(function (p) { ctx.lineTo(xPos(p.mid), yPos(p.val)); });
+      ctx.lineTo(xPos(pracPts[pracPts.length - 1].mid), baseY);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(212, 160, 23, 0.15)';
+      ctx.fill();
+      // Line
+      ctx.beginPath();
+      ctx.strokeStyle = GOLD;
+      ctx.lineWidth = 2.5;
+      pracPts.forEach(function (p, i) {
+        if (i === 0) ctx.moveTo(xPos(p.mid), yPos(p.val));
+        else ctx.lineTo(xPos(p.mid), yPos(p.val));
       });
-      if (pracPts.length > 1) {
+      ctx.stroke();
+      // Dots
+      pracPts.forEach(function (p) {
         ctx.beginPath();
-        ctx.strokeStyle = color;
-        ctx.lineWidth = 2;
-        ctx.globalAlpha = 0.9;
-        pracPts.forEach(function (pt, i) {
-          if (i === 0) ctx.moveTo(pt.x, pt.y);
-          else ctx.lineTo(pt.x, pt.y);
-        });
+        ctx.arc(xPos(p.mid), yPos(p.val), 3, 0, Math.PI * 2);
+        ctx.fillStyle = GOLD;
+        ctx.fill();
+        ctx.strokeStyle = BG;
+        ctx.lineWidth = 1;
         ctx.stroke();
-        ctx.globalAlpha = 1;
-      }
-
-      // Academic line (dashed)
-      var acadPts = [];
-      allWindows.forEach(function (wi, idx) {
-        var val = acad[wi] ? (acad[wi][tk] || 0) : 0;
-        var docs = acad[wi] ? (acad[wi].total_docs || 0) : 0;
-        if (docs >= 5) acadPts.push({ x: xPos(windowMids[idx]), y: yPos(val) });
       });
-      if (acadPts.length > 1) {
-        ctx.save();
-        ctx.setLineDash([6, 4]);
-        ctx.beginPath();
-        ctx.strokeStyle = color;
-        ctx.lineWidth = 2;
-        ctx.globalAlpha = 0.9;
-        acadPts.forEach(function (pt, i) {
-          if (i === 0) ctx.moveTo(pt.x, pt.y);
-          else ctx.lineTo(pt.x, pt.y);
-        });
-        ctx.stroke();
-        ctx.globalAlpha = 1;
-        ctx.restore();
-      }
-    });
+    }
 
-    // Legend (right side)
-    var legendX = w - pad.right + 12;
-    var legendY = pad.top + 10;
+    // --- Academic: blue filled area + line ---
+    if (acadPts.length > 1) {
+      // Area
+      ctx.beginPath();
+      ctx.moveTo(xPos(acadPts[0].mid), baseY);
+      acadPts.forEach(function (p) { ctx.lineTo(xPos(p.mid), yPos(p.val)); });
+      ctx.lineTo(xPos(acadPts[acadPts.length - 1].mid), baseY);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(91, 164, 207, 0.15)';
+      ctx.fill();
+      // Line
+      ctx.beginPath();
+      ctx.strokeStyle = BLUE;
+      ctx.lineWidth = 2.5;
+      acadPts.forEach(function (p, i) {
+        if (i === 0) ctx.moveTo(xPos(p.mid), yPos(p.val));
+        else ctx.lineTo(xPos(p.mid), yPos(p.val));
+      });
+      ctx.stroke();
+      // Dots
+      acadPts.forEach(function (p) {
+        ctx.beginPath();
+        ctx.arc(xPos(p.mid), yPos(p.val), 3, 0, Math.PI * 2);
+        ctx.fillStyle = BLUE;
+        ctx.fill();
+        ctx.strokeStyle = BG;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      });
+    }
+
+    // Inline legend
     ctx.font = '10px ' + FONT;
     ctx.textAlign = 'left';
-    selectedTopics.forEach(function (tk, ti) {
-      var color = TOPIC_COLORS[topicKeys.indexOf(tk) % TOPIC_COLORS.length];
-      var yy = legendY + ti * 20;
-
-      // Solid line sample
-      ctx.strokeStyle = color;
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(legendX, yy);
-      ctx.lineTo(legendX + 18, yy);
-      ctx.stroke();
-
-      // Label
-      ctx.fillStyle = color;
-      var label = topics[tk];
-      if (label.length > 16) label = label.substring(0, 15) + '...';
-      ctx.fillText(label, legendX + 22, yy + 3);
-    });
-
-    // Footer legend: solid=practitioner, dashed=academic
-    ctx.font = '9px ' + FONT;
-    ctx.fillStyle = MUTED;
-    ctx.textAlign = 'left';
-    // Solid
-    ctx.strokeStyle = MUTED;
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.moveTo(pad.left, h - 8);
-    ctx.lineTo(pad.left + 18, h - 8);
-    ctx.stroke();
-    ctx.fillText('= Practitioner', pad.left + 22, h - 5);
-    // Dashed
-    ctx.save();
-    ctx.setLineDash([5, 3]);
-    ctx.beginPath();
-    ctx.moveTo(pad.left + 120, h - 8);
-    ctx.lineTo(pad.left + 138, h - 8);
-    ctx.stroke();
-    ctx.restore();
-    ctx.fillText('= Academic', pad.left + 142, h - 5);
+    var lx = pad.left + 8, ly = pad.top + 14;
+    // Gold swatch
+    ctx.fillStyle = GOLD;
+    ctx.fillRect(lx, ly - 6, 14, 3);
+    ctx.fillText('Practitioner', lx + 18, ly);
+    // Blue swatch
+    ctx.fillStyle = BLUE;
+    ctx.fillRect(lx + 110, ly - 6, 14, 3);
+    ctx.fillText('Academic', lx + 128, ly);
   }
 
   // ═══════════════════════════════════════════════════════════════
