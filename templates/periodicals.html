@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+{% set active_page = 'periodicals' %}
+
+{% block title %}Periodicals | {{ site.title }}{% endblock %}
+
+{% block head_extra %}
+<style>
+  .period-intro { max-width: 740px; margin: 0 auto 2rem; }
+  .period-intro p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+
+  .chart-section {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .chart-section h2 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+    color: var(--text-primary);
+  }
+  .chart-section .chart-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  .chart-canvas-wrap {
+    position: relative;
+    width: 100%;
+  }
+  .chart-canvas-wrap canvas {
+    display: block;
+    width: 100%;
+  }
+
+  .source-counts {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .source-count {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    flex: 1;
+    min-width: 200px;
+  }
+  .source-count .count-value {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 700;
+  }
+  .source-count .count-label {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  .source-count.practitioner .count-value { color: var(--gold); }
+  .source-count.academic .count-value { color: var(--blue); }
+
+  .topic-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+  .topic-btn {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 0.3rem 0.6rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .topic-btn:hover { border-color: var(--text-muted); color: var(--text-primary); }
+  .topic-btn.active { border-color: var(--purple); color: var(--purple); background: var(--purple-dim); }
+
+  .legend-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+  .legend-item { display: flex; align-items: center; gap: 0.4rem; }
+  .legend-swatch {
+    display: inline-block;
+    width: 24px; height: 3px;
+    border-radius: 2px;
+  }
+  .legend-swatch.dashed {
+    background: repeating-linear-gradient(90deg, currentColor 0 6px, transparent 6px 10px);
+    height: 2px;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <div class="page-header">
+    <h1>The Two Literatures</h1>
+    <p class="subtitle">
+      Topic trajectories in practitioner trade magazines vs. academic finance journals, 1865&ndash;2026.
+    </p>
+  </div>
+
+  <div class="period-intro">
+    <p>
+      We digitized the full text of three major Wall Street trade magazines
+      and the titles of every article in the top three academic finance journals.
+      For each 5-year window, we measure what fraction of documents discuss each topic.
+      The result: <strong>two literatures that inhabit different worlds</strong>.
+      Practitioners write about earnings, speculation, and trading.
+      Academics write about portfolio theory, efficient markets, and risk models.
+      The overlap is vanishingly small.
+    </p>
+  </div>
+
+  <!-- Source counts -->
+  <div class="source-counts">
+    <div class="source-count practitioner">
+      <div class="count-value" id="prac-count">0</div>
+      <div class="count-label">Practitioner magazine issues</div>
+      <div class="count-label" style="margin-top:0.3rem; font-size:0.75rem; color:var(--text-muted);">
+        Magazine of Wall Street (1907&ndash;1970) &bull;
+        Commercial &amp; Financial Chronicle (1865&ndash;1973) &bull;
+        Financial World (1902&ndash;1976)
+      </div>
+    </div>
+    <div class="source-count academic">
+      <div class="count-value" id="acad-count">0</div>
+      <div class="count-label">Academic journal articles</div>
+      <div class="count-label" style="margin-top:0.3rem; font-size:0.75rem; color:var(--text-muted);">
+        Journal of Finance (1946&ndash;) &bull;
+        Journal of Financial Economics (1974&ndash;) &bull;
+        Review of Financial Studies (1988&ndash;)
+      </div>
+    </div>
+  </div>
+
+  <!-- Divergence chart -->
+  <div class="chart-section">
+    <h2>How Different Are the Two Literatures?</h2>
+    <p class="chart-subtitle">
+      Cosine distance between topic-frequency vectors.
+      0 = identical vocabulary, 1 = completely disjoint.
+      Computed only for windows where both streams have 10+ documents.
+    </p>
+    <div class="chart-canvas-wrap">
+      <canvas id="divergence-canvas" height="220"></canvas>
+    </div>
+  </div>
+
+  <!-- Topic trajectories -->
+  <div class="chart-section">
+    <h2>Topic Trajectories</h2>
+    <p class="chart-subtitle">
+      Fraction of documents mentioning each topic, by 5-year window.
+      <span style="color:var(--gold);">Gold</span> = practitioner magazines,
+      <span style="color:var(--blue);">blue</span> = academic journals.
+    </p>
+    <div class="legend-row">
+      <div class="legend-item"><span class="legend-swatch" style="background:var(--gold);"></span> Practitioner</div>
+      <div class="legend-item"><span class="legend-swatch" style="background:var(--blue);"></span> Academic</div>
+    </div>
+    <div class="topic-selector" id="topic-selector"></div>
+    <div class="chart-canvas-wrap">
+      <canvas id="topics-canvas" height="360"></canvas>
+    </div>
+  </div>
+
+  <!-- Heatmap -->
+  <div class="chart-section">
+    <h2>Topic Heatmap</h2>
+    <p class="chart-subtitle">
+      All topics across all time windows. Color intensity = fraction of documents.
+      Top rows: practitioner magazines. Bottom rows: academic journals.
+    </p>
+    <div class="chart-canvas-wrap">
+      <canvas id="heatmap-canvas" height="520"></canvas>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  window.TRAJECTORIES = {{ trajectories_data | tojson }};
+</script>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ root }}static/js/periodicals.js"></script>
+{% endblock %}

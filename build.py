@@ -573,7 +573,23 @@ def build_site():
     html = tpl.render(**common, library_json=json.dumps(lib_entries, default=str))
     write_page("library.html", html)
 
-    # 7. About
+    # 7. Periodicals (topic trajectories)
+    print("  Rendering periodicals.html...")
+    traj_path = os.path.join(os.path.dirname(__file__), "..", "Periodicals", "trajectories.json")
+    if os.path.exists(traj_path):
+        with open(traj_path, encoding="utf-8") as f:
+            trajectories_data = json.load(f)
+        tpl = env.get_template("periodicals.html")
+        html = tpl.render(**common, trajectories_data=trajectories_data)
+        write_page("periodicals.html", html)
+        n_windows = len(set(list(trajectories_data.get("practitioner", {}).keys())
+                          + list(trajectories_data.get("academic", {}).keys())))
+        print(f"    Loaded {n_windows} time windows, "
+              f"{len(trajectories_data.get('topics', {}))} topics")
+    else:
+        print(f"    WARNING: trajectories.json not found at {traj_path} — skipping")
+
+    # 8. About
     print("  Rendering about.html...")
     tpl = env.get_template("about.html")
     stats = {
