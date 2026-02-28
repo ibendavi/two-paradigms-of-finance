@@ -13,6 +13,7 @@
   var divergence = D.divergence; // {window: {cosine_distance, ...}}
   var pracLag = D.prac_lag || {};  // {window: {cosine_distance, vs_window}}
   var acadLag = D.acad_lag || {};  // {window: {cosine_distance, vs_window}}
+  var perSourceDiv = D.per_source_divergence || {};
 
   // Colors
   var GOLD = '#d4a017';
@@ -215,6 +216,189 @@
     ctx.fillStyle = BLUE;
     ctx.fillRect(lx3, ly - 4, 14, 3);
     ctx.fillText('Academic vs own lag', lx3 + 18, ly);
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  // 1b. PER-SOURCE DIVERGENCE CHART
+  //     Each line = one journal/magazine vs. the other stream's aggregate
+  // ═══════════════════════════════════════════════════════════════
+
+  // Assign distinct colors to sources (cycle through a palette)
+  var SOURCE_PALETTE_ACAD = [
+    '#5ba4cf', '#7ec8e3', '#4a90d9', '#82b1ff', '#5c6bc0', '#7986cb', '#90caf9'
+  ];
+  var SOURCE_PALETTE_PRAC = [
+    '#d4a017', '#e6b800', '#c49000', '#f0c040', '#b8860b', '#daa520', '#cd853f',
+    '#e8a920', '#c8a000', '#d4b030', '#bfa020', '#c09820'
+  ];
+  var sourceNames = Object.keys(perSourceDiv).sort();
+  var sourceColors = {};
+  var aidx = 0, pidx = 0;
+  sourceNames.forEach(function (name) {
+    if (perSourceDiv[name].stream === 'academic') {
+      sourceColors[name] = SOURCE_PALETTE_ACAD[aidx % SOURCE_PALETTE_ACAD.length];
+      aidx++;
+    } else {
+      sourceColors[name] = SOURCE_PALETTE_PRAC[pidx % SOURCE_PALETTE_PRAC.length];
+      pidx++;
+    }
+  });
+
+  // Active sources (togglable)
+  var activeSources = {};
+  sourceNames.forEach(function (n) { activeSources[n] = true; });
+
+  function buildSourceButtons() {
+    var container = document.getElementById('source-selector');
+    if (!container) return;
+    container.innerHTML = '';
+
+    // Group by stream
+    var acadSources = sourceNames.filter(function (n) { return perSourceDiv[n].stream === 'academic'; });
+    var pracSources = sourceNames.filter(function (n) { return perSourceDiv[n].stream === 'practitioner'; });
+
+    function addGroup(label, sources, className) {
+      var group = document.createElement('div');
+      group.style.marginBottom = '0.3rem';
+      var lbl = document.createElement('span');
+      lbl.style.fontSize = '0.7rem';
+      lbl.style.color = className === 'academic' ? BLUE : GOLD;
+      lbl.style.marginRight = '0.5rem';
+      lbl.textContent = label + ':';
+      group.appendChild(lbl);
+      sources.forEach(function (name) {
+        var btn = document.createElement('button');
+        btn.className = 'topic-btn source-btn' + (activeSources[name] ? ' active' : '');
+        btn.style.fontSize = '0.65rem';
+        btn.style.padding = '2px 6px';
+        btn.style.borderColor = sourceColors[name];
+        if (activeSources[name]) btn.style.backgroundColor = sourceColors[name] + '33';
+        btn.textContent = name;
+        btn.dataset.source = name;
+        btn.addEventListener('click', function () {
+          activeSources[name] = !activeSources[name];
+          btn.classList.toggle('active', activeSources[name]);
+          btn.style.backgroundColor = activeSources[name] ? sourceColors[name] + '33' : '';
+          drawSourceDivergence();
+        });
+        group.appendChild(btn);
+      });
+      container.appendChild(group);
+    }
+
+    addGroup('Academic journals', acadSources, 'academic');
+    addGroup('Practitioner magazines', pracSources, 'practitioner');
+  }
+
+  function drawSourceDivergence() {
+    var canvas = document.getElementById('source-divergence-canvas');
+    if (!canvas) return;
+    var s = setupCanvas(canvas);
+    var ctx = s.ctx, w = s.w, h = s.h;
+
+    var pad = { top: 25, bottom: 35, left: 60, right: 20 };
+    var chartW = w - pad.left - pad.right;
+    var chartH = h - pad.top - pad.bottom;
+
+    ctx.fillStyle = BG;
+    ctx.fillRect(0, 0, w, h);
+
+    var minYear = Math.min.apply(null, windowMids) - 5;
+    var maxYear = Math.max.apply(null, windowMids) + 5;
+
+    function xPos(year) { return pad.left + ((year - minYear) / (maxYear - minYear)) * chartW; }
+    function yPos(val) { return pad.top + (1 - val) * chartH; }
+
+    // Grid
+    ctx.strokeStyle = AXIS;
+    ctx.lineWidth = 0.5;
+    for (var g = 0; g <= 1; g += 0.25) {
+      var gy = yPos(g);
+      ctx.beginPath();
+      ctx.moveTo(pad.left, gy);
+      ctx.lineTo(w - pad.right, gy);
+      ctx.stroke();
+      ctx.fillStyle = MUTED;
+      ctx.font = '10px ' + FONT;
+      ctx.textAlign = 'right';
+      ctx.fillText(g.toFixed(2), pad.left - 6, gy + 3);
+    }
+
+    // X axis labels
+    ctx.textAlign = 'center';
+    for (var yr = 1880; yr <= 2020; yr += 20) {
+      var xx = xPos(yr);
+      if (xx > pad.left && xx < w - pad.right) {
+        ctx.fillStyle = MUTED;
+        ctx.font = '10px ' + FONT;
+        ctx.fillText(yr, xx, h - pad.bottom + 16);
+        ctx.beginPath();
+        ctx.moveTo(xx, pad.top);
+        ctx.lineTo(xx, h - pad.bottom);
+        ctx.strokeStyle = AXIS;
+        ctx.lineWidth = 0.3;
+        ctx.stroke();
+      }
+    }
+
+    // 1958 marker
+    var splitX = xPos(1958);
+    ctx.save();
+    ctx.setLineDash([4, 4]);
+    ctx.strokeStyle = PURPLE;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(splitX, pad.top);
+    ctx.lineTo(splitX, h - pad.bottom);
+    ctx.stroke();
+    ctx.restore();
+    ctx.fillStyle = PURPLE;
+    ctx.font = '9px ' + FONT;
+    ctx.textAlign = 'center';
+    ctx.fillText('M&M 1958', splitX, pad.top - 8);
+
+    // Y-axis label
+    ctx.save();
+    ctx.translate(14, pad.top + chartH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = MUTED;
+    ctx.font = '10px ' + FONT;
+    ctx.textAlign = 'center';
+    ctx.fillText('COSINE DISTANCE', 0, 0);
+    ctx.restore();
+
+    // Draw each active source
+    sourceNames.forEach(function (name) {
+      if (!activeSources[name]) return;
+      var info = perSourceDiv[name];
+      if (!info || !info.series) return;
+      var color = sourceColors[name];
+      var wins = Object.keys(info.series).sort();
+      var mids = wins.map(function (w) { return parseInt(w.split('-')[0]) + 2; });
+      var vals = wins.map(function (w) { return info.series[w]; });
+      if (mids.length < 2) return;
+
+      // Line
+      ctx.beginPath();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.5;
+      ctx.globalAlpha = 0.8;
+      for (var i = 0; i < mids.length; i++) {
+        var px = xPos(mids[i]), py = yPos(vals[i]);
+        if (i === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      }
+      ctx.stroke();
+      ctx.globalAlpha = 1.0;
+
+      // Dots
+      for (var i = 0; i < mids.length; i++) {
+        ctx.beginPath();
+        ctx.arc(xPos(mids[i]), yPos(vals[i]), 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.fill();
+      }
+    });
   }
 
   // ═══════════════════════════════════════════════════════════════
@@ -534,12 +718,15 @@
   // Init
   // ═══════════════════════════════════════════════════════════════
   buildTopicButtons();
+  buildSourceButtons();
   drawDivergence();
+  drawSourceDivergence();
   drawTopics();
   drawHeatmap();
 
   window.addEventListener('resize', function () {
     drawDivergence();
+    drawSourceDivergence();
     drawTopics();
     drawHeatmap();
   });
