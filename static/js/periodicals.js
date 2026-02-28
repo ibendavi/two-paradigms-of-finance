@@ -53,7 +53,10 @@
   function setupCanvas(canvas) {
     var rect = canvas.parentElement.getBoundingClientRect();
     var w = rect.width;
-    var h = parseInt(canvas.getAttribute('height')) || 300;
+    // Store the original CSS height on first call to avoid DPR multiplication bug:
+    // canvas.height gets set to h*dpr, and getAttribute('height') reads that back
+    var h = parseInt(canvas.dataset.baseHeight || canvas.getAttribute('height')) || 300;
+    canvas.dataset.baseHeight = h;
     canvas.style.width = w + 'px';
     canvas.style.height = h + 'px';
     canvas.width = w * dpr;
@@ -415,10 +418,11 @@
     // Adjust canvas height if needed
     var needH = totalH + pad.top + pad.bottom + 20;
     if (needH > h) {
-      canvas.style.height = needH + 'px';
-      canvas.height = needH * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       h = needH;
+      canvas.dataset.baseHeight = h;
+      canvas.style.height = h + 'px';
+      canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.fillStyle = BG;
       ctx.fillRect(0, 0, w, h);
     }
