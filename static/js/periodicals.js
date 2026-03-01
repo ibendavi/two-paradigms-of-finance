@@ -852,10 +852,12 @@
   //    intensity = count of ~3K-char segments at that score
   // ═══════════════════════════════════════════════════════════════
 
-  var segHist = D.segment_histograms || {};
-  var segBins = D.segment_bins || [];       // bin centers
-  var segBinEdges = D.segment_bin_edges || [];
-  var segStats = D.segment_stats || {};
+  // Prefer embedding-based histograms (smoother, no banding) over keyword-based
+  var embMA = (D.embedding_histograms || {}).mergers_acquisitions || {};
+  var segHist = embMA.segment_histograms || D.segment_histograms || {};
+  var segBins = embMA.segment_bins || D.segment_bins || [];       // bin centers
+  var segBinEdges = embMA.segment_bin_edges || D.segment_bin_edges || [];
+  var segStats = embMA.segment_stats || D.segment_stats || {};
 
   function drawDensitySurface(canvasId, streamKey, accentColor) {
     var canvas = document.getElementById(canvasId);
@@ -940,7 +942,11 @@
     ctx.textAlign = 'right';
     var binMin = segBins[0] - (segBins[1] - segBins[0]) / 2;
     var binMax = segBins[nBins - 1] + (segBins[1] - segBins[0]) / 2;
-    [binMin, -0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3, binMax].forEach(function (val) {
+    // Dynamic tick marks: use wider range for embedding data (±1.0) vs keyword (±0.5)
+    var yTicks = (binMax > 0.6)
+      ? [binMin, -0.8, -0.6, -0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.8, binMax]
+      : [binMin, -0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3, binMax];
+    yTicks.forEach(function (val) {
       // Map score value to Y position
       var frac = (val - binMin) / (binMax - binMin); // 0 at bottom, 1 at top
       var y = pad.top + (1 - frac) * chartH;
