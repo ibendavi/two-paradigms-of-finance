@@ -857,6 +857,15 @@
   var embTopicKeys = Object.keys(embData).sort();
   var currentDensityTopic = embTopicKeys[0] || null;
 
+  // Friendly labels for topic keys (fallback when data lacks 'label' field)
+  var TOPIC_LABELS = {
+    mergers_acquisitions: 'M&A',
+    valuation: 'Valuation',
+    capital_structure: 'Capital Structure',
+    dividends_payout: 'Dividends & Payout',
+    earnings_eps: 'Earnings / EPS'
+  };
+
   // Build topic selector buttons
   function buildDensityTopicButtons() {
     var container = document.getElementById('density-topic-selector');
@@ -865,7 +874,7 @@
     embTopicKeys.forEach(function (key) {
       var btn = document.createElement('button');
       btn.className = 'topic-btn' + (key === currentDensityTopic ? ' active' : '');
-      btn.textContent = embData[key].label || key.replace(/_/g, ' ');
+      btn.textContent = embData[key].label || TOPIC_LABELS[key] || key.replace(/_/g, ' ');
       btn.onclick = function () {
         currentDensityTopic = key;
         container.querySelectorAll('.topic-btn').forEach(function (b) { b.classList.remove('active'); });
@@ -915,34 +924,52 @@
 
     var nBins = bins.length;
     var binWidth = bins[1] - bins[0];
-    var fullMin = bins[0] - binWidth / 2;
-    var fullMax = bins[nBins - 1] + binWidth / 2;
 
-    // Find Y-axis crop: bins containing 99.5% of data
-    var totalByBin = new Array(nBins).fill(0);
+    // Compute mean and SE for each stream x window from histogram bins
+    function computeStats(histData) {
+      var stats = {};
+      windows.forEach(function (wi) {
+        var hb = histData[wi] || [];
+        var total = 0, weightedSum = 0, weightedSqSum = 0;
+        for (var b = 0; b < nBins; b++) {
+          var c = hb[b] || 0;
+          total += c;
+          weightedSum += c * bins[b];
+          weightedSqSum += c * bins[b] * bins[b];
+        }
+        if (total < 2) { stats[wi] = null; return; }
+        var mean = weightedSum / total;
+        var variance = weightedSqSum / total - mean * mean;
+        var sd = Math.sqrt(Math.max(0, variance));
+        var se = sd / Math.sqrt(total);
+        stats[wi] = { mean: mean, se: se, sd: sd, n: total };
+      });
+      return stats;
+    }
+
+    var pracStats = computeStats(pracHist);
+    var acadStats = computeStats(acadHist);
+
+    // Determine Y-axis range from mean ± 2SE across all windows
+    var yMin = Infinity, yMax = -Infinity;
     windows.forEach(function (wi) {
-      var p = pracHist[wi] || [];
-      var a = acadHist[wi] || [];
-      for (var b = 0; b < nBins; b++) {
-        totalByBin[b] += (p[b] || 0) + (a[b] || 0);
+      var ps = pracStats[wi], as = acadStats[wi];
+      if (ps) {
+        yMin = Math.min(yMin, ps.mean - 2 * ps.se);
+        yMax = Math.max(yMax, ps.mean + 2 * ps.se);
+      }
+      if (as) {
+        yMin = Math.min(yMin, as.mean - 2 * as.se);
+        yMax = Math.max(yMax, as.mean + 2 * as.se);
       }
     });
-    var grandTotal = totalByBin.reduce(function (s, v) { return s + v; }, 0);
-    var cutoff = grandTotal * 0.0025;
-    var loBin = 0, hiBin = nBins - 1;
-    var cumLo = 0;
-    for (var b = 0; b < nBins; b++) {
-      cumLo += totalByBin[b];
-      if (cumLo >= cutoff) { loBin = Math.max(0, b - 1); break; }
-    }
-    var cumHi = 0;
-    for (var b = nBins - 1; b >= 0; b--) {
-      cumHi += totalByBin[b];
-      if (cumHi >= cutoff) { hiBin = Math.min(nBins - 1, b + 1); break; }
-    }
-    var viewBins = hiBin - loBin + 1;
-    var viewMin = bins[loBin] - binWidth / 2;
-    var viewMax = bins[hiBin] + binWidth / 2;
+    // Add 15% padding
+    var yRange = yMax - yMin;
+    yMin -= yRange * 0.15;
+    yMax += yRange * 0.15;
+    // Round to nice values
+    var viewMin = Math.floor(yMin * 20) / 20;
+    var viewMax = Math.ceil(yMax * 20) / 20;
 
     var s = setupCanvas(canvas);
     var ctx = s.ctx, w = s.w, h = s.h;
@@ -954,71 +981,106 @@
     ctx.fillStyle = BG;
     ctx.fillRect(0, 0, w, h);
 
-    // Find global max across BOTH streams for shared color scaling
-    var globalMax = 0;
-    windows.forEach(function (wi) {
-      var p = pracHist[wi] || [];
-      var a = acadHist[wi] || [];
-      for (var b = loBin; b <= hiBin; b++) {
-        if ((p[b] || 0) > globalMax) globalMax = p[b] || 0;
-        if ((a[b] || 0) > globalMax) globalMax = a[b] || 0;
-      }
-    });
-    if (globalMax === 0) return;
-
     var cellW = chartW / windows.length;
-    var cellH = chartH / viewBins;
 
-    // Draw both streams overlaid. Draw each cell by blending.
-    // Practitioner = gold, Academic = blue.
-    // If both have counts, blend additively.
-    windows.forEach(function (wi, ci) {
-      var p = pracHist[wi] || [];
-      var a = acadHist[wi] || [];
-      var x = pad.left + ci * cellW;
-      for (var b = loBin; b <= hiBin; b++) {
-        var pc = p[b] || 0;
-        var ac = a[b] || 0;
-        if (pc === 0 && ac === 0) continue;
-        var vb = b - loBin;
-        var y = pad.top + (viewBins - 1 - vb) * cellH;
-        // Intensity via sqrt scaling
-        var pi = pc > 0 ? Math.sqrt(pc / globalMax) : 0;
-        var ai = ac > 0 ? Math.sqrt(ac / globalMax) : 0;
-        // Blend: gold (212,160,23) and blue (91,164,207)
-        var r = Math.round(212 * pi + 91 * ai);
-        var g = Math.round(160 * pi + 164 * ai);
-        var bl = Math.round(23 * pi + 207 * ai);
-        r = Math.min(255, r); g = Math.min(255, g); bl = Math.min(255, bl);
-        var alpha = Math.min(1, Math.max(pi, ai) * 0.85 + 0.1);
-        ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + bl + ',' + alpha.toFixed(3) + ')';
-        ctx.fillRect(x, y, cellW + 0.5, cellH + 0.5);
+    // Helper: score to y pixel
+    function scoreToY(score) {
+      var frac = (score - viewMin) / (viewMax - viewMin);
+      return pad.top + (1 - frac) * chartH;
+    }
+
+    // Draw ±2SE shaded band for a stream
+    function drawBand(statsData, color) {
+      // Collect valid points
+      var pts = [];
+      windows.forEach(function (wi, ci) {
+        var st = statsData[wi];
+        if (!st) return;
+        pts.push({
+          x: pad.left + ci * cellW + cellW / 2,
+          mean: st.mean,
+          hi: st.mean + 2 * st.se,
+          lo: st.mean - 2 * st.se,
+          n: st.n
+        });
+      });
+      if (pts.length < 2) return;
+
+      // Fill ±2SE band
+      ctx.fillStyle = color.replace(')', ',0.15)').replace('rgb(', 'rgba(');
+      ctx.beginPath();
+      // Upper edge left to right
+      ctx.moveTo(pts[0].x, scoreToY(pts[0].hi));
+      for (var i = 1; i < pts.length; i++) {
+        ctx.lineTo(pts[i].x, scoreToY(pts[i].hi));
       }
-    });
+      // Lower edge right to left
+      for (var i = pts.length - 1; i >= 0; i--) {
+        ctx.lineTo(pts[i].x, scoreToY(pts[i].lo));
+      }
+      ctx.closePath();
+      ctx.fill();
+
+      // Fill ±1SE band (darker)
+      ctx.fillStyle = color.replace(')', ',0.15)').replace('rgb(', 'rgba(');
+      ctx.beginPath();
+      ctx.moveTo(pts[0].x, scoreToY(pts[0].mean + pts[0].hi - pts[0].mean > 0 ? pts[0].mean + (pts[0].hi - pts[0].mean) / 2 : pts[0].mean));
+      for (var i = 0; i < pts.length; i++) {
+        var se1 = (pts[i].hi - pts[i].mean) / 2; // 1SE = half of 2SE
+        ctx.lineTo(pts[i].x, scoreToY(pts[i].mean + se1));
+      }
+      for (var i = pts.length - 1; i >= 0; i--) {
+        var se1 = (pts[i].hi - pts[i].mean) / 2;
+        ctx.lineTo(pts[i].x, scoreToY(pts[i].mean - se1));
+      }
+      ctx.closePath();
+      ctx.fill();
+
+      // Mean line
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(pts[0].x, scoreToY(pts[0].mean));
+      for (var i = 1; i < pts.length; i++) {
+        ctx.lineTo(pts[i].x, scoreToY(pts[i].mean));
+      }
+      ctx.stroke();
+    }
 
     // Zero line
     if (viewMin < 0 && viewMax > 0) {
-      var zeroFrac = (0 - viewMin) / (viewMax - viewMin);
-      var zeroY = pad.top + (1 - zeroFrac) * chartH;
-      ctx.strokeStyle = 'rgba(255,255,255,0.35)';
+      var zeroY = scoreToY(0);
+      ctx.strokeStyle = 'rgba(255,255,255,0.25)';
       ctx.lineWidth = 1;
+      ctx.setLineDash([4, 4]);
       ctx.beginPath();
       ctx.moveTo(pad.left, zeroY);
       ctx.lineTo(pad.left + chartW, zeroY);
       ctx.stroke();
+      ctx.setLineDash([]);
     }
+
+    // Draw bands (academic first so practitioner draws on top)
+    drawBand(acadStats, 'rgb(91,164,207)');
+    drawBand(pracStats, 'rgb(212,160,23)');
 
     // Y-axis labels
     ctx.fillStyle = MUTED;
     ctx.font = '9px ' + FONT;
     ctx.textAlign = 'right';
-    var step = (viewMax - viewMin) > 0.8 ? 0.2 : 0.1;
+    var step = (viewMax - viewMin) > 0.4 ? 0.1 : 0.05;
     var tick = Math.ceil(viewMin / step) * step;
     while (tick <= viewMax + 0.001) {
-      var frac = (tick - viewMin) / (viewMax - viewMin);
-      var y = pad.top + (1 - frac) * chartH;
+      var y = scoreToY(tick);
       if (y >= pad.top - 5 && y <= pad.top + chartH + 5) {
-        ctx.fillText((tick >= 0 ? '+' : '') + tick.toFixed(1), pad.left - 6, y + 3);
+        ctx.fillText((tick >= 0 ? '+' : '') + tick.toFixed(2), pad.left - 6, y + 3);
+        // Grid line
+        ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+        ctx.lineWidth = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(pad.left, y);
+        ctx.lineTo(pad.left + chartW, y);
+        ctx.stroke();
       }
       tick += step;
     }
@@ -1027,9 +1089,9 @@
     ctx.font = '9px ' + FONT;
     ctx.textAlign = 'left';
     ctx.fillStyle = GOLD;
-    ctx.fillText('\u2191 Prac', w - pad.right + 8, pad.top + 10);
+    ctx.fillText('\u2191 Practitioner', w - pad.right + 8, pad.top + 10);
     ctx.fillStyle = BLUE;
-    ctx.fillText('\u2193 Acad', w - pad.right + 8, pad.top + chartH - 2);
+    ctx.fillText('\u2193 Academic', w - pad.right + 8, pad.top + chartH - 2);
 
     // X-axis labels
     ctx.textAlign = 'center';
@@ -1067,52 +1129,23 @@
       ctx.fillStyle = PURPLE;
       ctx.font = '8px ' + FONT;
       ctx.textAlign = 'center';
-      ctx.fillText('M&M', sx, pad.top - 4);
+      ctx.fillText('M&M 1958', sx, pad.top - 4);
     }
 
-    // Mean lines for each stream
-    function drawMeanLine(histData, color) {
-      ctx.strokeStyle = color;
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      var started = false;
-      windows.forEach(function (wi, ci) {
-        var hb = histData[wi] || [];
-        var total = 0, weightedSum = 0;
-        for (var b = 0; b < nBins; b++) {
-          total += (hb[b] || 0);
-          weightedSum += (hb[b] || 0) * bins[b];
-        }
-        if (total === 0) return;
-        var mean = weightedSum / total;
-        var frac = (mean - viewMin) / (viewMax - viewMin);
-        var y = pad.top + (1 - frac) * chartH;
-        var x = pad.left + ci * cellW + cellW / 2;
-        if (!started) { ctx.moveTo(x, y); started = true; }
-        else ctx.lineTo(x, y);
-      });
-      ctx.stroke();
-    }
-    drawMeanLine(pracHist, GOLD);
-    drawMeanLine(acadHist, BLUE);
-
-    // Segment count labels at top (combined)
+    // Segment count labels at top
     ctx.font = '7px ' + FONT;
     ctx.textAlign = 'center';
     windows.forEach(function (wi, ci) {
-      var p = pracHist[wi] || [];
-      var a = acadHist[wi] || [];
-      var pTotal = 0, aTotal = 0;
-      for (var b = 0; b < nBins; b++) { pTotal += (p[b] || 0); aTotal += (a[b] || 0); }
+      var ps = pracStats[wi], as = acadStats[wi];
       var x = pad.left + ci * cellW + cellW / 2;
-      if (pTotal > 0) {
+      if (ps) {
         ctx.fillStyle = 'rgba(212,160,23,0.5)';
-        var label = pTotal >= 1000 ? (pTotal / 1000).toFixed(0) + 'K' : pTotal.toString();
+        var label = ps.n >= 1000 ? (ps.n / 1000).toFixed(0) + 'K' : ps.n.toString();
         ctx.fillText(label, x, pad.top - 10);
       }
-      if (aTotal > 0) {
+      if (as) {
         ctx.fillStyle = 'rgba(91,164,207,0.5)';
-        var label = aTotal >= 1000 ? (aTotal / 1000).toFixed(0) + 'K' : aTotal.toString();
+        var label = as.n >= 1000 ? (as.n / 1000).toFixed(0) + 'K' : as.n.toString();
         ctx.fillText(label, x, pad.top - 2);
       }
     });
