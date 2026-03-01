@@ -879,7 +879,16 @@
   function drawOverlaidDensity() {
     var canvas = document.getElementById('density-canvas');
     if (!canvas) return;
-
+    try { return _drawOverlaidDensityInner(canvas); }
+    catch(e) {
+      var s = setupCanvas(canvas);
+      s.ctx.fillStyle = BG; s.ctx.fillRect(0,0,s.w,s.h);
+      s.ctx.fillStyle = '#ff6666'; s.ctx.font = '12px ' + FONT; s.ctx.textAlign = 'center';
+      s.ctx.fillText('Error: ' + e.message, s.w/2, s.h/2);
+      console.error('drawOverlaidDensity error:', e);
+    }
+  }
+  function _drawOverlaidDensityInner(canvas) {
     // Get data for current topic
     var topicData = embData[currentDensityTopic] || {};
     var bins = topicData.segment_bins || D.segment_bins || [];
