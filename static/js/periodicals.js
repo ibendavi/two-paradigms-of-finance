@@ -847,18 +847,223 @@
   }
 
   // ═══════════════════════════════════════════════════════════════
+  // 4. SEGMENT DENSITY SURFACES
+  //    Heatmap: X = time window, Y = paradigm score bin,
+  //    intensity = count of ~3K-char segments at that score
+  // ═══════════════════════════════════════════════════════════════
+
+  var segHist = D.segment_histograms || {};
+  var segBins = D.segment_bins || [];       // bin centers
+  var segBinEdges = D.segment_bin_edges || [];
+  var segStats = D.segment_stats || {};
+
+  function drawDensitySurface(canvasId, streamKey, accentColor) {
+    var canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    var histData = (segHist[streamKey] || {});
+    var windows = Object.keys(histData).sort();
+    if (windows.length === 0 || segBins.length === 0) {
+      // No data yet — show placeholder
+      var s = setupCanvas(canvas);
+      var ctx = s.ctx;
+      ctx.fillStyle = BG;
+      ctx.fillRect(0, 0, s.w, s.h);
+      ctx.fillStyle = MUTED;
+      ctx.font = '13px ' + FONT;
+      ctx.textAlign = 'center';
+      ctx.fillText('Segment data not yet computed. Run analyze_trajectories_v3.py', s.w / 2, s.h / 2);
+      return;
+    }
+
+    var s = setupCanvas(canvas);
+    var ctx = s.ctx, w = s.w, h = s.h;
+
+    var pad = { top: 20, bottom: 45, left: 60, right: 60 };
+    var chartW = w - pad.left - pad.right;
+    var chartH = h - pad.top - pad.bottom;
+    var nBins = segBins.length;
+
+    ctx.fillStyle = BG;
+    ctx.fillRect(0, 0, w, h);
+
+    // Find the global max count for color scaling
+    var globalMax = 0;
+    windows.forEach(function (wi) {
+      var bins = histData[wi];
+      for (var b = 0; b < bins.length; b++) {
+        if (bins[b] > globalMax) globalMax = bins[b];
+      }
+    });
+    if (globalMax === 0) return;
+
+    // Cell dimensions
+    var cellW = chartW / windows.length;
+    var cellH = chartH / nBins;
+
+    // Parse accent color to RGB for intensity mapping
+    var r0, g0, b0;
+    if (accentColor === GOLD) { r0 = 212; g0 = 160; b0 = 23; }
+    else { r0 = 91; g0 = 164; b0 = 207; }
+
+    // Draw cells (bottom = most negative score, top = most positive)
+    windows.forEach(function (wi, ci) {
+      var bins = histData[wi];
+      var x = pad.left + ci * cellW;
+      for (var b = 0; b < nBins; b++) {
+        var count = bins[b];
+        if (count === 0) continue;
+        // bin 0 = most negative (bottom), bin N-1 = most positive (top)
+        var y = pad.top + (nBins - 1 - b) * cellH;
+        // Use sqrt scaling for better visibility of low counts
+        var intensity = Math.sqrt(count / globalMax);
+        ctx.fillStyle = 'rgba(' + r0 + ',' + g0 + ',' + b0 + ',' + (intensity * 0.9 + 0.1).toFixed(3) + ')';
+        ctx.fillRect(x, y, cellW + 0.5, cellH + 0.5);
+      }
+    });
+
+    // Zero line
+    var zeroIdx = 0;
+    for (var b = 0; b < nBins; b++) {
+      if (segBins[b] >= 0) { zeroIdx = b; break; }
+    }
+    var zeroY = pad.top + (nBins - 1 - zeroIdx) * cellH;
+    ctx.strokeStyle = 'rgba(255,255,255,0.4)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(pad.left, zeroY);
+    ctx.lineTo(pad.left + chartW, zeroY);
+    ctx.stroke();
+
+    // Y-axis labels (paradigm score)
+    ctx.fillStyle = MUTED;
+    ctx.font = '9px ' + FONT;
+    ctx.textAlign = 'right';
+    var binMin = segBins[0] - (segBins[1] - segBins[0]) / 2;
+    var binMax = segBins[nBins - 1] + (segBins[1] - segBins[0]) / 2;
+    [binMin, -0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3, binMax].forEach(function (val) {
+      // Map score value to Y position
+      var frac = (val - binMin) / (binMax - binMin); // 0 at bottom, 1 at top
+      var y = pad.top + (1 - frac) * chartH;
+      if (y >= pad.top - 5 && y <= pad.top + chartH + 5) {
+        ctx.fillText((val >= 0 ? '+' : '') + val.toFixed(1), pad.left - 6, y + 3);
+      }
+    });
+
+    // Y-axis arrow labels
+    ctx.font = '9px ' + FONT;
+    ctx.textAlign = 'left';
+    ctx.fillStyle = GOLD;
+    ctx.fillText('\u2191 Prac', w - pad.right + 8, pad.top + 10);
+    ctx.fillStyle = BLUE;
+    ctx.fillText('\u2193 Acad', w - pad.right + 8, pad.top + chartH - 2);
+
+    // X-axis labels
+    ctx.textAlign = 'center';
+    ctx.fillStyle = MUTED;
+    ctx.font = '9px ' + FONT;
+    windows.forEach(function (wi, ci) {
+      var x = pad.left + ci * cellW + cellW / 2;
+      var startYear = wi.split('-')[0];
+      if (ci % 2 === 0 || windows.length <= 20) {
+        ctx.save();
+        ctx.translate(x, pad.top + chartH + 6);
+        ctx.rotate(Math.PI / 4);
+        ctx.fillText(startYear, 0, 0);
+        ctx.restore();
+      }
+    });
+
+    // 1958 marker
+    var splitWinIdx = -1;
+    for (var i = 0; i < windows.length; i++) {
+      var start = parseInt(windows[i].split('-')[0]);
+      if (start <= 1958 && start + 4 >= 1958) { splitWinIdx = i; break; }
+    }
+    if (splitWinIdx >= 0) {
+      var sx = pad.left + splitWinIdx * cellW + cellW / 2;
+      ctx.save();
+      ctx.setLineDash([3, 3]);
+      ctx.strokeStyle = PURPLE;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(sx, pad.top);
+      ctx.lineTo(sx, pad.top + chartH);
+      ctx.stroke();
+      ctx.restore();
+      ctx.fillStyle = PURPLE;
+      ctx.font = '8px ' + FONT;
+      ctx.textAlign = 'center';
+      ctx.fillText('M&M', sx, pad.top - 4);
+    }
+
+    // Mean line overlay
+    ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    var started = false;
+    windows.forEach(function (wi, ci) {
+      var bins = histData[wi];
+      var total = 0, weightedSum = 0;
+      for (var b = 0; b < nBins; b++) {
+        total += bins[b];
+        weightedSum += bins[b] * segBins[b];
+      }
+      if (total === 0) return;
+      var mean = weightedSum / total;
+      var frac = (mean - binMin) / (binMax - binMin);
+      var y = pad.top + (1 - frac) * chartH;
+      var x = pad.left + ci * cellW + cellW / 2;
+      if (!started) { ctx.moveTo(x, y); started = true; }
+      else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+
+    // Segment count labels at top
+    ctx.font = '7px ' + FONT;
+    ctx.textAlign = 'center';
+    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+    windows.forEach(function (wi, ci) {
+      var bins = histData[wi];
+      var total = 0;
+      for (var b = 0; b < nBins; b++) total += bins[b];
+      if (total > 0) {
+        var x = pad.left + ci * cellW + cellW / 2;
+        var label = total >= 1000 ? (total / 1000).toFixed(0) + 'K' : total.toString();
+        ctx.fillText(label, x, pad.top - 2);
+      }
+    });
+
+    // Y-axis label
+    ctx.save();
+    ctx.translate(14, pad.top + chartH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = MUTED;
+    ctx.font = '10px ' + FONT;
+    ctx.textAlign = 'center';
+    ctx.fillText('PARADIGM SCORE', 0, 0);
+    ctx.restore();
+  }
+
+  function drawPracDensity() { drawDensitySurface('prac-density-canvas', 'practitioner', GOLD); }
+  function drawAcadDensity() { drawDensitySurface('acad-density-canvas', 'academic', BLUE); }
+
+  // ═══════════════════════════════════════════════════════════════
   // Init
   // ═══════════════════════════════════════════════════════════════
   buildTopicButtons();
   buildSourceButtons();
   drawDivergence();
   drawSourceDivergence();
+  drawPracDensity();
+  drawAcadDensity();
   drawTopics();
   drawHeatmap();
 
   window.addEventListener('resize', function () {
     drawDivergence();
     drawSourceDivergence();
+    drawPracDensity();
+    drawAcadDensity();
     drawTopics();
     drawHeatmap();
   });
