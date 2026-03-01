@@ -130,17 +130,27 @@
       <div class="count-value" id="prac-count">0</div>
       <div class="count-label">Practitioner magazine issues</div>
       <div class="count-label" style="margin-top:0.3rem; font-size:0.75rem; color:var(--text-muted);">
-        Magazine of Wall Street (1907&ndash;1970) &bull;
+        The Economist (1843&ndash;1991) &bull;
         Commercial &amp; Financial Chronicle (1865&ndash;1973) &bull;
-        Financial World (1902&ndash;1976)
+        The Financial Post (1907&ndash;1961) &bull;
+        Financial World (1902&ndash;1976) &bull;
+        Dun&rsquo;s Review (1893&ndash;1986) &bull;
+        Business Week (1929&ndash;1971) &bull;
+        Magazine of Wall Street (1907&ndash;1970) &bull;
+        The Annalist (1913&ndash;1940) &bull;
+        Bankers Magazine (1846&ndash;1994) &bull;
+        Forbes (1917&ndash;1973) &bull;
+        Nation&rsquo;s Business (1912&ndash;1997) &bull;
+        Financial Executive (1932&ndash;1984)
       </div>
     </div>
     <div class="source-count academic">
       <div class="count-value" id="acad-count">0</div>
       <div class="count-label">Academic journal articles</div>
       <div class="count-label" style="margin-top:0.3rem; font-size:0.75rem; color:var(--text-muted);">
-        American Economic Review (1911&ndash;) &bull;
         Quarterly Journal of Economics (1886&ndash;) &bull;
+        Journal of Political Economy (1892&ndash;) &bull;
+        American Economic Review (1911&ndash;) &bull;
         Econometrica (1933&ndash;) &bull;
         Journal of Finance (1946&ndash;) &bull;
         Journal of Financial Economics (1974&ndash;) &bull;
@@ -156,10 +166,34 @@
       <span style="color:var(--purple);">Purple</span>: cosine distance between practitioner and academic topic vectors (same window).
       <span style="color:var(--gold);">Gold</span>: practitioner vs. its own previous window.
       <span style="color:var(--blue);">Blue</span>: academic vs. its own previous window.
-      0 = identical, 1 = completely disjoint. Requires 10+ documents per window.
+      0 = identical, 1 = completely disjoint. Uses word-frequency normalization (hits per 10K words).
     </p>
     <div class="chart-canvas-wrap">
       <canvas id="divergence-canvas" height="280"></canvas>
+    </div>
+  </div>
+
+  <!-- Per-source divergence chart (distance from practitioner core, passage-filtered) -->
+  <div class="chart-section">
+    <h2>Distance from the Practitioner Core</h2>
+    <p class="chart-subtitle">
+      For general-interest sources (Economist, Fortune, Business Week, etc.), we extract only
+      finance-relevant passages (&plusmn;500 words around each keyword hit) before analysis,
+      filtering out non-finance content (wars, elections, etc.) at the passage level.
+      Pure-finance sources (JF, JFE, CFC, Magazine of Wall Street, etc.) use full text.
+      Each dot = one source &times; 5-year window; dot size = log word count.
+      Cosine distance from the pre-1920 practitioner core.
+      <span style="color:var(--blue);">Blue</span> = academic journals,
+      <span style="color:var(--gold);">gold</span> = practitioner magazines.
+      Click to toggle. Hover for details.
+    </p>
+    <div id="source-selector" style="margin-bottom:0.5rem;"></div>
+    <div class="chart-canvas-wrap" style="position:relative;">
+      <canvas id="source-divergence-canvas" height="320"></canvas>
+      <div id="source-tooltip" style="display:none; position:absolute; pointer-events:none;
+           background:var(--bg-tertiary); border:1px solid var(--border); border-radius:4px;
+           padding:6px 10px; font-family:var(--font-mono); font-size:0.72rem;
+           color:var(--text-primary); white-space:nowrap; z-index:10;"></div>
     </div>
   </div>
 

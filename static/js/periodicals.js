@@ -13,6 +13,10 @@
   var divergence = D.divergence; // {window: {cosine_distance, ...}}
   var pracLag = D.prac_lag || {};  // {window: {cosine_distance, vs_window}}
   var acadLag = D.acad_lag || {};  // {window: {cosine_distance, vs_window}}
+  var perSourceDiv = D.per_source_divergence || {};
+  var perSourceResid = D.per_source_residuals || {};
+  var sourceFE = D.source_fe || {};
+  var windowFE = D.window_fe || {};
 
   // Colors
   var GOLD = '#d4a017';
@@ -216,6 +220,270 @@
     ctx.fillRect(lx3, ly - 4, 14, 3);
     ctx.fillText('Academic vs own lag', lx3 + 18, ly);
   }
+
+  // ═══════════════════════════════════════════════════════════════
+  // 1b. PER-SOURCE DIVERGENCE CHART
+  //     Each line = one journal/magazine vs. the other stream's aggregate
+  // ═══════════════════════════════════════════════════════════════
+
+  // Assign distinct colors to sources (cycle through a palette)
+  var SOURCE_PALETTE_ACAD = [
+    '#5ba4cf', '#7ec8e3', '#4a90d9', '#82b1ff', '#5c6bc0', '#7986cb', '#90caf9'
+  ];
+  var SOURCE_PALETTE_PRAC = [
+    '#d4a017', '#e6b800', '#c49000', '#f0c040', '#b8860b', '#daa520', '#cd853f',
+    '#e8a920', '#c8a000', '#d4b030', '#bfa020', '#c09820'
+  ];
+  // Use raw distances from practitioner core (not FE residuals)
+  var sourceData = perSourceDiv;
+  var sourceNames = Object.keys(sourceData).sort();
+  var sourceColors = {};
+  var aidx = 0, pidx = 0;
+  sourceNames.forEach(function (name) {
+    if (sourceData[name].stream === 'academic') {
+      sourceColors[name] = SOURCE_PALETTE_ACAD[aidx % SOURCE_PALETTE_ACAD.length];
+      aidx++;
+    } else {
+      sourceColors[name] = SOURCE_PALETTE_PRAC[pidx % SOURCE_PALETTE_PRAC.length];
+      pidx++;
+    }
+  });
+
+  // Active sources (togglable)
+  var activeSources = {};
+  sourceNames.forEach(function (n) { activeSources[n] = true; });
+
+  function buildSourceButtons() {
+    var container = document.getElementById('source-selector');
+    if (!container) return;
+    container.innerHTML = '';
+
+    // Group by stream
+    var acadSources = sourceNames.filter(function (n) { return sourceData[n].stream === 'academic'; });
+    var pracSources = sourceNames.filter(function (n) { return sourceData[n].stream === 'practitioner'; });
+
+    function addGroup(label, sources, className) {
+      var group = document.createElement('div');
+      group.style.marginBottom = '0.3rem';
+      var lbl = document.createElement('span');
+      lbl.style.fontSize = '0.7rem';
+      lbl.style.color = className === 'academic' ? BLUE : GOLD;
+      lbl.style.marginRight = '0.5rem';
+      lbl.textContent = label + ':';
+      group.appendChild(lbl);
+      sources.forEach(function (name) {
+        var btn = document.createElement('button');
+        btn.className = 'topic-btn source-btn' + (activeSources[name] ? ' active' : '');
+        btn.style.fontSize = '0.65rem';
+        btn.style.padding = '2px 6px';
+        btn.style.borderColor = sourceColors[name];
+        if (activeSources[name]) btn.style.backgroundColor = sourceColors[name] + '33';
+        btn.textContent = name;
+        btn.dataset.source = name;
+        btn.addEventListener('click', function () {
+          activeSources[name] = !activeSources[name];
+          btn.classList.toggle('active', activeSources[name]);
+          btn.style.backgroundColor = activeSources[name] ? sourceColors[name] + '33' : '';
+          drawSourceDivergence();
+        });
+        group.appendChild(btn);
+      });
+      container.appendChild(group);
+    }
+
+    addGroup('Academic journals', acadSources, 'academic');
+    addGroup('Practitioner magazines', pracSources, 'practitioner');
+  }
+
+  // Stored dot positions for hover detection
+  var dotPositions = [];
+
+  function dotRadius(wordCount) {
+    // Scale radius by log(word count): 2px at 1K words, ~7px at 10M words
+    if (!wordCount || wordCount < 100) return 2;
+    var r = 1.0 + Math.log10(wordCount) * 0.7;
+    return Math.max(2, Math.min(8, r));
+  }
+
+  function drawSourceDivergence() {
+    var canvas = document.getElementById('source-divergence-canvas');
+    if (!canvas) return;
+    var s = setupCanvas(canvas);
+    var ctx = s.ctx, w = s.w, h = s.h;
+
+    dotPositions = [];  // reset
+
+    var pad = { top: 25, bottom: 35, left: 60, right: 20 };
+    var chartW = w - pad.left - pad.right;
+    var chartH = h - pad.top - pad.bottom;
+
+    ctx.fillStyle = BG;
+    ctx.fillRect(0, 0, w, h);
+
+    var minYear = Math.min.apply(null, windowMids) - 5;
+    var maxYear = Math.max.apply(null, windowMids) + 5;
+
+    // Determine y-axis range from data
+    var yMin = 0, yMax = 1;
+    sourceNames.forEach(function (name) {
+      if (!activeSources[name]) return;
+      var info = sourceData[name];
+      if (!info || !info.series) return;
+      Object.keys(info.series).forEach(function (w) {
+        var v = info.series[w];
+        if (v > yMax) yMax = v + 0.05;
+      });
+    });
+
+    function xPos(year) { return pad.left + ((year - minYear) / (maxYear - minYear)) * chartW; }
+    function yPos(val) { return pad.top + ((yMax - val) / (yMax - yMin)) * chartH; }
+
+    // Grid
+    ctx.strokeStyle = AXIS;
+    ctx.lineWidth = 0.5;
+    var gridStep = 0.25;
+    for (var g = 0; g <= yMax + 0.001; g += gridStep) {
+      var gy = yPos(g);
+      if (gy < pad.top - 1 || gy > h - pad.bottom + 1) continue;
+      ctx.beginPath();
+      ctx.moveTo(pad.left, gy);
+      ctx.lineTo(w - pad.right, gy);
+      ctx.strokeStyle = AXIS;
+      ctx.lineWidth = 0.5;
+      ctx.stroke();
+      ctx.fillStyle = MUTED;
+      ctx.font = '10px ' + FONT;
+      ctx.textAlign = 'right';
+      ctx.fillText(g.toFixed(2), pad.left - 6, gy + 3);
+    }
+
+    // X axis labels
+    ctx.textAlign = 'center';
+    for (var yr = 1880; yr <= 2020; yr += 20) {
+      var xx = xPos(yr);
+      if (xx > pad.left && xx < w - pad.right) {
+        ctx.fillStyle = MUTED;
+        ctx.font = '10px ' + FONT;
+        ctx.fillText(yr, xx, h - pad.bottom + 16);
+        ctx.beginPath();
+        ctx.moveTo(xx, pad.top);
+        ctx.lineTo(xx, h - pad.bottom);
+        ctx.strokeStyle = AXIS;
+        ctx.lineWidth = 0.3;
+        ctx.stroke();
+      }
+    }
+
+    // 1958 marker
+    var splitX = xPos(1958);
+    ctx.save();
+    ctx.setLineDash([4, 4]);
+    ctx.strokeStyle = PURPLE;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(splitX, pad.top);
+    ctx.lineTo(splitX, h - pad.bottom);
+    ctx.stroke();
+    ctx.restore();
+    ctx.fillStyle = PURPLE;
+    ctx.font = '9px ' + FONT;
+    ctx.textAlign = 'center';
+    ctx.fillText('M&M 1958', splitX, pad.top - 8);
+
+    // Y-axis label
+    ctx.save();
+    ctx.translate(14, pad.top + chartH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = MUTED;
+    ctx.font = '10px ' + FONT;
+    ctx.textAlign = 'center';
+    ctx.fillText('COSINE DISTANCE FROM PRACTITIONER CORE (1800\u20131920)', 0, 0);
+    ctx.restore();
+
+    // Draw each active source — dots sized by word count
+    sourceNames.forEach(function (name) {
+      if (!activeSources[name]) return;
+      var info = sourceData[name];
+      if (!info || !info.series) return;
+      var color = sourceColors[name];
+      var wordsMap = info.words || {};
+      var wins = Object.keys(info.series).sort();
+      var mids = wins.map(function (w) { return parseInt(w.split('-')[0]) + 2; });
+      var vals = wins.map(function (w) { return info.series[w]; });
+      if (mids.length === 0) return;
+
+      for (var i = 0; i < mids.length; i++) {
+        var wc = wordsMap[wins[i]] || 0;
+        var r = dotRadius(wc);
+        var px = xPos(mids[i]), py = yPos(vals[i]);
+        ctx.beginPath();
+        ctx.arc(px, py, r, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.globalAlpha = 0.7;
+        ctx.fill();
+        ctx.globalAlpha = 1.0;
+        // Store for hover detection
+        dotPositions.push({
+          x: px, y: py, r: r,
+          name: name, window: wins[i],
+          distance: vals[i], words: wc,
+          stream: info.stream, color: color
+        });
+      }
+    });
+  }
+
+  // ── Hover callouts for per-source divergence ──
+  (function () {
+    var canvas = document.getElementById('source-divergence-canvas');
+    var tooltip = document.getElementById('source-tooltip');
+    if (!canvas || !tooltip) return;
+
+    canvas.addEventListener('mousemove', function (e) {
+      var rect = canvas.getBoundingClientRect();
+      var mx = e.clientX - rect.left;
+      var my = e.clientY - rect.top;
+
+      // Find nearest dot within 12px
+      var best = null, bestDist = 144; // 12^2
+      for (var i = 0; i < dotPositions.length; i++) {
+        var d = dotPositions[i];
+        var dx = mx - d.x, dy = my - d.y;
+        var dist2 = dx * dx + dy * dy;
+        if (dist2 < bestDist) {
+          bestDist = dist2;
+          best = d;
+        }
+      }
+
+      if (best) {
+        var wStr = best.words >= 1000000
+          ? (best.words / 1000000).toFixed(1) + 'M'
+          : best.words >= 1000
+            ? (best.words / 1000).toFixed(0) + 'K'
+            : best.words.toString();
+        tooltip.innerHTML =
+          '<strong style="color:' + best.color + ';">' + best.name + '</strong><br>' +
+          best.window + ' &middot; ' + wStr + ' words<br>' +
+          'Distance: ' + best.distance.toFixed(3);
+        tooltip.style.display = 'block';
+        // Position tooltip near cursor, offset to avoid covering the dot
+        var tx = e.clientX - rect.left + 14;
+        var ty = e.clientY - rect.top - 10;
+        // Keep tooltip within canvas bounds
+        if (tx + tooltip.offsetWidth > rect.width - 10) tx = mx - tooltip.offsetWidth - 14;
+        if (ty < 0) ty = my + 20;
+        tooltip.style.left = tx + 'px';
+        tooltip.style.top = ty + 'px';
+      } else {
+        tooltip.style.display = 'none';
+      }
+    });
+
+    canvas.addEventListener('mouseleave', function () {
+      tooltip.style.display = 'none';
+    });
+  })();
 
   // ═══════════════════════════════════════════════════════════════
   // 2. TOPIC TRAJECTORIES CHART — single-topic, gold vs blue
@@ -534,12 +802,15 @@
   // Init
   // ═══════════════════════════════════════════════════════════════
   buildTopicButtons();
+  buildSourceButtons();
   drawDivergence();
+  drawSourceDivergence();
   drawTopics();
   drawHeatmap();
 
   window.addEventListener('resize', function () {
     drawDivergence();
+    drawSourceDivergence();
     drawTopics();
     drawHeatmap();
   });
