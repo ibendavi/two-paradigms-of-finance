@@ -295,11 +295,23 @@
     addGroup('Practitioner magazines', pracSources, 'practitioner');
   }
 
+  // Stored dot positions for hover detection
+  var dotPositions = [];
+
+  function dotRadius(wordCount) {
+    // Scale radius by log(word count): 2px at 1K words, ~7px at 10M words
+    if (!wordCount || wordCount < 100) return 2;
+    var r = 1.0 + Math.log10(wordCount) * 0.7;
+    return Math.max(2, Math.min(8, r));
+  }
+
   function drawSourceDivergence() {
     var canvas = document.getElementById('source-divergence-canvas');
     if (!canvas) return;
     var s = setupCanvas(canvas);
     var ctx = s.ctx, w = s.w, h = s.h;
+
+    dotPositions = [];  // reset
 
     var pad = { top: 25, bottom: 35, left: 60, right: 20 };
     var chartW = w - pad.left - pad.right;
@@ -388,28 +400,90 @@
     ctx.fillText('COSINE DISTANCE FROM PRACTITIONER CORE (1800\u20131920)', 0, 0);
     ctx.restore();
 
-    // Draw each active source — dots only, no lines
+    // Draw each active source — dots sized by word count
     sourceNames.forEach(function (name) {
       if (!activeSources[name]) return;
       var info = sourceData[name];
       if (!info || !info.series) return;
       var color = sourceColors[name];
+      var wordsMap = info.words || {};
       var wins = Object.keys(info.series).sort();
       var mids = wins.map(function (w) { return parseInt(w.split('-')[0]) + 2; });
       var vals = wins.map(function (w) { return info.series[w]; });
       if (mids.length === 0) return;
 
-      // Dots only
       for (var i = 0; i < mids.length; i++) {
+        var wc = wordsMap[wins[i]] || 0;
+        var r = dotRadius(wc);
+        var px = xPos(mids[i]), py = yPos(vals[i]);
         ctx.beginPath();
-        ctx.arc(xPos(mids[i]), yPos(vals[i]), 3.5, 0, Math.PI * 2);
+        ctx.arc(px, py, r, 0, Math.PI * 2);
         ctx.fillStyle = color;
         ctx.globalAlpha = 0.7;
         ctx.fill();
         ctx.globalAlpha = 1.0;
+        // Store for hover detection
+        dotPositions.push({
+          x: px, y: py, r: r,
+          name: name, window: wins[i],
+          distance: vals[i], words: wc,
+          stream: info.stream, color: color
+        });
       }
     });
   }
+
+  // ── Hover callouts for per-source divergence ──
+  (function () {
+    var canvas = document.getElementById('source-divergence-canvas');
+    var tooltip = document.getElementById('source-tooltip');
+    if (!canvas || !tooltip) return;
+
+    canvas.addEventListener('mousemove', function (e) {
+      var rect = canvas.getBoundingClientRect();
+      var mx = e.clientX - rect.left;
+      var my = e.clientY - rect.top;
+
+      // Find nearest dot within 12px
+      var best = null, bestDist = 144; // 12^2
+      for (var i = 0; i < dotPositions.length; i++) {
+        var d = dotPositions[i];
+        var dx = mx - d.x, dy = my - d.y;
+        var dist2 = dx * dx + dy * dy;
+        if (dist2 < bestDist) {
+          bestDist = dist2;
+          best = d;
+        }
+      }
+
+      if (best) {
+        var wStr = best.words >= 1000000
+          ? (best.words / 1000000).toFixed(1) + 'M'
+          : best.words >= 1000
+            ? (best.words / 1000).toFixed(0) + 'K'
+            : best.words.toString();
+        tooltip.innerHTML =
+          '<strong style="color:' + best.color + ';">' + best.name + '</strong><br>' +
+          best.window + ' &middot; ' + wStr + ' words<br>' +
+          'Distance: ' + best.distance.toFixed(3);
+        tooltip.style.display = 'block';
+        // Position tooltip near cursor, offset to avoid covering the dot
+        var tx = e.clientX - rect.left + 14;
+        var ty = e.clientY - rect.top - 10;
+        // Keep tooltip within canvas bounds
+        if (tx + tooltip.offsetWidth > rect.width - 10) tx = mx - tooltip.offsetWidth - 14;
+        if (ty < 0) ty = my + 20;
+        tooltip.style.left = tx + 'px';
+        tooltip.style.top = ty + 'px';
+      } else {
+        tooltip.style.display = 'none';
+      }
+    });
+
+    canvas.addEventListener('mouseleave', function () {
+      tooltip.style.display = 'none';
+    });
+  })();
 
   // ═══════════════════════════════════════════════════════════════
   // 2. TOPIC TRAJECTORIES CHART — single-topic, gold vs blue
