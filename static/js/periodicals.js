@@ -304,9 +304,10 @@
   var dotPositions = [];
 
   function dotRadius(wordCount) {
-    if (!wordCount || wordCount < 100) return 2;
-    var r = 1.0 + Math.log10(wordCount) * 0.7;
-    return Math.max(2, Math.min(8, r));
+    // Map word count to radius: 2px at 1K, 5px at 100K, 10px at 1M, 14px at 10M
+    if (!wordCount || wordCount < 500) return 1.5;
+    var r = Math.sqrt(wordCount / 1000) * 1.6;
+    return Math.max(2, Math.min(14, r));
   }
 
   function drawSourceDivergence() {
