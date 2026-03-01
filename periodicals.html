@@ -199,23 +199,23 @@
     </div>
   </div>
 
-  <!-- Per-source divergence chart (distance from practitioner core, passage-filtered) -->
+  <!-- Two-pole paradigm score chart -->
   <div class="chart-section">
-    <h2>Distance from the Practitioner Core</h2>
+    <h2>The Paradigm Spectrum</h2>
     <p class="chart-subtitle">
-      For general-interest sources (Economist, Fortune, Business Week, etc.), we extract only
-      finance-relevant passages (&plusmn;500 words around each keyword hit) before analysis,
-      filtering out non-finance content (wars, elections, etc.) at the passage level.
-      Pure-finance sources (JF, JFE, CFC, Magazine of Wall Street, etc.) use full text.
+      Each source is scored on a spectrum between two poles:
+      <strong>pre-1920 Practitioner</strong> (earnings, dividends, bonds, speculation) and
+      <strong>post-2000 Academic</strong> (CAPM, options, behavioral, M&amp;A, governance).
+      Score = similarity to practitioner pole &minus; similarity to academic pole.
+      <span style="color:var(--gold);">Gold lines</span> = aggregate practitioner stream,
+      <span style="color:var(--blue);">blue lines</span> = aggregate academic stream.
+      Shaded region = gap between the two streams.
       Each dot = one source &times; 5-year window; dot size = log word count.
-      Cosine distance from the pre-1920 practitioner core.
-      <span style="color:var(--blue);">Blue</span> = academic journals,
-      <span style="color:var(--gold);">gold</span> = practitioner magazines.
-      Click to toggle. Hover for details.
+      Click to toggle sources. Hover for details.
     </p>
     <div id="source-selector" style="margin-bottom:0.5rem;"></div>
     <div class="chart-canvas-wrap" style="position:relative;">
-      <canvas id="source-divergence-canvas" height="320"></canvas>
+      <canvas id="source-divergence-canvas" height="380"></canvas>
       <div id="source-tooltip" style="display:none; position:absolute; pointer-events:none;
            background:var(--bg-tertiary); border:1px solid var(--border); border-radius:4px;
            padding:6px 10px; font-family:var(--font-mono); font-size:0.72rem;

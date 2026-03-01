@@ -17,6 +17,10 @@
   var perSourceResid = D.per_source_residuals || {};
   var sourceFE = D.source_fe || {};
   var windowFE = D.window_fe || {};
+  var perSourceScores = D.per_source_scores || {};
+  var aggPracScores = D.agg_prac_scores || {};
+  var aggAcadScores = D.agg_acad_scores || {};
+  var poles = D.poles || {};
 
   // Colors
   var GOLD = '#d4a017';
@@ -234,8 +238,9 @@
     '#d4a017', '#e6b800', '#c49000', '#f0c040', '#b8860b', '#daa520', '#cd853f',
     '#e8a920', '#c8a000', '#d4b030', '#bfa020', '#c09820'
   ];
-  // Use raw distances from practitioner core (not FE residuals)
-  var sourceData = perSourceDiv;
+  // Use two-pole paradigm scores if available, fall back to v1 divergence
+  var sourceData = Object.keys(perSourceScores).length > 0 ? perSourceScores : perSourceDiv;
+  var useTwoPole = Object.keys(perSourceScores).length > 0;
   var sourceNames = Object.keys(sourceData).sort();
   var sourceColors = {};
   var aidx = 0, pidx = 0;
@@ -313,7 +318,7 @@
 
     dotPositions = [];  // reset
 
-    var pad = { top: 25, bottom: 35, left: 60, right: 20 };
+    var pad = { top: 25, bottom: 45, left: 60, right: 20 };
     var chartW = w - pad.left - pad.right;
     var chartH = h - pad.top - pad.bottom;
 
@@ -323,39 +328,75 @@
     var minYear = Math.min.apply(null, windowMids) - 5;
     var maxYear = Math.max.apply(null, windowMids) + 5;
 
-    // Determine y-axis range from data
-    var yMin = 0, yMax = 1;
+    // Determine y-axis range from data (symmetric around 0 for two-pole)
+    var yAbsMax = 0.5;
     sourceNames.forEach(function (name) {
       if (!activeSources[name]) return;
       var info = sourceData[name];
       if (!info || !info.series) return;
-      Object.keys(info.series).forEach(function (w) {
-        var v = info.series[w];
-        if (v > yMax) yMax = v + 0.05;
+      Object.keys(info.series).forEach(function (wk) {
+        var v = Math.abs(info.series[wk]);
+        if (v > yAbsMax) yAbsMax = v + 0.05;
       });
     });
+    // Also check aggregate lines
+    Object.keys(aggPracScores).forEach(function (wk) {
+      var v = Math.abs(aggPracScores[wk]);
+      if (v > yAbsMax) yAbsMax = v + 0.05;
+    });
+    Object.keys(aggAcadScores).forEach(function (wk) {
+      var v = Math.abs(aggAcadScores[wk]);
+      if (v > yAbsMax) yAbsMax = v + 0.05;
+    });
+    // Round up
+    if (yAbsMax <= 0.3) yAbsMax = 0.3;
+    else if (yAbsMax <= 0.5) yAbsMax = 0.5;
+    else yAbsMax = Math.ceil(yAbsMax * 10) / 10;
+
+    var yMin = -yAbsMax, yMax = yAbsMax;
 
     function xPos(year) { return pad.left + ((year - minYear) / (maxYear - minYear)) * chartW; }
     function yPos(val) { return pad.top + ((yMax - val) / (yMax - yMin)) * chartH; }
 
+    // Background shading: top half tinted gold, bottom half tinted blue
+    ctx.fillStyle = 'rgba(212, 160, 23, 0.03)';
+    ctx.fillRect(pad.left, pad.top, chartW, chartH / 2);
+    ctx.fillStyle = 'rgba(91, 164, 207, 0.03)';
+    ctx.fillRect(pad.left, pad.top + chartH / 2, chartW, chartH / 2);
+
     // Grid
     ctx.strokeStyle = AXIS;
     ctx.lineWidth = 0.5;
-    var gridStep = 0.25;
-    for (var g = 0; g <= yMax + 0.001; g += gridStep) {
+    var gridStep = yAbsMax <= 0.3 ? 0.1 : 0.2;
+    for (var g = yMin; g <= yMax + 0.001; g += gridStep) {
       var gy = yPos(g);
       if (gy < pad.top - 1 || gy > h - pad.bottom + 1) continue;
       ctx.beginPath();
       ctx.moveTo(pad.left, gy);
       ctx.lineTo(w - pad.right, gy);
-      ctx.strokeStyle = AXIS;
-      ctx.lineWidth = 0.5;
+      // Zero line is prominent
+      if (Math.abs(g) < 0.001) {
+        ctx.strokeStyle = '#706a5a';
+        ctx.lineWidth = 1.5;
+      } else {
+        ctx.strokeStyle = AXIS;
+        ctx.lineWidth = 0.5;
+      }
       ctx.stroke();
       ctx.fillStyle = MUTED;
       ctx.font = '10px ' + FONT;
       ctx.textAlign = 'right';
-      ctx.fillText(g.toFixed(2), pad.left - 6, gy + 3);
+      var label = (g > 0.001 ? '+' : '') + g.toFixed(1);
+      ctx.fillText(label, pad.left - 6, gy + 3);
     }
+
+    // Pole labels on y-axis
+    ctx.fillStyle = GOLD;
+    ctx.font = '9px ' + FONT;
+    ctx.textAlign = 'left';
+    ctx.fillText('\u2191 Practitioner paradigm', pad.left + 4, pad.top + 12);
+    ctx.fillStyle = BLUE;
+    ctx.fillText('\u2193 Academic paradigm', pad.left + 4, h - pad.bottom - 6);
 
     // X axis labels
     ctx.textAlign = 'center';
@@ -397,10 +438,10 @@
     ctx.fillStyle = MUTED;
     ctx.font = '10px ' + FONT;
     ctx.textAlign = 'center';
-    ctx.fillText('COSINE DISTANCE FROM PRACTITIONER CORE (1800\u20131920)', 0, 0);
+    ctx.fillText('PARADIGM SCORE (sim\u209A\u1D63\u2090\u1D04 \u2212 sim\u2090\u1D04\u2090\u1D48)', 0, 0);
     ctx.restore();
 
-    // Draw each active source — dots sized by word count
+    // Draw per-source dots
     sourceNames.forEach(function (name) {
       if (!activeSources[name]) return;
       var info = sourceData[name];
@@ -408,8 +449,8 @@
       var color = sourceColors[name];
       var wordsMap = info.words || {};
       var wins = Object.keys(info.series).sort();
-      var mids = wins.map(function (w) { return parseInt(w.split('-')[0]) + 2; });
-      var vals = wins.map(function (w) { return info.series[w]; });
+      var mids = wins.map(function (wk) { return parseInt(wk.split('-')[0]) + 2; });
+      var vals = wins.map(function (wk) { return info.series[wk]; });
       if (mids.length === 0) return;
 
       for (var i = 0; i < mids.length; i++) {
@@ -419,18 +460,102 @@
         ctx.beginPath();
         ctx.arc(px, py, r, 0, Math.PI * 2);
         ctx.fillStyle = color;
-        ctx.globalAlpha = 0.7;
+        ctx.globalAlpha = 0.55;
         ctx.fill();
         ctx.globalAlpha = 1.0;
-        // Store for hover detection
+        var simP = (info.sim_prac || {})[wins[i]];
+        var simA = (info.sim_acad || {})[wins[i]];
         dotPositions.push({
           x: px, y: py, r: r,
           name: name, window: wins[i],
-          distance: vals[i], words: wc,
+          score: vals[i], words: wc,
+          sim_prac: simP, sim_acad: simA,
           stream: info.stream, color: color
         });
       }
     });
+
+    // Draw aggregate stream lines on top
+    function drawAggLine(scores, color, lineW) {
+      var wins = Object.keys(scores).sort();
+      if (wins.length < 2) return;
+      var mids = wins.map(function (wk) { return parseInt(wk.split('-')[0]) + 2; });
+      var vals = wins.map(function (wk) { return scores[wk]; });
+
+      // Filled area from zero line
+      ctx.beginPath();
+      ctx.moveTo(xPos(mids[0]), yPos(0));
+      for (var i = 0; i < mids.length; i++) {
+        ctx.lineTo(xPos(mids[i]), yPos(vals[i]));
+      }
+      ctx.lineTo(xPos(mids[mids.length - 1]), yPos(0));
+      ctx.closePath();
+      ctx.fillStyle = color.replace(')', ', 0.08)').replace('rgb', 'rgba');
+      ctx.fill();
+
+      // Line
+      ctx.beginPath();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = lineW;
+      for (var i = 0; i < mids.length; i++) {
+        if (i === 0) ctx.moveTo(xPos(mids[i]), yPos(vals[i]));
+        else ctx.lineTo(xPos(mids[i]), yPos(vals[i]));
+      }
+      ctx.stroke();
+
+      // Dots
+      for (var i = 0; i < mids.length; i++) {
+        ctx.beginPath();
+        ctx.arc(xPos(mids[i]), yPos(vals[i]), 3, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.strokeStyle = BG;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    }
+
+    // Shade the gap between the two aggregate lines
+    var aggPWins = Object.keys(aggPracScores).sort();
+    var aggAWins = Object.keys(aggAcadScores).sort();
+    var overlapWins = aggPWins.filter(function (wk) { return aggAcadScores[wk] !== undefined; });
+    if (overlapWins.length >= 2) {
+      ctx.beginPath();
+      // Top edge: practitioner scores left to right
+      for (var i = 0; i < overlapWins.length; i++) {
+        var px = xPos(parseInt(overlapWins[i].split('-')[0]) + 2);
+        var py = yPos(aggPracScores[overlapWins[i]]);
+        if (i === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      }
+      // Bottom edge: academic scores right to left
+      for (var i = overlapWins.length - 1; i >= 0; i--) {
+        var px = xPos(parseInt(overlapWins[i].split('-')[0]) + 2);
+        var py = yPos(aggAcadScores[overlapWins[i]]);
+        ctx.lineTo(px, py);
+      }
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(167, 139, 250, 0.08)';
+      ctx.fill();
+    }
+
+    drawAggLine(aggPracScores, GOLD, 2.5);
+    drawAggLine(aggAcadScores, BLUE, 2.5);
+
+    // Legend at bottom
+    ctx.font = '9px ' + FONT;
+    ctx.textAlign = 'left';
+    var lx = pad.left, ly = h - 6;
+    ctx.fillStyle = GOLD;
+    ctx.fillRect(lx, ly - 4, 14, 3);
+    ctx.fillText('Practitioner aggregate', lx + 18, ly);
+    var lx2 = lx + 170;
+    ctx.fillStyle = BLUE;
+    ctx.fillRect(lx2, ly - 4, 14, 3);
+    ctx.fillText('Academic aggregate', lx2 + 18, ly);
+    var lx3 = lx2 + 155;
+    ctx.fillStyle = MUTED;
+    ctx.fillText('Dots = individual sources', lx3, ly);
   }
 
   // ── Hover callouts for per-source divergence ──
@@ -462,10 +587,18 @@
           : best.words >= 1000
             ? (best.words / 1000).toFixed(0) + 'K'
             : best.words.toString();
+        var scoreVal = best.score !== undefined ? best.score : best.distance;
+        var scoreLabel = best.score !== undefined ? 'Score' : 'Distance';
+        var scoreStr = (scoreVal > 0 ? '+' : '') + scoreVal.toFixed(3);
+        var extraInfo = '';
+        if (best.sim_prac !== undefined && best.sim_acad !== undefined) {
+          extraInfo = '<br>sim(prac)=' + best.sim_prac.toFixed(3) +
+                      ' sim(acad)=' + best.sim_acad.toFixed(3);
+        }
         tooltip.innerHTML =
           '<strong style="color:' + best.color + ';">' + best.name + '</strong><br>' +
           best.window + ' &middot; ' + wStr + ' words<br>' +
-          'Distance: ' + best.distance.toFixed(3);
+          scoreLabel + ': ' + scoreStr + extraInfo;
         tooltip.style.display = 'block';
         // Position tooltip near cursor, offset to avoid covering the dot
         var tx = e.clientX - rect.left + 14;
