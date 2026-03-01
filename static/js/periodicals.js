@@ -862,8 +862,10 @@
     mergers_acquisitions: 'M&A',
     valuation: 'Valuation',
     capital_structure: 'Capital Structure',
-    dividends_payout: 'Dividends & Payout',
-    earnings_eps: 'Earnings / EPS'
+    dividends: 'Dividends',
+    earnings: 'Earnings',
+    speculation: 'Speculation & Trading',
+    banking: 'Banking'
   };
 
   // Build topic selector buttons
@@ -1161,12 +1163,32 @@
     ctx.restore();
   }
 
+  // Populate methodology keyword list from data
+  function buildMethodologyKeywords() {
+    var dl = document.getElementById('methodology-keywords');
+    if (!dl) return;
+    dl.innerHTML = '';
+    embTopicKeys.forEach(function (key) {
+      var td = embData[key] || {};
+      var label = td.label || TOPIC_LABELS[key] || key;
+      var kws = td.keywords || [];
+      if (kws.length === 0) return;
+      var dt = document.createElement('dt');
+      dt.textContent = label;
+      var dd = document.createElement('dd');
+      dd.textContent = kws.join(', ');
+      dl.appendChild(dt);
+      dl.appendChild(dd);
+    });
+  }
+
   // ═══════════════════════════════════════════════════════════════
   // Init
   // ═══════════════════════════════════════════════════════════════
   buildTopicButtons();
   buildSourceButtons();
   buildDensityTopicButtons();
+  buildMethodologyKeywords();
   drawDivergence();
   drawSourceDivergence();
   drawOverlaidDensity();
