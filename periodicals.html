@@ -199,19 +199,16 @@
     </div>
   </div>
 
-  <!-- Two-pole paradigm score chart -->
+  <!-- Per-source paradigm spectrum (two-pole: pre-1920 practitioner vs post-2000 academic) -->
   <div class="chart-section">
     <h2>The Paradigm Spectrum</h2>
     <p class="chart-subtitle">
-      Each source is scored on a spectrum between two poles:
-      <strong>pre-1920 Practitioner</strong> (earnings, dividends, bonds, speculation) and
-      <strong>post-2000 Academic</strong> (CAPM, options, behavioral, M&amp;A, governance).
-      Score = similarity to practitioner pole &minus; similarity to academic pole.
-      <span style="color:var(--gold);">Gold lines</span> = aggregate practitioner stream,
-      <span style="color:var(--blue);">blue lines</span> = aggregate academic stream.
-      Shaded region = gap between the two streams.
-      Each dot = one source &times; 5-year window; dot size = log word count.
-      Click to toggle sources. Hover for details.
+      Two poles define the spectrum: <span style="color:var(--gold);">pre-1920 practitioner writing</span> (top)
+      and <span style="color:var(--blue);">post-2000 academic finance</span> (bottom).
+      Each dot = one source &times; 5-year window, positioned by cosine similarity to each pole
+      (score = sim<sub>practitioner</sub> &minus; sim<sub>academic</sub>).
+      Positive = closer to the practitioner paradigm; negative = closer to the academic paradigm.
+      Thick lines = stream aggregates. Click sources to toggle. Hover for details.
     </p>
     <div id="source-selector" style="margin-bottom:0.5rem;"></div>
     <div class="chart-canvas-wrap" style="position:relative;">

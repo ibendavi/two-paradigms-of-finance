@@ -17,6 +17,8 @@
   var perSourceResid = D.per_source_residuals || {};
   var sourceFE = D.source_fe || {};
   var windowFE = D.window_fe || {};
+
+  // Two-pole paradigm data (v2)
   var perSourceScores = D.per_source_scores || {};
   var aggPracScores = D.agg_prac_scores || {};
   var aggAcadScores = D.agg_acad_scores || {};
@@ -226,11 +228,12 @@
   }
 
   // ═══════════════════════════════════════════════════════════════
-  // 1b. PER-SOURCE DIVERGENCE CHART
-  //     Each line = one journal/magazine vs. the other stream's aggregate
+  // 1b. PARADIGM SPECTRUM — two-pole chart
+  //     Y-axis: sim(practitioner pole) - sim(academic pole)
+  //     Positive = closer to pre-1920 practitioner paradigm
+  //     Negative = closer to post-2000 academic paradigm
   // ═══════════════════════════════════════════════════════════════
 
-  // Assign distinct colors to sources (cycle through a palette)
   var SOURCE_PALETTE_ACAD = [
     '#5ba4cf', '#7ec8e3', '#4a90d9', '#82b1ff', '#5c6bc0', '#7986cb', '#90caf9'
   ];
@@ -238,9 +241,9 @@
     '#d4a017', '#e6b800', '#c49000', '#f0c040', '#b8860b', '#daa520', '#cd853f',
     '#e8a920', '#c8a000', '#d4b030', '#bfa020', '#c09820'
   ];
-  // Use two-pole paradigm scores if available, fall back to v1 divergence
-  var sourceData = Object.keys(perSourceScores).length > 0 ? perSourceScores : perSourceDiv;
-  var useTwoPole = Object.keys(perSourceScores).length > 0;
+
+  var hasTwoPole = Object.keys(perSourceScores).length > 0;
+  var sourceData = hasTwoPole ? perSourceScores : perSourceDiv;
   var sourceNames = Object.keys(sourceData).sort();
   var sourceColors = {};
   var aidx = 0, pidx = 0;
@@ -254,7 +257,6 @@
     }
   });
 
-  // Active sources (togglable)
   var activeSources = {};
   sourceNames.forEach(function (n) { activeSources[n] = true; });
 
@@ -263,7 +265,6 @@
     if (!container) return;
     container.innerHTML = '';
 
-    // Group by stream
     var acadSources = sourceNames.filter(function (n) { return sourceData[n].stream === 'academic'; });
     var pracSources = sourceNames.filter(function (n) { return sourceData[n].stream === 'practitioner'; });
 
@@ -300,11 +301,9 @@
     addGroup('Practitioner magazines', pracSources, 'practitioner');
   }
 
-  // Stored dot positions for hover detection
   var dotPositions = [];
 
   function dotRadius(wordCount) {
-    // Scale radius by log(word count): 2px at 1K words, ~7px at 10M words
     if (!wordCount || wordCount < 100) return 2;
     var r = 1.0 + Math.log10(wordCount) * 0.7;
     return Math.max(2, Math.min(8, r));
@@ -316,9 +315,9 @@
     var s = setupCanvas(canvas);
     var ctx = s.ctx, w = s.w, h = s.h;
 
-    dotPositions = [];  // reset
+    dotPositions = [];
 
-    var pad = { top: 25, bottom: 45, left: 60, right: 20 };
+    var pad = { top: 30, bottom: 35, left: 60, right: 20 };
     var chartW = w - pad.left - pad.right;
     var chartH = h - pad.top - pad.bottom;
 
@@ -328,75 +327,38 @@
     var minYear = Math.min.apply(null, windowMids) - 5;
     var maxYear = Math.max.apply(null, windowMids) + 5;
 
-    // Determine y-axis range from data (symmetric around 0 for two-pole)
-    var yAbsMax = 0.5;
-    sourceNames.forEach(function (name) {
-      if (!activeSources[name]) return;
-      var info = sourceData[name];
-      if (!info || !info.series) return;
-      Object.keys(info.series).forEach(function (wk) {
-        var v = Math.abs(info.series[wk]);
-        if (v > yAbsMax) yAbsMax = v + 0.05;
-      });
-    });
-    // Also check aggregate lines
-    Object.keys(aggPracScores).forEach(function (wk) {
-      var v = Math.abs(aggPracScores[wk]);
-      if (v > yAbsMax) yAbsMax = v + 0.05;
-    });
-    Object.keys(aggAcadScores).forEach(function (wk) {
-      var v = Math.abs(aggAcadScores[wk]);
-      if (v > yAbsMax) yAbsMax = v + 0.05;
-    });
-    // Round up
-    if (yAbsMax <= 0.3) yAbsMax = 0.3;
-    else if (yAbsMax <= 0.5) yAbsMax = 0.5;
-    else yAbsMax = Math.ceil(yAbsMax * 10) / 10;
-
-    var yMin = -yAbsMax, yMax = yAbsMax;
+    var yBound = 0.5;
 
     function xPos(year) { return pad.left + ((year - minYear) / (maxYear - minYear)) * chartW; }
-    function yPos(val) { return pad.top + ((yMax - val) / (yMax - yMin)) * chartH; }
+    function yPos(val) { return pad.top + ((yBound - val) / (2 * yBound)) * chartH; }
 
-    // Background shading: top half tinted gold, bottom half tinted blue
-    ctx.fillStyle = 'rgba(212, 160, 23, 0.03)';
-    ctx.fillRect(pad.left, pad.top, chartW, chartH / 2);
-    ctx.fillStyle = 'rgba(91, 164, 207, 0.03)';
-    ctx.fillRect(pad.left, pad.top + chartH / 2, chartW, chartH / 2);
+    // Zero line
+    var zeroY = yPos(0);
+    ctx.strokeStyle = MUTED;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(pad.left, zeroY);
+    ctx.lineTo(w - pad.right, zeroY);
+    ctx.stroke();
 
-    // Grid
+    // Grid lines
     ctx.strokeStyle = AXIS;
     ctx.lineWidth = 0.5;
-    var gridStep = yAbsMax <= 0.3 ? 0.1 : 0.2;
-    for (var g = yMin; g <= yMax + 0.001; g += gridStep) {
+    [-0.4, -0.3, -0.2, -0.1, 0.1, 0.2, 0.3, 0.4].forEach(function (g) {
       var gy = yPos(g);
-      if (gy < pad.top - 1 || gy > h - pad.bottom + 1) continue;
       ctx.beginPath();
       ctx.moveTo(pad.left, gy);
       ctx.lineTo(w - pad.right, gy);
-      // Zero line is prominent
-      if (Math.abs(g) < 0.001) {
-        ctx.strokeStyle = '#706a5a';
-        ctx.lineWidth = 1.5;
-      } else {
-        ctx.strokeStyle = AXIS;
-        ctx.lineWidth = 0.5;
-      }
       ctx.stroke();
-      ctx.fillStyle = MUTED;
-      ctx.font = '10px ' + FONT;
-      ctx.textAlign = 'right';
-      var label = (g > 0.001 ? '+' : '') + g.toFixed(1);
-      ctx.fillText(label, pad.left - 6, gy + 3);
-    }
+    });
 
-    // Pole labels on y-axis
-    ctx.fillStyle = GOLD;
-    ctx.font = '9px ' + FONT;
-    ctx.textAlign = 'left';
-    ctx.fillText('\u2191 Practitioner paradigm', pad.left + 4, pad.top + 12);
-    ctx.fillStyle = BLUE;
-    ctx.fillText('\u2193 Academic paradigm', pad.left + 4, h - pad.bottom - 6);
+    // Y-axis tick labels
+    ctx.fillStyle = MUTED;
+    ctx.font = '10px ' + FONT;
+    ctx.textAlign = 'right';
+    [-0.4, -0.2, 0, 0.2, 0.4].forEach(function (g) {
+      ctx.fillText((g >= 0 ? '+' : '') + g.toFixed(1), pad.left - 6, yPos(g) + 3);
+    });
 
     // X axis labels
     ctx.textAlign = 'center';
@@ -431,6 +393,14 @@
     ctx.textAlign = 'center';
     ctx.fillText('M&M 1958', splitX, pad.top - 8);
 
+    // Pole labels
+    ctx.font = '10px ' + FONT;
+    ctx.textAlign = 'right';
+    ctx.fillStyle = GOLD;
+    ctx.fillText('\u2191 Practitioner paradigm', w - pad.right, pad.top + 12);
+    ctx.fillStyle = BLUE;
+    ctx.fillText('\u2193 Academic paradigm', w - pad.right, h - pad.bottom - 6);
+
     // Y-axis label
     ctx.save();
     ctx.translate(14, pad.top + chartH / 2);
@@ -438,7 +408,7 @@
     ctx.fillStyle = MUTED;
     ctx.font = '10px ' + FONT;
     ctx.textAlign = 'center';
-    ctx.fillText('PARADIGM SCORE (sim\u209A\u1D63\u2090\u1D04 \u2212 sim\u2090\u1D04\u2090\u1D48)', 0, 0);
+    ctx.fillText('PARADIGM SCORE  (sim\u2009prac \u2212 sim\u2009acad)', 0, 0);
     ctx.restore();
 
     // Draw per-source dots
@@ -448,65 +418,55 @@
       if (!info || !info.series) return;
       var color = sourceColors[name];
       var wordsMap = info.words || {};
+      var simPracMap = info.sim_prac || {};
+      var simAcadMap = info.sim_acad || {};
       var wins = Object.keys(info.series).sort();
-      var mids = wins.map(function (wk) { return parseInt(wk.split('-')[0]) + 2; });
-      var vals = wins.map(function (wk) { return info.series[wk]; });
+      var mids = wins.map(function (wi) { return parseInt(wi.split('-')[0]) + 2; });
+      var vals = wins.map(function (wi) { return info.series[wi]; });
       if (mids.length === 0) return;
 
       for (var i = 0; i < mids.length; i++) {
         var wc = wordsMap[wins[i]] || 0;
         var r = dotRadius(wc);
-        var px = xPos(mids[i]), py = yPos(vals[i]);
+        var px = xPos(mids[i]), py = yPos(Math.max(-yBound, Math.min(yBound, vals[i])));
         ctx.beginPath();
         ctx.arc(px, py, r, 0, Math.PI * 2);
         ctx.fillStyle = color;
         ctx.globalAlpha = 0.55;
         ctx.fill();
         ctx.globalAlpha = 1.0;
-        var simP = (info.sim_prac || {})[wins[i]];
-        var simA = (info.sim_acad || {})[wins[i]];
         dotPositions.push({
           x: px, y: py, r: r,
           name: name, window: wins[i],
           score: vals[i], words: wc,
-          sim_prac: simP, sim_acad: simA,
+          sim_prac: simPracMap[wins[i]] || 0,
+          sim_acad: simAcadMap[wins[i]] || 0,
           stream: info.stream, color: color
         });
       }
     });
 
-    // Draw aggregate stream lines on top
-    function drawAggLine(scores, color, lineW) {
-      var wins = Object.keys(scores).sort();
+    // Aggregate lines (thick, on top of dots)
+    function drawAggLine(aggData, color, lineWidth) {
+      var wins = Object.keys(aggData).sort();
       if (wins.length < 2) return;
-      var mids = wins.map(function (wk) { return parseInt(wk.split('-')[0]) + 2; });
-      var vals = wins.map(function (wk) { return scores[wk]; });
-
-      // Filled area from zero line
-      ctx.beginPath();
-      ctx.moveTo(xPos(mids[0]), yPos(0));
-      for (var i = 0; i < mids.length; i++) {
-        ctx.lineTo(xPos(mids[i]), yPos(vals[i]));
-      }
-      ctx.lineTo(xPos(mids[mids.length - 1]), yPos(0));
-      ctx.closePath();
-      ctx.fillStyle = color.replace(')', ', 0.08)').replace('rgb', 'rgba');
-      ctx.fill();
-
-      // Line
+      var mids = wins.map(function (wi) { return parseInt(wi.split('-')[0]) + 2; });
+      var vals = wins.map(function (wi) { return aggData[wi]; });
       ctx.beginPath();
       ctx.strokeStyle = color;
-      ctx.lineWidth = lineW;
+      ctx.lineWidth = lineWidth;
       for (var i = 0; i < mids.length; i++) {
-        if (i === 0) ctx.moveTo(xPos(mids[i]), yPos(vals[i]));
-        else ctx.lineTo(xPos(mids[i]), yPos(vals[i]));
+        var px = xPos(mids[i]);
+        var py = yPos(Math.max(-yBound, Math.min(yBound, vals[i])));
+        if (i === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
       }
       ctx.stroke();
-
-      // Dots
       for (var i = 0; i < mids.length; i++) {
+        var px = xPos(mids[i]);
+        var py = yPos(Math.max(-yBound, Math.min(yBound, vals[i])));
         ctx.beginPath();
-        ctx.arc(xPos(mids[i]), yPos(vals[i]), 3, 0, Math.PI * 2);
+        ctx.arc(px, py, 3, 0, Math.PI * 2);
         ctx.fillStyle = color;
         ctx.fill();
         ctx.strokeStyle = BG;
@@ -515,50 +475,13 @@
       }
     }
 
-    // Shade the gap between the two aggregate lines
-    var aggPWins = Object.keys(aggPracScores).sort();
-    var aggAWins = Object.keys(aggAcadScores).sort();
-    var overlapWins = aggPWins.filter(function (wk) { return aggAcadScores[wk] !== undefined; });
-    if (overlapWins.length >= 2) {
-      ctx.beginPath();
-      // Top edge: practitioner scores left to right
-      for (var i = 0; i < overlapWins.length; i++) {
-        var px = xPos(parseInt(overlapWins[i].split('-')[0]) + 2);
-        var py = yPos(aggPracScores[overlapWins[i]]);
-        if (i === 0) ctx.moveTo(px, py);
-        else ctx.lineTo(px, py);
-      }
-      // Bottom edge: academic scores right to left
-      for (var i = overlapWins.length - 1; i >= 0; i--) {
-        var px = xPos(parseInt(overlapWins[i].split('-')[0]) + 2);
-        var py = yPos(aggAcadScores[overlapWins[i]]);
-        ctx.lineTo(px, py);
-      }
-      ctx.closePath();
-      ctx.fillStyle = 'rgba(167, 139, 250, 0.08)';
-      ctx.fill();
+    if (hasTwoPole) {
+      drawAggLine(aggPracScores, GOLD, 3);
+      drawAggLine(aggAcadScores, BLUE, 3);
     }
-
-    drawAggLine(aggPracScores, GOLD, 2.5);
-    drawAggLine(aggAcadScores, BLUE, 2.5);
-
-    // Legend at bottom
-    ctx.font = '9px ' + FONT;
-    ctx.textAlign = 'left';
-    var lx = pad.left, ly = h - 6;
-    ctx.fillStyle = GOLD;
-    ctx.fillRect(lx, ly - 4, 14, 3);
-    ctx.fillText('Practitioner aggregate', lx + 18, ly);
-    var lx2 = lx + 170;
-    ctx.fillStyle = BLUE;
-    ctx.fillRect(lx2, ly - 4, 14, 3);
-    ctx.fillText('Academic aggregate', lx2 + 18, ly);
-    var lx3 = lx2 + 155;
-    ctx.fillStyle = MUTED;
-    ctx.fillText('Dots = individual sources', lx3, ly);
   }
 
-  // ── Hover callouts for per-source divergence ──
+  // ── Hover callouts for paradigm spectrum ──
   (function () {
     var canvas = document.getElementById('source-divergence-canvas');
     var tooltip = document.getElementById('source-tooltip');
@@ -569,8 +492,7 @@
       var mx = e.clientX - rect.left;
       var my = e.clientY - rect.top;
 
-      // Find nearest dot within 12px
-      var best = null, bestDist = 144; // 12^2
+      var best = null, bestDist = 144;
       for (var i = 0; i < dotPositions.length; i++) {
         var d = dotPositions[i];
         var dx = mx - d.x, dy = my - d.y;
@@ -587,23 +509,15 @@
           : best.words >= 1000
             ? (best.words / 1000).toFixed(0) + 'K'
             : best.words.toString();
-        var scoreVal = best.score !== undefined ? best.score : best.distance;
-        var scoreLabel = best.score !== undefined ? 'Score' : 'Distance';
-        var scoreStr = (scoreVal > 0 ? '+' : '') + scoreVal.toFixed(3);
-        var extraInfo = '';
-        if (best.sim_prac !== undefined && best.sim_acad !== undefined) {
-          extraInfo = '<br>sim(prac)=' + best.sim_prac.toFixed(3) +
-                      ' sim(acad)=' + best.sim_acad.toFixed(3);
-        }
+        var scoreLabel = best.score >= 0 ? '+' + best.score.toFixed(3) : best.score.toFixed(3);
         tooltip.innerHTML =
           '<strong style="color:' + best.color + ';">' + best.name + '</strong><br>' +
           best.window + ' &middot; ' + wStr + ' words<br>' +
-          scoreLabel + ': ' + scoreStr + extraInfo;
+          'Score: ' + scoreLabel +
+          ' (prac: ' + best.sim_prac.toFixed(3) + ', acad: ' + best.sim_acad.toFixed(3) + ')';
         tooltip.style.display = 'block';
-        // Position tooltip near cursor, offset to avoid covering the dot
         var tx = e.clientX - rect.left + 14;
         var ty = e.clientY - rect.top - 10;
-        // Keep tooltip within canvas bounds
         if (tx + tooltip.offsetWidth > rect.width - 10) tx = mx - tooltip.offsetWidth - 14;
         if (ty < 0) ty = my + 20;
         tooltip.style.left = tx + 'px';
