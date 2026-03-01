@@ -852,108 +852,167 @@
   //    intensity = count of ~3K-char segments at that score
   // ═══════════════════════════════════════════════════════════════
 
-  // Prefer embedding-based histograms (smoother, no banding) over keyword-based
-  var embMA = (D.embedding_histograms || {}).mergers_acquisitions || {};
-  var segHist = embMA.segment_histograms || D.segment_histograms || {};
-  var segBins = embMA.segment_bins || D.segment_bins || [];       // bin centers
-  var segBinEdges = embMA.segment_bin_edges || D.segment_bin_edges || [];
-  var segStats = embMA.segment_stats || D.segment_stats || {};
+  // ── Embedding-based density data ──
+  var embData = D.embedding_histograms || {};
+  var embTopicKeys = Object.keys(embData).sort();
+  var currentDensityTopic = embTopicKeys[0] || null;
 
-  function drawDensitySurface(canvasId, streamKey, accentColor) {
-    var canvas = document.getElementById(canvasId);
+  // Build topic selector buttons
+  function buildDensityTopicButtons() {
+    var container = document.getElementById('density-topic-selector');
+    if (!container || embTopicKeys.length === 0) return;
+    container.innerHTML = '';
+    embTopicKeys.forEach(function (key) {
+      var btn = document.createElement('button');
+      btn.className = 'topic-btn' + (key === currentDensityTopic ? ' active' : '');
+      btn.textContent = embData[key].label || key.replace(/_/g, ' ');
+      btn.onclick = function () {
+        currentDensityTopic = key;
+        container.querySelectorAll('.topic-btn').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        drawOverlaidDensity();
+      };
+      container.appendChild(btn);
+    });
+  }
+
+  function drawOverlaidDensity() {
+    var canvas = document.getElementById('density-canvas');
     if (!canvas) return;
-    var histData = (segHist[streamKey] || {});
-    var windows = Object.keys(histData).sort();
-    if (windows.length === 0 || segBins.length === 0) {
-      // No data yet — show placeholder
+
+    // Get data for current topic
+    var topicData = embData[currentDensityTopic] || {};
+    var bins = topicData.segment_bins || D.segment_bins || [];
+    var histograms = topicData.segment_histograms || {};
+    var pracHist = histograms.practitioner || {};
+    var acadHist = histograms.academic || {};
+
+    // Merge windows from both streams
+    var winSet = {};
+    Object.keys(pracHist).forEach(function (w) { winSet[w] = true; });
+    Object.keys(acadHist).forEach(function (w) { winSet[w] = true; });
+    var windows = Object.keys(winSet).sort();
+
+    if (windows.length === 0 || bins.length === 0) {
       var s = setupCanvas(canvas);
-      var ctx = s.ctx;
-      ctx.fillStyle = BG;
-      ctx.fillRect(0, 0, s.w, s.h);
-      ctx.fillStyle = MUTED;
-      ctx.font = '13px ' + FONT;
-      ctx.textAlign = 'center';
-      ctx.fillText('Segment data not yet computed. Run analyze_trajectories_v3.py', s.w / 2, s.h / 2);
+      s.ctx.fillStyle = BG;
+      s.ctx.fillRect(0, 0, s.w, s.h);
+      s.ctx.fillStyle = MUTED;
+      s.ctx.font = '13px ' + FONT;
+      s.ctx.textAlign = 'center';
+      s.ctx.fillText('No embedding data available. Run analyze_embeddings_v2.py', s.w / 2, s.h / 2);
       return;
     }
+
+    var nBins = bins.length;
+    var binWidth = bins[1] - bins[0];
+    var fullMin = bins[0] - binWidth / 2;
+    var fullMax = bins[nBins - 1] + binWidth / 2;
+
+    // Find Y-axis crop: bins containing 99.5% of data
+    var totalByBin = new Array(nBins).fill(0);
+    windows.forEach(function (wi) {
+      var p = pracHist[wi] || [];
+      var a = acadHist[wi] || [];
+      for (var b = 0; b < nBins; b++) {
+        totalByBin[b] += (p[b] || 0) + (a[b] || 0);
+      }
+    });
+    var grandTotal = totalByBin.reduce(function (s, v) { return s + v; }, 0);
+    var cutoff = grandTotal * 0.0025;
+    var loBin = 0, hiBin = nBins - 1;
+    var cumLo = 0;
+    for (var b = 0; b < nBins; b++) {
+      cumLo += totalByBin[b];
+      if (cumLo >= cutoff) { loBin = Math.max(0, b - 1); break; }
+    }
+    var cumHi = 0;
+    for (var b = nBins - 1; b >= 0; b--) {
+      cumHi += totalByBin[b];
+      if (cumHi >= cutoff) { hiBin = Math.min(nBins - 1, b + 1); break; }
+    }
+    var viewBins = hiBin - loBin + 1;
+    var viewMin = bins[loBin] - binWidth / 2;
+    var viewMax = bins[hiBin] + binWidth / 2;
 
     var s = setupCanvas(canvas);
     var ctx = s.ctx, w = s.w, h = s.h;
 
-    var pad = { top: 20, bottom: 45, left: 60, right: 60 };
+    var pad = { top: 28, bottom: 45, left: 60, right: 60 };
     var chartW = w - pad.left - pad.right;
     var chartH = h - pad.top - pad.bottom;
-    var nBins = segBins.length;
 
     ctx.fillStyle = BG;
     ctx.fillRect(0, 0, w, h);
 
-    // Find the global max count for color scaling
+    // Find global max across BOTH streams for shared color scaling
     var globalMax = 0;
     windows.forEach(function (wi) {
-      var bins = histData[wi];
-      for (var b = 0; b < bins.length; b++) {
-        if (bins[b] > globalMax) globalMax = bins[b];
+      var p = pracHist[wi] || [];
+      var a = acadHist[wi] || [];
+      for (var b = loBin; b <= hiBin; b++) {
+        if ((p[b] || 0) > globalMax) globalMax = p[b] || 0;
+        if ((a[b] || 0) > globalMax) globalMax = a[b] || 0;
       }
     });
     if (globalMax === 0) return;
 
-    // Cell dimensions
     var cellW = chartW / windows.length;
-    var cellH = chartH / nBins;
+    var cellH = chartH / viewBins;
 
-    // Parse accent color to RGB for intensity mapping
-    var r0, g0, b0;
-    if (accentColor === GOLD) { r0 = 212; g0 = 160; b0 = 23; }
-    else { r0 = 91; g0 = 164; b0 = 207; }
-
-    // Draw cells (bottom = most negative score, top = most positive)
+    // Draw both streams overlaid. Draw each cell by blending.
+    // Practitioner = gold, Academic = blue.
+    // If both have counts, blend additively.
     windows.forEach(function (wi, ci) {
-      var bins = histData[wi];
+      var p = pracHist[wi] || [];
+      var a = acadHist[wi] || [];
       var x = pad.left + ci * cellW;
-      for (var b = 0; b < nBins; b++) {
-        var count = bins[b];
-        if (count === 0) continue;
-        // bin 0 = most negative (bottom), bin N-1 = most positive (top)
-        var y = pad.top + (nBins - 1 - b) * cellH;
-        // Use sqrt scaling for better visibility of low counts
-        var intensity = Math.sqrt(count / globalMax);
-        ctx.fillStyle = 'rgba(' + r0 + ',' + g0 + ',' + b0 + ',' + (intensity * 0.9 + 0.1).toFixed(3) + ')';
+      for (var b = loBin; b <= hiBin; b++) {
+        var pc = p[b] || 0;
+        var ac = a[b] || 0;
+        if (pc === 0 && ac === 0) continue;
+        var vb = b - loBin;
+        var y = pad.top + (viewBins - 1 - vb) * cellH;
+        // Intensity via sqrt scaling
+        var pi = pc > 0 ? Math.sqrt(pc / globalMax) : 0;
+        var ai = ac > 0 ? Math.sqrt(ac / globalMax) : 0;
+        // Blend: gold (212,160,23) and blue (91,164,207)
+        var r = Math.round(212 * pi + 91 * ai);
+        var g = Math.round(160 * pi + 164 * ai);
+        var bl = Math.round(23 * pi + 207 * ai);
+        r = Math.min(255, r); g = Math.min(255, g); bl = Math.min(255, bl);
+        var alpha = Math.min(1, Math.max(pi, ai) * 0.85 + 0.1);
+        ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + bl + ',' + alpha.toFixed(3) + ')';
         ctx.fillRect(x, y, cellW + 0.5, cellH + 0.5);
       }
     });
 
     // Zero line
-    var zeroIdx = 0;
-    for (var b = 0; b < nBins; b++) {
-      if (segBins[b] >= 0) { zeroIdx = b; break; }
+    if (viewMin < 0 && viewMax > 0) {
+      var zeroFrac = (0 - viewMin) / (viewMax - viewMin);
+      var zeroY = pad.top + (1 - zeroFrac) * chartH;
+      ctx.strokeStyle = 'rgba(255,255,255,0.35)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(pad.left, zeroY);
+      ctx.lineTo(pad.left + chartW, zeroY);
+      ctx.stroke();
     }
-    var zeroY = pad.top + (nBins - 1 - zeroIdx) * cellH;
-    ctx.strokeStyle = 'rgba(255,255,255,0.4)';
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.moveTo(pad.left, zeroY);
-    ctx.lineTo(pad.left + chartW, zeroY);
-    ctx.stroke();
 
-    // Y-axis labels (paradigm score)
+    // Y-axis labels
     ctx.fillStyle = MUTED;
     ctx.font = '9px ' + FONT;
     ctx.textAlign = 'right';
-    var binMin = segBins[0] - (segBins[1] - segBins[0]) / 2;
-    var binMax = segBins[nBins - 1] + (segBins[1] - segBins[0]) / 2;
-    // Dynamic tick marks: use wider range for embedding data (±1.0) vs keyword (±0.5)
-    var yTicks = (binMax > 0.6)
-      ? [binMin, -0.8, -0.6, -0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.8, binMax]
-      : [binMin, -0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3, binMax];
-    yTicks.forEach(function (val) {
-      // Map score value to Y position
-      var frac = (val - binMin) / (binMax - binMin); // 0 at bottom, 1 at top
+    var step = (viewMax - viewMin) > 0.8 ? 0.2 : 0.1;
+    var tick = Math.ceil(viewMin / step) * step;
+    while (tick <= viewMax + 0.001) {
+      var frac = (tick - viewMin) / (viewMax - viewMin);
       var y = pad.top + (1 - frac) * chartH;
       if (y >= pad.top - 5 && y <= pad.top + chartH + 5) {
-        ctx.fillText((val >= 0 ? '+' : '') + val.toFixed(1), pad.left - 6, y + 3);
+        ctx.fillText((tick >= 0 ? '+' : '') + tick.toFixed(1), pad.left - 6, y + 3);
       }
-    });
+      tick += step;
+    }
 
     // Y-axis arrow labels
     ctx.font = '9px ' + FONT;
@@ -1002,39 +1061,49 @@
       ctx.fillText('M&M', sx, pad.top - 4);
     }
 
-    // Mean line overlay
-    ctx.strokeStyle = 'rgba(255,255,255,0.6)';
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    var started = false;
-    windows.forEach(function (wi, ci) {
-      var bins = histData[wi];
-      var total = 0, weightedSum = 0;
-      for (var b = 0; b < nBins; b++) {
-        total += bins[b];
-        weightedSum += bins[b] * segBins[b];
-      }
-      if (total === 0) return;
-      var mean = weightedSum / total;
-      var frac = (mean - binMin) / (binMax - binMin);
-      var y = pad.top + (1 - frac) * chartH;
-      var x = pad.left + ci * cellW + cellW / 2;
-      if (!started) { ctx.moveTo(x, y); started = true; }
-      else ctx.lineTo(x, y);
-    });
-    ctx.stroke();
+    // Mean lines for each stream
+    function drawMeanLine(histData, color) {
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      var started = false;
+      windows.forEach(function (wi, ci) {
+        var hb = histData[wi] || [];
+        var total = 0, weightedSum = 0;
+        for (var b = 0; b < nBins; b++) {
+          total += (hb[b] || 0);
+          weightedSum += (hb[b] || 0) * bins[b];
+        }
+        if (total === 0) return;
+        var mean = weightedSum / total;
+        var frac = (mean - viewMin) / (viewMax - viewMin);
+        var y = pad.top + (1 - frac) * chartH;
+        var x = pad.left + ci * cellW + cellW / 2;
+        if (!started) { ctx.moveTo(x, y); started = true; }
+        else ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+    }
+    drawMeanLine(pracHist, GOLD);
+    drawMeanLine(acadHist, BLUE);
 
-    // Segment count labels at top
+    // Segment count labels at top (combined)
     ctx.font = '7px ' + FONT;
     ctx.textAlign = 'center';
-    ctx.fillStyle = 'rgba(255,255,255,0.35)';
     windows.forEach(function (wi, ci) {
-      var bins = histData[wi];
-      var total = 0;
-      for (var b = 0; b < nBins; b++) total += bins[b];
-      if (total > 0) {
-        var x = pad.left + ci * cellW + cellW / 2;
-        var label = total >= 1000 ? (total / 1000).toFixed(0) + 'K' : total.toString();
+      var p = pracHist[wi] || [];
+      var a = acadHist[wi] || [];
+      var pTotal = 0, aTotal = 0;
+      for (var b = 0; b < nBins; b++) { pTotal += (p[b] || 0); aTotal += (a[b] || 0); }
+      var x = pad.left + ci * cellW + cellW / 2;
+      if (pTotal > 0) {
+        ctx.fillStyle = 'rgba(212,160,23,0.5)';
+        var label = pTotal >= 1000 ? (pTotal / 1000).toFixed(0) + 'K' : pTotal.toString();
+        ctx.fillText(label, x, pad.top - 10);
+      }
+      if (aTotal > 0) {
+        ctx.fillStyle = 'rgba(91,164,207,0.5)';
+        var label = aTotal >= 1000 ? (aTotal / 1000).toFixed(0) + 'K' : aTotal.toString();
         ctx.fillText(label, x, pad.top - 2);
       }
     });
@@ -1050,26 +1119,22 @@
     ctx.restore();
   }
 
-  function drawPracDensity() { drawDensitySurface('prac-density-canvas', 'practitioner', GOLD); }
-  function drawAcadDensity() { drawDensitySurface('acad-density-canvas', 'academic', BLUE); }
-
   // ═══════════════════════════════════════════════════════════════
   // Init
   // ═══════════════════════════════════════════════════════════════
   buildTopicButtons();
   buildSourceButtons();
+  buildDensityTopicButtons();
   drawDivergence();
   drawSourceDivergence();
-  drawPracDensity();
-  drawAcadDensity();
+  drawOverlaidDensity();
   drawTopics();
   drawHeatmap();
 
   window.addEventListener('resize', function () {
     drawDivergence();
     drawSourceDivergence();
-    drawPracDensity();
-    drawAcadDensity();
+    drawOverlaidDensity();
     drawTopics();
     drawHeatmap();
   });

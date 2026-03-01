@@ -220,32 +220,20 @@
     </div>
   </div>
 
-  <!-- Segment density: Practitioner -->
+  <!-- Segment density: overlaid -->
   <div class="chart-section">
-    <h2>Practitioner Paradigm Distribution</h2>
+    <h2>Paradigm Distribution by Topic</h2>
     <p class="chart-subtitle">
-      Each magazine issue is split into ~3,000-character segments, and each segment is scored
-      on the paradigm spectrum (positive = practitioner, negative = academic).
-      Color intensity = number of segments at that score in each 5-year window.
-      The distribution reveals how heterogeneous practitioner writing is &mdash;
-      and how it shifts over time.
+      Each source is split into ~3,000-character segments filtered by topic.
+      Segments are embedded using a sentence-transformer model, then scored
+      by similarity to pre-1920 practitioner vs. post-2000 academic centroids.
+      <span style="color:var(--gold);">Gold</span> = practitioner magazines,
+      <span style="color:var(--blue);">blue</span> = academic journals.
+      Solid lines show the mean score per stream over time.
     </p>
+    <div class="topic-selector" id="density-topic-selector"></div>
     <div class="chart-canvas-wrap">
-      <canvas id="prac-density-canvas" height="340"></canvas>
-    </div>
-  </div>
-
-  <!-- Segment density: Academic -->
-  <div class="chart-section">
-    <h2>Academic Paradigm Distribution</h2>
-    <p class="chart-subtitle">
-      Same as above, but for academic journal articles.
-      Each article is split into ~3,000-character segments and scored independently.
-      Academic writing starts broadly distributed and concentrates
-      in the negative (academic paradigm) region after the 1960s.
-    </p>
-    <div class="chart-canvas-wrap">
-      <canvas id="acad-density-canvas" height="340"></canvas>
+      <canvas id="density-canvas" height="400"></canvas>
     </div>
   </div>
 
