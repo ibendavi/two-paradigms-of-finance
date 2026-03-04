@@ -1,5 +1,6 @@
 /**
  * Periodicals: visualize topic trajectories in practitioner vs academic literature.
+ * V3: supports annual data (keys = "YYYY") and 5-year window data (keys = "YYYY-YYYY").
  */
 (function () {
   'use strict';
@@ -7,22 +8,27 @@
   var D = window.TRAJECTORIES;
   if (!D) return;
 
+  var isV3 = (D.version === 3);
+
   var topics = D.topics;        // {key: label}
-  var prac = D.practitioner;    // {window: {topic: freq, total_docs: n}}
+  var prac = D.practitioner;    // {year_or_window: {topic: freq, total_docs/total_words: n}}
   var acad = D.academic;
-  var divergence = D.divergence; // {window: {cosine_distance, ...}}
-  var pracLag = D.prac_lag || {};  // {window: {cosine_distance, vs_window}}
-  var acadLag = D.acad_lag || {};  // {window: {cosine_distance, vs_window}}
+  var divergence = D.divergence; // {year_or_window: {cosine_distance, ...}}
+  var pracLag = D.prac_lag || {};
+  var acadLag = D.acad_lag || {};
   var perSourceDiv = D.per_source_divergence || {};
   var perSourceResid = D.per_source_residuals || {};
   var sourceFE = D.source_fe || {};
-  var windowFE = D.window_fe || {};
+  var windowFE = isV3 ? (D.year_fe || {}) : (D.window_fe || {});
 
-  // Two-pole paradigm data (v2)
+  // Two-pole paradigm data
   var perSourceScores = D.per_source_scores || {};
   var aggPracScores = D.agg_prac_scores || {};
   var aggAcadScores = D.agg_acad_scores || {};
+  var aggBridgeScores = D.agg_bridge_scores || {};
   var poles = D.poles || {};
+  var bridgeJournals = D.bridge_journals || [];
+  var sourceStream = D.source_stream || {};
 
   // Colors
   var GOLD = '#d4a017';
@@ -33,13 +39,21 @@
   var MUTED = '#706a5a';
   var AXIS = '#4a4458';
   var PURPLE = '#a78bfa';
+  var GREEN = '#66bb6a';
   var FONT = '"JetBrains Mono", "Consolas", monospace';
 
-  // All windows sorted
+  // Smoothing state (1 = no smoothing, 3 = 3-year, 5 = 5-year)
+  var smoothingWindow = isV3 ? 5 : 1;
+
+  // Parse window/year key to midpoint year
+  function keyToYear(k) {
+    if (k.indexOf('-') >= 0) return parseInt(k.split('-')[0]) + 2;
+    return parseInt(k);
+  }
+
+  // All windows/years sorted
   var allWindows = Object.keys(Object.assign({}, prac, acad)).sort();
-  var windowMids = allWindows.map(function (w) {
-    return parseInt(w.split('-')[0]) + 2;
-  });
+  var windowMids = allWindows.map(keyToYear);
 
   // Topic keys and labels
   var topicKeys = Object.keys(topics);
@@ -47,6 +61,33 @@
 
   // DPR
   var dpr = window.devicePixelRatio || 1;
+
+  // Smoothing helper: weighted rolling average on annual keyed data
+  function smoothSeries(data, halfW) {
+    if (halfW <= 0) return data;
+    var keys = Object.keys(data).sort();
+    var years = keys.map(function(k){ return parseInt(k); });
+    var result = {};
+    for (var i = 0; i < keys.length; i++) {
+      var center = years[i];
+      var sum = 0, weight = 0;
+      for (var j = 0; j < keys.length; j++) {
+        if (Math.abs(years[j] - center) <= halfW) {
+          var w = 1; // uniform weight within window
+          sum += data[keys[j]] * w;
+          weight += w;
+        }
+      }
+      result[keys[i]] = weight > 0 ? sum / weight : data[keys[i]];
+    }
+    return result;
+  }
+
+  function getSmoothedAgg(raw) {
+    if (!isV3 || smoothingWindow <= 1) return raw;
+    var halfW = Math.floor(smoothingWindow / 2);
+    return smoothSeries(raw, halfW);
+  }
 
   // --- Counts ---
   var totalPrac = 0, totalAcad = 0;
@@ -1095,18 +1136,18 @@
     ctx.fillStyle = BLUE;
     ctx.fillText('\u2193 Academic', w - pad.right + 8, pad.top + chartH - 2);
 
-    // X-axis labels
+    // X-axis labels (every 10 years)
     ctx.textAlign = 'center';
     ctx.fillStyle = MUTED;
     ctx.font = '9px ' + FONT;
     windows.forEach(function (wi, ci) {
       var x = pad.left + ci * cellW + cellW / 2;
-      var startYear = wi.split('-')[0];
-      if (ci % 2 === 0 || windows.length <= 20) {
+      var startYear = parseInt(wi.split('-')[0]);
+      if (startYear % 10 === 0) {
         ctx.save();
         ctx.translate(x, pad.top + chartH + 6);
         ctx.rotate(Math.PI / 4);
-        ctx.fillText(startYear, 0, 0);
+        ctx.fillText(startYear.toString(), 0, 0);
         ctx.restore();
       }
     });
@@ -1134,23 +1175,7 @@
       ctx.fillText('M&M 1958', sx, pad.top - 4);
     }
 
-    // Segment count labels at top
-    ctx.font = '7px ' + FONT;
-    ctx.textAlign = 'center';
-    windows.forEach(function (wi, ci) {
-      var ps = pracStats[wi], as = acadStats[wi];
-      var x = pad.left + ci * cellW + cellW / 2;
-      if (ps) {
-        ctx.fillStyle = 'rgba(212,160,23,0.5)';
-        var label = ps.n >= 1000 ? (ps.n / 1000).toFixed(0) + 'K' : ps.n.toString();
-        ctx.fillText(label, x, pad.top - 10);
-      }
-      if (as) {
-        ctx.fillStyle = 'rgba(91,164,207,0.5)';
-        var label = as.n >= 1000 ? (as.n / 1000).toFixed(0) + 'K' : as.n.toString();
-        ctx.fillText(label, x, pad.top - 2);
-      }
-    });
+    // (Segment count labels removed for cleaner display)
 
     // Y-axis label
     ctx.save();
