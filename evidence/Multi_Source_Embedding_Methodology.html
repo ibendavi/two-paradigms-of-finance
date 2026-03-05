@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Two Paradigms of Finance: Multi-Source Embedding Methodology | The Two Paradigms of Finance</title>
+  <meta name="description" content="A primary-source history of how financial thinking split into two streams: the practitioner tradition of earnings capitalization (P = EPS × P/E) and the academic revolution of NPV, CAPM, and DCF.">
+  <meta name="author" content="Itzhak Ben-David & Alex Chinco">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📜</text></svg>">
+  <link rel="stylesheet" href="../static/css/style.css">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Two Paradigms</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="../the-split.html" >The Split</a></li>
+        <li><a href="../two-paradigms.html" >Two Paradigms</a></li>
+        <li><a href="../timeline.html" >Timeline</a></li>
+        <li><a href="../library.html" >Library</a></li>
+        <li><a href="../periodicals.html" >Periodicals</a></li>
+        <li><a href="../about.html" >About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+<div class="container">
+
+  <!-- Header -->
+  <div class="evidence-header">
+    <div class="evidence-meta">
+      <span class="paradigm-badge academic">Academic</span>
+      <span class="era-tag">The Consensus Era (1720–1957)</span>
+      
+    </div>
+    <h1 class="evidence-title">The Two Paradigms of Finance: Multi-Source Embedding Methodology</h1>
+    
+  </div>
+
+  <!-- Key Finding -->
+  
+
+  <!-- Main content + sidebar -->
+  <div class="evidence-layout">
+    <div class="prose">
+      
+      <h2>1. Project Overview</h2>
+<p>This project builds a quantitative evidence base for a central intellectual claim: that financial practice has always operated on <strong>earnings capitalization</strong> (P = E x P/E, where P/E comes from comparables), while post-1958 academic finance adopted a fundamentally different framework based on <strong>discounted cash flow and NPV maximization</strong>. These are not mere terminological differences — they represent distinct paradigms with different objectives, pricing mechanisms, and policy implications.</p>
+<p>The central research question is:</p>
+<blockquote>
+<p>How have the concepts, tools, and frameworks people use to make financial decisions evolved over time — and how do the practitioner (&quot;Wall Street / Main Street&quot;) and academic streams of thinking compare?</p>
+</blockquote>
+<h3>The Two Poles</h3>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Practitioner Pole</th>
+<th>Academic Pole</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pricing model</td>
+<td>P = EPS x P/E (comps-based multiples)</td>
+<td>P = sum of discounted future cash flows</td>
+</tr>
+<tr>
+<td>Manager objective</td>
+<td>Maximize EPS</td>
+<td>Maximize NPV</td>
+</tr>
+<tr>
+<td>Cost of equity</td>
+<td>Earnings yield (observable)</td>
+<td>Required return from CAPM / factor model</td>
+</tr>
+<tr>
+<td>Reference era</td>
+<td>Pre-1920 practitioner writing</td>
+<td>Post-2000 academic journals</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. Data Sources</h2>
+<h3>2.1 Periodicals (~316K files, ~255 collections)</h3>
+<p>The backbone of the analysis. Two streams:</p>
+<p><strong>Practitioner magazines</strong> (~65+ sources, 1843–present):</p>
+<ul>
+<li>Financial trade press: Commercial &amp; Financial Chronicle, Magazine of Wall Street, Barron's, Financial World, Financial Analysts Journal, The Annalist</li>
+<li>Business press: Forbes, Fortune, Harvard Business Review, Bloomberg Businessweek</li>
+<li>Insurance, banking, accounting, real estate trade publications</li>
+<li>Coverage: 1843 to ~1997 on Archive.org, with gaps in post-1970 coverage for major outlets (Forbes/Fortune/BW end at ~1961 due to copyright)</li>
+</ul>
+<p><strong>Academic journals</strong> (~24+ sources, 1886–present):</p>
+<ul>
+<li>Finance: Journal of Finance (JF), Journal of Financial Economics (JFE), Review of Financial Studies (RFS), Journal of Financial and Quantitative Analysis (JFQA)</li>
+<li>Economics: American Economic Review (AER), Quarterly Journal of Economics (QJE), Journal of Political Economy (JPE), Econometrica</li>
+<li>Accounting: The Accounting Review, Journal of Accounting Research</li>
+</ul>
+<p><strong>Data format</strong>: OCR text files organized as <code>Periodicals/{Stream}/{Source Name}/{YYYY}/sim_*.txt</code>. Academic journals additionally have <code>articles.jsonl</code> files containing title + abstract from CrossRef / OpenAlex / Semantic Scholar APIs.</p>
+<p><strong>Source classification</strong>: Some sources are &quot;pure finance&quot; (entire content is finance, e.g., JF, JFE, Financial Analysts Journal, Magazine of Wall Street) and receive full-text treatment. General-interest sources (Forbes, AER, Fortune) receive passage-level filtering to extract only finance-relevant content.</p>
+<h3>2.2 Textbooks (~2,550 PDFs)</h3>
+<p>Textbooks capture <strong>codified knowledge</strong> — what was taught, considered authoritative, and transmitted to the next generation. Unlike journalism (reporting on events) or academic papers (advancing the frontier), textbooks represent the institutionalized consensus at each moment.</p>
+<p>Located at: <code>E:/Dropbox/Research1/EPS Literature/Textbooks/{Academic,Practitioner}/{Topic}/</code></p>
+<ul>
+<li><strong>Academic textbooks</strong>: University finance and economics courses — Brealey/Myers, Copeland/Weston, Modigliani/Miller era textbooks, pre-MM treatises</li>
+<li><strong>Practitioner textbooks</strong>: Investment guides, how-to-value-stocks manuals, broker handbooks, corporate finance how-to books</li>
+<li>~2,574 PDFs scored; time range antiquity to present (heavy pre-1950 coverage)</li>
+</ul>
+<p>Text is extracted via <code>pdftotext</code> (subprocess call), cached in <code>Periodicals/textbook_text_cache/</code> (MD5-keyed <code>.txt</code> files) to avoid re-extraction on subsequent runs.</p>
+<h3>2.3 Earnings Call Transcripts (540K transcripts, 2002–present)</h3>
+<p>Located at: <code>D:/data/earnings_calls/transcripts_YYYY.jsonl</code></p>
+<p>Earnings calls capture <strong>finance in action</strong> — what corporate managers actually say to investors when reporting results and explaining decisions. The language managers use in earnings calls directly reveals which paradigm governs actual practice: do they speak in terms of EPS, P/E multiples, and earnings yield, or in terms of NPV, WACC, and DCF?</p>
+<ul>
+<li>540,349 transcripts across ~24 years</li>
+<li>Sampled: every 10th transcript, up to 3 segments per transcript (first 30K chars)</li>
+<li>Classified as &quot;practitioner&quot; stream by definition</li>
+</ul>
+<hr />
+<h2>3. Keyword-Based Trajectory Analysis</h2>
+<p><strong>Script:</strong> <code>Periodicals/analyze_trajectories_v2.py</code>
+<strong>Output:</strong> <code>Periodicals/trajectories.json</code> (keyword frequency fields)</p>
+<h3>3.1 Methodology</h3>
+<p>The keyword analysis tracks <strong>topic frequencies</strong> across the corpus using a bag-of-words approach. For each source-window combination:</p>
+<ol>
+<li>Load all text files</li>
+<li>Apply passage extraction for non-pure sources (±3,000 chars around any finance keyword hit)</li>
+<li>Count binary topic hits per document (1 if any pattern matches, 0 otherwise)</li>
+<li>Aggregate to source × 5-year window counts</li>
+</ol>
+<h3>3.2 15 Topics Tracked</h3>
+<ol>
+<li>Earnings Capitalization (EPS, earnings yield, P/E ratio, capitalization rate)</li>
+<li>DCF/NPV (discounted cash flow, net present value, WACC, free cash flow)</li>
+<li>Capital Structure / Leverage</li>
+<li>Dividends &amp; Payout</li>
+<li>Portfolio Theory / CAPM (Markowitz, efficient frontier, beta, Sharpe ratio)</li>
+<li>Efficient Markets (EMH, random walk, weak/semi-strong/strong form)</li>
+<li>Options &amp; Derivatives</li>
+<li>Behavioral Finance (behavioral, cognitive bias, prospect theory, overconfidence)</li>
+<li>M&amp;A</li>
+<li>Speculation &amp; Trading</li>
+<li>Bonds &amp; Fixed Income</li>
+<li>Banking &amp; Monetary Policy</li>
+<li>Corporate Governance</li>
+<li>EVA / Value-Based Management</li>
+<li>IPOs &amp; Equity Issuance</li>
+</ol>
+<h3>3.3 Two-Pole Paradigm Scoring</h3>
+<p>The core innovation over v1: instead of measuring distance from a single pole, each source-window is positioned on a <strong>spectrum between two poles</strong>:</p>
+<pre><code>score = cosine_sim(source_vector, practitioner_pole) - cosine_sim(source_vector, academic_pole)
+</code></pre>
+<ul>
+<li><strong>Positive score</strong> (+1 maximum): source uses the practitioner paradigm</li>
+<li><strong>Negative score</strong> (-1 minimum): source uses the academic paradigm</li>
+<li><strong>Zero</strong>: equidistant from both poles</li>
+</ul>
+<p><strong>Pole construction:</strong></p>
+<ul>
+<li>Practitioner pole: aggregate term-frequency vector from all pre-1920 practitioner sources</li>
+<li>Academic pole: aggregate term-frequency vector from all post-2000 academic journal sources</li>
+</ul>
+<p>This corrects a key flaw in the v1 approach, where &quot;covers finance topics&quot; was conflated with &quot;uses the practitioner paradigm.&quot; Both poles discuss earnings, dividends, and capital structure — but using entirely different frameworks.</p>
+<hr />
+<h2>4. Embedding-Based Paradigm Scoring</h2>
+<p><strong>Scripts:</strong> <code>Periodicals/analyze_embeddings_v2.py</code> through <code>v4.py</code>
+<strong>Output:</strong> <code>Periodicals/trajectories.json</code> (embedding_histograms field), <code>Periodicals/embeddings/*.npz</code></p>
+<h3>4.1 Why Embeddings?</h3>
+<p>Keyword-level topic vectors (15-dimensional) have two limitations:</p>
+<ol>
+<li><strong>Discrete banding</strong>: Topics mix subjects with paradigms. &quot;Capital structure&quot; segments in 1890 and 1990 are about the same subject but reflect entirely different frameworks.</li>
+<li><strong>Method-paradigm conflation</strong>: Whether a segment discusses earnings yield or WACC tells you which paradigm it uses — but if you include those keywords in your filter, you've already answered the question.</li>
+</ol>
+<p>Embedding-based scoring captures <strong>how</strong> people discuss a topic — the semantic texture, the associated concepts, the rhetorical structure — rather than just <strong>which topic</strong> is discussed. A pre-1920 practitioner writing about dividends uses different language than a post-2000 academic writing about payout policy, even if both hit the same &quot;dividends&quot; keyword.</p>
+<h3>4.2 Model</h3>
+<p><strong>Model:</strong> <code>sentence-transformers/all-MiniLM-L6-v2</code></p>
+<ul>
+<li>384-dimensional dense embeddings</li>
+<li>Optimized for semantic similarity tasks</li>
+<li>Fast enough for corpus-scale analysis (~50K segments/hour on CPU)</li>
+</ul>
+<p>Each text segment is truncated to 1,500 characters before embedding (sentence-transformers typically processes the first few hundred tokens).</p>
+<h3>4.3 Topic Filters: Method-Neutral Keyword Selection</h3>
+<p>A critical design choice: topic filters identify <strong>what a segment is about</strong> (the subject), not <strong>how it analyzes the subject</strong> (the method).</p>
+<p>Method-specific terms are deliberately excluded from filters:</p>
+<ul>
+<li>NPV, DCF, present value, WACC, cap rate, earnings yield, P/E ratio, years' purchase → these are method markers, not subject identifiers</li>
+<li>Including them would pre-answer the paradigm question via keyword selection rather than letting the embedding capture it</li>
+</ul>
+<p><strong>Example — Valuation filter (method-neutral):</strong></p>
+<pre><code>valuation, valuing, valued
+intrinsic/fair/market/book value, overvalued, undervalued
+appraisal/appraising, worth of/per
+stock price/value, share price/value
+</code></pre>
+<p>This identifies text about the activity of determining what something is worth, without specifying whether it uses DCF or earnings multiples.</p>
+<h3>4.4 Segment Construction</h3>
+<p>For each source:</p>
+<ol>
+<li>Load text (full text for pure-finance sources; ±3,000 char passages around finance keywords for general sources)</li>
+<li>Split into 3,000-character non-overlapping segments</li>
+<li>Keep segments matching the topic filter regex</li>
+</ol>
+<h3>4.5 Pole Construction and Scoring</h3>
+<p><strong>Poles always come from periodicals.</strong> This is an architectural constraint in v4 (the multi-source version): textbooks and earnings calls are scored against poles derived from periodical literature, not allowed to influence the poles themselves. This ensures the coordinate system is stable and defined by the well-understood periodical corpus.</p>
+<pre><code>Pole 1: pre-1920 practitioner periodical segments (any topic that matches)
+Pole 2: post-2000 academic periodical segments (any topic that matches)
+</code></pre>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Collect all topic-matched segments from both streams</li>
+<li>Embed all segments using all-MiniLM-L6-v2 (in chunks of 50K to avoid OOM)</li>
+<li>Compute mean embedding vector for each pole, L2-normalize</li>
+<li>Score each segment: <code>score = cos_sim(seg, prac_pole) - cos_sim(seg, acad_pole)</code></li>
+<li>Scores range [-1, 1]; positive = practitioner paradigm, negative = academic paradigm</li>
+</ol>
+<p><strong>Version progression:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Topics</th>
+<th>Data sources</th>
+<th>Resolution</th>
+<th>Key addition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v2</td>
+<td>7</td>
+<td>Periodicals only</td>
+<td>5-year windows</td>
+<td>Two-pole scoring, method-neutral filters</td>
+</tr>
+<tr>
+<td>v3</td>
+<td>11</td>
+<td>Periodicals + JSONL abstracts</td>
+<td>5-year windows</td>
+<td>Bridge journals, JSONL integration, incremental save</td>
+</tr>
+<tr>
+<td>v4</td>
+<td>11</td>
+<td>Periodicals + Textbooks + Earnings calls</td>
+<td>5-year windows</td>
+<td>Multi-source; poles always from periodicals; per-source-type histograms; textbook text cache</td>
+</tr>
+</tbody>
+</table>
+<h3>4.6 Output Format</h3>
+<p>For each topic, <code>trajectories.json</code> stores:</p>
+<pre><code class="language-json">{
+  &quot;embedding_histograms&quot;: {
+    &quot;valuation&quot;: {
+      &quot;topic&quot;: &quot;valuation&quot;,
+      &quot;label&quot;: &quot;Valuation&quot;,
+      &quot;model&quot;: &quot;all-MiniLM-L6-v2&quot;,
+      &quot;centroid_similarity&quot;: 0.4123,
+      &quot;pole1&quot;: {&quot;name&quot;: &quot;practitioner periodicals 1860-1919&quot;, &quot;n_segments&quot;: 12453},
+      &quot;pole2&quot;: {&quot;name&quot;: &quot;academic periodicals 2000-2025&quot;, &quot;n_segments&quot;: 8901},
+      &quot;segment_histograms&quot;: {
+        &quot;practitioner&quot;: {&quot;1860-1864&quot;: [0,0,...], &quot;1865-1869&quot;: [...]},
+        &quot;academic&quot;: {...},
+        &quot;bridge&quot;: {...}
+      },
+      &quot;segment_bins&quot;: [-0.9875, -0.9625, ...],
+      &quot;source_type_histograms&quot;: {
+        &quot;periodicals&quot;: {&quot;practitioner&quot;: {...}, &quot;academic&quot;: {...}},
+        &quot;textbooks&quot;: {&quot;practitioner&quot;: {...}, &quot;academic&quot;: {...}},
+        &quot;earnings_calls&quot;: {&quot;practitioner&quot;: {...}}
+      }
+    }
+  }
+}
+</code></pre>
+<p>Histograms use 80 bins over [-1, 1], enabling density visualization on the website.</p>
+<p>Embedding arrays are saved as compressed <code>.npz</code> files at:</p>
+<ul>
+<li><code>Periodicals/embeddings/{topic}.npz</code> — all segments combined</li>
+<li><code>Periodicals/embeddings/{topic}_{source_type}.npz</code> — per source type (v4)</li>
+</ul>
+<hr />
+<h2>5. Discriminative Terms Analysis</h2>
+<p><strong>Script:</strong> <code>Periodicals/analyze_discriminative_terms.py</code>
+<strong>Output:</strong> <code>Periodicals/discriminative_terms.json</code>, <code>Periodicals/discriminative_terms_detailed.csv</code></p>
+<h3>5.1 Purpose</h3>
+<p>While embedding-based scoring tells us <strong>where</strong> text falls on the practitioner-academic spectrum, discriminative term analysis tells us <strong>why</strong> — specifically, which words and phrases most strongly differentiate the two paradigms.</p>
+<p>This is unsupervised discovery: we do not pre-specify what the distinguishing terms should be. The algorithm finds them.</p>
+<h3>5.2 Three Methods</h3>
+<p>All three are applied to the same corpus; results are combined by requiring agreement across methods.</p>
+<p><strong>Method A: L1 Logistic Regression (TF-IDF features)</strong></p>
+<ul>
+<li>Vectorize using TF-IDF with unigrams, bigrams, trigrams (min_df=20, max_features=50,000)</li>
+<li>Fit logistic regression with L1 (LASSO) penalty — forces sparsity</li>
+<li>Positive coefficients = practitioner markers; negative = academic markers</li>
+<li>L1 penalty ensures only the most discriminative terms have nonzero coefficients</li>
+</ul>
+<p><strong>Method B: Chi-squared feature selection</strong></p>
+<ul>
+<li>Compute chi-squared statistic for each feature against the binary practitioner/academic label</li>
+<li>Sign the chi-squared statistic by direction (positive if more common in practitioner)</li>
+<li>Ranks terms by statistical association strength</li>
+</ul>
+<p><strong>Method C: Log-odds ratio with Dirichlet prior (Monroe et al. 2008)</strong></p>
+<ul>
+<li>Compute raw term counts per class</li>
+<li>Apply informative Dirichlet prior (pooled background frequency) to shrink rare terms toward zero</li>
+<li>Compute log-odds ratio and z-score for each term</li>
+<li>This is the <strong>primary ranking method</strong>: more statistically robust than naive log-odds</li>
+</ul>
+<p><strong>Combination rule:</strong> A term is included if:</p>
+<ul>
+<li>At least 2 of the 3 methods agree on direction (practitioner vs. academic)</li>
+<li>The log-odds z-score exceeds zero in the agreed direction</li>
+</ul>
+<h3>5.3 Corpus Segmentation</h3>
+<p>The analysis runs at four levels of granularity:</p>
+<ol>
+<li><strong>Overall</strong>: All practitioner segments vs. all academic segments (all eras combined)</li>
+<li><strong>By era</strong>: Separate analyses for pre-1920, 1920-1960, 1960-2000, post-2000
+<ul>
+<li>This reveals how the vocabulary of each paradigm changed over time</li>
+</ul>
+</li>
+<li><strong>By topic</strong>: Separate analyses for each of the 7 embedding topics (valuation, M&amp;A, etc.)
+<ul>
+<li>This reveals which terms are paradigm markers within each subject area</li>
+</ul>
+</li>
+<li><strong>Earnings calls vs. academic</strong> (optional, <code>--earnings-calls</code> flag): Tests whether contemporary corporate communication is more practitioner-paradigm than contemporary academic writing</li>
+</ol>
+<h3>5.4 Text Preprocessing</h3>
+<p>Before vectorization, all text is:</p>
+<ul>
+<li>Lowercased</li>
+<li>Digit-only tokens removed (page numbers, years)</li>
+<li>Very short tokens (1 char) removed</li>
+<li>Custom stopwords removed (OCR noise, citation boilerplate, month names, city names)</li>
+<li>Standard English stopwords removed (scikit-learn's list)</li>
+</ul>
+<h3>5.5 Output Structure</h3>
+<pre><code class="language-json">{
+  &quot;overall&quot;: {
+    &quot;practitioner_terms&quot;: [[&quot;stock market&quot;, 4.21], [&quot;earnings per share&quot;, 3.87], ...],
+    &quot;academic_terms&quot;: [[&quot;expected return&quot;, -5.12], [&quot;risk premium&quot;, -4.89], ...],
+    &quot;n_practitioner_docs&quot;: 450000,
+    &quot;n_academic_docs&quot;: 280000,
+    &quot;method&quot;: &quot;log_odds_ratio_with_lr_chi2_agreement&quot;
+  },
+  &quot;by_era&quot;: {
+    &quot;pre_1920&quot;: {...},
+    &quot;1920_1960&quot;: {...},
+    ...
+  },
+  &quot;by_topic&quot;: {
+    &quot;valuation&quot;: {...},
+    &quot;earnings&quot;: {...},
+    ...
+  }
+}
+</code></pre>
+<p>Top 100 terms per direction per analysis are stored in <code>discriminative_terms.json</code> (website-ready). Full 200-term lists with all three method scores are in <code>discriminative_terms_detailed.csv</code>.</p>
+<hr />
+<h2>6. PDF-Level Paradigm Scoring (Timeline)</h2>
+<p><strong>Script:</strong> <code>website/score_textbooks.py</code>
+<strong>Output:</strong> <code>website/scores.csv</code></p>
+<h3>6.1 Method</h3>
+<p>Each PDF in the textbook collection is scored on the NPV-vs-EPS spectrum:</p>
+<pre><code>score = (npv_hits - eps_hits) / (npv_hits + eps_hits)
+</code></pre>
+<ul>
+<li>Range: -1 (pure EPS/practitioner) to +1 (pure NPV/academic)</li>
+<li>Score = 0 if no keywords found (or equal hits)</li>
+</ul>
+<p><strong>NPV keyword set</strong> includes: present value, net present value, NPV, DCF, discounted cash flow, WACC, CAPM, capital asset pricing, free cash flow, opportunity cost, sunk cost, Modigliani-Miller, proposition I/II, tax shield, irrelevance proposition, homemade leverage, perfect capital markets, Gordon growth model, efficient market hypothesis, random walk, beta coefficient, systematic risk, arbitrage pricing theory, Black-Scholes, option pricing, etc.</p>
+<p><strong>EPS keyword set</strong> includes: earnings per share, EPS, earnings yield, price-earnings ratio, P/E ratio, capitalization of earnings, earnings power, earnings multiple, years' purchase, cap rate, capitalization rate, return on equity, dividend yield, dividend per share, book value per share, profit margin, etc.</p>
+<h3>6.2 Scoring Logic</h3>
+<ul>
+<li>Keywords are matched with word boundaries (<code>\b</code>) to avoid false positives</li>
+<li>Some multi-word phrases (e.g., &quot;modigliani and miller&quot;) are matched with flexible separators</li>
+<li>Each keyword contributes its count to the appropriate bucket (NPV or EPS hits)</li>
+<li>Final score is the signed relative difference</li>
+</ul>
+<h3>6.3 Scale</h3>
+<p>~2,574 PDFs scored. The timeline visualization plots these scores over publication year, with stream (Academic/Practitioner) distinguished by color/shape.</p>
+<hr />
+<h2>7. Website Data Pipeline</h2>
+<p>The website (<code>https://ibendavi.github.io/two-paradigms-of-finance/</code>) visualizes all output from the analysis pipeline. Data flows as follows:</p>
+<pre><code>score_textbooks.py       →  website/scores.csv           →  Timeline page
+                                                             (paradigm score by year)
+
+analyze_trajectories_v2  →  Periodicals/trajectories.json →  Periodicals page
+analyze_embeddings_v4    →  (merged into trajectories.json)   (6 visualizations)
+analyze_discriminative   →  (merged into trajectories.json)
+
+                            build.py injects trajectories.json
+                            via Jinja2 template into periodicals.html
+</code></pre>
+<h3>7.1 Periodicals Page Visualizations</h3>
+<ol>
+<li><strong>Cross-stream divergence</strong>: Practitioner vs. academic paradigm scores over time (line chart)</li>
+<li><strong>Two-pole paradigm spectrum scatter</strong>: Each source-window plotted on prac vs. acad similarity axes</li>
+<li><strong>Practitioner density surface</strong>: Histogram distribution of paradigm scores across time windows (practitioner sources)</li>
+<li><strong>Academic density surface</strong>: Same for academic sources</li>
+<li><strong>Topic trajectories</strong>: Topic-specific paradigm scores over time</li>
+<li><strong>Topic heatmap</strong>: All topics × all windows in a single heat map</li>
+</ol>
+<h3>7.2 Build and Deploy</h3>
+<pre><code class="language-bash">cd E:/Dropbox/Research1/EPS\ Literature/website/
+
+# Regenerate scores (full run, ~90 min for 2,574 PDFs)
+python score_textbooks.py
+
+# Regenerate paradigm trajectory data (~1 min for keyword analysis)
+cd ../Periodicals/
+python analyze_trajectories_v2.py
+
+# Regenerate embedding histograms (~hours, GPU recommended)
+python analyze_embeddings_v4.py
+
+# Regenerate discriminative terms (~30 min)
+python analyze_discriminative_terms.py
+
+# Build site
+cd ../website/
+python build.py  # generates build/
+
+# Deploy to gh-pages
+git worktree add /tmp/ghpages gh-pages
+cp -r build/* /tmp/ghpages/
+# Delete .tmp.* files before commit
+find /tmp/ghpages -name &quot;*.tmp.*&quot; -delete
+cd /tmp/ghpages
+git add -A &amp;&amp; git commit -m &quot;Rebuild&quot; &amp;&amp; git push origin gh-pages
+git worktree remove /tmp/ghpages
+</code></pre>
+<hr />
+<h2>8. Expected Key Findings</h2>
+<p>Based on the theoretical framework and pilot analyses:</p>
+<h3>8.1 Textbooks: Sharpest Pre-/Post-MM Shift</h3>
+<p>Finance textbooks should show the clearest paradigm transition around 1958 (Modigliani-Miller). Pre-1958 academic textbooks should cluster with the practitioner pole (earnings capitalization was the dominant academic framework before MM). Post-1958, academic textbooks should shift rapidly toward the academic pole (NPV, CAPM, WACC). Practitioner textbooks should remain closer to the practitioner pole throughout.</p>
+<h3>8.2 Earnings Calls: Near Practitioner Pole</h3>
+<p>Contemporary corporate managers speaking to investors (earnings calls, 2002–present) should cluster near the practitioner pole. They speak in terms of EPS, P/E multiples, and guidance — not WACC and DCF. This would be direct evidence that practice has not adopted the academic framework despite ~65 years of academic dominance in graduate finance education.</p>
+<h3>8.3 Practitioner Periodicals: Closest to Pre-1920 Pole</h3>
+<p>Modern practitioner periodicals (Forbes, Bloomberg Businessweek, Financial Analysts Journal) should be closer to the pre-1920 practitioner core than modern academic journals are. This is the counterintuitive result from the keyword analysis: modern academic finance formalized the topics that pre-1920 practitioners discussed (earnings, dividends, capital structure) using mathematical frameworks — while modern practitioners drifted toward general business journalism.</p>
+<h3>8.4 Centroid Similarity as Topic-Level Evidence</h3>
+<p>The <code>centroid_similarity</code> field in each embedding topic result measures how semantically distinct the two poles are <strong>for that topic</strong>. Topics with low centroid similarity (well-separated poles) provide sharper discrimination. Topics with high centroid similarity (poles close together) suggest the subject is discussed similarly across paradigms, making paradigm identification harder.</p>
+<hr />
+<h2>9. Data Quality and Limitations</h2>
+<h3>9.1 OCR Quality</h3>
+<p>Pre-1920 documents are from Archive.org scans. OCR quality varies from excellent to poor. Poor OCR introduces noise into the embedding. However, the pole construction averages over thousands of segments, making the centroid robust to individual OCR errors.</p>
+<h3>9.2 Post-1970 Practitioner Gap</h3>
+<p>Major practitioner magazines (Forbes, Fortune, Business Week, Barron's) end at ~1961 on Archive.org. Post-1970 practitioner coverage relies on Financial Analysts Journal, Institutional Investor, and a patchwork of smaller trade publications. ProQuest ABI/INFORM would fill this gap but requires institutional access.</p>
+<h3>9.3 Elsevier Abstract Crisis</h3>
+<p>Elsevier pulled abstracts from OpenAlex in November 2024. JFE (9.3% abstract coverage), JCF (9.4%), and Journal of Banking &amp; Finance (4.8%) have severely limited JSONL data. These journals rely on Archive.org OCR text for coverage.</p>
+<h3>9.4 Embedding Truncation</h3>
+<p>Segments are truncated to 1,500 characters before embedding (sentence-transformers processes the first ~300-400 tokens). For most periodical text, this captures the key content. For long textbook chapters, this means only the opening passage is embedded — which may or may not be representative.</p>
+<h3>9.5 Poles Are Not Exogenous</h3>
+<p>The poles are constructed from the same corpus that is being scored. This means the pole computation and the scoring are not fully independent. A source that dominates the pre-1920 or post-2000 sample can distort the pole. This is mitigated by aggregating across many sources and many years, but users should be aware that the poles reflect the available corpus, not an idealized ground truth.</p>
+<hr />
+<h2>10. File Locations Summary</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Periodicals/analyze_trajectories_v2.py</code></td>
+<td>Keyword-based two-pole trajectory analysis</td>
+</tr>
+<tr>
+<td><code>Periodicals/analyze_embeddings_v2.py</code></td>
+<td>7-topic embedding analysis (periodicals only)</td>
+</tr>
+<tr>
+<td><code>Periodicals/analyze_embeddings_v3.py</code></td>
+<td>11-topic embedding + JSONL + bridge journals</td>
+</tr>
+<tr>
+<td><code>Periodicals/analyze_embeddings_v4.py</code></td>
+<td>Multi-source: periodicals + textbooks + earnings calls</td>
+</tr>
+<tr>
+<td><code>Periodicals/analyze_discriminative_terms.py</code></td>
+<td>TF-IDF + L1 LR + chi-sq + log-odds term discovery</td>
+</tr>
+<tr>
+<td><code>Periodicals/trajectories.json</code></td>
+<td>Main data file for website periodicals page</td>
+</tr>
+<tr>
+<td><code>Periodicals/discriminative_terms.json</code></td>
+<td>Discriminative terms (website-ready)</td>
+</tr>
+<tr>
+<td><code>Periodicals/discriminative_terms_detailed.csv</code></td>
+<td>Full term lists with all method scores</td>
+</tr>
+<tr>
+<td><code>Periodicals/embeddings/*.npz</code></td>
+<td>Compressed embedding arrays (PCA input)</td>
+</tr>
+<tr>
+<td><code>Periodicals/textbook_text_cache/</code></td>
+<td>Cached pdftotext output for textbooks</td>
+</tr>
+<tr>
+<td><code>website/score_textbooks.py</code></td>
+<td>PDF-level NPV vs. EPS keyword scorer</td>
+</tr>
+<tr>
+<td><code>website/scores.csv</code></td>
+<td>2,574 PDF paradigm scores for timeline</td>
+</tr>
+<tr>
+<td><code>website/build.py</code></td>
+<td>Site generator (Jinja2 → static HTML)</td>
+</tr>
+<tr>
+<td><code>website/classify_stream.py</code></td>
+<td>Academic/Practitioner classifier for textbooks</td>
+</tr>
+<tr>
+<td><code>website/stream_scores.csv</code></td>
+<td>Stream classification output</td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+    </div>
+
+    <aside class="sidebar">
+      <!-- Paradigm info -->
+      <div class="sidebar-section">
+        <h4>Paradigm</h4>
+        <p><span class="paradigm-badge academic">Academic</span></p>
+        <p style="margin-top: 0.5rem;">NPV / DCF: P = Σ CF/(1+r)^t. Cost of equity from CAPM / factor model. Objective = maximize firm value.</p>
+      </div>
+
+      <!-- Era context -->
+      <div class="sidebar-section">
+        <h4>Era</h4>
+        <p><strong>The Consensus Era</strong> (1720–1957)</p>
+        <p>For over 200 years, practitioners and scholars alike valued assets by capitalizing earnings at market-observed yields.</p>
+      </div>
+
+      <!-- Connections -->
+      
+    </aside>
+  </div>
+
+  <!-- Prev / Next navigation -->
+  <nav class="evidence-nav">
+    
+    <a href="../evidence/METHODOLOGY_MultiSource_Embedding_Analysis.html">
+      <span class="label">&larr; Previous</span>
+       (0)
+    </a>
+    
+
+    
+  </nav>
+
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>The Two Paradigms of Finance &mdash; Itzhak Ben-David & Alex Chinco</p>
+      <p>The Ohio State University & Michigan State University</p>
+      <p style="margin-top: 0.5rem;">Built from a collection of 2,800+ primary sources spanning 300 years.</p>
+    </div>
+  </footer>
+
+  
+  <script>
+  (function(){
+    var k='__tp_auth';
+    if(sessionStorage.getItem(k)==='1') return;
+    var p=prompt('Enter password:');
+    if(p==='EPS'){sessionStorage.setItem(k,'1');}
+    else{document.body.innerHTML='<p style="color:#ede8d8;text-align:center;margin-top:40vh;font-family:serif;font-size:1.2rem;">Access denied.</p>';}
+  })();
+  </script>
+</body>
+</html>

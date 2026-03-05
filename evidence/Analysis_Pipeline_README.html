@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analysis Pipeline Quick Reference | The Two Paradigms of Finance</title>
+  <meta name="description" content="A primary-source history of how financial thinking split into two streams: the practitioner tradition of earnings capitalization (P = EPS × P/E) and the academic revolution of NPV, CAPM, and DCF.">
+  <meta name="author" content="Itzhak Ben-David & Alex Chinco">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📜</text></svg>">
+  <link rel="stylesheet" href="../static/css/style.css">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Two Paradigms</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="../the-split.html" >The Split</a></li>
+        <li><a href="../two-paradigms.html" >Two Paradigms</a></li>
+        <li><a href="../timeline.html" >Timeline</a></li>
+        <li><a href="../library.html" >Library</a></li>
+        <li><a href="../periodicals.html" >Periodicals</a></li>
+        <li><a href="../about.html" >About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+<div class="container">
+
+  <!-- Header -->
+  <div class="evidence-header">
+    <div class="evidence-meta">
+      <span class="paradigm-badge academic">Academic</span>
+      <span class="era-tag">The Consensus Era (1720–1957)</span>
+      
+    </div>
+    <h1 class="evidence-title">Analysis Pipeline Quick Reference</h1>
+    
+  </div>
+
+  <!-- Key Finding -->
+  
+
+  <!-- Main content + sidebar -->
+  <div class="evidence-layout">
+    <div class="prose">
+      
+      <h2>Script Inventory</h2>
+<h3>Trajectory Analysis (Keyword-Based)</h3>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Dir</th>
+<th>Input</th>
+<th>Output</th>
+<th>Runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Periodicals/analyze_trajectories_v2.py</code></td>
+<td>Periodicals/</td>
+<td><code>Practitioner/</code>, <code>Academic/</code> txt files</td>
+<td><code>trajectories.json</code> (keyword freq fields)</td>
+<td>~15 min</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Run:</strong></p>
+<pre><code class="language-bash">cd &quot;E:/Dropbox/Research1/EPS Literature/Periodicals&quot;
+python analyze_trajectories_v2.py
+</code></pre>
+<p><strong>What it does:</strong> Counts 15 topic keywords per source-window (5-year periods). Computes two-pole paradigm score (pre-1920 practitioner vs. post-2000 academic cosine similarity difference). Outputs topic frequency tables and paradigm scores to <code>trajectories.json</code>.</p>
+<hr />
+<h3>Embedding Analysis</h3>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Dir</th>
+<th>Input</th>
+<th>Output</th>
+<th>Runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Periodicals/analyze_embeddings_v2.py</code></td>
+<td>Periodicals/</td>
+<td>Periodicals txt</td>
+<td><code>trajectories.json</code> (embedding_histograms), <code>embeddings/*.npz</code></td>
+<td>~4 hrs</td>
+</tr>
+<tr>
+<td><code>Periodicals/analyze_embeddings_v3.py</code></td>
+<td>Periodicals/</td>
+<td>Periodicals txt + JSONL</td>
+<td>Same + bridge journals</td>
+<td>~4 hrs</td>
+</tr>
+<tr>
+<td><code>Periodicals/analyze_embeddings_v4.py</code></td>
+<td>Periodicals/</td>
+<td>Periodicals + Textbooks + Earnings calls</td>
+<td>Same + <code>source_type_histograms</code>, per-type npz</td>
+<td>~8+ hrs</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recommended: use v4 for full analysis.</strong></p>
+<p><strong>Run v4 (all sources, all topics):</strong></p>
+<pre><code class="language-bash">cd &quot;E:/Dropbox/Research1/EPS Literature/Periodicals&quot;
+python analyze_embeddings_v4.py
+</code></pre>
+<p><strong>Run v4 (specific source + topic):</strong></p>
+<pre><code class="language-bash">python analyze_embeddings_v4.py --sources textbooks --topics valuation capital_structure
+python analyze_embeddings_v4.py --sources earnings_calls --topics earnings
+python analyze_embeddings_v4.py --force valuation   # re-run even if already done
+</code></pre>
+<p><strong>Available topics:</strong> mergers_acquisitions, valuation, capital_structure, payout, earnings, speculation, banking, insurance_risk, taxation, real_estate, accounting_reporting</p>
+<p><strong>Key architectural rule:</strong> Poles are ALWAYS computed from periodicals, even in v4. Textbooks and earnings calls are scored against the periodical-derived poles.</p>
+<p><strong>Embedding cache:</strong> Textbook text cached in <code>Periodicals/textbook_text_cache/*.txt</code> (MD5-keyed).</p>
+<p><strong>NPZ files:</strong> <code>Periodicals/embeddings/{topic}.npz</code> (all combined), <code>Periodicals/embeddings/{topic}_{source_type}.npz</code> (per source type, v4).</p>
+<hr />
+<h3>Discriminative Terms Analysis</h3>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Dir</th>
+<th>Input</th>
+<th>Output</th>
+<th>Runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Periodicals/analyze_discriminative_terms.py</code></td>
+<td>Periodicals/</td>
+<td>Periodicals txt + JSONL</td>
+<td><code>discriminative_terms.json</code>, <code>discriminative_terms_detailed.csv</code>, merged into <code>trajectories.json</code></td>
+<td>~30-60 min</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Run (full):</strong></p>
+<pre><code class="language-bash">cd &quot;E:/Dropbox/Research1/EPS Literature/Periodicals&quot;
+python analyze_discriminative_terms.py
+</code></pre>
+<p><strong>Run with earnings calls:</strong></p>
+<pre><code class="language-bash">python analyze_discriminative_terms.py --earnings-calls
+</code></pre>
+<p><strong>Quick test (2 sources each):</strong></p>
+<pre><code class="language-bash">python analyze_discriminative_terms.py --small-test
+</code></pre>
+<p><strong>Output:</strong> Top 100 practitioner-marker terms and top 100 academic-marker terms, for each of: overall, 4 eras (pre-1920, 1920-1960, 1960-2000, post-2000), 7 topics. Merges into <code>trajectories.json</code> under <code>discriminative_terms</code> key.</p>
+<hr />
+<h3>PDF Paradigm Scoring (Timeline)</h3>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Dir</th>
+<th>Input</th>
+<th>Output</th>
+<th>Runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>website/score_textbooks.py</code></td>
+<td>website/</td>
+<td>All PDFs in <code>Textbooks/</code></td>
+<td><code>website/scores.csv</code></td>
+<td>~90 min</td>
+</tr>
+<tr>
+<td><code>website/classify_stream.py</code></td>
+<td>website/</td>
+<td>First 10 pages of each PDF</td>
+<td><code>website/stream_scores.csv</code></td>
+<td>~1 min</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Run:</strong></p>
+<pre><code class="language-bash">cd &quot;E:/Dropbox/Research1/EPS Literature/website&quot;
+python score_textbooks.py
+python classify_stream.py
+</code></pre>
+<p><strong>Scoring formula:</strong> <code>score = (npv_hits - eps_hits) / (npv_hits + eps_hits)</code></p>
+<ul>
+<li>Range: -1 (pure EPS/practitioner) to +1 (pure NPV/academic)</li>
+<li>Used by the website timeline visualization</li>
+</ul>
+<hr />
+<h3>Data Download Scripts</h3>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Periodicals/download_archive_org.py</code></td>
+<td>Download OCR txt from Archive.org collections</td>
+</tr>
+<tr>
+<td><code>Periodicals/download_crossref.py</code></td>
+<td>Article metadata from CrossRef API</td>
+</tr>
+<tr>
+<td><code>Periodicals/download_openalex.py</code></td>
+<td>Article metadata from OpenAlex API</td>
+</tr>
+<tr>
+<td><code>Periodicals/download_semanticscholar.py</code></td>
+<td>Article metadata from Semantic Scholar</td>
+</tr>
+<tr>
+<td><code>Periodicals/download_nber_abstracts.py</code></td>
+<td>Match NBER abstracts to journal articles</td>
+</tr>
+<tr>
+<td><code>Periodicals/download_scopus_abstracts.py</code></td>
+<td>Elsevier Scopus API (requires API key)</td>
+</tr>
+<tr>
+<td><code>Periodicals/download_scholar_abstracts.py</code></td>
+<td>Google Scholar scraper (rate-limited)</td>
+</tr>
+<tr>
+<td><code>Periodicals/merge_and_regenerate_txt.py</code></td>
+<td>Dedup CrossRef + OpenAlex, regenerate article_*.txt</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Run download + dedup (typical workflow after adding new journals):</strong></p>
+<pre><code class="language-bash">python download_crossref.py
+python download_openalex.py
+python download_semanticscholar.py
+python merge_and_regenerate_txt.py
+</code></pre>
+<hr />
+<h3>Website Build and Deploy</h3>
+<pre><code class="language-bash">cd &quot;E:/Dropbox/Research1/EPS Literature/website&quot;
+python build.py                # generates build/ directory (~10 sec)
+
+# Deploy to GitHub Pages (use worktree to avoid branch switching)
+git worktree add /tmp/ghpages gh-pages
+cp -r build/* /tmp/ghpages/
+find /tmp/ghpages -name &quot;*.tmp.*&quot; -delete  # clean up temp files
+cd /tmp/ghpages
+git add -A
+git commit -m &quot;Rebuild $(date +%Y-%m-%d)&quot;
+git push origin gh-pages
+cd &quot;E:/Dropbox/Research1/EPS Literature&quot;
+git worktree remove /tmp/ghpages
+</code></pre>
+<p><strong>IMPORTANT:</strong> Always use <code>git worktree</code> for gh-pages deployment. Never <code>git checkout gh-pages</code> in the main working tree — the linter reverts JS changes on <code>git stash</code>.</p>
+<hr />
+<h2>Recommended Full Run Order</h2>
+<p>When starting fresh or after major corpus additions:</p>
+<ol>
+<li><strong>Download new data</strong> (if applicable): run download_*.py scripts, then merge_and_regenerate_txt.py</li>
+<li><strong>Keyword trajectories</strong>: <code>python Periodicals/analyze_trajectories_v2.py</code></li>
+<li><strong>Pre-extract textbook text</strong> (v4 caches automatically, but can pre-cache): v4 does this on first run</li>
+<li><strong>Embedding analysis</strong>: <code>python Periodicals/analyze_embeddings_v4.py</code> (long run, can do by topic)</li>
+<li><strong>Discriminative terms</strong>: <code>python Periodicals/analyze_discriminative_terms.py --earnings-calls</code></li>
+<li><strong>Score textbooks</strong>: <code>python website/score_textbooks.py</code></li>
+<li><strong>Build website</strong>: <code>python website/build.py</code></li>
+<li><strong>Deploy</strong>: worktree approach above</li>
+</ol>
+<hr />
+<h2>Key File Locations</h2>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Periodicals/Practitioner/</code></td>
+<td>Practitioner magazine txt files (~65+ sources)</td>
+</tr>
+<tr>
+<td><code>Periodicals/Academic/</code></td>
+<td>Academic journal txt files (~24+ sources)</td>
+</tr>
+<tr>
+<td><code>Periodicals/trajectories.json</code></td>
+<td>Main data file for website (all analysis output merged here)</td>
+</tr>
+<tr>
+<td><code>Periodicals/discriminative_terms.json</code></td>
+<td>Discriminative terms (website-ready)</td>
+</tr>
+<tr>
+<td><code>Periodicals/discriminative_terms_detailed.csv</code></td>
+<td>Full term scores</td>
+</tr>
+<tr>
+<td><code>Periodicals/embeddings/</code></td>
+<td>Compressed embedding arrays (.npz)</td>
+</tr>
+<tr>
+<td><code>Periodicals/textbook_text_cache/</code></td>
+<td>Cached pdftotext output</td>
+</tr>
+<tr>
+<td><code>Textbooks/Academic/</code></td>
+<td>Academic textbook PDFs (~1,300+)</td>
+</tr>
+<tr>
+<td><code>Textbooks/Practitioner/</code></td>
+<td>Practitioner textbook PDFs (~1,200+)</td>
+</tr>
+<tr>
+<td><code>Bibliographies/Omnibus_Book_Bibliography.xlsx</code></td>
+<td>Master bibliography (2,889 entries)</td>
+</tr>
+<tr>
+<td><code>website/scores.csv</code></td>
+<td>PDF-level paradigm scores (2,574 entries)</td>
+</tr>
+<tr>
+<td><code>website/stream_scores.csv</code></td>
+<td>Stream classification scores</td>
+</tr>
+<tr>
+<td><code>website/build/</code></td>
+<td>Generated site output (gitignored on master)</td>
+</tr>
+<tr>
+<td><code>D:/data/earnings_calls/</code></td>
+<td>Earnings call transcripts (540K, 47 GB)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Corpus Stats (as of March 2026)</h2>
+<table>
+<thead>
+<tr>
+<th>Source type</th>
+<th>Count</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Periodical collections</td>
+<td>~255</td>
+<td>~316K txt files</td>
+</tr>
+<tr>
+<td>Periodical sources (practitioner)</td>
+<td>65+</td>
+<td>1843–present</td>
+</tr>
+<tr>
+<td>Periodical sources (academic)</td>
+<td>24+</td>
+<td>1886–present</td>
+</tr>
+<tr>
+<td>Textbook PDFs</td>
+<td>~2,574</td>
+<td>Scored; time range antiquity–present</td>
+</tr>
+<tr>
+<td>Academic journal articles (JSONL)</td>
+<td>159,113</td>
+<td>Deduplicated; 93,128 with abstracts (58.5%)</td>
+</tr>
+<tr>
+<td>Earnings call transcripts</td>
+<td>540,349</td>
+<td>2002–present; 47 GB</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Common Issues</h2>
+<p><strong>Embeddings OOM on large topics:</strong> v3/v4 chunk encoding in batches of 50K (configurable via <code>EMBED_CHUNK_SIZE</code>). Uses <code>show_progress_bar=False</code> to avoid sentence-transformers' argsort that causes OOM on very large arrays.</p>
+<p><strong>OpenAlex type filter:</strong> Must use <code>type:article</code> not <code>type:journal-article</code> (taxonomy changed 2024).</p>
+<p><strong>Google Scholar rate limiting:</strong> Blocks after ~130 queries. Need to wait 1+ hour between sessions.</p>
+<p><strong>Elsevier abstracts:</strong> Elsevier pulled from OpenAlex Nov 2024. JFE/JCF/JBF have &lt;10% abstract coverage. Use Scopus API (key: <code>b9222cb69ba73e8b95b588098aca8c74</code>, requires OSU VPN) for better coverage.</p>
+<p><strong>gh-pages deployment:</strong> Always use worktree approach. Never switch branches in main working tree.</p>
+<p><strong>Archive.org scanning:</strong> Use <code>python/202602_scan_books_v21_playwright.py &lt;identifier&gt;</code> for lending library books. Requires borrowing in browser first.</p>
+
+      
+
+      
+    </div>
+
+    <aside class="sidebar">
+      <!-- Paradigm info -->
+      <div class="sidebar-section">
+        <h4>Paradigm</h4>
+        <p><span class="paradigm-badge academic">Academic</span></p>
+        <p style="margin-top: 0.5rem;">NPV / DCF: P = Σ CF/(1+r)^t. Cost of equity from CAPM / factor model. Objective = maximize firm value.</p>
+      </div>
+
+      <!-- Era context -->
+      <div class="sidebar-section">
+        <h4>Era</h4>
+        <p><strong>The Consensus Era</strong> (1720–1957)</p>
+        <p>For over 200 years, practitioners and scholars alike valued assets by capitalizing earnings at market-observed yields.</p>
+      </div>
+
+      <!-- Connections -->
+      
+    </aside>
+  </div>
+
+  <!-- Prev / Next navigation -->
+  <nav class="evidence-nav">
+    
+    <a href="../evidence/EPS_DasguptaHarfordMa2024_EPSSensitivityMergers.html">
+      <span class="label">&larr; Previous</span>
+      Dasgupta, Harford, Ma (2024)
+    </a>
+    
+
+    
+    <a href="../evidence/Brealey_Myers_EPS_Treatment_6th7thEd.html" style="text-align: right;">
+      <span class="label">Next &rarr;</span>
+       (0)
+    </a>
+    
+  </nav>
+
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>The Two Paradigms of Finance &mdash; Itzhak Ben-David & Alex Chinco</p>
+      <p>The Ohio State University & Michigan State University</p>
+      <p style="margin-top: 0.5rem;">Built from a collection of 2,800+ primary sources spanning 300 years.</p>
+    </div>
+  </footer>
+
+  
+  <script>
+  (function(){
+    var k='__tp_auth';
+    if(sessionStorage.getItem(k)==='1') return;
+    var p=prompt('Enter password:');
+    if(p==='EPS'){sessionStorage.setItem(k,'1');}
+    else{document.body.innerHTML='<p style="color:#ede8d8;text-align:center;margin-top:40vh;font-family:serif;font-size:1.2rem;">Access denied.</p>';}
+  })();
+  </script>
+</body>
+</html>

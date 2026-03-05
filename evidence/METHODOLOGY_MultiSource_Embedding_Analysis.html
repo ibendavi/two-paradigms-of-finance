@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Source Embedding Analysis: Methodology | The Two Paradigms of Finance</title>
+  <meta name="description" content="A primary-source history of how financial thinking split into two streams: the practitioner tradition of earnings capitalization (P = EPS × P/E) and the academic revolution of NPV, CAPM, and DCF.">
+  <meta name="author" content="Itzhak Ben-David & Alex Chinco">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📜</text></svg>">
+  <link rel="stylesheet" href="../static/css/style.css">
+  
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Two Paradigms</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../index.html" >Home</a></li>
+        <li><a href="../the-split.html" >The Split</a></li>
+        <li><a href="../two-paradigms.html" >Two Paradigms</a></li>
+        <li><a href="../timeline.html" >Timeline</a></li>
+        <li><a href="../library.html" >Library</a></li>
+        <li><a href="../periodicals.html" >Periodicals</a></li>
+        <li><a href="../about.html" >About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    
+<div class="container">
+
+  <!-- Header -->
+  <div class="evidence-header">
+    <div class="evidence-meta">
+      <span class="paradigm-badge academic">Academic</span>
+      <span class="era-tag">The Consensus Era (1720–1957)</span>
+      
+    </div>
+    <h1 class="evidence-title">Multi-Source Embedding Analysis: Methodology</h1>
+    
+  </div>
+
+  <!-- Key Finding -->
+  
+
+  <!-- Main content + sidebar -->
+  <div class="evidence-layout">
+    <div class="prose">
+      
+      <h2>Overview</h2>
+<p>The embedding-based paradigm analysis measures how financial discourse has shifted between
+two poles: <strong>pre-1920 practitioner thinking</strong> and <strong>post-2000 academic thinking</strong>. Version 4
+extends the analysis from periodicals alone to three source types: periodicals, textbooks,
+and earnings call transcripts.</p>
+<p>The core insight is that these three sources capture different aspects of financial knowledge:</p>
+<ul>
+<li><strong>Periodicals</strong> — what was being reported and discussed in real time (the baseline)</li>
+<li><strong>Textbooks</strong> — what was being taught and codified as formal theory</li>
+<li><strong>Earnings calls</strong> — what practitioners actually say when making financial decisions</li>
+</ul>
+<hr />
+<h2>The Three Source Types</h2>
+<h3>1. Periodicals (the baseline)</h3>
+<p><strong>Files:</strong> <code>Periodicals/Practitioner/*/YYYY/*.txt</code> and <code>Periodicals/Academic/*/articles_*.jsonl</code></p>
+<ul>
+<li>~255 Archive.org SIM collections (practitioner magazines, trade journals, Fed publications)</li>
+<li>~43 academic journals (via CrossRef/OpenAlex/Semantic Scholar APIs)</li>
+<li>Time range: 1839 (Hunt's Merchants Magazine) to present</li>
+<li>~159,000 unique academic articles with ~93,000 abstracts</li>
+</ul>
+<p>Practitioner periodicals use full-text OCR (_djvu.txt) files downloaded from Archive.org.
+Academic journals use title + abstract text from CrossRef/OpenAlex APIs.</p>
+<p><strong>Role:</strong> Provides the two poles for scoring. Practitioner periodicals 1860-1919 define
+the &quot;pre-MM practitioner&quot; pole; academic journals 2000-2025 define the &quot;modern academic&quot; pole.</p>
+<h3>2. Textbooks (teaching what gets taught)</h3>
+<p><strong>Files:</strong> <code>Textbooks/Academic/**/*.pdf</code> and <code>Textbooks/Practitioner/**/*.pdf</code></p>
+<ul>
+<li>~2,600+ PDFs organized by stream (Academic/Practitioner) and topic</li>
+<li>Text extracted via <code>pdftotext</code>, cached to <code>Periodicals/textbook_text_cache/</code> (MD5-keyed)</li>
+<li>Year extracted from filename: <code>Author - Title (Book YYYY).pdf</code></li>
+<li>Max 200,000 segments per run (configurable via <code>--max-textbooks</code>)</li>
+</ul>
+<p><strong>Role:</strong> Shows what was being formally taught. Textbooks reveal when paradigm shifts
+were codified in the curriculum. The pre-MM / post-MM transition (1958) should appear
+most cleanly here — practitioners kept writing EPS-focused books while academic textbooks
+pivoted to NPV/CAPM frameworks after Modigliani-Miller.</p>
+<p><strong>Expected finding:</strong> Academic textbooks should show a sharp shift toward the academic
+pole after 1958-1965. Practitioner textbooks should stay closer to the practitioner pole
+throughout, diverging from academic textbooks post-1960.</p>
+<h3>3. Earnings Calls (what managers actually say)</h3>
+<p><strong>Files:</strong> <code>D:/data/earnings_calls/transcripts_YYYY.jsonl</code></p>
+<ul>
+<li>540,349 transcripts (47 GB), earnings calls from public companies</li>
+<li>Sampled at 1-in-10 rate (<code>EARNINGS_SAMPLE_RATE = 10</code>), stratified by year</li>
+<li>Up to 3 segments per transcript (first 30,000 chars), max 100,000 segments total</li>
+<li>All tagged as <code>stream = &quot;practitioner&quot;</code> (they are by definition practitioner content)</li>
+</ul>
+<p><strong>Role:</strong> Ground truth for modern practitioner discourse. If managers are EPS maximizers
+in practice, their earnings call language should cluster near the practitioner pole even
+in the modern era — diverging from academic discourse (which moved to NPV/CAPM).</p>
+<p><strong>Expected finding:</strong> Earnings calls should score persistently positive (near practitioner
+pole) across all time periods, especially for EPS and valuation topics.</p>
+<hr />
+<h2>Pole Computation</h2>
+<p><strong>Always and only from periodicals.</strong> Textbooks and earnings calls do NOT contribute
+to pole computation, even when they are included in scoring.</p>
+<pre><code>Practitioner pole = centroid of periodical segments where:
+    stream == &quot;practitioner&quot; AND year in [1860, 1919]
+
+Academic pole = centroid of periodical segments where:
+    stream == &quot;academic&quot; AND year in [2000, 2025]
+</code></pre>
+<p>Both centroids are L2-normalized before scoring.</p>
+<p>This design ensures poles are stable across runs and comparable across source types:
+you can run textbooks-only and still get scores on the same scale as periodicals-only.</p>
+<hr />
+<h2>Scoring</h2>
+<p>For each segment <code>s</code>:</p>
+<pre><code>score(s) = cosim(embed(s), prac_pole) - cosim(embed(s), acad_pole)
+</code></pre>
+<ul>
+<li><strong>score &gt; 0</strong>: closer to the pre-1920 practitioner paradigm (earnings capitalization,
+yield-based pricing, EPS focus, comps-based valuation)</li>
+<li><strong>score &lt; 0</strong>: closer to the post-2000 academic paradigm (NPV/DCF, CAPM, factor models,
+efficient markets, option pricing)</li>
+<li><strong>score = 0</strong>: equidistant — &quot;bridge&quot; content</li>
+</ul>
+<p>The model is <code>all-MiniLM-L6-v2</code> (384-dim sentence embeddings), loaded via
+<code>sentence_transformers</code>. Segments are truncated to 1,500 chars for embedding.</p>
+<hr />
+<h2>Topic Filters</h2>
+<p>7 topics are tracked. Each topic uses <strong>method-neutral keyword filters</strong> — keywords
+identify the SUBJECT but deliberately exclude method terms (NPV, DCF, CAPM, earnings
+yield, P/E ratio). This ensures the paradigm signal comes from the embedding (HOW people
+discuss the topic), not from keyword presence.</p>
+<table>
+<thead>
+<tr>
+<th>Topic key</th>
+<th>Label</th>
+<th>Example subject keywords</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ma</code></td>
+<td>M&amp;A</td>
+<td>merger, acquisition, takeover</td>
+</tr>
+<tr>
+<td><code>valuation</code></td>
+<td>Valuation</td>
+<td>valuation, intrinsic value, stock price</td>
+</tr>
+<tr>
+<td><code>capstruct</code></td>
+<td>Capital Structure</td>
+<td>leverage, debt, capital structure</td>
+</tr>
+<tr>
+<td><code>dividends</code></td>
+<td>Dividends</td>
+<td>dividend, payout, distribution</td>
+</tr>
+<tr>
+<td><code>earnings</code></td>
+<td>Earnings</td>
+<td>earnings, EPS, income, profit</td>
+</tr>
+<tr>
+<td><code>speculation</code></td>
+<td>Speculation</td>
+<td>speculation, trading, market sentiment</td>
+</tr>
+<tr>
+<td><code>banking</code></td>
+<td>Banking</td>
+<td>bank, credit, lending, monetary</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>File Layout</h2>
+<pre><code>Periodicals/
+  analyze_embeddings_v4.py       # Main script (extends v3)
+  analyze_embeddings_v3.py       # v3: multi-topic, two-pole, passage extraction
+  analyze_embeddings_v2.py       # v2: multi-topic, proof of concept
+  analyze_embeddings_v1.py       # v1: M&amp;A single-topic proof of concept
+  trajectories.json              # Output: consumed by website periodicals page
+  embeddings/
+    {topic}.npz                  # Combined embeddings (all sources)
+    {topic}_periodicals.npz      # Periodicals only
+    {topic}_textbooks.npz        # Textbooks only
+    {topic}_earnings_calls.npz   # Earnings calls only
+  textbook_text_cache/
+    {md5hash}.txt                # Cached extracted text per PDF
+
+Textbooks/
+  Academic/
+    Corporate Finance/
+    Investments/
+    Banking/
+    ...
+  Practitioner/
+    (same subfolders)
+
+D:/data/earnings_calls/
+  transcripts_2010.jsonl         # One file per year
+  transcripts_2011.jsonl
+  ...
+  transcripts_2024.jsonl
+</code></pre>
+<hr />
+<h2>Running the Analysis</h2>
+<h3>Full run (all sources, all topics)</h3>
+<pre><code class="language-bash">cd &quot;E:/Dropbox/Research1/EPS Literature/Periodicals&quot;
+python analyze_embeddings_v4.py
+</code></pre>
+<p>Takes approximately 90 minutes for all 7 topics × 3 sources.</p>
+<h3>Specific source types</h3>
+<pre><code class="language-bash"># Textbooks only
+python analyze_embeddings_v4.py --sources textbooks
+
+# Earnings calls only
+python analyze_embeddings_v4.py --sources earnings_calls
+
+# Periodicals + textbooks (no earnings calls)
+python analyze_embeddings_v4.py --sources periodicals textbooks
+</code></pre>
+<h3>Specific topics</h3>
+<pre><code class="language-bash">python analyze_embeddings_v4.py --sources textbooks --topics valuation earnings capstruct
+
+python analyze_embeddings_v4.py --sources earnings_calls --topics earnings valuation
+</code></pre>
+<h3>Force re-run (ignore cached embeddings)</h3>
+<pre><code class="language-bash">python analyze_embeddings_v4.py --force valuation
+</code></pre>
+<h3>Limit segment counts</h3>
+<pre><code class="language-bash">python analyze_embeddings_v4.py --max-textbooks 50000 --max-earnings 30000
+</code></pre>
+<hr />
+<h2>Prerequisite: Textbook Text Extraction (Task #32/#39)</h2>
+<p>Before running v4 for textbooks, pre-extract all PDF text:</p>
+<pre><code class="language-bash">python Periodicals/pre_extract_textbooks.py
+</code></pre>
+<p>This populates <code>Periodicals/textbook_text_cache/</code> and avoids re-extracting on each run.
+Estimated time: 2-4 hours for ~2,600 PDFs.</p>
+<hr />
+<h2>Interpreting Results</h2>
+<h3>In trajectories.json</h3>
+<p>The output adds <code>source_type_histograms</code> to each topic entry:</p>
+<pre><code class="language-json">{
+  &quot;topic&quot;: &quot;earnings&quot;,
+  &quot;source_type_histograms&quot;: {
+    &quot;periodicals&quot;: { ... },
+    &quot;textbooks&quot;:   { ... },
+    &quot;earnings_calls&quot;: { ... }
+  }
+}
+</code></pre>
+<p>Each histogram gives the score distribution by time window (decade or 20-year period).</p>
+<h3>What to look for</h3>
+<p><strong>The pre-MM / post-MM shift in textbooks:</strong>
+Academic textbooks from before 1958 should score positively (practitioner pole).
+After 1965-1970, academic textbooks should score negatively (academic pole).
+Practitioner textbooks should remain positive throughout.</p>
+<p><strong>Earnings calls as practitioner anchor:</strong>
+Earnings calls should score strongly positive for EPS/earnings topics.
+For valuation topics, they should also be positive (managers use comps, not DCF).</p>
+<p><strong>Convergence vs. divergence by era:</strong>
+Pre-1920: periodicals + (few) textbooks tightly clustered near practitioner pole.
+1920-1960: slow divergence begins as academic journals formalize theory.
+1960-2000: sharp divergence; academic stream moves rapidly toward academic pole.
+Post-2000: three streams visible — earnings calls (prac), academic journals (acad),
+practitioner magazines (declining, mixed).</p>
+<hr />
+<h2>Connection to Discriminative Terms Analysis</h2>
+<p>The discriminative terms analysis (analyze_discriminative_terms.py) identifies WHICH
+specific words and phrases drive the paradigm scores — answering &quot;what exactly changed?&quot;</p>
+<p>For example, if the embedding analysis shows academic textbooks diverged from practitioner
+textbooks after 1960, the discriminative terms analysis should show that words like
+&quot;discount rate&quot;, &quot;NPV&quot;, &quot;beta&quot;, &quot;CAPM&quot; became more frequent in academic textbooks while
+&quot;earnings yield&quot;, &quot;capitalization rate&quot;, &quot;P/E multiple&quot;, &quot;earnings per share&quot; declined.</p>
+<p>The two analyses are complementary:</p>
+<ul>
+<li>Embedding analysis: captures holistic paradigm distance (how similar overall)</li>
+<li>Discriminative terms: pinpoints specific vocabulary shifts (which concepts changed)</li>
+</ul>
+<p>Both should be run and their findings should corroborate each other. The discriminative
+terms are more interpretable for writing papers; the embeddings are more rigorous for
+measuring continuous change over time.</p>
+<hr />
+<h2>Version History</h2>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>File</th>
+<th>Key addition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v1</td>
+<td><code>analyze_embeddings_v1.py</code></td>
+<td>M&amp;A topic only, proof of concept</td>
+</tr>
+<tr>
+<td>v2</td>
+<td><code>analyze_embeddings_v2.py</code></td>
+<td>7 topics, two poles, method-neutral filters</td>
+</tr>
+<tr>
+<td>v3</td>
+<td><code>analyze_embeddings_v3.py</code></td>
+<td>Passage extraction for general sources (±3K chars)</td>
+</tr>
+<tr>
+<td>v4</td>
+<td><code>analyze_embeddings_v4.py</code></td>
+<td>Multi-source: adds textbooks + earnings calls</td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+    </div>
+
+    <aside class="sidebar">
+      <!-- Paradigm info -->
+      <div class="sidebar-section">
+        <h4>Paradigm</h4>
+        <p><span class="paradigm-badge academic">Academic</span></p>
+        <p style="margin-top: 0.5rem;">NPV / DCF: P = Σ CF/(1+r)^t. Cost of equity from CAPM / factor model. Objective = maximize firm value.</p>
+      </div>
+
+      <!-- Era context -->
+      <div class="sidebar-section">
+        <h4>Era</h4>
+        <p><strong>The Consensus Era</strong> (1720–1957)</p>
+        <p>For over 200 years, practitioners and scholars alike valued assets by capitalizing earnings at market-observed yields.</p>
+      </div>
+
+      <!-- Connections -->
+      
+    </aside>
+  </div>
+
+  <!-- Prev / Next navigation -->
+  <nav class="evidence-nav">
+    
+    <a href="../evidence/Brealey_Myers_EPS_Treatment_6th7thEd.html">
+      <span class="label">&larr; Previous</span>
+       (0)
+    </a>
+    
+
+    
+    <a href="../evidence/Multi_Source_Embedding_Methodology.html" style="text-align: right;">
+      <span class="label">Next &rarr;</span>
+       (0)
+    </a>
+    
+  </nav>
+
+</div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>The Two Paradigms of Finance &mdash; Itzhak Ben-David & Alex Chinco</p>
+      <p>The Ohio State University & Michigan State University</p>
+      <p style="margin-top: 0.5rem;">Built from a collection of 2,800+ primary sources spanning 300 years.</p>
+    </div>
+  </footer>
+
+  
+  <script>
+  (function(){
+    var k='__tp_auth';
+    if(sessionStorage.getItem(k)==='1') return;
+    var p=prompt('Enter password:');
+    if(p==='EPS'){sessionStorage.setItem(k,'1');}
+    else{document.body.innerHTML='<p style="color:#ede8d8;text-align:center;margin-top:40vh;font-family:serif;font-size:1.2rem;">Access denied.</p>';}
+  })();
+  </script>
+</body>
+</html>
