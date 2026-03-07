@@ -903,10 +903,20 @@
     mergers_acquisitions: 'M&A',
     valuation: 'Valuation',
     capital_structure: 'Capital Structure',
-    dividends: 'Dividends',
+    payout: 'Dividends & Payout',
     earnings: 'Earnings',
     speculation: 'Speculation & Trading',
-    banking: 'Banking'
+    banking: 'Banking',
+    insurance_risk: 'Insurance & Risk',
+    taxation: 'Taxation',
+    real_estate: 'Real Estate',
+    accounting_reporting: 'Accounting & Reporting',
+    placebo_strategy: 'Placebo: Strategy',
+    placebo_hr: 'Placebo: HR',
+    placebo_marketing: 'Placebo: Marketing',
+    placebo_operations: 'Placebo: Operations',
+    placebo_technology: 'Placebo: Technology',
+    placebo_trade: 'Placebo: Trade'
   };
 
   // Build topic selector buttons
@@ -928,6 +938,11 @@
     });
   }
 
+  // Colors for multi-source
+  var TB_PRAC_COLOR = '#66bb6a';   // green — practitioner textbooks
+  var TB_ACAD_COLOR = '#4caf50';   // darker green — academic textbooks
+  var EC_COLOR = '#e57373';        // red — earnings calls (always practitioner)
+
   function drawOverlaidDensity() {
     var canvas = document.getElementById('density-canvas');
     if (!canvas) return;
@@ -948,10 +963,32 @@
     var pracHist = histograms.practitioner || {};
     var acadHist = histograms.academic || {};
 
-    // Merge windows from both streams
+    // V4 multi-source data
+    var stHists = topicData.source_type_histograms || {};
+    var hasTB = stHists.textbooks && (
+      Object.keys(stHists.textbooks.practitioner || {}).length > 0 ||
+      Object.keys(stHists.textbooks.academic || {}).length > 0
+    );
+    var hasEC = stHists.earnings_calls && (
+      Object.keys(stHists.earnings_calls.practitioner || {}).length > 0
+    );
+    var tbPracHist = hasTB ? (stHists.textbooks.practitioner || {}) : {};
+    var tbAcadHist = hasTB ? (stHists.textbooks.academic || {}) : {};
+    var ecPracHist = hasEC ? (stHists.earnings_calls.practitioner || {}) : {};
+
+    // Toggle legend items
+    var lgTB = document.getElementById('legend-textbooks');
+    var lgEC = document.getElementById('legend-earnings');
+    if (lgTB) lgTB.style.display = hasTB ? '' : 'none';
+    if (lgEC) lgEC.style.display = hasEC ? '' : 'none';
+
+    // Merge windows from all streams and source types
     var winSet = {};
     Object.keys(pracHist).forEach(function (w) { winSet[w] = true; });
     Object.keys(acadHist).forEach(function (w) { winSet[w] = true; });
+    Object.keys(tbPracHist).forEach(function (w) { winSet[w] = true; });
+    Object.keys(tbAcadHist).forEach(function (w) { winSet[w] = true; });
+    Object.keys(ecPracHist).forEach(function (w) { winSet[w] = true; });
     var windows = Object.keys(winSet).sort();
 
     if (windows.length === 0 || bins.length === 0) {
@@ -992,19 +1029,21 @@
 
     var pracStats = computeStats(pracHist);
     var acadStats = computeStats(acadHist);
+    var tbPracStats = hasTB ? computeStats(tbPracHist) : {};
+    var tbAcadStats = hasTB ? computeStats(tbAcadHist) : {};
+    var ecPracStats = hasEC ? computeStats(ecPracHist) : {};
 
-    // Determine Y-axis range from mean ± 2SE across all windows
+    // Determine Y-axis range from mean +/- 2SE across all windows and all series
+    var allStats = [pracStats, acadStats, tbPracStats, tbAcadStats, ecPracStats];
     var yMin = Infinity, yMax = -Infinity;
     windows.forEach(function (wi) {
-      var ps = pracStats[wi], as = acadStats[wi];
-      if (ps) {
-        yMin = Math.min(yMin, ps.mean - 2 * ps.se);
-        yMax = Math.max(yMax, ps.mean + 2 * ps.se);
-      }
-      if (as) {
-        yMin = Math.min(yMin, as.mean - 2 * as.se);
-        yMax = Math.max(yMax, as.mean + 2 * as.se);
-      }
+      allStats.forEach(function (statsObj) {
+        var st = statsObj[wi];
+        if (st) {
+          yMin = Math.min(yMin, st.mean - 2 * st.se);
+          yMax = Math.max(yMax, st.mean + 2 * st.se);
+        }
+      });
     });
     // Add 15% padding
     var yRange = yMax - yMin;
@@ -1103,7 +1142,15 @@
       ctx.setLineDash([]);
     }
 
-    // Draw bands (academic first so practitioner draws on top)
+    // Draw bands (background first, foreground on top)
+    // Earnings calls (red) — always practitioner
+    if (hasEC) drawBand(ecPracStats, 'rgb(229,115,115)');
+    // Textbooks (green)
+    if (hasTB) {
+      drawBand(tbAcadStats, 'rgb(76,175,80)');
+      drawBand(tbPracStats, 'rgb(102,187,106)');
+    }
+    // Periodicals (primary — draw on top)
     drawBand(acadStats, 'rgb(91,164,207)');
     drawBand(pracStats, 'rgb(212,160,23)');
 
@@ -1135,6 +1182,24 @@
     ctx.fillText('\u2191 Practitioner', w - pad.right + 8, pad.top + 10);
     ctx.fillStyle = BLUE;
     ctx.fillText('\u2193 Academic', w - pad.right + 8, pad.top + chartH - 2);
+
+    // Right-side legend for multi-source (when data is present)
+    if (hasTB || hasEC) {
+      var ly = pad.top + 26;
+      ctx.font = '8px ' + FONT;
+      ctx.fillStyle = GOLD; ctx.fillRect(w - pad.right + 8, ly - 4, 12, 3);
+      ctx.fillStyle = TEXT; ctx.fillText('Periodicals', w - pad.right + 24, ly);
+      ly += 13;
+      if (hasTB) {
+        ctx.fillStyle = TB_PRAC_COLOR; ctx.fillRect(w - pad.right + 8, ly - 4, 12, 3);
+        ctx.fillStyle = TEXT; ctx.fillText('Textbooks', w - pad.right + 24, ly);
+        ly += 13;
+      }
+      if (hasEC) {
+        ctx.fillStyle = EC_COLOR; ctx.fillRect(w - pad.right + 8, ly - 4, 12, 3);
+        ctx.fillStyle = TEXT; ctx.fillText('Earnings calls', w - pad.right + 24, ly);
+      }
+    }
 
     // X-axis labels (every 10 years)
     ctx.textAlign = 'center';
