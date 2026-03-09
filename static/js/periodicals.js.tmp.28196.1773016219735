@@ -1145,10 +1145,10 @@
     // Draw bands (background first, foreground on top)
     // Earnings calls (red) — always practitioner
     if (hasEC) drawBand(ecPracStats, 'rgb(229,115,115)');
-    // Textbooks — academic (cyan) and practitioner (orange)
+    // Textbooks (green)
     if (hasTB) {
-      drawBand(tbAcadStats, 'rgb(38,198,218)');
-      drawBand(tbPracStats, 'rgb(255,167,38)');
+      drawBand(tbAcadStats, 'rgb(76,175,80)');
+      drawBand(tbPracStats, 'rgb(102,187,106)');
     }
     // Periodicals (primary — draw on top)
     drawBand(acadStats, 'rgb(91,164,207)');
@@ -1191,11 +1191,8 @@
       ctx.fillStyle = TEXT; ctx.fillText('Periodicals', w - pad.right + 24, ly);
       ly += 13;
       if (hasTB) {
-        ctx.fillStyle = TB_ACAD_COLOR; ctx.fillRect(w - pad.right + 8, ly - 4, 12, 3);
-        ctx.fillStyle = TEXT; ctx.fillText('Acad. textbooks', w - pad.right + 24, ly);
-        ly += 13;
         ctx.fillStyle = TB_PRAC_COLOR; ctx.fillRect(w - pad.right + 8, ly - 4, 12, 3);
-        ctx.fillStyle = TEXT; ctx.fillText('Prac. textbooks', w - pad.right + 24, ly);
+        ctx.fillStyle = TEXT; ctx.fillText('Textbooks', w - pad.right + 24, ly);
         ly += 13;
       }
       if (hasEC) {
