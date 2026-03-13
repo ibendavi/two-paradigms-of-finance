@@ -41,6 +41,16 @@
   },
   {
     "slug": "",
+    "title": "An exhibit of the losses sustained at the office of discount and deposit, Baltim",
+    "author": "Baltimore losses",
+    "year": 1823,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "The Doctrine of Compound Interest",
     "author": "Corbaux",
     "year": 1825,
@@ -101,11 +111,11 @@
   },
   {
     "slug": "",
-    "title": "Capitalist's guide and railway annual",
-    "author": "Stow, F. H.",
-    "year": 1859,
+    "title": "A new monetary system the only means of securing the respective rights of labor",
+    "author": "Kellogg, E.",
+    "year": 1861,
     "paradigm": "practitioner",
-    "score": -0.76,
+    "score": -0.722,
     "key_finding": "",
     "has_note": false
   },
@@ -136,6 +146,16 @@
     "year": 1868,
     "paradigm": "practitioner",
     "score": -0.905,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "History of the legal tender money issued during the great rebellion; being a loa",
+    "author": "Spaulding, E. G.",
+    "year": 1869,
+    "paradigm": "practitioner",
+    "score": -0.714,
     "key_finding": "",
     "has_note": false
   },
@@ -251,6 +271,16 @@
   },
   {
     "slug": "",
+    "title": "The national currency and the money problem",
+    "author": "Walker, A.",
+    "year": 1876,
+    "paradigm": "practitioner",
+    "score": -0.769,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Money and its laws",
     "author": "Henry Varnum Poor",
     "year": 1877,
@@ -301,6 +331,16 @@
   },
   {
     "slug": "",
+    "title": "The Common Sense, the Mathematics, and the Metaphysics of Money",
+    "author": "Howe, J. B.",
+    "year": 1881,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "The theory of Finance",
     "author": "King",
     "year": 1882,
@@ -323,6 +363,16 @@
     "slug": "",
     "title": "A treatise on the law of stock-brokers and stock-exchanges",
     "author": "John Randolph Dos Passos",
+    "year": 1882,
+    "paradigm": "practitioner",
+    "score": -0.75,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "A treatise on the law of stock-brokers and stock-exchanges",
+    "author": "Passos, J. R. D.",
     "year": 1882,
     "paradigm": "practitioner",
     "score": -0.75,
@@ -376,6 +426,16 @@
     "year": 1887,
     "paradigm": "practitioner",
     "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "The national bank act and its judicial meaning, with an appendix",
+    "author": "Bolles, A. S.",
+    "year": 1888,
+    "paradigm": "practitioner",
+    "score": -0.862,
     "key_finding": "",
     "has_note": false
   },
@@ -471,6 +531,16 @@
   },
   {
     "slug": "",
+    "title": "Our Money Wars The Example and Warning of American Finance",
+    "author": "Leavitt, S.",
+    "year": 1894,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Prospectuses concerning the corporate reorganization of several American railroad, public transportation, and other companies",
     "author": "Various [Corporate Prospectuses]",
     "year": 1894,
@@ -486,6 +556,16 @@
     "year": 1895,
     "paradigm": "academic",
     "score": 0.25,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "The currency and the banking laws of the dominion of Canada considered with refe",
+    "author": "Cornwell, W. C",
+    "year": 1895,
+    "paradigm": "practitioner",
+    "score": -1.0,
     "key_finding": "",
     "has_note": false
   },
@@ -621,6 +701,16 @@
   },
   {
     "slug": "",
+    "title": "The story of money; a science of money questions",
+    "author": "Towne, E. C.",
+    "year": 1900,
+    "paradigm": "practitioner",
+    "score": -0.918,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "American Railroads as Investments",
     "author": "Van Oss",
     "year": 1900,
@@ -681,6 +771,16 @@
   },
   {
     "slug": "",
+    "title": "History of coinage and currency in the United States and the perennial contest f",
+    "author": "Anonymous",
+    "year": 1903,
+    "paradigm": "practitioner",
+    "score": -0.842,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "First Lessons in Finance",
     "author": "Cleveland",
     "year": 1903,
@@ -705,7 +805,7 @@
     "author": "Pratt, Sereno",
     "year": 1903,
     "paradigm": "practitioner",
-    "score": -0.952,
+    "score": -0.949,
     "key_finding": "",
     "has_note": false
   },
@@ -716,6 +816,16 @@
     "year": 1904,
     "paradigm": "academic",
     "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Encyclop\u00e6dia of Accounting",
+    "author": "George Lisle",
+    "year": 1904,
+    "paradigm": "practitioner",
+    "score": -0.903,
     "key_finding": "",
     "has_note": false
   },
@@ -771,6 +881,16 @@
   },
   {
     "slug": "",
+    "title": "Trust Finance",
+    "author": "Edward S. Mead",
+    "year": 1905,
+    "paradigm": "academic",
+    "score": -0.964,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Business Finance",
     "author": "Lough",
     "year": 1905,
@@ -781,10 +901,30 @@
   },
   {
     "slug": "",
+    "title": "The Bank and the Treasury Bank Capitalization and the Problem of Elasticity",
+    "author": "Cleveland, F. A.",
+    "year": 1905,
+    "paradigm": "practitioner",
+    "score": -0.931,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "The bank and the Treasury",
     "author": "Cleveland, Frederick Albert",
     "year": 1905,
     "paradigm": "academic",
+    "score": -0.929,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "The New York Stock Exchange",
+    "author": "Stedman",
+    "year": 1905,
+    "paradigm": "practitioner",
     "score": -0.929,
     "key_finding": "",
     "has_note": false
@@ -828,6 +968,16 @@
     "score": 0.614,
     "key_finding": "Fisher's 1907 book establishes the present-value principle as the UNIVERSAL method for valuing ANY asset \u2014 stocks, bonds, land, mines, businesses \u2014 from their expected income streams. He explicitly st...",
     "has_note": true
+  },
+  {
+    "slug": "",
+    "title": "The Rate of Interest",
+    "author": "Fisher",
+    "year": 1907,
+    "paradigm": "academic",
+    "score": 0.614,
+    "key_finding": "",
+    "has_note": false
   },
   {
     "slug": "",
@@ -943,6 +1093,16 @@
     "slug": "",
     "title": "Railroad Reorganization",
     "author": "Daggett, Stuart",
+    "year": 1908,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Relation of speculation to business",
+    "author": "Armstrong, C.",
     "year": 1908,
     "paradigm": "practitioner",
     "score": -1.0,
@@ -1091,6 +1251,16 @@
   },
   {
     "slug": "",
+    "title": "Laws of the United States concerning money, banking, and lo",
+    "author": "Huntington, A. T.",
+    "year": 1910,
+    "paradigm": "practitioner",
+    "score": -0.931,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Corporate Organization and Administration",
     "author": "Barnes",
     "year": 1910,
@@ -1111,6 +1281,16 @@
   },
   {
     "slug": "",
+    "title": "The Earning Power of Railroads",
+    "author": "Mundy, Oliphant",
+    "year": 1910,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Stocks and shares",
     "author": "Withers, Hartley",
     "year": 1910,
@@ -1121,11 +1301,21 @@
   },
   {
     "slug": "",
+    "title": "The laws relating to banks, savings banks and trust companies of Connecticut",
+    "author": "Laughlin, J. L.",
+    "year": 1911,
+    "paradigm": "academic",
+    "score": -0.9,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "The Principles of Economics",
     "author": "Fetter",
     "year": 1911,
     "paradigm": "academic",
-    "score": -0.029,
+    "score": -0.059,
     "key_finding": "",
     "has_note": false
   },
@@ -1231,6 +1421,16 @@
   },
   {
     "slug": "",
+    "title": "Capitalization A Book on Corporation Finance",
+    "author": "Lyon",
+    "year": 1912,
+    "paradigm": "academic",
+    "score": -0.886,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Corporation Finance",
     "author": "Lyon",
     "year": 1912,
@@ -1326,6 +1526,16 @@
     "year": 1912,
     "paradigm": "practitioner",
     "score": -0.882,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "The Earning Power of Railroads",
+    "author": "Mundy, Floyd W.",
+    "year": 1912,
+    "paradigm": "practitioner",
+    "score": -1.0,
     "key_finding": "",
     "has_note": false
   },
@@ -1461,6 +1671,26 @@
   },
   {
     "slug": "",
+    "title": "Federal reserve act; a discussion of the principles and operations of the new ba",
+    "author": "Barron, C. W.",
+    "year": 1914,
+    "paradigm": "practitioner",
+    "score": -0.826,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "The operation of the new bank act",
+    "author": "Conway, T.",
+    "year": 1914,
+    "paradigm": "practitioner",
+    "score": -0.929,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "The cause of business depressions as disclosed by an analysis of the basic",
     "author": "Hugo Bilgram",
     "year": 1914,
@@ -1476,6 +1706,16 @@
     "year": 1914,
     "paradigm": "practitioner",
     "score": -0.957,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Investment and Speculation: A Description of the Modern Money Market",
+    "author": "Conway, Thomas; Atwood",
+    "year": 1914,
+    "paradigm": "practitioner",
+    "score": -0.98,
     "key_finding": "",
     "has_note": false
   },
@@ -1602,6 +1842,16 @@
   {
     "slug": "",
     "title": "Corporation Finance",
+    "author": "Lyon, Hastings",
+    "year": 1916,
+    "paradigm": "academic",
+    "score": -0.865,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Corporation Finance",
     "author": "Lyon, Walter Hastings",
     "year": 1916,
     "paradigm": "academic",
@@ -1621,11 +1871,41 @@
   },
   {
     "slug": "",
+    "title": "Corporations organization, finance and management",
+    "author": "Jackman, W. J",
+    "year": 1916,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Principles of commerce; a study of the mechanism, the advantages, and the transp",
+    "author": "Brown, H. G.",
+    "year": 1916,
+    "paradigm": "practitioner",
+    "score": 0.273,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Notes on foreign exchange and a glossary of financial terms",
     "author": "Patterson, E. L. Stewart",
     "year": 1916,
     "paradigm": "practitioner",
     "score": -0.84,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Finance and life insurance",
+    "author": "Dudley, W. A.",
+    "year": 1916,
+    "paradigm": "practitioner",
+    "score": 1.0,
     "key_finding": "",
     "has_note": false
   },
@@ -1811,6 +2091,26 @@
   },
   {
     "slug": "",
+    "title": "The evolution of money",
+    "author": "Sylvester, I. W.",
+    "year": 1919,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Management and Men A Record of New Steps in Industrial Relations",
+    "author": "Bloomfield, Meyer",
+    "year": 1919,
+    "paradigm": "practitioner",
+    "score": -0.971,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Corporation Finance",
     "author": "Walker, William Homer",
     "year": 1919,
@@ -1836,6 +2136,16 @@
     "year": 1919,
     "paradigm": "practitioner",
     "score": -0.588,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "The New York Stock Exchange: A Discussion of the Business Done",
+    "author": "Martin, H.S.",
+    "year": 1919,
+    "paradigm": "practitioner",
+    "score": -1.0,
     "key_finding": "",
     "has_note": false
   },
@@ -2021,6 +2331,16 @@
   },
   {
     "slug": "",
+    "title": "American banking practice; a treatise on the practical operation of a bank, inte",
+    "author": "Kniffin, W. H.",
+    "year": 1921,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Financing an Enterprise",
     "author": "Conyngton, Hugh Ronald",
     "year": 1921,
@@ -2031,11 +2351,41 @@
   },
   {
     "slug": "",
+    "title": "Problems in business finance",
+    "author": "Lincoln, Edmund E.",
+    "year": 1921,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Corporation Finance",
     "author": "Walker, William Homer",
     "year": 1921,
     "paradigm": "practitioner",
     "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "American foreign trade",
+    "author": "Harvey, R. S.",
+    "year": 1921,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Capital control in New York",
+    "author": "Baldwin, D. C.",
+    "year": 1921,
+    "paradigm": "practitioner",
+    "score": -0.815,
     "key_finding": "",
     "has_note": false
   },
@@ -2151,6 +2501,16 @@
   },
   {
     "slug": "",
+    "title": "What Railroad Earning Power Does the Public Interest Require?",
+    "author": "Hanauer, Jerome J.",
+    "year": 1922,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "The Stock Market",
     "author": "Huebner",
     "year": 1922,
@@ -2211,6 +2571,16 @@
   },
   {
     "slug": "",
+    "title": "Monetary theory before Adam Smith",
+    "author": "Monroe, A. E.",
+    "year": 1923,
+    "paradigm": "academic",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Essentials of Economics",
     "author": "Fairchild",
     "year": 1923,
@@ -2261,6 +2631,16 @@
   },
   {
     "slug": "",
+    "title": "Legal aspects of credit",
+    "author": "Brewster, S. F.",
+    "year": 1923,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Controlling the Finances of a Business",
     "author": "McKinsey, Meech",
     "year": 1923,
@@ -2273,6 +2653,16 @@
     "slug": "",
     "title": "The Stock Market Investor",
     "author": "Aldrich, H. J.",
+    "year": 1923,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "The stock and produce exchanges",
+    "author": "Atwood, A. W.",
     "year": 1923,
     "paradigm": "practitioner",
     "score": -1.0,
@@ -2390,6 +2780,16 @@
     "has_note": false
   },
   {
+    "slug": "",
+    "title": "Trust departments in banks and trust companies",
+    "author": "Herrick, C.",
+    "year": 1925,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
     "slug": "Valuation_Badger1925_EarningsCapitalization",
     "title": "Badger (1925): Valuation of Industrial Securities \u2014 Earnings Capitalization as the Primary Valuation Method",
     "author": "Badger",
@@ -2416,6 +2816,26 @@
     "year": 1925,
     "paradigm": "practitioner",
     "score": -0.985,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Readings in money credit and",
+    "author": "Wright",
+    "year": 1926,
+    "paradigm": "academic",
+    "score": -0.619,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Readings in money, credit and banking principles",
+    "author": "Wright, J.",
+    "year": 1926,
+    "paradigm": "academic",
+    "score": -0.619,
     "key_finding": "",
     "has_note": false
   },
@@ -2451,6 +2871,36 @@
   },
   {
     "slug": "",
+    "title": "The work of corporate trust departments",
+    "author": "Page, R. G.",
+    "year": 1926,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "World war debt settlements",
+    "author": "Moulton, H. G.",
+    "year": 1926,
+    "paradigm": "practitioner",
+    "score": 1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Investment Trust Organization and Management",
+    "author": "Robinson, Leland Rex",
+    "year": 1926,
+    "paradigm": "practitioner",
+    "score": -0.972,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Practical Hints for Investors",
     "author": "Van Riper",
     "year": 1926,
@@ -2476,6 +2926,16 @@
     "year": 1927,
     "paradigm": "academic",
     "score": -0.872,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Principles of money and banking",
+    "author": "Kilborne, R. D.",
+    "year": 1927,
+    "paradigm": "academic",
+    "score": -0.619,
     "key_finding": "",
     "has_note": false
   },
@@ -2516,6 +2976,26 @@
     "year": 1927,
     "paradigm": "practitioner",
     "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Trust functions",
+    "author": "American Institute of Banking",
+    "year": 1927,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Successful speculative investment; a non-technical treatise on the stock market,",
+    "author": "Bean, A. J",
+    "year": 1927,
+    "paradigm": "practitioner",
+    "score": -0.931,
     "key_finding": "",
     "has_note": false
   },
@@ -2591,6 +3071,36 @@
   },
   {
     "slug": "",
+    "title": "Our Economic System",
+    "author": "Hayes, H. G.",
+    "year": 1928,
+    "paradigm": "academic",
+    "score": -0.268,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Interallied debts and revision of the debt settlements",
+    "author": "Gerould, J. T.",
+    "year": 1928,
+    "paradigm": "practitioner",
+    "score": 0.88,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Investment trusts-their origin, development and operation. N",
+    "author": "Grayson, T. J",
+    "year": 1928,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Manual of Public Utility Section",
     "author": "Poor's",
     "year": 1928,
@@ -2601,11 +3111,31 @@
   },
   {
     "slug": "",
+    "title": "A Scientific Approach to Investment Management",
+    "author": "Rose, Dwight C.",
+    "year": 1928,
+    "paradigm": "practitioner",
+    "score": -0.938,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Foreign banking systems",
     "author": "Henry Parker Willis",
     "year": 1929,
     "paradigm": "academic",
     "score": -0.931,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Bank administration",
+    "author": "Stronck, H. N.",
+    "year": 1929,
+    "paradigm": "practitioner",
+    "score": -1.0,
     "key_finding": "",
     "has_note": false
   },
@@ -2650,6 +3180,16 @@
     "has_note": false
   },
   {
+    "slug": "",
+    "title": "Corporation Finance 7th ed",
+    "author": "Mead, Edward Sherwood",
+    "year": 1930,
+    "paradigm": "academic",
+    "score": -0.931,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
     "slug": "Valuation_Fisher1930_TheoryOfInterest",
     "title": "Fisher (1930): The Theory of Interest \u2014 The Complete Framework",
     "author": "Fisher",
@@ -2686,6 +3226,26 @@
     "year": 1930,
     "paradigm": "practitioner",
     "score": -0.955,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Stock market theory and practice",
+    "author": "Schabacker, R. W.",
+    "year": 1930,
+    "paradigm": "practitioner",
+    "score": -0.917,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Review of the report of the committee of ways and means; and of the message of t",
+    "author": "Anonymous",
+    "year": 1931,
+    "paradigm": "academic",
+    "score": -1.0,
     "key_finding": "",
     "has_note": false
   },
@@ -2825,7 +3385,7 @@
     "author": "Nathaniel Gold",
     "year": 1934,
     "paradigm": "practitioner",
-    "score": -0.837,
+    "score": -0.838,
     "key_finding": "",
     "has_note": false
   },
@@ -2915,7 +3475,7 @@
     "author": "Evans, George Heberton",
     "year": 1936,
     "paradigm": "academic",
-    "score": -0.923,
+    "score": -0.92,
     "key_finding": "",
     "has_note": false
   },
@@ -2986,6 +3546,16 @@
     "year": 1937,
     "paradigm": "practitioner",
     "score": -0.967,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "A Study of the Capital Market in Post-War Britain",
+    "author": "Grant, A. T. K.",
+    "year": 1937,
+    "paradigm": "practitioner",
+    "score": -0.077,
     "key_finding": "",
     "has_note": false
   },
@@ -3371,6 +3941,16 @@
   },
   {
     "slug": "",
+    "title": "Financial Organization and Management of Business",
+    "author": "Gerstenberg",
+    "year": 1947,
+    "paradigm": "academic",
+    "score": -0.885,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Modern Corporation Finance",
     "author": "Husband, Dockeray",
     "year": 1947,
@@ -3385,7 +3965,7 @@
     "author": "Hoagland",
     "year": 1947,
     "paradigm": "academic",
-    "score": -0.991,
+    "score": -0.99,
     "key_finding": "",
     "has_note": false
   },
@@ -3475,7 +4055,7 @@
     "author": "Chandler",
     "year": 1949,
     "paradigm": "academic",
-    "score": 0.0,
+    "score": -0.067,
     "key_finding": "",
     "has_note": false
   },
@@ -3711,6 +4291,16 @@
   },
   {
     "slug": "",
+    "title": "Mathematical programming and the analysis of capital budgeting problems",
+    "author": "Weingartner, H. M.",
+    "year": 1955,
+    "paradigm": "academic",
+    "score": 0.854,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "A Study of Saving in the United States Vol I",
     "author": "Goldsmith, Raymond W.",
     "year": 1955,
@@ -3756,6 +4346,16 @@
     "year": 1957,
     "paradigm": "practitioner",
     "score": -0.911,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "The Economics of Real Property: An Analysis of Property Values and Patterns of Use",
+    "author": "Turvey, R.",
+    "year": 1957,
+    "paradigm": "practitioner",
+    "score": 0.51,
     "key_finding": "",
     "has_note": false
   },
@@ -3856,6 +4456,16 @@
     "year": 1958,
     "paradigm": "practitioner",
     "score": -0.993,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "A Survey of Capital Expenditure Procedures and Practices",
+    "author": "Viafore",
+    "year": 1958,
+    "paradigm": "practitioner",
+    "score": 0.522,
     "key_finding": "",
     "has_note": false
   },
@@ -3991,6 +4601,16 @@
   },
   {
     "slug": "",
+    "title": "Corporate earning power and market valuation, 1935-1955",
+    "author": "Sidney Cottle",
+    "year": 1959,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "The Sophisticated Investor: A Guide to Stock-Market Profits",
     "author": "Burton Crane",
     "year": 1959,
@@ -4016,6 +4636,16 @@
     "year": 1960,
     "paradigm": "academic",
     "score": 0.694,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Principles of Public Utility Rates",
+    "author": "Bonbright",
+    "year": 1960,
+    "paradigm": "academic",
+    "score": -0.778,
     "key_finding": "",
     "has_note": false
   },
@@ -4245,7 +4875,7 @@
     "author": "Holland",
     "year": 1962,
     "paradigm": "academic",
-    "score": -0.625,
+    "score": -0.95,
     "key_finding": "",
     "has_note": false
   },
@@ -4391,16 +5021,6 @@
   },
   {
     "slug": "",
-    "title": "Capital and Rates of Return in Manufacturing Industries",
-    "author": "Stigler, George J.",
-    "year": 1963,
-    "paradigm": "academic",
-    "score": -0.938,
-    "key_finding": "",
-    "has_note": false
-  },
-  {
-    "slug": "",
     "title": "Accountant's handbook of formulas and tables",
     "author": "Lawrence Lipkin",
     "year": 1963,
@@ -4456,6 +5076,16 @@
     "year": 1963,
     "paradigm": "academic",
     "score": 0.181,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "the valuation of real estate",
+    "author": "alfred a. ring",
+    "year": 1963,
+    "paradigm": "practitioner",
+    "score": 0.749,
     "key_finding": "",
     "has_note": false
   },
@@ -4581,6 +5211,16 @@
   },
   {
     "slug": "",
+    "title": "Risk and Rate of Return",
+    "author": "Cootner, Paul H.",
+    "year": 1964,
+    "paradigm": "academic",
+    "score": -0.115,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Financial Planning and Policy",
     "author": "Baughn, W. H.",
     "year": 1964,
@@ -4596,6 +5236,16 @@
     "year": 1964,
     "paradigm": "practitioner",
     "score": -0.653,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Administrative Financial Management",
+    "author": "Bradley",
+    "year": 1964,
+    "paradigm": "practitioner",
+    "score": -0.652,
     "key_finding": "",
     "has_note": false
   },
@@ -4691,6 +5341,36 @@
   },
   {
     "slug": "",
+    "title": "The Theory of Investment Value",
+    "author": "Williams",
+    "year": 1965,
+    "paradigm": "academic",
+    "score": -0.571,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Williams, Lady - Taxation and Incentive",
+    "author": "J Rhys",
+    "year": 1965,
+    "paradigm": "academic",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Mergers And Acquisitions Planning And Action",
+    "author": "Drayton, C.1,, Jr.",
+    "year": 1965,
+    "paradigm": "practitioner",
+    "score": -0.949,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Business Finance",
     "author": "Paish",
     "year": 1965,
@@ -4711,11 +5391,31 @@
   },
   {
     "slug": "",
+    "title": "Mergers And Acquisitions Planning And Action",
+    "author": "Young,G.R.et al",
+    "year": 1965,
+    "paradigm": "practitioner",
+    "score": -0.949,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Investments: An Introduction to Analysis and Management",
     "author": "Amling, Frederick",
     "year": 1965,
     "paradigm": "practitioner",
     "score": -0.9,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Estimating the present value of common stocks by the variable rate method",
+    "author": "Bauman, W. S.",
+    "year": 1965,
+    "paradigm": "practitioner",
+    "score": 0.45,
     "key_finding": "",
     "has_note": false
   },
@@ -4786,6 +5486,16 @@
     "year": 1966,
     "paradigm": "academic",
     "score": 0.21,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Readings in Finance",
+    "author": "Wolf, Harold A.; Richardson, Lee (Eds.)",
+    "year": 1966,
+    "paradigm": "academic",
+    "score": -0.347,
     "key_finding": "",
     "has_note": false
   },
@@ -4916,6 +5626,16 @@
     "year": 1967,
     "paradigm": "academic",
     "score": -0.461,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "A Study of the Capital Market in Britain from 1919-1936",
+    "author": "Grant, Alexander Thomas Kingdom",
+    "year": 1967,
+    "paradigm": "practitioner",
+    "score": -0.077,
     "key_finding": "",
     "has_note": false
   },
@@ -5071,6 +5791,16 @@
   },
   {
     "slug": "",
+    "title": "Risk and the aerospace rate of return",
+    "author": "Irving Norton Fisher",
+    "year": 1967,
+    "paradigm": "practitioner",
+    "score": -0.295,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Financial Accounting An Introduction",
     "author": "Bierman, Harold",
     "year": 1968,
@@ -5141,11 +5871,31 @@
   },
   {
     "slug": "",
+    "title": "The Economics of Uncertainty",
+    "author": "Borch",
+    "year": 1968,
+    "paradigm": "academic",
+    "score": 0.959,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Growth, Profitability and Valuation: A Study of United Kingdom Quoted Companies",
     "author": "Ajit Singh; Geoffrey Whittington (with H. T. Burley)",
     "year": 1968,
     "paradigm": "academic",
     "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "An Introduction to the Theory of Finance - Assetholder Behav",
+    "author": "Moore, B. J.",
+    "year": 1968,
+    "paradigm": "academic",
+    "score": -0.007,
     "key_finding": "",
     "has_note": false
   },
@@ -5161,11 +5911,31 @@
   },
   {
     "slug": "",
+    "title": "The management of capital expenditures",
+    "author": "MURDICK, Robert Gordon, and DEMING (Donald D.)",
+    "year": 1968,
+    "paradigm": "practitioner",
+    "score": 0.122,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Hanover Shoe vs United Shoe Machinery",
     "author": "Supreme Court",
     "year": 1968,
     "paradigm": "practitioner",
     "score": -0.898,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Stockbroking Today",
+    "author": "Unknown",
+    "year": 1968,
+    "paradigm": "practitioner",
+    "score": -0.961,
     "key_finding": "",
     "has_note": false
   },
@@ -5231,6 +6001,26 @@
   },
   {
     "slug": "",
+    "title": "Basic managerial finance",
+    "author": "Grunewald, Alan E.",
+    "year": 1969,
+    "paradigm": "academic",
+    "score": -0.386,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Business Finance and the Capital Market",
+    "author": "K. Midgley",
+    "year": 1969,
+    "paradigm": "academic",
+    "score": 0.344,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "The Cost of Capital",
     "author": "Lewellen",
     "year": 1969,
@@ -5255,7 +6045,7 @@
     "author": "Brealey",
     "year": 1969,
     "paradigm": "academic",
-    "score": 0.563,
+    "score": 0.56,
     "key_finding": "Brealey's 1969 book, written at the London Business School just after the first decade of modern finance theory (CAPM 1964, EMH emerging), devotes an entire chapter (Chapter 7, \"Earnings and Stock Pri...",
     "has_note": true
   },
@@ -5315,7 +6105,7 @@
     "author": "Kristein",
     "year": 1969,
     "paradigm": "academic",
-    "score": -0.886,
+    "score": -0.884,
     "key_finding": "",
     "has_note": false
   },
@@ -5345,7 +6135,17 @@
     "author": "Bierman, Harold",
     "year": 1970,
     "paradigm": "academic",
-    "score": 0.293,
+    "score": 0.308,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Introduction to business finance",
+    "author": "Cherry, Richard T",
+    "year": 1970,
+    "paradigm": "academic",
+    "score": -0.218,
     "key_finding": "",
     "has_note": false
   },
@@ -5356,6 +6156,36 @@
     "year": 1970,
     "paradigm": "academic",
     "score": 0.421,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "A Survey of the Cost of Capital Controversy",
+    "author": "Whelpton",
+    "year": 1970,
+    "paradigm": "academic",
+    "score": -0.467,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Financial Management",
+    "author": "Wright",
+    "year": 1970,
+    "paradigm": "practitioner",
+    "score": -0.435,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "The German Stock Market",
+    "author": "Baker, James C.",
+    "year": 1970,
+    "paradigm": "practitioner",
+    "score": -1.0,
     "key_finding": "",
     "has_note": false
   },
@@ -5401,6 +6231,16 @@
   },
   {
     "slug": "",
+    "title": "Buffett Partnership Letters 1957-1970",
+    "author": "Buffett, Warren",
+    "year": 1970,
+    "paradigm": "practitioner",
+    "score": -0.959,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Mutual Funds and Other Institutional Investors: A New Perspective",
     "author": "Irwin Friend; Marshall E. Blume; Jean Crockett",
     "year": 1970,
@@ -5416,6 +6256,16 @@
     "year": 1971,
     "paradigm": "academic",
     "score": 0.484,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Principles of Corporate Finance",
+    "author": "Brealey, Myers",
+    "year": 1971,
+    "paradigm": "academic",
+    "score": 0.531,
     "key_finding": "",
     "has_note": false
   },
@@ -5521,6 +6371,16 @@
   },
   {
     "slug": "",
+    "title": "Investments - New Analytic Techniques",
+    "author": "Williamson, J. Peter",
+    "year": 1971,
+    "paradigm": "academic",
+    "score": -0.523,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Earnout business combinations",
     "author": "John Albert Yeakel",
     "year": 1971,
@@ -5581,11 +6441,31 @@
   },
   {
     "slug": "",
+    "title": "Managerial economics",
+    "author": "Brigham, Eugene F.",
+    "year": 1972,
+    "paradigm": "academic",
+    "score": 0.401,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "The Theory of Finance AFA chapters",
     "author": "Fama, Miller",
     "year": 1972,
     "paradigm": "academic",
     "score": 0.637,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "International Managerial Finance",
+    "author": "Weston",
+    "year": 1972,
+    "paradigm": "academic",
+    "score": 0.786,
     "key_finding": "",
     "has_note": false
   },
@@ -5601,11 +6481,31 @@
   },
   {
     "slug": "",
+    "title": "Studies in the Theory of Capital Markets",
+    "author": "Jensen, Michael C. (ed.)",
+    "year": 1972,
+    "paradigm": "academic",
+    "score": 0.679,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "The Capital Asset Pricing Model Theory and Evidence",
+    "author": "Miller",
+    "year": 1972,
+    "paradigm": "academic",
+    "score": 0.889,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "The behavior of European stock markets",
     "author": "Solnik, Bruno H.",
     "year": 1972,
     "paradigm": "academic",
-    "score": 0.939,
+    "score": 0.933,
     "key_finding": "",
     "has_note": false
   },
@@ -5665,7 +6565,7 @@
     "author": "Adam Smith",
     "year": 1972,
     "paradigm": "academic",
-    "score": -0.263,
+    "score": -0.333,
     "key_finding": "",
     "has_note": false
   },
@@ -5745,7 +6645,7 @@
     "author": "Lorie",
     "year": 1973,
     "paradigm": "academic",
-    "score": 0.186,
+    "score": 0.221,
     "key_finding": "",
     "has_note": false
   },
@@ -5755,7 +6655,7 @@
     "author": "Merton",
     "year": 1973,
     "paradigm": "academic",
-    "score": 0.536,
+    "score": 0.529,
     "key_finding": "",
     "has_note": false
   },
@@ -5766,6 +6666,16 @@
     "year": 1973,
     "paradigm": "practitioner",
     "score": -0.933,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "The Foundations of Financial Management",
+    "author": "Pitt Francis, David",
+    "year": 1973,
+    "paradigm": "practitioner",
+    "score": 0.458,
     "key_finding": "",
     "has_note": false
   },
@@ -5931,6 +6841,16 @@
   },
   {
     "slug": "",
+    "title": "Company Finance and the Capital Market",
+    "author": "Davis",
+    "year": 1975,
+    "paradigm": "practitioner",
+    "score": -0.962,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Business Financial Management",
     "author": "Engler",
     "year": 1975,
@@ -5955,7 +6875,7 @@
     "author": "Andrews, V. L. - see Financial Managemen",
     "year": 1976,
     "paradigm": "academic",
-    "score": -0.069,
+    "score": -0.066,
     "key_finding": "",
     "has_note": false
   },
@@ -6091,6 +7011,16 @@
   },
   {
     "slug": "",
+    "title": "Business finance",
+    "author": "Pitfield, Ronald R",
+    "year": 1976,
+    "paradigm": "practitioner",
+    "score": -0.565,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Broadening the ownership of new capital, ESOPs and other alternatives",
     "author": "United States Congress",
     "year": 1976,
@@ -6131,6 +7061,16 @@
   },
   {
     "slug": "",
+    "title": "Khalik - Understanding Accounting Changes in an Efficient Market Evidence of Differential",
+    "author": "A. Rashad Abdel",
+    "year": 1977,
+    "paradigm": "academic",
+    "score": -0.758,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Bicksler - Capital Market Equilibrium and Efficiency (Book 1977).ocrtmp",
     "author": "Bicksler",
     "year": 1977,
@@ -6156,6 +7096,16 @@
     "year": 1977,
     "paradigm": "academic",
     "score": -0.125,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Capital Budgeting Decisions in Multi-Division Firms",
+    "author": "Rosenblatt",
+    "year": 1977,
+    "paradigm": "academic",
+    "score": 0.675,
     "key_finding": "",
     "has_note": false
   },
@@ -6206,6 +7156,16 @@
     "year": 1977,
     "paradigm": "academic",
     "score": 0.727,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Stocks, Bonds, Bills, and Inflation Past and Future",
+    "author": "Ibbotson, Sinquefield",
+    "year": 1977,
+    "paradigm": "practitioner",
+    "score": 0.879,
     "key_finding": "",
     "has_note": false
   },
@@ -6341,6 +7301,16 @@
   },
   {
     "slug": "",
+    "title": "Principles of Financial Management",
+    "author": "Friedland",
+    "year": 1978,
+    "paradigm": "practitioner",
+    "score": -0.159,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "A Practical Approach to Financial Management",
     "author": "Gibbs",
     "year": 1978,
@@ -6376,6 +7346,26 @@
     "year": 1979,
     "paradigm": "academic",
     "score": -0.663,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "New cases in managerial finance",
+    "author": "Kuniansky, Harry Richard",
+    "year": 1979,
+    "paradigm": "academic",
+    "score": -0.263,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Cases in financial management",
+    "author": "Mathur, Iqbal",
+    "year": 1979,
+    "paradigm": "academic",
+    "score": -0.573,
     "key_finding": "",
     "has_note": false
   },
@@ -6431,11 +7421,21 @@
   },
   {
     "slug": "",
+    "title": "The Relationship Between Market Value and Return of Common Stocks",
+    "author": "Rolf W. Banz",
+    "year": 1979,
+    "paradigm": "academic",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Financial Management Classics",
     "author": "Aby, Vaughn",
     "year": 1979,
     "paradigm": "practitioner",
-    "score": 0.15,
+    "score": 0.141,
     "key_finding": "",
     "has_note": false
   },
@@ -6525,7 +7525,7 @@
     "author": "Dougherty",
     "year": 1980,
     "paradigm": "practitioner",
-    "score": 0.023,
+    "score": 0.038,
     "key_finding": "",
     "has_note": false
   },
@@ -6671,6 +7671,36 @@
   },
   {
     "slug": "",
+    "title": "Basic financial management",
+    "author": "Curtis W. Symonds",
+    "year": 1981,
+    "paradigm": "practitioner",
+    "score": -0.967,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Business finance",
+    "author": "Ogley, Brian",
+    "year": 1981,
+    "paradigm": "practitioner",
+    "score": -0.148,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "On market timing and investment performance part II",
+    "author": "Roy Henriksson",
+    "year": 1981,
+    "paradigm": "practitioner",
+    "score": 1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Omnibus Budget Reconciliation Act of 1981",
     "author": "United States. Congress. House",
     "year": 1981,
@@ -6726,6 +7756,16 @@
     "year": 1982,
     "paradigm": "academic",
     "score": 0.192,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Mathematics of finance",
+    "author": "Cissell, Robert; Cissell, Helen; Flaspohler, David C",
+    "year": 1982,
+    "paradigm": "academic",
+    "score": 0.503,
     "key_finding": "",
     "has_note": false
   },
@@ -6845,7 +7885,7 @@
     "author": "Joy",
     "year": 1983,
     "paradigm": "academic",
-    "score": -0.199,
+    "score": -0.228,
     "key_finding": "",
     "has_note": false
   },
@@ -6991,6 +8031,16 @@
   },
   {
     "slug": "",
+    "title": "Price Regulation in Property-liability Insurance A Contingent Claims Approach",
+    "author": "Neil A. Doherty",
+    "year": 1985,
+    "paradigm": "academic",
+    "score": 0.535,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Applied Theory of Price",
     "author": "McCloskey",
     "year": 1985,
@@ -7035,7 +8085,7 @@
     "author": "Marren",
     "year": 1985,
     "paradigm": "practitioner",
-    "score": 0.362,
+    "score": 0.348,
     "key_finding": "",
     "has_note": false
   },
@@ -7096,6 +8146,16 @@
     "year": 1986,
     "paradigm": "practitioner",
     "score": 0.53,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Business Finance Theory and Practice",
+    "author": "McLaney",
+    "year": 1986,
+    "paradigm": "academic",
+    "score": 0.513,
     "key_finding": "",
     "has_note": false
   },
@@ -7205,7 +8265,7 @@
     "author": "Lewis, Michael",
     "year": 1986,
     "paradigm": "practitioner",
-    "score": -0.141,
+    "score": -0.155,
     "key_finding": "",
     "has_note": false
   },
@@ -7221,6 +8281,16 @@
   },
   {
     "slug": "",
+    "title": "Estimation of the marginal rate of substitution in the intertemporal capital ass",
+    "author": "Louis O. Scott",
+    "year": 1987,
+    "paradigm": "academic",
+    "score": 0.787,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Quantitative Methods For Financial Analysis",
     "author": "Mao",
     "year": 1987,
@@ -7231,11 +8301,31 @@
   },
   {
     "slug": "",
+    "title": "Earnings information conveyed by dividend initiations and omissions",
+    "author": "Paul M. Healy",
+    "year": 1987,
+    "paradigm": "academic",
+    "score": -0.628,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Financial Management Text And Cases",
     "author": "Philippatos, George C;Sihler, William",
     "year": 1987,
     "paradigm": "academic",
     "score": -0.135,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Are Changes in Inflation Expectations Capitalized Into Stock Prices A Microform",
+    "author": "Yoon Dokko",
+    "year": 1987,
+    "paradigm": "academic",
+    "score": -0.619,
     "key_finding": "",
     "has_note": false
   },
@@ -7316,6 +8406,16 @@
     "year": 1987,
     "paradigm": "academic",
     "score": -0.157,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Financial Management",
+    "author": "Kolb",
+    "year": 1987,
+    "paradigm": "practitioner",
+    "score": 0.471,
     "key_finding": "",
     "has_note": false
   },
@@ -7471,6 +8571,16 @@
   },
   {
     "slug": "",
+    "title": "Financial Management",
+    "author": "Neumann, Suver, Zelman",
+    "year": 1988,
+    "paradigm": "academic",
+    "score": -0.134,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Introduction to Financial Management",
     "author": "Schall, Haley",
     "year": 1988,
@@ -7541,6 +8651,16 @@
   },
   {
     "slug": "",
+    "title": "Financial Theory and Corporate Policy old",
+    "author": "Copeland, Weston",
+    "year": 1988,
+    "paradigm": "academic",
+    "score": 0.466,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "The Predators' Ball: The Junk-Bond Raiders and the Man Who Staked Them",
     "author": "Connie Bruck",
     "year": 1988,
@@ -7565,7 +8685,7 @@
     "author": "Dobbins, Witt",
     "year": 1988,
     "paradigm": "practitioner",
-    "score": 0.091,
+    "score": 0.054,
     "key_finding": "",
     "has_note": false
   },
@@ -7615,7 +8735,7 @@
     "author": "United States. Presidential Task Force on Market Mechanisms.",
     "year": 1988,
     "paradigm": "practitioner",
-    "score": -0.745,
+    "score": -0.783,
     "key_finding": "",
     "has_note": false
   },
@@ -7711,6 +8831,16 @@
   },
   {
     "slug": "",
+    "title": "Stocks, Bonds, Bills, and Inflation",
+    "author": "Ibbotson, Sinquefield",
+    "year": 1989,
+    "paradigm": "practitioner",
+    "score": 0.781,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Investments",
     "author": "Kolb, Robert W.",
     "year": 1989,
@@ -7735,7 +8865,17 @@
     "author": "Rice",
     "year": 1989,
     "paradigm": "practitioner",
-    "score": 0.073,
+    "score": 0.121,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Corporate Risk Management",
+    "author": "Steele, Gordon C. A.",
+    "year": 1989,
+    "paradigm": "practitioner",
+    "score": 0.273,
     "key_finding": "",
     "has_note": false
   },
@@ -7835,7 +8975,7 @@
     "author": "Baldwin, R. E.",
     "year": 1991,
     "paradigm": "academic",
-    "score": 0.423,
+    "score": 0.417,
     "key_finding": "",
     "has_note": false
   },
@@ -8025,7 +9165,7 @@
     "author": "Baker, George P.; Smith, George David",
     "year": 1992,
     "paradigm": "academic",
-    "score": -0.407,
+    "score": -0.689,
     "key_finding": "",
     "has_note": false
   },
@@ -8061,11 +9201,31 @@
   },
   {
     "slug": "",
+    "title": "On Market Timing and Investment Performance. II. Statistical Procedures for Eval",
+    "author": "Merton, R. C.",
+    "year": 1992,
+    "paradigm": "academic",
+    "score": 1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Financial Management",
     "author": "Pandey, I. M.",
     "year": 1992,
     "paradigm": "academic",
     "score": 0.027,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "EMPTYPAGES Joseph Michael Sulock - Cases in financial management",
+    "author": "WARNING",
+    "year": 1992,
+    "paradigm": "academic",
+    "score": 0.314,
     "key_finding": "",
     "has_note": false
   },
@@ -8125,7 +9285,7 @@
     "author": "Nick Collett and Charles Schell",
     "year": 1992,
     "paradigm": "practitioner",
-    "score": -0.536,
+    "score": -0.605,
     "key_finding": "",
     "has_note": false
   },
@@ -8155,7 +9315,7 @@
     "author": "Jack D. Schwager",
     "year": 1992,
     "paradigm": "practitioner",
-    "score": -0.89,
+    "score": -0.917,
     "key_finding": "",
     "has_note": false
   },
@@ -8315,7 +9475,7 @@
     "author": "Ehrhardt, Michael C.",
     "year": 1994,
     "paradigm": "academic",
-    "score": 0.729,
+    "score": 0.716,
     "key_finding": "",
     "has_note": false
   },
@@ -8335,7 +9495,17 @@
     "author": "Peterson",
     "year": 1994,
     "paradigm": "practitioner",
-    "score": 0.249,
+    "score": 0.281,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "The Evolution of Dividend Policy in the Corporation and in Academic Theory",
+    "author": "Wood",
+    "year": 1994,
+    "paradigm": "academic",
+    "score": 0.327,
     "key_finding": "",
     "has_note": false
   },
@@ -8391,6 +9561,16 @@
   },
   {
     "slug": "",
+    "title": "Equity investments, venture capital, and the federal role in the availability of",
+    "author": "United States. Congress. House. Committee on Banki",
+    "year": 1994,
+    "paradigm": "practitioner",
+    "score": -0.143,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "The Handbook Of Corporate Earnings Analysis",
     "author": "Bruce, Epstein",
     "year": 1994,
@@ -8425,7 +9605,7 @@
     "author": "John Train",
     "year": 1994,
     "paradigm": "practitioner",
-    "score": -0.766,
+    "score": -0.863,
     "key_finding": "",
     "has_note": false
   },
@@ -8545,7 +9725,7 @@
     "author": "Smithson, Charles W.; Smith, Clifford W. Jr.; Wilford, D. Sykes",
     "year": 1995,
     "paradigm": "practitioner",
-    "score": 0.635,
+    "score": 0.619,
     "key_finding": "",
     "has_note": false
   },
@@ -8735,7 +9915,7 @@
     "author": "Nasser Arshadi and Gordon V. Karels",
     "year": 1997,
     "paradigm": "academic",
-    "score": 0.62,
+    "score": 0.613,
     "key_finding": "",
     "has_note": false
   },
@@ -8875,7 +10055,7 @@
     "author": "Mishkin",
     "year": 1998,
     "paradigm": "academic",
-    "score": 0.813,
+    "score": 0.785,
     "key_finding": "",
     "has_note": false
   },
@@ -8941,6 +10121,26 @@
   },
   {
     "slug": "",
+    "title": "Berkshire Hathaway Letter to Shareholders",
+    "author": "Buffett, Warren",
+    "year": 1998,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "McDonald - Review of Grinblatt and Titman Financial Markets and Corporate Strategy (Article 1998)",
+    "author": "McDonald",
+    "year": 1998,
+    "paradigm": "practitioner",
+    "score": 0.5,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Winning at Mergers and Acquisitions",
     "author": "Clemente, Greenspan",
     "year": 1998,
@@ -8955,7 +10155,7 @@
     "author": "Riahi-Belkaoui",
     "year": 1999,
     "paradigm": "academic",
-    "score": 0.192,
+    "score": 0.183,
     "key_finding": "",
     "has_note": false
   },
@@ -9051,6 +10251,16 @@
   },
   {
     "slug": "",
+    "title": "Berkshire Hathaway Letter to Shareholders",
+    "author": "Buffett, Warren",
+    "year": 1999,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Rubinstein on Derivatives: Futures, Options and Dynamic Strategies",
     "author": "Rubinstein, M",
     "year": 1999,
@@ -9091,6 +10301,26 @@
   },
   {
     "slug": "",
+    "title": "Principles of Managerial Finance",
+    "author": "Gitman",
+    "year": 2000,
+    "paradigm": "academic",
+    "score": 0.02,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Business Finance Theory and Practice",
+    "author": "McLaney",
+    "year": 2000,
+    "paradigm": "academic",
+    "score": 0.493,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Business Finance Theory And Practice",
     "author": "McLaney",
     "year": 2000,
@@ -9106,6 +10336,16 @@
     "year": 2000,
     "paradigm": "academic",
     "score": 0.297,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Fundamentals of Corporate Finance",
+    "author": "Ross",
+    "year": 2000,
+    "paradigm": "academic",
+    "score": 0.367,
     "key_finding": "",
     "has_note": false
   },
@@ -9221,6 +10461,16 @@
   },
   {
     "slug": "",
+    "title": "Berkshire Hathaway Letter to Shareholders",
+    "author": "Buffett, Warren",
+    "year": 2000,
+    "paradigm": "practitioner",
+    "score": -0.833,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Pioneering Portfolio Management",
     "author": "David F. Swensen",
     "year": 2000,
@@ -9265,7 +10515,7 @@
     "author": "Brealey, Richard A., Myers, Stewart C., Marcus, Alan J.",
     "year": 2001,
     "paradigm": "academic",
-    "score": 0.316,
+    "score": 0.26,
     "key_finding": "",
     "has_note": false
   },
@@ -9286,6 +10536,16 @@
     "year": 2001,
     "paradigm": "academic",
     "score": -0.211,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Managerial Economics",
+    "author": "Davies",
+    "year": 2001,
+    "paradigm": "academic",
+    "score": 0.581,
     "key_finding": "",
     "has_note": false
   },
@@ -9555,7 +10815,7 @@
     "author": "Damodaran, Aswath",
     "year": 2002,
     "paradigm": "academic",
-    "score": -0.236,
+    "score": -0.195,
     "key_finding": "",
     "has_note": false
   },
@@ -9671,6 +10931,16 @@
   },
   {
     "slug": "",
+    "title": "The Capital Structure Decision",
+    "author": "Bierman, Harold",
+    "year": 2003,
+    "paradigm": "academic",
+    "score": 0.179,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Principles of Corporate Finance 7th Ed",
     "author": "Brealey, Myers",
     "year": 2003,
@@ -9685,7 +10955,7 @@
     "author": "Gallagher, Andrew",
     "year": 2003,
     "paradigm": "academic",
-    "score": 0.193,
+    "score": 0.146,
     "key_finding": "",
     "has_note": false
   },
@@ -9741,6 +11011,16 @@
   },
   {
     "slug": "",
+    "title": "Trading and Exchanges",
+    "author": "Harris, Larry",
+    "year": 2003,
+    "paradigm": "academic",
+    "score": 0.28,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "The Smartest Guys in the Room: The Amazing Rise and Scandalous Fall of Enron",
     "author": "Bethany McLean, Peter Elkind",
     "year": 2003,
@@ -9776,6 +11056,16 @@
     "year": 2003,
     "paradigm": "academic",
     "score": -0.033,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Berkshire Hathaway Letter to Shareholders",
+    "author": "Buffett, Warren",
+    "year": 2003,
+    "paradigm": "practitioner",
+    "score": -0.913,
     "key_finding": "",
     "has_note": false
   },
@@ -9865,7 +11155,7 @@
     "author": "Arnold, Glen",
     "year": 2005,
     "paradigm": "academic",
-    "score": 0.236,
+    "score": 0.199,
     "key_finding": "",
     "has_note": false
   },
@@ -9876,6 +11166,16 @@
     "year": 2005,
     "paradigm": "academic",
     "score": 0.213,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Principles of Managerial Finance Brief",
+    "author": "Gitman",
+    "year": 2005,
+    "paradigm": "academic",
+    "score": 0.082,
     "key_finding": "",
     "has_note": false
   },
@@ -9936,6 +11236,16 @@
     "year": 2005,
     "paradigm": "practitioner",
     "score": -0.924,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Berkshire Hathaway Letter to Shareholders",
+    "author": "Buffett, Warren",
+    "year": 2005,
+    "paradigm": "practitioner",
+    "score": -1.0,
     "key_finding": "",
     "has_note": false
   },
@@ -10041,6 +11351,16 @@
   },
   {
     "slug": "",
+    "title": "Mathematics for Economic Analysis",
+    "author": "Sydsaeter, Knut",
+    "year": 2006,
+    "paradigm": "academic",
+    "score": 0.578,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Damodaran on Valuation Security Analysis for Investment and Corporate Finance",
     "author": "Damodaran, Aswath",
     "year": 2006,
@@ -10116,6 +11436,16 @@
     "year": 2006,
     "paradigm": "practitioner",
     "score": -0.909,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "The Accidental Investment Banker",
+    "author": "Knee, Jonathan A",
+    "year": 2006,
+    "paradigm": "practitioner",
+    "score": 0.0,
     "key_finding": "",
     "has_note": false
   },
@@ -10231,6 +11561,16 @@
   },
   {
     "slug": "",
+    "title": "The Black Swan The Impact of the Highly Improbable",
+    "author": "Nassim Nicholas Taleb",
+    "year": 2007,
+    "paradigm": "academic",
+    "score": 0.85,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "The Black Swan",
     "author": "Taleb, Nassim Nicholas",
     "year": 2007,
@@ -10261,11 +11601,31 @@
   },
   {
     "slug": "",
+    "title": "Capital Ideas Evolving",
+    "author": "Bernstein, Peter L.",
+    "year": 2007,
+    "paradigm": "practitioner",
+    "score": 0.852,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "The Age of Turbulence",
     "author": "Greenspan, Alan",
     "year": 2007,
     "paradigm": "practitioner",
     "score": -0.128,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Berkshire Hathaway Letter to Shareholders",
+    "author": "Buffett, Warren",
+    "year": 2007,
+    "paradigm": "practitioner",
+    "score": -0.905,
     "key_finding": "",
     "has_note": false
   },
@@ -10315,7 +11675,7 @@
     "author": "Benedict, Augustine",
     "year": 2008,
     "paradigm": "academic",
-    "score": -0.954,
+    "score": -0.963,
     "key_finding": "",
     "has_note": false
   },
@@ -10391,6 +11751,16 @@
   },
   {
     "slug": "",
+    "title": "On the Role of Paradigms in Finance",
+    "author": "Ardalan",
+    "year": 2008,
+    "paradigm": "academic",
+    "score": 0.524,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Security Analysis (6th Ed.)",
     "author": "Benjamin Graham",
     "year": 2008,
@@ -10415,7 +11785,7 @@
     "author": "Mehra",
     "year": 2008,
     "paradigm": "academic",
-    "score": 0.318,
+    "score": 0.316,
     "key_finding": "",
     "has_note": false
   },
@@ -10451,6 +11821,16 @@
   },
   {
     "slug": "",
+    "title": "Investing the Templeton Way",
+    "author": "Templeton, Lauren C",
+    "year": 2008,
+    "paradigm": "practitioner",
+    "score": -0.922,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Fundamentals of Financial Management 12th Ed",
     "author": "Brigham, Houston",
     "year": 2009,
@@ -10465,7 +11845,7 @@
     "author": "Cornett, Marcia Millon",
     "year": 2009,
     "paradigm": "academic",
-    "score": 0.234,
+    "score": 0.207,
     "key_finding": "",
     "has_note": false
   },
@@ -10581,6 +11961,16 @@
   },
   {
     "slug": "",
+    "title": "Animal Spirits",
+    "author": "Akerlof, Shiller",
+    "year": 2009,
+    "paradigm": "academic",
+    "score": 0.448,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Lecturing Birds on Flying",
     "author": "Triana, Pablo, Taleb, Nassim Nicholas",
     "year": 2009,
@@ -10621,6 +12011,16 @@
   },
   {
     "slug": "",
+    "title": "Berkshire Hathaway Letter to Shareholders",
+    "author": "Buffett, Warren",
+    "year": 2009,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "The Perfect Portfolio A Revolutionary Approach To Person",
     "author": "Hevner",
     "year": 2009,
@@ -10635,7 +12035,7 @@
     "author": "Rosenbaum, Pearl",
     "year": 2009,
     "paradigm": "practitioner",
-    "score": -0.099,
+    "score": -0.12,
     "key_finding": "",
     "has_note": false
   },
@@ -10711,6 +12111,16 @@
   },
   {
     "slug": "",
+    "title": "Berkshire Hathaway Letter to Shareholders",
+    "author": "Buffett, Warren",
+    "year": 2010,
+    "paradigm": "practitioner",
+    "score": -0.66,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Valuation for MA - Building Value in Private Firms",
     "author": "Mellen, Evans",
     "year": 2010,
@@ -10726,6 +12136,16 @@
     "year": 2011,
     "paradigm": "academic",
     "score": 0.473,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Financial Management",
+    "author": "Brigham, Ehrhardt",
+    "year": 2011,
+    "paradigm": "academic",
+    "score": 0.259,
     "key_finding": "",
     "has_note": false
   },
@@ -10845,7 +12265,7 @@
     "author": "Marks, Howard",
     "year": 2011,
     "paradigm": "practitioner",
-    "score": -0.135,
+    "score": 0.106,
     "key_finding": "",
     "has_note": false
   },
@@ -10901,6 +12321,16 @@
   },
   {
     "slug": "",
+    "title": "Berkshire Hathaway Letter to Shareholders",
+    "author": "Buffett, Warren",
+    "year": 2011,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Jackass Investing Don T Do It Profit From It",
     "author": "Dever",
     "year": 2011,
@@ -10951,6 +12381,16 @@
   },
   {
     "slug": "",
+    "title": "Morey - The Absence of Change in the Best-Selling Introductory Finance Textbook (Article 2012)",
+    "author": "Morey",
+    "year": 2012,
+    "paradigm": "academic",
+    "score": 0.862,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "The Outsiders Eight Unconventional CEOs and Their Radically Rational Blueprint for Success",
     "author": "Thorndike",
     "year": 2012,
@@ -10971,11 +12411,21 @@
   },
   {
     "slug": "",
+    "title": "Berkshire Hathaway Letter to Shareholders",
+    "author": "Buffett, Warren",
+    "year": 2012,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Intermediate Financial Management",
     "author": "Brigham",
     "year": 2013,
     "paradigm": "academic",
-    "score": 0.363,
+    "score": 0.304,
     "key_finding": "",
     "has_note": false
   },
@@ -11011,6 +12461,16 @@
   },
   {
     "slug": "",
+    "title": "Berkshire Hathaway Letter to Shareholders",
+    "author": "Buffett, Warren",
+    "year": 2013,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Principles Of Corporate Finance",
     "author": "Brealey",
     "year": 2014,
@@ -11035,7 +12495,7 @@
     "author": "Smidt, Seymour_ Bierman, Jr. Harold",
     "year": 2014,
     "paradigm": "academic",
-    "score": 0.661,
+    "score": 0.651,
     "key_finding": "",
     "has_note": false
   },
@@ -11066,6 +12526,16 @@
     "year": 2014,
     "paradigm": "academic",
     "score": 0.756,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Berkshire Hathaway Letter to Shareholders",
+    "author": "Buffett, Warren",
+    "year": 2014,
+    "paradigm": "practitioner",
+    "score": -0.967,
     "key_finding": "",
     "has_note": false
   },
@@ -11151,6 +12621,16 @@
   },
   {
     "slug": "",
+    "title": "Berkshire Hathaway Letter to Shareholders",
+    "author": "Buffett, Warren",
+    "year": 2015,
+    "paradigm": "practitioner",
+    "score": -1.0,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
     "title": "Introduction To Corporate Finance Managing Canadian Fir",
     "author": "Booth, Cleary",
     "year": 2016,
@@ -11176,6 +12656,16 @@
     "year": 2016,
     "paradigm": "practitioner",
     "score": 0.948,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Berkshire Hathaway Letter to Shareholders",
+    "author": "Buffett, Warren",
+    "year": 2016,
+    "paradigm": "practitioner",
+    "score": -1.0,
     "key_finding": "",
     "has_note": false
   },
@@ -11256,6 +12746,16 @@
     "year": 2017,
     "paradigm": "academic",
     "score": 0.123,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Post-Crash Economics Plurality and Heterodox Ideas in Teaching",
+    "author": "Feraboli, Morelli",
+    "year": 2017,
+    "paradigm": "academic",
+    "score": 0.869,
     "key_finding": "",
     "has_note": false
   },
@@ -11346,6 +12846,16 @@
     "year": 2018,
     "paradigm": "practitioner",
     "score": -0.959,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "Berkshire Hathaway Letter to Shareholders",
+    "author": "Buffett, Warren",
+    "year": 2018,
+    "paradigm": "practitioner",
+    "score": -1.0,
     "key_finding": "",
     "has_note": false
   },
@@ -11485,7 +12995,7 @@
     "author": "Carolyn Hardin",
     "year": 2021,
     "paradigm": "academic",
-    "score": 0.694,
+    "score": 0.639,
     "key_finding": "",
     "has_note": false
   },
@@ -11525,7 +13035,7 @@
     "author": "Mauboussin",
     "year": 2021,
     "paradigm": "practitioner",
-    "score": -0.044,
+    "score": -0.263,
     "key_finding": "",
     "has_note": false
   },
@@ -11636,6 +13146,16 @@
     "year": 2025,
     "paradigm": "academic",
     "score": 0.244,
+    "key_finding": "",
+    "has_note": false
+  },
+  {
+    "slug": "",
+    "title": "On the capital budgeting of interrelated projects",
+    "author": "H. MARTIN. WEINGARTNER",
+    "year": 2025,
+    "paradigm": "practitioner",
+    "score": 0.586,
     "key_finding": "",
     "has_note": false
   },
