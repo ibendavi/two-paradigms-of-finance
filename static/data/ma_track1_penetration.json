@@ -1,0 +1,754 @@
+{
+ "method": "track1_corpus_derived_lexicon_penetration",
+ "lexicon_built_from": "post-1990 M&A excerpts",
+ "lex_top_n": 200,
+ "p_lex_top10": [
+  "company",
+  "companies",
+  "business",
+  "chapter",
+  "corporation",
+  "shares",
+  "million",
+  "target company",
+  "shareholders",
+  "goodwill"
+ ],
+ "a_lex_top10": [
+  "firms",
+  "sample",
+  "table",
+  "firm",
+  "results",
+  "returns",
+  "announcement",
+  "journal",
+  "data",
+  "model"
+ ],
+ "year_floor": 1880,
+ "drops": [
+  "BIS Speeches",
+  "BIS Annual Report",
+  "12 accounting journals",
+  "pre-1880"
+ ],
+ "generated_at": "2026-05-06 18:54",
+ "trajectories": {
+  "academic_periodical": {
+   "1905-1909": {
+    "n": 8,
+    "p_lex_density": 9.3807,
+    "p_lex_se": 0.4994,
+    "a_lex_density": 3.9312,
+    "a_lex_se": 0.7517
+   },
+   "1910-1914": {
+    "n": 17,
+    "p_lex_density": 10.2145,
+    "p_lex_se": 1.8724,
+    "a_lex_density": 2.32,
+    "a_lex_se": 0.3165
+   },
+   "1915-1919": {
+    "n": 8,
+    "p_lex_density": 12.1646,
+    "p_lex_se": 3.0355,
+    "a_lex_density": 3.8215,
+    "a_lex_se": 0.9551
+   },
+   "1920-1924": {
+    "n": 7,
+    "p_lex_density": 16.0177,
+    "p_lex_se": 1.7298,
+    "a_lex_density": 4.2394,
+    "a_lex_se": 1.4602
+   },
+   "1925-1929": {
+    "n": 62,
+    "p_lex_density": 8.1862,
+    "p_lex_se": 0.3889,
+    "a_lex_density": 4.3534,
+    "a_lex_se": 0.36
+   },
+   "1930-1934": {
+    "n": 123,
+    "p_lex_density": 9.5516,
+    "p_lex_se": 0.4766,
+    "a_lex_density": 4.3443,
+    "a_lex_se": 0.2948
+   },
+   "1935-1939": {
+    "n": 56,
+    "p_lex_density": 8.3476,
+    "p_lex_se": 0.5398,
+    "a_lex_density": 5.7963,
+    "a_lex_se": 0.4231
+   },
+   "1940-1944": {
+    "n": 37,
+    "p_lex_density": 9.8196,
+    "p_lex_se": 0.8291,
+    "a_lex_density": 4.7011,
+    "a_lex_se": 0.678
+   },
+   "1945-1949": {
+    "n": 67,
+    "p_lex_density": 7.8223,
+    "p_lex_se": 0.5197,
+    "a_lex_density": 5.7158,
+    "a_lex_se": 0.5066
+   },
+   "1950-1954": {
+    "n": 273,
+    "p_lex_density": 8.6881,
+    "p_lex_se": 0.3092,
+    "a_lex_density": 8.0609,
+    "a_lex_se": 0.3093
+   },
+   "1955-1959": {
+    "n": 188,
+    "p_lex_density": 8.4754,
+    "p_lex_se": 0.3594,
+    "a_lex_density": 6.5832,
+    "a_lex_se": 0.2741
+   },
+   "1960-1964": {
+    "n": 219,
+    "p_lex_density": 6.6067,
+    "p_lex_se": 0.336,
+    "a_lex_density": 7.4101,
+    "a_lex_se": 0.3069
+   },
+   "1965-1969": {
+    "n": 297,
+    "p_lex_density": 7.2796,
+    "p_lex_se": 0.3482,
+    "a_lex_density": 10.4398,
+    "a_lex_se": 0.4061
+   },
+   "1970-1974": {
+    "n": 745,
+    "p_lex_density": 7.3385,
+    "p_lex_se": 0.1871,
+    "a_lex_density": 12.6383,
+    "a_lex_se": 0.2433
+   },
+   "1975-1979": {
+    "n": 512,
+    "p_lex_density": 7.6878,
+    "p_lex_se": 0.2403,
+    "a_lex_density": 12.834,
+    "a_lex_se": 0.3049
+   },
+   "1980-1984": {
+    "n": 640,
+    "p_lex_density": 8.8948,
+    "p_lex_se": 0.2458,
+    "a_lex_density": 14.5131,
+    "a_lex_se": 0.3125
+   },
+   "1985-1989": {
+    "n": 1214,
+    "p_lex_density": 8.0977,
+    "p_lex_se": 0.1608,
+    "a_lex_density": 15.4161,
+    "a_lex_se": 0.2237
+   },
+   "1990-1994": {
+    "n": 1721,
+    "p_lex_density": 7.6463,
+    "p_lex_se": 0.1417,
+    "a_lex_density": 18.2505,
+    "a_lex_se": 0.2335
+   },
+   "1995-1999": {
+    "n": 1178,
+    "p_lex_density": 7.177,
+    "p_lex_se": 0.1494,
+    "a_lex_density": 18.268,
+    "a_lex_se": 0.2622
+   },
+   "2000-2004": {
+    "n": 1923,
+    "p_lex_density": 7.2669,
+    "p_lex_se": 0.1266,
+    "a_lex_density": 18.3471,
+    "a_lex_se": 0.2132
+   },
+   "2005-2009": {
+    "n": 2085,
+    "p_lex_density": 5.9478,
+    "p_lex_se": 0.0968,
+    "a_lex_density": 19.709,
+    "a_lex_se": 0.1967
+   },
+   "2010-2014": {
+    "n": 2590,
+    "p_lex_density": 5.704,
+    "p_lex_se": 0.0862,
+    "a_lex_density": 20.729,
+    "a_lex_se": 0.1843
+   },
+   "2015-2019": {
+    "n": 2640,
+    "p_lex_density": 5.8852,
+    "p_lex_se": 0.0941,
+    "a_lex_density": 19.7536,
+    "a_lex_se": 0.1738
+   },
+   "2020-2024": {
+    "n": 916,
+    "p_lex_density": 6.3873,
+    "p_lex_se": 0.1806,
+    "a_lex_density": 18.9847,
+    "a_lex_se": 0.2888
+   },
+   "2025-2029": {
+    "n": 37,
+    "p_lex_density": 4.6717,
+    "p_lex_se": 0.6185,
+    "a_lex_density": 10.7848,
+    "a_lex_se": 0.8147
+   }
+  },
+  "academic_textbook": {
+   "1910-1914": {
+    "n": 11,
+    "p_lex_density": 15.4036,
+    "p_lex_se": 1.6197,
+    "a_lex_density": 2.7028,
+    "a_lex_se": 0.5295
+   },
+   "1915-1919": {
+    "n": 5,
+    "p_lex_density": 16.6442,
+    "p_lex_se": 2.1327,
+    "a_lex_density": 2.8544,
+    "a_lex_se": 1.0225
+   },
+   "1920-1924": {
+    "n": 28,
+    "p_lex_density": 16.4497,
+    "p_lex_se": 1.5909,
+    "a_lex_density": 3.3915,
+    "a_lex_se": 0.4958
+   },
+   "1930-1934": {
+    "n": 30,
+    "p_lex_density": 16.9511,
+    "p_lex_se": 0.9516,
+    "a_lex_density": 2.3316,
+    "a_lex_se": 0.3611
+   },
+   "1935-1939": {
+    "n": 7,
+    "p_lex_density": 14.9869,
+    "p_lex_se": 2.1137,
+    "a_lex_density": 5.5512,
+    "a_lex_se": 1.3695
+   },
+   "1940-1944": {
+    "n": 34,
+    "p_lex_density": 16.7094,
+    "p_lex_se": 1.0097,
+    "a_lex_density": 3.7384,
+    "a_lex_se": 0.4477
+   },
+   "1945-1949": {
+    "n": 53,
+    "p_lex_density": 14.4719,
+    "p_lex_se": 0.9195,
+    "a_lex_density": 3.0895,
+    "a_lex_se": 0.2957
+   },
+   "1950-1954": {
+    "n": 9,
+    "p_lex_density": 14.0368,
+    "p_lex_se": 2.1014,
+    "a_lex_density": 2.267,
+    "a_lex_se": 0.7296
+   },
+   "1955-1959": {
+    "n": 65,
+    "p_lex_density": 17.6119,
+    "p_lex_se": 0.7936,
+    "a_lex_density": 3.4638,
+    "a_lex_se": 0.4127
+   },
+   "1960-1964": {
+    "n": 14,
+    "p_lex_density": 11.5048,
+    "p_lex_se": 1.9361,
+    "a_lex_density": 6.8859,
+    "a_lex_se": 0.8081
+   },
+   "1965-1969": {
+    "n": 320,
+    "p_lex_density": 15.3613,
+    "p_lex_se": 0.4825,
+    "a_lex_density": 5.3904,
+    "a_lex_se": 0.2223
+   },
+   "1970-1974": {
+    "n": 386,
+    "p_lex_density": 17.0076,
+    "p_lex_se": 0.4017,
+    "a_lex_density": 5.986,
+    "a_lex_se": 0.231
+   },
+   "1975-1979": {
+    "n": 223,
+    "p_lex_density": 18.2172,
+    "p_lex_se": 0.5678,
+    "a_lex_density": 5.4331,
+    "a_lex_se": 0.2934
+   },
+   "1980-1984": {
+    "n": 188,
+    "p_lex_density": 9.949,
+    "p_lex_se": 0.4589,
+    "a_lex_density": 18.2125,
+    "a_lex_se": 0.7815
+   },
+   "1985-1989": {
+    "n": 501,
+    "p_lex_density": 13.8054,
+    "p_lex_se": 0.3733,
+    "a_lex_density": 11.3776,
+    "a_lex_se": 0.3532
+   },
+   "1990-1994": {
+    "n": 226,
+    "p_lex_density": 11.516,
+    "p_lex_se": 0.4243,
+    "a_lex_density": 8.7261,
+    "a_lex_se": 0.4185
+   },
+   "1995-1999": {
+    "n": 169,
+    "p_lex_density": 17.8167,
+    "p_lex_se": 0.8644,
+    "a_lex_density": 8.3735,
+    "a_lex_se": 0.4146
+   },
+   "2000-2004": {
+    "n": 469,
+    "p_lex_density": 16.7019,
+    "p_lex_se": 0.4254,
+    "a_lex_density": 9.1698,
+    "a_lex_se": 0.2777
+   },
+   "2005-2009": {
+    "n": 528,
+    "p_lex_density": 15.7823,
+    "p_lex_se": 0.3915,
+    "a_lex_density": 9.0696,
+    "a_lex_se": 0.2689
+   },
+   "2010-2014": {
+    "n": 236,
+    "p_lex_density": 16.3031,
+    "p_lex_se": 0.4979,
+    "a_lex_density": 9.534,
+    "a_lex_se": 0.4323
+   },
+   "2015-2019": {
+    "n": 503,
+    "p_lex_density": 17.0603,
+    "p_lex_se": 0.374,
+    "a_lex_density": 7.3897,
+    "a_lex_se": 0.2124
+   },
+   "2025-2029": {
+    "n": 9,
+    "p_lex_density": 24.846,
+    "p_lex_se": 3.138,
+    "a_lex_density": 7.5902,
+    "a_lex_se": 1.3551
+   }
+  },
+  "practitioner_periodical": {
+   "1880-1884": {
+    "n": 21,
+    "p_lex_density": 14.725,
+    "p_lex_se": 0.9822,
+    "a_lex_density": 2.094,
+    "a_lex_se": 0.4271
+   },
+   "1885-1889": {
+    "n": 8,
+    "p_lex_density": 13.1749,
+    "p_lex_se": 2.5244,
+    "a_lex_density": 1.5591,
+    "a_lex_se": 0.552
+   },
+   "1890-1894": {
+    "n": 16,
+    "p_lex_density": 10.6407,
+    "p_lex_se": 0.9091,
+    "a_lex_density": 2.1676,
+    "a_lex_se": 0.5947
+   },
+   "1895-1899": {
+    "n": 63,
+    "p_lex_density": 11.1406,
+    "p_lex_se": 0.55,
+    "a_lex_density": 2.4875,
+    "a_lex_se": 0.2386
+   },
+   "1900-1904": {
+    "n": 185,
+    "p_lex_density": 10.6064,
+    "p_lex_se": 0.3489,
+    "a_lex_density": 1.9685,
+    "a_lex_se": 0.131
+   },
+   "1905-1909": {
+    "n": 344,
+    "p_lex_density": 10.6163,
+    "p_lex_se": 0.2731,
+    "a_lex_density": 1.9848,
+    "a_lex_se": 0.1007
+   },
+   "1910-1914": {
+    "n": 636,
+    "p_lex_density": 10.9569,
+    "p_lex_se": 0.2027,
+    "a_lex_density": 2.1459,
+    "a_lex_se": 0.0814
+   },
+   "1915-1919": {
+    "n": 731,
+    "p_lex_density": 10.8814,
+    "p_lex_se": 0.2022,
+    "a_lex_density": 2.3321,
+    "a_lex_se": 0.0751
+   },
+   "1920-1924": {
+    "n": 1609,
+    "p_lex_density": 11.4541,
+    "p_lex_se": 0.148,
+    "a_lex_density": 2.4684,
+    "a_lex_se": 0.0544
+   },
+   "1925-1929": {
+    "n": 4400,
+    "p_lex_density": 11.2623,
+    "p_lex_se": 0.0899,
+    "a_lex_density": 2.6942,
+    "a_lex_se": 0.0327
+   },
+   "1930-1934": {
+    "n": 2627,
+    "p_lex_density": 12.1838,
+    "p_lex_se": 0.1218,
+    "a_lex_density": 2.7028,
+    "a_lex_se": 0.0439
+   },
+   "1935-1939": {
+    "n": 1073,
+    "p_lex_density": 14.1755,
+    "p_lex_se": 0.2036,
+    "a_lex_density": 2.4858,
+    "a_lex_se": 0.0706
+   },
+   "1940-1944": {
+    "n": 1116,
+    "p_lex_density": 14.5832,
+    "p_lex_se": 0.1914,
+    "a_lex_density": 2.4499,
+    "a_lex_se": 0.0628
+   },
+   "1945-1949": {
+    "n": 1483,
+    "p_lex_density": 14.5509,
+    "p_lex_se": 0.1646,
+    "a_lex_density": 2.3947,
+    "a_lex_se": 0.0529
+   },
+   "1950-1954": {
+    "n": 1785,
+    "p_lex_density": 13.7866,
+    "p_lex_se": 0.1424,
+    "a_lex_density": 2.5412,
+    "a_lex_se": 0.0544
+   },
+   "1955-1959": {
+    "n": 5284,
+    "p_lex_density": 13.2547,
+    "p_lex_se": 0.0885,
+    "a_lex_density": 2.7494,
+    "a_lex_se": 0.0337
+   },
+   "1960-1964": {
+    "n": 3502,
+    "p_lex_density": 13.2122,
+    "p_lex_se": 0.105,
+    "a_lex_density": 2.9563,
+    "a_lex_se": 0.0468
+   },
+   "1965-1969": {
+    "n": 209,
+    "p_lex_density": 8.2276,
+    "p_lex_se": 0.346,
+    "a_lex_density": 3.537,
+    "a_lex_se": 0.2149
+   },
+   "1970-1974": {
+    "n": 192,
+    "p_lex_density": 9.4162,
+    "p_lex_se": 0.4198,
+    "a_lex_density": 4.9207,
+    "a_lex_se": 0.367
+   },
+   "1975-1979": {
+    "n": 66,
+    "p_lex_density": 10.9329,
+    "p_lex_se": 0.8365,
+    "a_lex_density": 3.8329,
+    "a_lex_se": 0.3538
+   },
+   "1980-1984": {
+    "n": 178,
+    "p_lex_density": 10.571,
+    "p_lex_se": 0.3975,
+    "a_lex_density": 4.9906,
+    "a_lex_se": 0.306
+   },
+   "1985-1989": {
+    "n": 90,
+    "p_lex_density": 9.9553,
+    "p_lex_se": 0.4676,
+    "a_lex_density": 4.6243,
+    "a_lex_se": 0.3489
+   },
+   "1990-1994": {
+    "n": 94,
+    "p_lex_density": 16.3924,
+    "p_lex_se": 0.873,
+    "a_lex_density": 4.5289,
+    "a_lex_se": 0.3346
+   },
+   "1995-1999": {
+    "n": 92,
+    "p_lex_density": 13.3118,
+    "p_lex_se": 0.6708,
+    "a_lex_density": 3.2067,
+    "a_lex_se": 0.2911
+   },
+   "2000-2004": {
+    "n": 389,
+    "p_lex_density": 14.5255,
+    "p_lex_se": 0.3232,
+    "a_lex_density": 3.5664,
+    "a_lex_se": 0.1384
+   },
+   "2005-2009": {
+    "n": 61,
+    "p_lex_density": 14.6263,
+    "p_lex_se": 0.8389,
+    "a_lex_density": 4.7817,
+    "a_lex_se": 0.4266
+   },
+   "2010-2014": {
+    "n": 32,
+    "p_lex_density": 11.0666,
+    "p_lex_se": 1.0359,
+    "a_lex_density": 7.9411,
+    "a_lex_se": 0.8489
+   },
+   "2015-2019": {
+    "n": 13,
+    "p_lex_density": 11.0937,
+    "p_lex_se": 1.418,
+    "a_lex_density": 9.1242,
+    "a_lex_se": 1.1347
+   }
+  },
+  "practitioner_textbook": {
+   "1895-1899": {
+    "n": 6,
+    "p_lex_density": 11.6313,
+    "p_lex_se": 1.6066,
+    "a_lex_density": 3.3874,
+    "a_lex_se": 0.8391
+   },
+   "1900-1904": {
+    "n": 5,
+    "p_lex_density": 12.4097,
+    "p_lex_se": 1.491,
+    "a_lex_density": 3.4508,
+    "a_lex_se": 1.5902
+   },
+   "1905-1909": {
+    "n": 11,
+    "p_lex_density": 12.9396,
+    "p_lex_se": 1.2992,
+    "a_lex_density": 4.0456,
+    "a_lex_se": 0.8136
+   },
+   "1910-1914": {
+    "n": 19,
+    "p_lex_density": 11.9726,
+    "p_lex_se": 1.3254,
+    "a_lex_density": 2.4762,
+    "a_lex_se": 0.4887
+   },
+   "1915-1919": {
+    "n": 21,
+    "p_lex_density": 15.4635,
+    "p_lex_se": 1.1477,
+    "a_lex_density": 1.4235,
+    "a_lex_se": 0.354
+   },
+   "1920-1924": {
+    "n": 13,
+    "p_lex_density": 14.0005,
+    "p_lex_se": 2.3231,
+    "a_lex_density": 2.9955,
+    "a_lex_se": 0.7125
+   },
+   "1925-1929": {
+    "n": 25,
+    "p_lex_density": 11.3798,
+    "p_lex_se": 1.2356,
+    "a_lex_density": 2.4645,
+    "a_lex_se": 0.352
+   },
+   "1930-1934": {
+    "n": 17,
+    "p_lex_density": 10.7794,
+    "p_lex_se": 1.5198,
+    "a_lex_density": 2.6368,
+    "a_lex_se": 0.4033
+   },
+   "1935-1939": {
+    "n": 50,
+    "p_lex_density": 16.1777,
+    "p_lex_se": 0.8158,
+    "a_lex_density": 3.1029,
+    "a_lex_se": 0.2897
+   },
+   "1940-1944": {
+    "n": 10,
+    "p_lex_density": 10.8576,
+    "p_lex_se": 1.424,
+    "a_lex_density": 3.6922,
+    "a_lex_se": 0.7288
+   },
+   "1945-1949": {
+    "n": 75,
+    "p_lex_density": 15.2716,
+    "p_lex_se": 0.5427,
+    "a_lex_density": 2.7307,
+    "a_lex_se": 0.2594
+   },
+   "1950-1954": {
+    "n": 36,
+    "p_lex_density": 16.9769,
+    "p_lex_se": 1.113,
+    "a_lex_density": 5.0757,
+    "a_lex_se": 0.6576
+   },
+   "1955-1959": {
+    "n": 148,
+    "p_lex_density": 15.9441,
+    "p_lex_se": 0.5767,
+    "a_lex_density": 3.9921,
+    "a_lex_se": 0.2314
+   },
+   "1960-1964": {
+    "n": 230,
+    "p_lex_density": 15.5719,
+    "p_lex_se": 0.4255,
+    "a_lex_density": 4.2725,
+    "a_lex_se": 0.2278
+   },
+   "1965-1969": {
+    "n": 491,
+    "p_lex_density": 15.6806,
+    "p_lex_se": 0.3124,
+    "a_lex_density": 5.5285,
+    "a_lex_se": 0.1964
+   },
+   "1970-1974": {
+    "n": 348,
+    "p_lex_density": 14.913,
+    "p_lex_se": 0.4225,
+    "a_lex_density": 5.482,
+    "a_lex_se": 0.2339
+   },
+   "1975-1979": {
+    "n": 489,
+    "p_lex_density": 15.7274,
+    "p_lex_se": 0.3958,
+    "a_lex_density": 7.825,
+    "a_lex_se": 0.2811
+   },
+   "1980-1984": {
+    "n": 472,
+    "p_lex_density": 15.7499,
+    "p_lex_se": 0.3582,
+    "a_lex_density": 4.5251,
+    "a_lex_se": 0.1543
+   },
+   "1985-1989": {
+    "n": 1433,
+    "p_lex_density": 15.383,
+    "p_lex_se": 0.194,
+    "a_lex_density": 4.9353,
+    "a_lex_se": 0.1126
+   },
+   "1990-1994": {
+    "n": 534,
+    "p_lex_density": 16.5112,
+    "p_lex_se": 0.3524,
+    "a_lex_density": 6.4692,
+    "a_lex_se": 0.2102
+   },
+   "1995-1999": {
+    "n": 930,
+    "p_lex_density": 16.3908,
+    "p_lex_se": 0.3157,
+    "a_lex_density": 8.1922,
+    "a_lex_se": 0.2266
+   },
+   "2000-2004": {
+    "n": 1085,
+    "p_lex_density": 17.0312,
+    "p_lex_se": 0.2605,
+    "a_lex_density": 6.189,
+    "a_lex_se": 0.1683
+   },
+   "2005-2009": {
+    "n": 870,
+    "p_lex_density": 18.0464,
+    "p_lex_se": 0.2872,
+    "a_lex_density": 6.187,
+    "a_lex_se": 0.1482
+   },
+   "2010-2014": {
+    "n": 448,
+    "p_lex_density": 19.1209,
+    "p_lex_se": 0.4252,
+    "a_lex_density": 6.1959,
+    "a_lex_se": 0.2029
+   },
+   "2015-2019": {
+    "n": 1188,
+    "p_lex_density": 17.906,
+    "p_lex_se": 0.2777,
+    "a_lex_density": 7.2394,
+    "a_lex_se": 0.1532
+   },
+   "2020-2024": {
+    "n": 326,
+    "p_lex_density": 19.2974,
+    "p_lex_se": 0.4429,
+    "a_lex_density": 6.3994,
+    "a_lex_se": 0.2461
+   }
+  }
+ }
+}
